@@ -86,7 +86,7 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 				array(
 					'name'     => NXT_OPTIONS . '[body-transform]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-text-transform',
 					'section'  => 'section-body-typography',
 					'transport'         => 'postMessage',
 					'default'  => nexter_get_option( 'body-transform' ),
@@ -94,22 +94,41 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 					'title'    => __( 'Text Transform', 'nexter' ),
 					'choices'  => array(
 						''           => __( 'Default', 'nexter' ),
-						'none'       => __( 'None', 'nexter' ),
+						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
 					),
 				),
+				// array(
+				// 	'name'        => NXT_OPTIONS . '[font-size-body]',
+				// 	'type'        => 'control',
+				// 	'control'     => 'nxt-responsive',
+				// 	'section'     => 'section-body-typography',
+				// 	'default'     => nexter_get_option( 'font-size-body' ),
+				// 	'priority'    => 20,
+				// 	'title'       => __( 'Font Size', 'nexter' ),
+				// 	'input_attrs' => array(
+				// 		'min' => 0,
+				// 	),
+				// 	'units'       => array(
+				// 		'px' => 'px',
+				// 		'em' => 'em',
+				// 	),
+				// ),
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-body]',
-					'type'        => 'control',
-					'control'     => 'nxt-responsive',
-					'section'     => 'section-body-typography',
-					'default'     => nexter_get_option( 'font-size-body' ),
-					'priority'    => 20,
+					'default'     => nexter_get_option( 'font-size-body'),
 					'title'       => __( 'Font Size', 'nexter' ),
+					'type'        => 'control',
+					'transport'   => 'postMessage',
+					'control'     => 'nxt-responsive-slider',
+					'section'     => 'section-body-typography',
+					'priority'    => 20,
 					'input_attrs' => array(
-						'min' => 0,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
 					),
 					'units'       => array(
 						'px' => 'px',

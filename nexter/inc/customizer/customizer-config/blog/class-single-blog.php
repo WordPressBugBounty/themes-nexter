@@ -200,15 +200,15 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 				array(
 					'name'     => NXT_OPTIONS . '[s-blog-title-transform]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-text-transform',
 					'section'  => 'section-blog-single',
 					'transport'         => 'postMessage',
-					'default'  => '',
+					'default'  => nexter_get_option( 's-blog-title-transform' ),
 					'priority' => 12,
 					'title'    => __( 'Text Transform', 'nexter' ),
 					'choices'  => array(
 						''           => __( 'Default', 'nexter' ),
-						'none'       => __( 'None', 'nexter' ),
+						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -217,13 +217,15 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-s-blog-title]',
 					'type'        => 'control',
-					'control'     => 'nxt-responsive',
+					'control'     => 'nxt-responsive-slider',
 					'section'     => 'section-blog-single',
-					'default'     => '',
+					'default'     => nexter_get_option( 'font-size-s-blog-title'),
 					'priority'    => 15,
 					'title'       => __( 'Font Size', 'nexter' ),
 					'input_attrs' => array(
-						'min' => 1,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
 					),
 					'units'       => array(
 						'px' => 'px',
@@ -333,15 +335,15 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 				array(
 					'name'     => NXT_OPTIONS . '[s-post-meta-transform]',
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-text-transform',
 					'section'  => 'section-blog-single',
 					'transport'         => 'postMessage',
-					'default'  => '',
+					'default'  => nexter_get_option( 's-post-meta-transform' ),
 					'priority' => 25,
 					'title'    => __( 'Text Transform', 'nexter' ),
 					'choices'  => array(
 						''           => __( 'Default', 'nexter' ),
-						'none'       => __( 'None', 'nexter' ),
+						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -350,13 +352,15 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-s-post-meta]',
 					'type'        => 'control',
-					'control'     => 'nxt-responsive',
+					'control'     => 'nxt-responsive-slider',
 					'section'     => 'section-blog-single',
-					'default'     => '',
+					'default'  => nexter_get_option( 'font-size-s-post-meta' ),
 					'priority'    => 26,
 					'title'       => __( 'Font Size', 'nexter' ),
 					'input_attrs' => array(
-						'min' => 0,
+						'min'  => 0,
+						'max'  => 100,
+						'step' => 1
 					),
 					'units'       => array(
 						'px' => 'px',

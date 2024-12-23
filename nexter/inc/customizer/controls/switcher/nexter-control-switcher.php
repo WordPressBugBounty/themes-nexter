@@ -35,11 +35,12 @@ if ( ! class_exists( 'Nexter_Control_Switcher' ) && class_exists( 'WP_Customize_
 			}
 
 			$this->json['value']          = $this->value();
-			$this->json['choices']        = $this->choices;
+			// $this->json['choices']        = $this->choices;
 			$this->json['link']           = $this->get_link();
 			$this->json['id']             = $this->id;
 			$this->json['label']          = esc_html( $this->label );						
 			$this->json['inputAttrs']     = '';
+
 			foreach ( $this->input_attrs as $attr => $value ) {
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
@@ -59,28 +60,23 @@ if ( ! class_exists( 'Nexter_Control_Switcher' ) && class_exists( 'WP_Customize_
 		 */
 		protected function content_template() {
 			?>
-			<label class='nxt-switcher' for="" >
+			<div class='nxt-switcher'>
 
-			<# if ( data.label ) { #>
-				<span class="customize-control-title">{{{ data.label }}}</span>
-			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
+				<# if ( data.label ) { #>
+					<span class="customize-control-title">{{{ data.label }}}</span>
+				<# } #>
+				<# if ( data.description ) { #>
+					<span class="description customize-control-description">{{{ data.description }}}</span>
+				<# } #>
 
-			<div class="nxt-switcher-wrap">
-				<div id="input_{{ data.id }}" class="nxt-switcher">
-					<# i=0; for ( key in data.choices ) { #>
-						<input {{{ data.inputAttrs }}} class="switch-input" type="radio" value="{{ key }}" name="_customize-radio-{{{ data.id }}}" id="{{ data.id }}{{ key }}" {{{ data.link }}}<# if ( key === data.value ) { #> checked="checked" <# } #>>
-							<label class="switch-label switch-label-<# if ( i==1 ) { #>on <# } else { #>off<# } #>" for="{{ data.id }}{{ key }}">
-								{{ data.choices[ key ] }}
-							</label>
-						</input>
-					<# i++; } #>
+				<div class="nxt-switcher-wrap">
+					<div id="input_{{ data.id }}" class="nxt-switcher">
+						<input class="switch-input" type="checkbox" value="{{data.value}}" name="_customize-radio-{{{ data.id }}}" id="{{ data.id }}" {{{ data.link }}} <# if ( "on" === data.value ) { #> checked="checked" <# } #>>
+						<label class="switch-label switch-label-on" for="{{ data.id }}"></label>
+					</div>
 				</div>
-			</div>
 			
-			</label>
+			</div>
 
 			<?php
 		}

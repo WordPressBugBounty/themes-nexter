@@ -170,7 +170,7 @@
 	margin-bottom: 1.5em;
 }
 
-.edit-post-visual-editor dfn, .edit-post-visual-editor cite, .edit-post-visual-editor em, .edit-post-visual-editor i:not(.fa):not(.fab):not(.fas):not(.far):not(.fad):not(.fal) {
+.edit-post-visual-editor dfn, .edit-post-visual-editor cite, .edit-post-visual-editor em, .edit-post-visual-editor i:not(.fa):not(.fab):not(.fas):not(.far):not(.fad):not(.fal):not(.dashicon) {
 	font-style: italic;
 }
 

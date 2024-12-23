@@ -37,7 +37,9 @@
                     i = t.data("field-control"),
                     t = t.data("field-variant");
                 void 0 !== i && (v(e).bind(NexterTypo.selectFontChange), NexterTypo.setFontWeightOptions.apply(v(e), [!0])), void 0 !== t && (v(e).bind(NexterTypo.selectFontChange), NexterTypo.setFontVarianttOptions.apply(v(e), [!0]))
-            }), r(".customize-control-nxt-font-family select, .customize-control-nxt-font-variant select").select2(), r(".customize-control-nxt-font-variant select").on("select2:unselecting", function(t) {
+            }), r(".customize-control-nxt-font-family select, .customize-control-nxt-font-variant select").select2({
+                placeholder: "Select Font Family"
+            }), r(".customize-control-nxt-font-variant select").on("select2:unselecting", function(t) {
                 var e = r(this).data("customize-setting-link");
                 (t.params.args.data.id || "") && (r(this).find('option[value="' + t.params.args.data.id + '"]').removeAttr("selected"), null === r(this).val() && v(e).set(""))
             })

@@ -47,17 +47,39 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'separator' => false,
 				),
 				/*Header Container*/
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[site-header-container]',
+				// 	'default'  => 'container-block-editor',
+				// 	'title'    => __( 'Header', 'nexter' ),
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-site-layout-container',					
+				// 	'priority' => 5,
+				// 	'choices'  => array(
+				// 		'container-block-editor'	=> __( 'Container', 'nexter' ),
+				// 		'container-fluid'	=> __( 'Full Width', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[site-header-container]',
 					'default'  => 'container-block-editor',
 					'title'    => __( 'Header', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-site-layout-container',					
+					'control'  => 'nxt-style', // Change to custom control type
+					'section'  => 'section-site-layout-container',
 					'priority' => 5,
 					'choices'  => array(
-						'container-block-editor'	=> __( 'Container', 'nexter' ),
-						'container-fluid'	=> __( 'Full Width', 'nexter' ),
+						'container-block-editor' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/container.png',
+							'title' => __( 'Container', 'nexter' ),
+						),
+						'container-fluid' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/full-width.png',
+							'title' => __( 'Full Width', 'nexter' ),
+						),
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[site-header-container]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -103,19 +125,44 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'priority' => 5,
 					'settings' => array(),					
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[site-footer-container]',
+				// 	'default'  => 'container-block-editor',
+				// 	'title'    => __( 'Footer', 'nexter' ),
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-site-layout-container',
+				// 	'priority' => 5,
+				// 	'choices'  => array(
+				// 		'container-block-editor'	=> __( 'Container', 'nexter' ),
+				// 		'container-fluid'	=> __( 'Full Width', 'nexter' ),
+				// 	),
+				// ),
+
 				array(
 					'name'     => NXT_OPTIONS . '[site-footer-container]',
 					'default'  => 'container-block-editor',
 					'title'    => __( 'Footer', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-style', // Change to custom control type
 					'section'  => 'section-site-layout-container',
 					'priority' => 5,
 					'choices'  => array(
-						'container-block-editor'	=> __( 'Container', 'nexter' ),
-						'container-fluid'	=> __( 'Full Width', 'nexter' ),
+						'container-block-editor' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/container.png',
+							'title' => __( 'Container', 'nexter' ),
+						),
+						'container-fluid' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/full-width.png',
+							'title' => __( 'Full Width', 'nexter' ),
+						),
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[site-footer-container]', // This is where the name gets passed
 					),
 				),
+				
+
 				array(
 					'name'        => NXT_OPTIONS . '[site-footer-container-width]',
 					'default'     => nexter_get_option( 'site-footer-container-width', [ 'desktop' => 1140, 'tablet' => 960 ] ),
@@ -159,17 +206,39 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'priority' => 5,
 					'settings' => array(),
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[site-layout-container]',
+				// 	'default'  => 'container-block-editor',
+				// 	'title'    => __( 'Content/Body', 'nexter' ),
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-site-layout-container',
+				// 	'priority' => 5,
+				// 	'choices'  => array(
+				// 		'container-block-editor'	=> __( 'Container', 'nexter' ),
+				// 		'container-fluid'	=> __( 'Full Width', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[site-layout-container]',
 					'default'  => 'container-block-editor',
 					'title'    => __( 'Content/Body', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-style', // Change to custom control type
 					'section'  => 'section-site-layout-container',
 					'priority' => 5,
 					'choices'  => array(
-						'container-block-editor'	=> __( 'Container', 'nexter' ),
-						'container-fluid'	=> __( 'Full Width', 'nexter' ),
+						'container-block-editor' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/container.png',
+							'title' => __( 'Container', 'nexter' ),
+						),
+						'container-fluid' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/full-width.png',
+							'title' => __( 'Full Width', 'nexter' ),
+						),
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[site-layout-container]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -215,18 +284,44 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'priority' => 6,
 					'settings' => array(),					
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[site-page-container]',
+				// 	'default'  => '',
+				// 	'title'    => __( 'Page Container', 'nexter' ),
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-site-layout-container',					
+				// 	'priority' => 7,
+				// 	'choices'  => array(
+				// 		''	=> __( 'Default', 'nexter' ),
+				// 		'container-block-editor'	=> __( 'Container', 'nexter' ),
+				// 		'container-fluid'	=> __( 'Full Width', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[site-page-container]',
 					'default'  => '',
 					'title'    => __( 'Page Container', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
-					'section'  => 'section-site-layout-container',					
+					'control'  => 'nxt-style', // Change to custom control type
+					'section'  => 'section-site-layout-container',
 					'priority' => 7,
 					'choices'  => array(
-						''	=> __( 'Default', 'nexter' ),
-						'container-block-editor'	=> __( 'Container', 'nexter' ),
-						'container-fluid'	=> __( 'Full Width', 'nexter' ),
+						'' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/default.png',
+							'title' => __( 'Default', 'nexter' ),
+						),
+						'container-block-editor' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/container.png',
+							'title' => __( 'Container', 'nexter' ),
+						),
+						'container-fluid' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/full-width.png',
+							'title' => __( 'Full Width', 'nexter' ),
+						),
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[site-page-container]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -289,18 +384,44 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'priority' => 9,
 					'settings' => array(),					
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[site-posts-container]',
+				// 	'default'  => '',
+				// 	'title'    => __( 'Single Post Container', 'nexter' ),
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-site-layout-container',
+				// 	'priority' => 10,
+				// 	'choices'  => array(
+				// 		''           => __( 'Default', 'nexter' ),
+				// 		'container-block-editor' => __( 'Container', 'nexter' ),
+				// 		'container-fluid'	=> __( 'Full Width', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[site-posts-container]',
 					'default'  => '',
 					'title'    => __( 'Single Post Container', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-style', // Change to custom control type
 					'section'  => 'section-site-layout-container',
 					'priority' => 10,
 					'choices'  => array(
-						''           => __( 'Default', 'nexter' ),
-						'container-block-editor' => __( 'Container', 'nexter' ),
-						'container-fluid'	=> __( 'Full Width', 'nexter' ),
+						'' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/default.png',
+							'title' => __( 'Default', 'nexter' ),
+						),
+						'container-block-editor' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/container.png',
+							'title' => __( 'Container', 'nexter' ),
+						),
+						'container-fluid' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/full-width.png',
+							'title' => __( 'Full Width', 'nexter' ),
+						),
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[site-posts-container]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -347,18 +468,44 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'priority' => 12,
 					'settings' => array(),					
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[site-archive-container]',
+				// 	'default'  => '',
+				// 	'title'    => __( 'Archive Posts Container', 'nexter' ),
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-site-layout-container',
+				// 	'priority' => 13,
+				// 	'choices'  => array(
+				// 		''           => __( 'Default', 'nexter' ),
+				// 		'container-block-editor' => __( 'Container', 'nexter' ),
+				// 		'container-fluid'	=> __( 'Full Width', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[site-archive-container]',
 					'default'  => '',
 					'title'    => __( 'Archive Posts Container', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-style', // Change to custom control type
 					'section'  => 'section-site-layout-container',
 					'priority' => 13,
 					'choices'  => array(
-						''           => __( 'Default', 'nexter' ),
-						'container-block-editor' => __( 'Container', 'nexter' ),
-						'container-fluid'	=> __( 'Full Width', 'nexter' ),
+						'' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/default.png',
+							'title' => __( 'Default', 'nexter' ),
+						),
+						'container-block-editor' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/container.png',
+							'title' => __( 'Container', 'nexter' ),
+						),
+						'container-fluid' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/width/full-width.png',
+							'title' => __( 'Full Width', 'nexter' ),
+						),
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[site-archive-container]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -438,10 +585,12 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 						$theme_css[] = $style['dk'];
 					}
 					if( !empty($style['tb']) ){
-						$theme_css['tablet'] = $style['tb'];
+						$tablet = isset($theme_css['tablet']) ? $theme_css['tablet'] : [];
+						$theme_css['tablet'] = array_merge($tablet, $style['tb']);
 					}
 					if( !empty($style['mb']) ){
-						$theme_css['mobile'] = $style['mb'];
+						$mobile = isset($theme_css['mobile']) ? $theme_css['mobile'] : [];
+						$theme_css['mobile'] = array_merge($mobile, $style['mb']);
 					}
 				}
 			}
@@ -461,7 +610,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 			$header_container_css = ['dk'=> [],'tb'=>[],'mb'=>[]];
             if (!empty($header_container) && $header_container == 'container-block-editor') {
                 $header_container_css['dk'] = array(
-                    '#nxt-header.site-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-header.site-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => array(
+                    '#nxt-header.site-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),#nxt-header.site-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => array(
                         'max-width' => (!empty($header_container_width) && isset($header_container_width['desktop']) && $header_container_width['desktop']!='') ? 'calc('.nexter_get_option_css_value( $header_container_width['desktop'], 'px' ).' - 3em)' : '',
                     ),
 					'#nxt-header.site-header .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-header .tpgb-container' => array(
@@ -469,7 +618,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
                     ),
                 );
 				$header_container_css['tb'] = array(
-                    '#nxt-header.site-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-header.site-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => array(
+                    '#nxt-header.site-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),#nxt-header.site-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => array(
                         'max-width' => (!empty($header_container_width) && isset($header_container_width['tablet']) && $header_container_width['tablet']!='') ? nexter_get_option_css_value( $header_container_width['tablet'], 'px' ) : '',
                     ),
 					'#nxt-header.site-header .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-header .tpgb-container' => array(
@@ -477,7 +626,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
                     ),
                 );
 				$header_container_css['mb'] = array(
-                    '#nxt-header.site-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-header.site-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => array(
+                    '#nxt-header.site-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),#nxt-header.site-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => array(
                         'max-width' => (!empty($header_container_width) && isset($header_container_width['mobile']) && $header_container_width['mobile']!='') ? nexter_get_option_css_value( $header_container_width['mobile'], 'px' ) : '',
                     ),
 					'#nxt-header.site-header .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-header .tpgb-container' => array(
@@ -514,7 +663,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 			$footer_container_css = ['dk'=> [],'tb'=>[],'mb'=>[]];
             if (!empty($footer_container) && $footer_container == 'container-block-editor') {
                 $footer_container_css['dk'] = array(
-                    '#nxt-footer.site-footer .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-footer.site-footer .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => array(
+                    '#nxt-footer.site-footer .nxt-container-block-editor >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-footer.site-footer .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => array(
                         'max-width' => (!empty($footer_container_width) && isset($footer_container_width['desktop']) && $footer_container_width['desktop']!='') ? 'calc('.nexter_get_option_css_value( $footer_container_width['desktop'], 'px' ).' - 3em)' : '',
                     ),
 					'#nxt-footer .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-footer .tpgb-container' => array(

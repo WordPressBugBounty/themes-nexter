@@ -39,20 +39,48 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 				/*
 				 * Default Whole Site Sidebar
 				 */
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[whole-site-sidebar]',
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-layout-sidebar',
+				// 	'default'  => 'no-sidebar',
+				// 	'priority' => 5,
+				// 	'title'    => __( 'Site Sidebar Layout', 'nexter' ),
+				// 	'choices'  => array(
+				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
+				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
+				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+				// 	),
+				// ),
+
 				array(
 					'name'     => NXT_OPTIONS . '[whole-site-sidebar]',
+					'title'    => __( 'Site Sidebar Layout', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-style',
 					'section'  => 'section-layout-sidebar',
 					'default'  => 'no-sidebar',
 					'priority' => 5,
-					'title'    => __( 'Site Sidebar Layout', 'nexter' ),
 					'choices'  => array(
-						'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-						'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-						'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+						'no-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/no-sidebar.png',
+							'title' => __( 'No Sidebar', 'nexter' ),
+						),
+						'left-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/left-sidebar.png',
+							'title' => __( 'Left Sidebar', 'nexter' ),
+						),
+						'right-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/right-sidebar.png',
+							'title' => __( 'Right Sidebar', 'nexter' ),
+						)
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[whole-site-sidebar]', // This is where the name gets passed
 					),
 				),
+
 				array(
 					'name'     => NXT_OPTIONS . '[whole-site-display-sidebar]',
 					'type'     => 'control',
@@ -86,19 +114,49 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'priority' => 20,
 					'settings' => array(),
 				),				
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[single-page-sidebar]',
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'section'  => 'section-layout-sidebar',
+				// 	'default'  => 'default',
+				// 	'priority' => 20,
+				// 	'title'    => __( 'Pages', 'nexter' ),
+				// 	'choices'  => array(
+				// 		'default'       => __( 'Default', 'nexter' ),
+				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
+				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
+				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[single-page-sidebar]',
+					'title'    => __( 'Pages', 'nexter' ),
 					'type'     => 'control',
-					'control'  => 'select',
+					'control'  => 'nxt-style',
 					'section'  => 'section-layout-sidebar',
 					'default'  => 'default',
 					'priority' => 20,
-					'title'    => __( 'Pages', 'nexter' ),
 					'choices'  => array(
-						'default'       => __( 'Default', 'nexter' ),
-						'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-						'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-						'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+						'default' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/default.png',
+							'title' => __( 'Default', 'nexter' ),
+						),
+						'no-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/no-sidebar.png',
+							'title' => __( 'No Sidebar', 'nexter' ),
+						),
+						'left-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/left-sidebar.png',
+							'title' => __( 'Left Sidebar', 'nexter' ),
+						),
+						'right-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/right-sidebar.png',
+							'title' => __( 'Right Sidebar', 'nexter' ),
+						)
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[single-page-sidebar]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -139,19 +197,49 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'priority' => 25,
 					'settings' => array(),
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[single-post-sidebar]',
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'default'  => 'default',
+				// 	'section'  => 'section-layout-sidebar',
+				// 	'priority' => 25,
+				// 	'title'    => __( 'Blog Posts', 'nexter' ),
+				// 	'choices'  => array(
+				// 		'default'       => __( 'Default', 'nexter' ),
+				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
+				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
+				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[single-post-sidebar]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'default'  => 'default',
-					'section'  => 'section-layout-sidebar',
-					'priority' => 25,
 					'title'    => __( 'Blog Posts', 'nexter' ),
+					'type'     => 'control',
+					'control'  => 'nxt-style',
+					'section'  => 'section-layout-sidebar',
+					'default'  => 'default',
+					'priority' => 25,
 					'choices'  => array(
-						'default'       => __( 'Default', 'nexter' ),
-						'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-						'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-						'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+						'default' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/default.png',
+							'title' => __( 'Default', 'nexter' ),
+						),
+						'no-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/no-sidebar.png',
+							'title' => __( 'No Sidebar', 'nexter' ),
+						),
+						'left-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/left-sidebar.png',
+							'title' => __( 'Left Sidebar', 'nexter' ),
+						),
+						'right-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/right-sidebar.png',
+							'title' => __( 'Right Sidebar', 'nexter' ),
+						)
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[single-post-sidebar]', // This is where the name gets passed
 					),
 				),
 				array(
@@ -192,19 +280,49 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'priority' => 30,
 					'settings' => array(),
 				),
+				// array(
+				// 	'name'     => NXT_OPTIONS . '[archive-post-sidebar]',
+				// 	'type'     => 'control',
+				// 	'control'  => 'select',
+				// 	'default'  => 'default',
+				// 	'section'  => 'section-layout-sidebar',
+				// 	'priority' => 30,
+				// 	'title'    => __( 'Archives', 'nexter' ),
+				// 	'choices'  => array(
+				// 		'default'       => __( 'Default', 'nexter' ),
+				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
+				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
+				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+				// 	),
+				// ),
 				array(
 					'name'     => NXT_OPTIONS . '[archive-post-sidebar]',
-					'type'     => 'control',
-					'control'  => 'select',
-					'default'  => 'default',
-					'section'  => 'section-layout-sidebar',
-					'priority' => 30,
 					'title'    => __( 'Archives', 'nexter' ),
+					'type'     => 'control',
+					'control'  => 'nxt-style',
+					'section'  => 'section-layout-sidebar',
+					'default'  => 'default',
+					'priority' => 30,
 					'choices'  => array(
-						'default'       => __( 'Default', 'nexter' ),
-						'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-						'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-						'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
+						'default' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/default.png',
+							'title' => __( 'Default', 'nexter' ),
+						),
+						'no-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/no-sidebar.png',
+							'title' => __( 'No Sidebar', 'nexter' ),
+						),
+						'left-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/left-sidebar.png',
+							'title' => __( 'Left Sidebar', 'nexter' ),
+						),
+						'right-sidebar' => array(
+							'image' => NXT_THEME_URI.'assets/images/customizer/sidebar/structure/right-sidebar.png',
+							'title' => __( 'Right Sidebar', 'nexter' ),
+						)
+					),
+					'input_attrs' => array(
+						'name' => NXT_OPTIONS . '[archive-post-sidebar]', // This is where the name gets passed
 					),
 				),
 				array(

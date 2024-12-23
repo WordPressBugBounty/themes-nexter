@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '3.1.5' );
+define( 'NXT_VERSION', '4.0.0' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );
@@ -154,10 +154,9 @@ function nexter_move_comment_field_to_bottom( $fields ) {
 add_filter( 'comment_form_fields', 'nexter_move_comment_field_to_bottom' );
 
 require_once NXT_THEME_DIR . 'inc/widgets.php';
-require_once NXT_THEME_DIR . 'inc/panel-settings/nexter-google-captcha.php';
-require_once NXT_THEME_DIR . 'inc/panel-settings/plus-settings-options.php';
-require_once NXT_THEME_DIR . 'inc/panel-settings/nxt-post-duplicator.php';
-require_once NXT_THEME_DIR . 'inc/panel-settings/nxt-replace-url.php';
+if(!defined('NEXTER_EXT_VER')){
+	require_once NXT_THEME_DIR . 'inc/panel-settings/plus-settings-options.php';
+}
 
 require_once NXT_THEME_DIR . 'inc/core-function/nxt-core-hooks.php';
 require_once NXT_THEME_DIR . 'inc/third-party/class-builder-compatibility.php';
@@ -169,11 +168,6 @@ require_once NXT_THEME_DIR . 'inc/third-party/class-visual-composer.php';
 require_once NXT_THEME_DIR . 'inc/third-party/class-beaver.php';
 require_once NXT_THEME_DIR . 'inc/third-party/class-beaver-build-theme.php';
 
-if ( is_admin() ) {
-	require_once NXT_THEME_DIR . 'inc/plugins/class-tgm-plugin-activation.php';
-	require_once NXT_THEME_DIR . 'inc/plugins/tgm-plugin-activate.php';
-	
-}
 require NXT_THEME_DIR .'inc/core-function/nxt-helper-function.php';
 require NXT_THEME_DIR .'inc/core-function/nxt-core-function.php';
 
@@ -181,9 +175,7 @@ require_once NXT_THEME_DIR . 'inc/customizer/nexter-font-families-list.php';
 require_once NXT_THEME_DIR . 'inc/customizer/nexter-render-fonts-load.php';
 
 //Metabox Options
-if(class_exists( 'CMB2_Bootstrap_290' )){
-	require_once NXT_THEME_DIR . 'inc/custom-metabox/nexter-sidebar-settings.php';
-}
+require_once NXT_THEME_DIR . 'inc/custom-metabox/nexter-sidebar-settings.php';
 
 //Load Enqueue Styles And Scripts
 require_once NXT_THEME_DIR .'inc/nexter-enqueue-style-script.php';

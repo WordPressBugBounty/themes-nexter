@@ -21,10 +21,12 @@ if ( ! class_exists( 'Nexter_Load_Enqueue_Styles_Scripts' ) ) {
 				add_action( 'admin_notices', array( $this, 'nexter_extension_load_notice' ) );
 				add_action( 'wp_ajax_nexter_ext_dismiss_notice', array( $this, 'nexter_ext_dismiss_notice_ajax' ) );
 			}
+			if(!defined( 'NEXTER_EXT' )){
+				add_action( 'wp_ajax_nexter_ext_install', array( $this, 'nexter_ext_install_ajax' ) );
+			}
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets_styles' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_admin' ), 1 );
-			
 		}
 		
 		/**
@@ -115,9 +117,11 @@ if ( ! class_exists( 'Nexter_Load_Enqueue_Styles_Scripts' ) ) {
 			wp_enqueue_style( 'nxt-admin-css', NXT_CSS_URI .'admin/nexter-admin'. $minified .'.css', array(), NXT_VERSION );
 			wp_enqueue_script( 'nexter-admin-js', NXT_JS_URI . 'admin/nexter-admin'. $minified .'.js', array(), NXT_VERSION, false );
 			
-			//nexter component CSS & JS
-			wp_enqueue_style( 'nxt-custom-fields-css', NXT_CSS_URI .'admin/nexter-custom-fields'. $minified .'.css', array(), NXT_VERSION );
-			wp_enqueue_script( 'nexter-custom-fields-js', NXT_JS_URI . 'admin/nexter-custom-fields'. $minified .'.js', array(), NXT_VERSION, true);
+			$screen = get_current_screen();
+			if ( ('page' === $screen->post_type && 'post' === $screen->base) || ('post' === $screen->post_type && 'post' === $screen->base) ) {
+				wp_enqueue_style( 'nxt-customizer-sidebar-css', NXT_CSS_URI .'admin/nexter-customizer-sidebar'. $minified .'.css', array(), NXT_VERSION );
+				wp_enqueue_script( 'nxt-customizer-sidebar-js', NXT_JS_URI . 'admin/nexter-customizer-sidebar'. $minified .'.js', array(), NXT_VERSION, true );
+			}
 
 			$nexter_admin_localize = array(
 			  'ajaxurl' => admin_url('admin-ajax.php'),
@@ -136,7 +140,6 @@ if ( ! class_exists( 'Nexter_Load_Enqueue_Styles_Scripts' ) ) {
 			
 			if ( ! is_customize_preview() ) {
 				wp_enqueue_style( 'wp-color-picker' );
-				wp_register_script( 'nexter-panel-setting', NXT_JS_URI . 'admin/nexter-panel-settings'. $minified .'.js', array('wp-util', 'updates','wp-color-picker'), NXT_VERSION, false );
 			}
 			
 			$js_handle = apply_filters( 'nexter_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
@@ -189,6 +192,78 @@ if ( ! class_exists( 'Nexter_Load_Enqueue_Styles_Scripts' ) ) {
 				wp_send_json_error();
 			}
 			update_option( 'nexter-extension-load-notice', 1 );
+		}
+
+		/**
+		 * Nexter Extension Install Ajax
+		 */
+		public function nexter_ext_install_ajax(){
+			check_ajax_referer( 'nexter_admin_nonce', 'nexter_nonce' ); 
+	
+			if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( array( 'content' => __( 'Insufficient permissions.', 'nexter' ) ) );
+			}
+	
+			$plu_slug = 'nexter-extension';
+
+			$phpFileName = $plu_slug;
+	
+			$installed_plugins = get_plugins();
+	
+			include_once ABSPATH . 'wp-admin/includes/file.php';
+			include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+			include_once ABSPATH . 'wp-admin/includes/class-automatic-upgrader-skin.php';
+			include_once ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php';
+	
+			$result   = array();
+			$response = wp_remote_post(
+				'http://api.wordpress.org/plugins/info/1.0/',
+				array(
+					'body' => array(
+						'action'  => 'plugin_information',
+						'request' => serialize(
+							(object) array(
+								'slug'   => $plu_slug,
+								'fields' => array(
+									'version' => false,
+								),
+							)
+						),
+					),
+				)
+			);
+	
+			$plugin_info = unserialize( wp_remote_retrieve_body( $response ) );
+	
+			if ( ! $plugin_info ) {
+				wp_send_json_error( array( 'content' => __( 'Failed to retrieve plugin information.', 'nexter' ) ) );
+			}
+	
+			$skin     = new \Automatic_Upgrader_Skin();
+			$upgrader = new \Plugin_Upgrader( $skin );
+	
+			$plugin_basename = ''.$plu_slug.'/'.$phpFileName.'.php';
+			
+			if ( ! isset( $installed_plugins[ $plugin_basename ] ) && empty( $installed_plugins[ $plugin_basename ] ) ) {
+				$installed = $upgrader->install( $plugin_info->download_link );
+	
+				$activation_result = activate_plugin( $plugin_basename );
+	
+				$success = null === $activation_result;
+				wp_send_json([
+					'Success' => true,
+					'redirectUrl' => admin_url( 'admin.php?page=nexter_welcome' )
+				]);
+	
+			}else if ( isset( $installed_plugins[ $plugin_basename ] ) ) {
+				$activation_result = activate_plugin( $plugin_basename );
+	
+				$success = null === $activation_result;
+				wp_send_json([
+					'Success' => true,
+					'redirectUrl' => admin_url( 'admin.php?page=nexter_welcome' )
+				]);
+			}
 		}
 		
 	}

@@ -49,6 +49,9 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			require $customize_config_url .'/typography/class-body-typography.php';
 			
 			require $customize_config_url .'/blog/class-single-blog.php';
+			require $customize_config_url .'/pages/class-single-page.php';
+
+			
 		}
 		
 		/**
@@ -251,11 +254,26 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
+			Nexter_Customizer_Control_Base::add_control(
+				'nxt-text-transform',
+				array(
+					'callback'          => 'Nexter_Control_Text_Transform',
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
 
 			Nexter_Customizer_Control_Base::add_control(
 				'nxt-switcher',
 				array(
 					'callback'         => 'Nexter_Control_Switcher',
+					'santize_callback' => '',
+				)
+			);
+
+			Nexter_Customizer_Control_Base::add_control(
+				'nxt-style',
+				array(
+					'callback'         => 'Nexter_Control_Image_Selector',
 					'santize_callback' => '',
 				)
 			);

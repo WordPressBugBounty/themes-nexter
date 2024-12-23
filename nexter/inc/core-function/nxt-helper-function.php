@@ -83,7 +83,7 @@ function nexter_builders_posts_list() {
     $get_list_posts = new WP_Query( $args );	
 	$array_list = array();
 	if($get_list_posts){
-		$array_list["none"] = '';
+		$array_list["none"] = esc_html__( 'Select Template', 'nexter' );
 		if ( $get_list_posts->have_posts() ) {
 			while ( $get_list_posts->have_posts() ) {
 				
@@ -457,7 +457,7 @@ if ( ! function_exists( 'nexter_generate_css' ) ) {
 
 		$output = '';
 		if ( is_array( $css_data ) && count( $css_data ) > 0 ) {
-
+		
 			foreach ( $css_data as $selector => $properties ) {
 
 				if ( ! count( $properties ) ) {

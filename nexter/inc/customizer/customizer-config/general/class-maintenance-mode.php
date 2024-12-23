@@ -60,7 +60,7 @@ if ( ! class_exists( 'Nexter_Site_Maintenance_Mode' ) ) {
 				array(
 					'name'     => NXT_OPTIONS . '[nxt-maintenance-mode]',
 					'default'  => 'maintenance',
-					'title'    => __( 'Mode', 'nexter' ),
+					'title'    => __( 'Type', 'nexter' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-maintenance-mode',

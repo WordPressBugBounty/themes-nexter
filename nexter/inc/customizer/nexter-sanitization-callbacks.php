@@ -146,22 +146,29 @@ if ( ! class_exists( 'Nexter_Customizer_Sanitizes_Callbacks' ) ) {
 				$attributes = $setting->manager->get_control( $setting->id )->input_attrs;
 			}
 
-			$device = [ 'desktop' => '', 'tablet'  => '', 'mobile'  => '' ];
+			$device = [ 'desktop' => '', 'tablet'  => '', 'mobile'  => '', 'desktop-unit'  => '', 'tablet-unit'  => '', 'mobile-unit'  => '' ];
 			
 			if ( is_array( $val ) ) {
 				$device['desktop'] = is_numeric( $val['desktop'] ) ? $val['desktop'] : '';
 				$device['tablet']  = is_numeric( $val['tablet'] ) ? $val['tablet'] : '';
 				$device['mobile']  = is_numeric( $val['mobile'] ) ? $val['mobile'] : '';
+
+				$valid_units = ['px', 'em', 'rem', '%']; 
+				$device['desktop-unit'] = in_array( $val['desktop-unit'], $valid_units ) ? $val['desktop-unit'] : 'px';
+				$device['tablet-unit']  = in_array( $val['tablet-unit'], $valid_units ) ? $val['tablet-unit'] : 'px';
+				$device['mobile-unit']  = in_array( $val['mobile-unit'], $valid_units ) ? $val['mobile-unit'] : 'px';
 			} else {
 				$device['desktop'] = is_numeric( $val ) ? $val : '';
+				$device['desktop-unit'] = 'px';
 			}
 
 			foreach ( $device as $key => $value ) {
-			
+				if(in_array($key, ['desktop', 'tablet', 'mobile'])){
 					$value              = isset( $attributes['min'] ) && ( ! empty( $value ) ) && ( $attributes['min'] > $value ) ? $attributes['min'] : $value;
 					$value              = isset( $attributes['max'] ) && ( ! empty( $value ) ) && ( $attributes['max'] < $value ) ? $attributes['max'] : $value;
 					
 					$device[ $key ] = $value;
+				}
 			}
 
 			return $device;
@@ -279,7 +286,7 @@ if ( ! class_exists( 'Nexter_Customizer_Sanitizes_Callbacks' ) ) {
 				$input = implode( ',', $input );
 			}
 			return sanitize_text_field( $input );
-		}
+		}		
 
 		/**
 		 * Background Obj(array) Sanitize

@@ -100,7 +100,37 @@ if ( ! class_exists( 'Nexter_Customizer_Register_Sections_Panels' ) ) {
 			/* End
 			 * Global General Options
 			 */
-			 
+
+			/* Start
+			 * Breadcrumbs
+			 */
+			// $breadcrumbs_panel = 'panel-breadcrumbs';
+			// $wp_customize->add_panel( new Nexter_Customizer_Panel( $wp_customize, $breadcrumbs_panel, array(	
+			// 	'title' 			=> esc_html__( 'Breadcrumbs', 'nexter' ),
+			// 	'priority' 			=> 10,
+			// ) ) );
+			// $wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-breadcrumb', array(
+			// 	'title' 			=> esc_html__( 'Maintenance Mode', 'nexter' ),
+			// 	'priority' 			=> 5,
+			// 	'panel' 			=> $breadcrumbs_panel,
+			// ) ) );
+
+			// $wp_customize->add_setting( 'nexter_breadcrumb_display', array(
+			// 	'default'   => true,
+			// 	'transport' => 'refresh',
+			// ) );
+			
+			// $wp_customize->add_control( 'nexter_breadcrumb_display', array(
+			// 	'label'     => esc_html__( 'Display Breadcrumbs', 'nexter' ),
+			// 	'section'   => 'section-breadcrumb',
+			// 	'settings'  => 'nexter_breadcrumb_display',
+			// 	'type'      => 'checkbox',
+			// ) );
+			
+			/* End
+			 * Breadcrumbs
+			 */
+
 			/* Start
 			 * Site Identity
 			 */
@@ -145,7 +175,7 @@ if ( ! class_exists( 'Nexter_Customizer_Register_Sections_Panels' ) ) {
 			 */
 			
 			/**
-			 *  Start General Typography 
+			 *  Start Typography 
 			 */
 			$typography_panel = 'panel-typography';
 			
@@ -155,88 +185,90 @@ if ( ! class_exists( 'Nexter_Customizer_Register_Sections_Panels' ) ) {
 			) ) );
 			
 			/*
-			 * Typography => General
-			 */
-			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-general-typo', array(
-				'title' 			=> esc_html__( 'General', 'nexter' ),
-				'priority' 			=> 1,
-				'panel' 			=> $typography_panel,
-			) ) );
-			
-			/*
-			 * Typography => General => Body
+			 * Typography => Body
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-body-typography', array(
 				'title' 			=> esc_html__( 'Body', 'nexter' ),
 				'priority' 			=> 5,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/*
-			 * Typography => General => Heading H1
+			 * Typography => Heading H1
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-heading-h1-typo', array(
 				'title' 			=> esc_html__( 'Heading H1', 'nexter' ),
 				'priority' 			=> 5,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/*
-			 * Typography => General => Heading H2
+			 * Typography => Heading H2
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-heading-h2-typo', array(
 				'title' 			=> esc_html__( 'Heading H2', 'nexter' ),
 				'priority' 			=> 10,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/*
-			 * Typography => General => Heading H3
+			 * Typography => Heading H3
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-heading-h3-typo', array(
 				'title' 			=> esc_html__( 'Heading H3', 'nexter' ),
 				'priority' 			=> 15,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/*
-			 * Typography => General => Heading H4
+			 * Typography => Heading H4
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-heading-h4-typo', array(
 				'title' 			=> esc_html__( 'Heading H4', 'nexter' ),
 				'priority' 			=> 20,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/*
-			 * Typography => General => Heading H5
+			 * Typography => Heading H5
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-heading-h5-typo', array(
 				'title' 			=> esc_html__( 'Heading H5', 'nexter' ),
 				'priority' 			=> 25,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/*
-			 * Typography => General => Heading H6
+			 * Typography => Heading H6
 			 */
 			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-heading-h6-typo', array(
 				'title' 			=> esc_html__( 'Heading H6', 'nexter' ),
 				'priority' 			=> 30,
 				'panel' 			=> $typography_panel,
-				'section'			=> 'section-general-typo',
 			) ) );
 			
 			/**
-			 * End General Typography
+			 * End Typography
 			 */
 			
+			/**
+			 * Pages Option
+			 */
+			$pages_option_panel = 'panel-pages-option';
+			
+			$wp_customize->add_panel( new Nexter_Customizer_Panel( $wp_customize, $pages_option_panel, array(
+				'title' 			=> esc_html__( 'Pages', 'nexter' ),
+				'priority' 			=> 22,
+			) ) );
+			/*
+			 * Pages => Single Page
+			 */
+			$wp_customize->add_section( new Nexter_Customizer_Section( $wp_customize, 'section-page-single', array(
+				'title' 			=> esc_html__( 'Single Page', 'nexter' ),
+				'priority' 			=> 5,
+				'panel' 			=> $pages_option_panel,
+			) ) );
+
 			/**
 			 * Start Blog Layout
 			 */

@@ -326,46 +326,48 @@
 	/*Responsive Slider Control*/
 	wp.customize.controlConstructor['nxt-responsive-slider'] = wp.customize.Control.extend({
 
+		
 		ready: function() {
+			let mainRange = this.container;
 			'use strict';
 			var control = this, value,	thisInput,	inputDefault, changeAction;
+			let rangeWrap = mainRange[0].querySelectorAll('.nxt-slider-wrap');
+			rangeWrap.forEach((rw)=>{
+				const style = document.createElement('style');
+				style.setAttribute('name', mainRange[0].id);
+				rw.appendChild(style);
+
+				let getInput = rw.querySelector('input[type=range]');
+				control.fillChanges(mainRange, getInput);	
+			})
+					
 
 			control.container.on( 'click', '.nxt-resp-slider-devices button', function( e ) {
-
-				e.preventDefault();
-				
+				e.preventDefault();				
 				var device = $(this).attr('data-device');
-				if( device == 'desktop' ) {
-					device = 'tablet';
-				} else if( device == 'tablet' ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
-
 				$( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
+			});
+
+			control.container.on( 'change', '.nxt-slider-units-devices', function() {
+				var selectedOption = $(this).find('option:selected');
+				if(selectedOption.hasClass('active')){
+					return false;
+				}
+				$(this).find('option').removeClass('active');
+				selectedOption.addClass('active');
+				var	unit_value 	= selectedOption.attr('data-unit'),
+					device 		= $('.wp-full-overlay-footer .devices button.active').attr('data-device');
+				control.container.find('.nxt-slider-unit-inner .nxt-slider-' + device + '-unit').val( unit_value );
+				control.setValue();
 			});
 
 			// Update the text value.
 			this.container.on( 'input change', 'input[type=range]', function() {
 				var value 		 = $( this ).val(),
 					slide_num = $( this ).closest( '.nxt-slider-wrap' ).find( '.nxt-responsive-slider-number' );
-				
 				slide_num.val( value );
-				slide_num.trigger( 'change' );
-			});
-
-			// Handle the reset button.
-			this.container.on('click', '.nxt-reset-slider-resp', function() {
-				
-				var wrapper 		= $( this ).parent().find('.nxt-slider-wrap.active'),
-					input_range   	= wrapper.find( 'input[type=range]' ),
-					slide_num 	= wrapper.find( '.nxt-responsive-slider-number' ),
-					default_value	= input_range.data( 'reset' );
-
-				input_range.val( default_value );
-				slide_num.val( default_value );
-				slide_num.trigger( 'change' );
+				slide_num.trigger( 'change' );				
+				control.fillChanges(mainRange, this);
 			});
 
 			// Save changes.
@@ -374,7 +376,23 @@
 				$( this ).closest( '.nxt-slider-wrap' ).find( 'input[type=range]' ).val( value );
 				
 				control.setValue();
+				control.fillChanges(mainRange, this);
 			});
+		},
+
+		fillChanges: function(mainRange, crt){
+
+			const min = parseInt(crt.min);
+			const max = parseInt(crt.max);
+			const value = parseInt(crt.value);
+			
+			let percentage = ((value - min) / (max - min)) * 100;
+						
+			let slideWrap = crt.closest('.nxt-slider-wrap');
+			const styleElement = slideWrap.querySelector('style[name="'+mainRange[0].id+'"]');
+			
+			let resClass = crt.getAttribute("data-id");
+			styleElement.innerHTML = '#'+mainRange[0].id+' .nxt-slider-wrap.'+resClass+' input[type=range]::-webkit-slider-runnable-track{ background: linear-gradient( to right, #162D9E '+percentage+'%, #E7E7F6 '+(percentage)+'% ) !important;} #'+mainRange[0].id+' .nxt-slider-wrap.'+resClass+' input[type=range]::-moz-range-track{ background: linear-gradient( to right, #162D9E '+percentage+'%, #E7E7F6 '+(percentage)+'% ) !important;} ';
 		},
 
 		//Set Value Customizer
@@ -382,7 +400,7 @@
 
 			var control = this,
 		    newValue = {};
-
+			
 		    // Set the spacing container.
 			control.responsiveContainer = control.container.find( '.wrapper' ).first();
 
@@ -390,9 +408,15 @@
 				var $this = $( this ),
 				itemId = $this.data( 'id' ),
 				itemValue = $this.val();
-
 				newValue[itemId] = itemValue;
-
+			});
+			
+			control.responsiveContainer.find('.nxt-slider-unit-inner .nxt-slider-unit-hidden').each( function() {
+				var spacing_unit 	= $( this ),
+					device 			= spacing_unit.attr('data-device'),
+					device_val 		= spacing_unit.val(),
+					name 			= device + '-unit';
+				newValue[ name ] = device_val;
 			});
 
 			control.setting.set( newValue );
@@ -469,38 +493,24 @@
 		 */
 		nxtResponsiveInit : function() {
 			'use strict';
-			var control = this;
-			
-			control.container.find( '.nxt-resp-spacing-btns button' ).on( 'click', function( event ) {
-
+			var control = this;			
+			control.container.find( '.nxt-resp-spacing-btns button' ).on( 'click', function( event ) {				
 				var device = $(this).attr('data-device');
-				if( device == 'desktop' ) {
-					device = 'tablet';
-				} else if( device == 'tablet' ) {
-					device = 'mobile';
-				} else {
-					device = 'desktop';
-				}
-
 				$( '.wp-full-overlay-footer .devices button[data-device="' + device + '"]' ).trigger( 'click' );
 			});
 
 			// Unit click
-			control.container.on( 'click', '.nxt-spacing-units-devices .single-unit', function() {
-				var $this 		= $(this);
-
-				if ( $this.hasClass('active') ) {
+			control.container.on( 'change', '.nxt-spacing-units-devices', function() {
+				var selectedOption = $(this).find('option:selected');
+				if(selectedOption.hasClass('active')){
 					return false;
 				}
-				var	unit_value 	= $this.attr('data-unit'),
+				$(this).find('option').removeClass('active');
+				selectedOption.addClass('active');
+				var	unit_value 	= selectedOption.attr('data-unit'),
 					device 		= $('.wp-full-overlay-footer .devices button.active').attr('data-device');
-				
-				$this.siblings().removeClass('active');
-				$this.addClass('active');
+					control.container.find('.nxt-spacing-unit-inner .nxt-spacing-' + device + '-unit').val( unit_value );
 
-				control.container.find('.nxt-spacing-unit-inner .nxt-spacing-' + device + '-unit').val( unit_value );
-
-				// Update value on change.
 				control.updateValue();
 			});
 		},
@@ -508,24 +518,17 @@
 	$(document).ready(function () {
 
 		// Linked button
-		$('.nxt-spacing-linked').on('click', function () {
-
-			$(this).parent().parent('.nxt-spacing-devices').find('input').removeClass('connected').attr('data-element-connect', '');
-
-			$(this).parent('.nxt-spacing-input-link-unlink').removeClass('disconnected');
-
-		});
-
-		// Unlinked button
-		$('.nxt-spacing-unlinked').on('click', function () {
-
-			var elements = $(this).data('element-connect');
-
-			$(this).parent().parent('.nxt-spacing-devices').find('input').addClass('connected').attr('data-element-connect', elements);
-
-			$(this).parent('.nxt-spacing-input-link-unlink').addClass('disconnected');
-
-		});
+		$('.nxt-spacing-input-link-unlink').on('click', function() {
+			if($(this).hasClass('disconnected')){
+				$(this).parent('.nxt-spacing-devices').find('input').removeClass('connected').attr('data-element-connect', '');
+				$(this).removeClass('disconnected');
+			}else{
+				var elements = $(this).data('element-connect');
+				$(this).parent('.nxt-spacing-devices').find('input').addClass('connected').attr('data-element-connect', elements);
+				$(this).addClass('disconnected');
+			}
+			
+		})
 
 		// Values linked inputs
 		$('.nxt-spacing-input-item').on('input', '.connected', function () {
@@ -547,6 +550,17 @@
 			'use strict';
 
 			var control = this, value, thisInput, inputDefault,	changeAction;
+			let mainRange = this.container;
+
+			let rangeWrap = mainRange[0].querySelectorAll('.nxt_slider_wrap');
+			rangeWrap.forEach((rw)=>{
+				const style = document.createElement('style');
+				style.setAttribute('name', mainRange[0].id);
+				rw.appendChild(style);
+
+				let getInput = rw.querySelector('input[type=range]');
+				control.fillChanges(mainRange, getInput);	
+			})
 
 			// Update the text value.
 			control.container.on( 'input change', 'input[type=range]', function() {
@@ -556,6 +570,7 @@
 
 				input_val.val( value );
 				input_val.trigger( 'change' );
+				control.fillChanges(mainRange, this);
 			});
 
 			// slider reset button
@@ -576,7 +591,21 @@
 					value = $this.val();
 				$this.closest( '.nxt_slider_wrap' ).find( 'input[type=range]' ).val( value );
 				control.setting.set( value );
+				control.fillChanges(mainRange, this);
 			});
+		},
+		fillChanges: function(mainRange, crt){
+
+			const min = crt.min;
+			const max = crt.max;
+			const value = crt.value;
+			
+			let percentage = ((value - min) / (max - min)) * 100;
+			
+			let slideWrap = crt.closest('.nxt_slider_wrap');
+			const styleElement = slideWrap.querySelector('style[name="'+mainRange[0].id+'"]');
+						
+			styleElement.innerHTML = '#'+mainRange[0].id+' .nxt_slider_wrap input[type=range]::-webkit-slider-runnable-track{ background: linear-gradient( to right, #162D9E '+percentage+'%, #E7E7F6 '+(percentage)+'% ) !important;} #'+mainRange[0].id+' .nxt_slider_wrap input[type=range]::-moz-range-track{ background: linear-gradient( to right, #162D9E '+percentage+'%, #E7E7F6 '+(percentage)+'% ) !important;} ';
 		}
 	});
 	/*Slider Control*/
@@ -587,15 +616,58 @@
 		ready: function() {
 			'use strict';
 			var control = this;
-
-			// Change the value
-			this.container.on( 'click', 'input.switch-input', function() {
-				control.setting.set( $( this ).val() );
+	
+			let getInput = this.container[0].querySelector('input.switch-input');
+			if(getInput.value == 'off'){
+				getInput.checked = false;
+			}
+			
+			// Change the value when the checkbox is toggled
+			this.container.on('change', 'input.switch-input', function(e) {
+				e.preventDefault();
+	
+				// Determine if the checkbox is checked
+				var isChecked = $(this).prop('checked');
+	
+				// Only update the setting if the value actually changes
+				if (isChecked && control.setting.get() !== 'on') {
+					control.setting.set('on');
+				} else if (!isChecked && control.setting.get() !== 'off') {
+					control.setting.set('off');
+				}
+			});
+	
+			// Update checkbox state when the setting changes externally
+			control.setting.bind(function(value) {
+				var input = control.container.find('input.switch-input');
+				var isChecked = input.prop('checked');
+				
+				// Update checkbox based on the value, only if it differs
+				if (value === 'on' && !isChecked) {
+					input.prop('checked', true);
+				} else if (value === 'off' && isChecked) {
+					input.prop('checked', false);
+				}
 			});
 		}
-
 	});
 	/*Switcher Control*/
+
+	/*Style Control*/
+	wp.customize.controlConstructor['nxt-style'] = wp.customize.Control.extend({
+
+		ready: function() {
+			'use strict';
+			var control = this;
+
+			// Change the value
+			this.container.on( 'change', 'input.radio-input', function(e) {
+				e.preventDefault();				
+				control.setting.set($(this).val());
+			});
+		}
+	});
+	/*Style Control*/
 	
 	//Device Responsive And Responsive Slider Preview
 	$(' .wp-full-overlay-footer .devices button ').on('click', function() {

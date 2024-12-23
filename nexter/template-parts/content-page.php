@@ -14,7 +14,11 @@
 		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>--><!-- .entry-header -->
 
-	<?php nexter_post_thumbnail(); ?>
+	<?php if(nexter_get_option('page-hide-fea-image') != 'on') {
+		nexter_post_thumbnail();
+	}else if(nexter_get_option('page-hide-fea-image') == 'on') { ?>
+		<div class="nxt-hidden"><?php nexter_post_thumbnail(); ?></div>
+	<?php } ?>
 
 	<div class="entry-content">
 		<?php

@@ -39,7 +39,7 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 					'control'   => 'nxt-heading',
 					'section'   => 'section-woocommerce-general',
 					'priority'  => 4,
-					'title'     => __( 'Woocommerce', 'nexter' ),
+					'title'     => __( 'WooCommerce', 'nexter' ),
 					'settings'  => array(),
 					'separator' => false,
 				),
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 					'section'  => 'section-woocommerce-general',
 					'default'  => 'default',
 					'priority' => 8,
-					'title'    => __( 'Woocommerce Sidebar', 'nexter' ),
+					'title'    => __( 'WooCommerce Sidebar', 'nexter' ),
 					'choices'  => array(
 						'default'       => __( 'Default', 'nexter' ),
 						'no-sidebar'    => __( 'No Sidebar', 'nexter' ),

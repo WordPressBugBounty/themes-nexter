@@ -2,9 +2,9 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.4
-Stable tag: 3.1.5
-Version: 3.1.5
+Tested up to: 6.7
+Stable tag: 4.0.0
+Version: 4.0.0
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,10 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.0 = 23 December 2024
+- Important: Completely revamped Theme Customizer layout with a new UI/UX for better usability and streamlined configuration.
+- New: Added "Hide Featured Image" option in the Customizer for pages.
+
 = 3.1.5 = 21 March 2024
 - Fix : Bug Fix and Improvements
 
@@ -170,7 +174,7 @@ This theme, like WordPress, is licensed under the GPL.
 * Fix : Bug fix and improvements
 
 = 1.0.15 = 05-04-2022
-* Added : Padding option for Full width Container in Customiser for all Structures
+* Added : Padding option for Full width Container in Customizer for all Structures
 * Fix : Archive Container Bug
 * Fix : Minor Tweaks & Fixes
 
@@ -185,7 +189,7 @@ This theme, like WordPress, is licensed under the GPL.
 * Fix : jQuery Free Bug Fix
 
 = 1.0.11  = 24 Nov 2021
-* Added : Nexter Settings : Extra Options -> Import & Export Customiser Theme Options
+* Added : Nexter Settings : Extra Options -> Import & Export Customizer Theme Options
 * Update : Plugin Compatibility with Nexter Builder for Heading Tags & other CSS/JS for Template : Ultimate Addons for Gutenberg
 * Update : Plugin Compatibility with Nexter Builder for Heading Tags & other CSS/JS for Template : Kadence Blocks
 * Update : Plugin Compatibility with Nexter Builder for Heading Tags & other CSS/JS for Template : Gutentor – Gutenberg Blocks
