@@ -146,7 +146,7 @@ if ( ! class_exists( 'Nexter_Heading_Colors' ) ) {
 		 */
 		public static function gutenberg_dynamic_css( $theme_css ){
 			
-			$heading_selector = [ 'h1' => '.edit-post-visual-editor h1, .editor-styles-wrapper h1 a',
+			$heading_selector = [ 'h1' => '.edit-post-visual-editor h1:not(.editor-post-title), .editor-styles-wrapper h1:not(.editor-post-title) a',
 								'h2' => '.edit-post-visual-editor h2, .editor-styles-wrapper h2,.editor-styles-wrapper h2 a',
 								'h3' => '.edit-post-visual-editor h3, .editor-styles-wrapper h3, .editor-styles-wrapper h3 a',
 								'h4' => '.edit-post-visual-editor h4, .editor-styles-wrapper h4, .editor-styles-wrapper h4 a',

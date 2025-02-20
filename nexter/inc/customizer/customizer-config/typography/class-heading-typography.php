@@ -752,7 +752,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 		 */
 		public static function gutenberg_dynamic_css( $theme_css ){
 			
-			$heading_selector = [ 'h1' => '.edit-post-visual-editor h1,.editor-styles-wrapper h1,.editor-styles-wrapper h1 a, .editor-styles-wrapper h1.block-editor-block-list__block',
+			$heading_selector = [ 'h1' => '.edit-post-visual-editor h1:not(.editor-post-title),.editor-styles-wrapper h1:not(.editor-post-title),.editor-styles-wrapper h1:not(.editor-post-title) a, .editor-styles-wrapper h1.block-editor-block-list__block:not(.editor-post-title)',
 					   'h2' => '.edit-post-visual-editor h2,.editor-styles-wrapper h2, .editor-styles-wrapper h2 a, .editor-styles-wrapper h2.block-editor-block-list__block',
 					   'h3' => '.edit-post-visual-editor h3,.editor-styles-wrapper h3, .editor-styles-wrapper h3 a, .archive-post-title a, .editor-styles-wrapper h3.block-editor-block-list__block',
 					   'h4' => '.edit-post-visual-editor h4,.editor-styles-wrapper h4, .editor-styles-wrapper h4 a, .editor-styles-wrapper h4.block-editor-block-list__block',

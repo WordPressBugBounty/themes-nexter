@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '4.0.0' );
+define( 'NXT_VERSION', '4.0.1' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );

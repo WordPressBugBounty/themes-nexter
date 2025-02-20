@@ -130,7 +130,7 @@
 	clear: both;
 }
 
-.edit-post-visual-editor h1, .editor-styles-wrapper h1 {
+.edit-post-visual-editor h1:not(.editor-post-title), .editor-styles-wrapper h1:not(.editor-post-title) {
 	font-size: 2em;
 	line-height: 1.2;
 	color: #808285;

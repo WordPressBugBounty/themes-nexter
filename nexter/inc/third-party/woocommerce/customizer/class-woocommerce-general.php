@@ -307,17 +307,17 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
             if (!empty($woo_layout_container) && $woo_layout_container == 'container' && !empty($woo_cont_width['desktop'])) {
                 $woo_layout_css['dk'] = array(
                     '.nxt-woocommerce .nxt-container' => array(
-                        'max-width' => nexter_get_option_css_value( $woo_cont_width['desktop'], 'px' )
+                        'max-width' => (!empty($woo_cont_width) && isset($woo_cont_width['desktop']) && $woo_cont_width['desktop']!='') ? nexter_get_option_css_value( $woo_cont_width['desktop'], 'px' ) : '',
                     )
                 );
 				$woo_layout_css['tb'] = array(
                     '.nxt-woocommerce .nxt-container' => array(
-                        'max-width' => nexter_get_option_css_value( $woo_cont_width['tablet'], 'px' )
+                        'max-width' => (!empty($woo_cont_width) && isset($woo_cont_width['tablet']) && $woo_cont_width['tablet']!='') ? nexter_get_option_css_value( $woo_cont_width['tablet'], 'px' ) : '',
                     )
                 );
 				$woo_layout_css['mb'] = array(
                     '.nxt-woocommerce .nxt-container' => array(
-                        'max-width' => nexter_get_option_css_value( $woo_cont_width['mobile'], 'px' )
+                        'max-width' => (!empty($woo_cont_width) && isset($woo_cont_width['mobile']) && $woo_cont_width['mobile']!='') ? nexter_get_option_css_value( $woo_cont_width['mobile'], 'px' ) : '',
                     )
                 );
             }
@@ -327,9 +327,9 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 				$theme_css = self::dimension_value('woo-fluid-spacing', '.woocommerce .site-content .nxt-container-fluid .site-main > .nxt-row,.woocommerce ul.products, .woocommerce-page ul.products,.nxt-prodcut-nav.nxt-row', 'margin', $theme_css, 'minus' );
 			}
 			
-			$theme_css['container_m'][]= array_merge($woo_layout_css['mb']);
-			$theme_css['container_t'][]= array_merge($woo_layout_css['tb']);
-			$theme_css['container_d'][]= array_merge($woo_layout_css['dk']);
+			$theme_css['container_m']= array_merge($theme_css['container_m'], $woo_layout_css['mb']);
+			$theme_css['container_t']= array_merge($theme_css['container_m'],$woo_layout_css['tb']);
+			$theme_css['container_d']= array_merge($theme_css['container_m'],$woo_layout_css['dk']);
 			
 			$woo_primary	= nexter_get_option('woo-primary-color','#888');
             $woo_secondary	= nexter_get_option('woo-secondary-color','#8072fc');

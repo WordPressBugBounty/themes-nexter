@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.7
-Stable tag: 4.0.0
-Version: 4.0.0
+Stable tag: 4.0.1
+Version: 4.0.1
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,11 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.1 = 20 February 2024
+- Fixed : Archive Category Page : Post Title Word Break CSS bug Fixed
+- Fixed : Customizer : Woocommerce : Container : CSS Bug Fixed
+- Fixed : Bug Fix and Improvements
+
 = 4.0.0 = 23 December 2024
 - Important: Completely revamped Theme Customizer layout with a new UI/UX for better usability and streamlined configuration.
 - New: Added "Hide Featured Image" option in the Customizer for pages.
