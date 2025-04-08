@@ -2,15 +2,15 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.7
-Stable tag: 4.0.1
-Version: 4.0.1
+Tested up to: 6.7.2
+Stable tag: 4.0.2
+Version: 4.0.2
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, e-commerce, grid-layout, one-column, two-columns, left-sidebar, right-sidebar, block-styles, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, footer-widgets, full-width-template, template-editing, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
 
-Introducing Nexter created by passionate developers for the next-generation WordPress theme. Built from the ground up with the web designer in mind. Giving you the best WordPress experience with our ultimate Theme Builder to make your Header Builder, Footer Builder, Archive Builder, Search Page, 404 Page and much more. Crafted on ultra-light architecture (Less than 50 KB), jQuery FREE, bloat cleaner, inbuilt security features. #Accessible Ready, #SEO Friendly, #RTL Compatible, Regularly updated with the latest web technologies. Works with your favorite Page Builder Elementor Website Builder, Gutenberg Block Editor, Brizy Builder, Beaver Builder and much more. Sky is the limit with the best multi-purpose theme for your WooCommerce Store, Education, Forums, Portfolio, Listing, Travel Blog, Magazines etc. Power up Nexter with 120+ Elementor widgets using The Plus Addons for Elementor, or 70+ Gutenberg Blocks using The Plus Addons for Gutenberg. Download Now.
+Nexter Theme is an ultra-lightweight, multipurpose WordPress theme built with pure vanilla JavaScript, crafted specifically for users who are serious about performance, speed, and SEO. With a footprint of less than 50KB, it delivers blazing-fast load times, making it the perfect base for business websites, personal portfolios, blogs, and online stores. Designed with clean, SEO-friendly code, Nexter ensures better search engine visibility while offering rock-solid compatibility with popular tools like Elementor, The Plus Addons for Elementor, and the default Gutenberg Block Editor. It’s fully WooCommerce-ready, accessibility-ready, and RTL-compatible, making it suitable for a global and diverse audience. Nexter follows secure coding standards, is regularly updated, and ensures full compatibility with the latest WordPress versions. To get the most out of it, Nexter works best with Nexter Blocks and Nexter Extension—together, they bring powerful blocks, advanced design tools, and performance-focused features that elevate your website-building experience. Plus, with access to over 1000 ready-to-import website templates and sections, you can build and launch stunning websites faster than ever before. Whether you’re a developer, designer, agency, or entrepreneur, Nexter Theme is your go-to choice for building fast, flexible, and professional WordPress websites. Learn More – https://nexterwp.com/nexter-theme/
 
 ***Nexter WordPress Theme** is distributed under the terms of the GNU GPL v3 or later.
 
@@ -65,9 +65,12 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.2 = 08 April 2024
+- Fix : Bug Fix and Improvements
+
 = 4.0.1 = 20 February 2024
 - Fixed : Archive Category Page : Post Title Word Break CSS bug Fixed
-- Fixed : Customizer : Woocommerce : Container : CSS Bug Fixed
+- Fixed : Customizer : WooCommerce : Container : CSS Bug Fixed
 - Fixed : Bug Fix and Improvements
 
 = 4.0.0 = 23 December 2024
