@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.7.2
-Stable tag: 4.0.2
-Version: 4.0.2
+Stable tag: 4.0.3
+Version: 4.0.3
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,9 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.3 = 09 April 2024
+- Updated : Readme File.
+
 = 4.0.2 = 08 April 2024
 - Fix : Bug Fix and Improvements
 
