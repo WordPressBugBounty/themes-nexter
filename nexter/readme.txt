@@ -2,9 +2,9 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.7.2
-Stable tag: 4.0.3
-Version: 4.0.3
+Tested up to: 6.8
+Stable tag: 4.0.4
+Version: 4.0.4
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,9 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.4 = 16 April 2024
+- Compatibility : WordPress 6.8
+
 = 4.0.3 = 09 April 2024
 - Updated : Readme File.
 
@@ -200,7 +203,7 @@ This theme, like WordPress, is licensed under the GPL.
 * Fix : jQuery Free Bug Fix
 
 = 1.0.11  = 24 Nov 2021
-* Added : Nexter Settings : Extra Options -> Import & Export Customizer Theme Options
+* Added : Nexter Extension : Extra Options -> Import & Export Customizer Theme Options
 * Update : Plugin Compatibility with Nexter Builder for Heading Tags & other CSS/JS for Template : Ultimate Addons for Gutenberg
 * Update : Plugin Compatibility with Nexter Builder for Heading Tags & other CSS/JS for Template : Kadence Blocks
 * Update : Plugin Compatibility with Nexter Builder for Heading Tags & other CSS/JS for Template : Gutentor – Gutenberg Blocks

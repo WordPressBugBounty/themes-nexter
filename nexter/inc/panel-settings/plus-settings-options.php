@@ -56,16 +56,18 @@ class Nexter_Settings_Panel {
      * @since 1.0.0
      */
     public function __construct() {
-		
-		if(defined('NXT_PRO_EXT')){
-			$options = get_option( 'nexter_white_label' );
-			$this->setting_name = (!empty($options['brand_name'])) ? $options['brand_name'].esc_html__(' Settings', 'nexter') : esc_html__('Nexter Settings', 'nexter');
-		}else{
-			$this->setting_name = esc_html__('Nexter Settings', 'nexter');
-		}
-		
+        add_action('init', [$this, 'initialize_plugin_name']);
     }
 	
+    public function initialize_plugin_name() {
+		if(defined('NXT_PRO_EXT')){
+			$options = get_option( 'nexter_white_label' );
+			$this->setting_name = (!empty($options['brand_name'])) ? $options['brand_name'].esc_html__(' Settings', 'nexter') : esc_html__('Nexter Extension', 'nexter');
+		}else{
+			$this->setting_name = esc_html__('Nexter Extension', 'nexter');
+		}
+	}
+
 	/**
      * Initiate hooks
 	 * @since 1.0.11
