@@ -111,7 +111,14 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 				),
 				array(
 					'name'           => NXT_OPTIONS . '[woo-fluid-spacing]',
-					'default'        => nexter_get_option( 'woo-fluid-spacing' ),
+					'default'        => nexter_get_option( 'woo-fluid-spacing' ) ? nexter_get_option( 'woo-fluid-spacing' ) : array(
+						'md' => ['left' => 15, 'right' => 15],
+						'sm' => ['left' => '', 'right' => ''],
+						'xs' => ['left' => '', 'right' => ''],
+						'md-unit' => 'px',
+						'sm-unit' => 'px',
+						'xs-unit' => 'px',
+					),
 					'type'           => 'control',
 					'control'        => 'nxt-responsive-spacing',
 					'section'        => 'section-woocommerce-general',
@@ -328,8 +335,8 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 			}
 			
 			$theme_css['container_m']= array_merge($theme_css['container_m'], $woo_layout_css['mb']);
-			$theme_css['container_t']= array_merge($theme_css['container_m'],$woo_layout_css['tb']);
-			$theme_css['container_d']= array_merge($theme_css['container_m'],$woo_layout_css['dk']);
+			$theme_css['container_t']= array_merge($theme_css['container_t'],$woo_layout_css['tb']);
+			$theme_css['container_d']= array_merge($theme_css['container_d'],$woo_layout_css['dk']);
 			
 			$woo_primary	= nexter_get_option('woo-primary-color','#888');
             $woo_secondary	= nexter_get_option('woo-secondary-color','#8072fc');

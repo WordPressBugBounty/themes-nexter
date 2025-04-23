@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '4.0.4' );
+define( 'NXT_VERSION', '4.0.5' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );
@@ -228,3 +228,9 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once NXT_THEME_DIR . 'inc/third-party/woocommerce/nexter-woocommerce-config.php';
 }
+
+add_action('init', function() {
+    if (has_action('wp_footer', 'wp_print_speculation_rules')) {
+        remove_action('wp_footer', 'wp_print_speculation_rules');
+    }
+});

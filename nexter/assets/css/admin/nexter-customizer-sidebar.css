@@ -46,6 +46,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: border-color 0.3s;
+    width: 100%;
     width: -webkit-fill-available;
 }
 #nxt_sidebar_settings input[type="radio"]:checked + img {

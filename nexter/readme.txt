@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.8
-Stable tag: 4.0.4
-Version: 4.0.4
+Stable tag: 4.0.5
+Version: 4.0.5
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,9 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.5 = 23 April 2024
+- Fixed : Customizer : Container Layout CSS Bug Fixed
+
 = 4.0.4 = 16 April 2024
 - Compatibility : WordPress 6.8
 
