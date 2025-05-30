@@ -2,9 +2,9 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.8
-Stable tag: 4.0.5
-Version: 4.0.5
+Tested up to: 6.8.1
+Stable tag: 4.0.6
+Version: 4.0.6
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,19 +65,22 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
-= 4.0.5 = 23 April 2024
+= 4.0.6 = 30 May 2025
+- Fixed : Page Content Background Color CSS Bug Fixed
+
+= 4.0.5 = 23 April 2025
 - Fixed : Customizer : Container Layout CSS Bug Fixed
 
-= 4.0.4 = 16 April 2024
+= 4.0.4 = 16 April 2025
 - Compatibility : WordPress 6.8
 
-= 4.0.3 = 09 April 2024
+= 4.0.3 = 09 April 2025
 - Updated : Readme File.
 
-= 4.0.2 = 08 April 2024
+= 4.0.2 = 08 April 2025
 - Fix : Bug Fix and Improvements
 
-= 4.0.1 = 20 February 2024
+= 4.0.1 = 20 February 2025
 - Fixed : Archive Category Page : Post Title Word Break CSS bug Fixed
 - Fixed : Customizer : WooCommerce : Container : CSS Bug Fixed
 - Fixed : Bug Fix and Improvements
