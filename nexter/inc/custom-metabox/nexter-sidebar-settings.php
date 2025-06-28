@@ -10,12 +10,13 @@ add_action('save_post', 'nexter_nxt_save_sidebar_settings');
  * Add custom meta box for Sidebar Settings.
  */
 function nexter_nxt_sidebar_settings_meta_box() {
+    $set_priority = defined( 'ACF' ) ? 'normal' : 'side';
     add_meta_box(
         'nxt_sidebar_settings',
         esc_html__('Sidebar Settings', 'nexter'),
         'nexter_nxt_sidebar_settings_html',
         array('page', 'post'),
-        'side'
+        $set_priority
     );
 }
 

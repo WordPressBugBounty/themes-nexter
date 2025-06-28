@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.8.1
-Stable tag: 4.0.6
-Version: 4.0.6
+Stable tag: 4.0.7
+Version: 4.0.7
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,10 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.0.7 = 28 June 2025
+- Fixed : Customizer : CSS load Bug Fix.
+- Fixed : Advanced Custom Field : Add Meta Box function bug Fix.
+
 = 4.0.6 = 30 May 2025
 - Fixed : Page Content Background Color CSS Bug Fixed
 

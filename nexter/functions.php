@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '4.0.6' );
+define( 'NXT_VERSION', '4.0.7' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );
@@ -208,7 +208,7 @@ require_once NXT_THEME_DIR . 'inc/nexter-dynamic-css.php';
 function nexter_dynamic_enqueue_scripts() {
 	echo '<style type="text/css">'.wp_strip_all_tags(Nexter_Dynamic_Css::render_theme_css()).'</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
-add_action( 'wp_head', 'nexter_dynamic_enqueue_scripts' );
+add_action( 'wp_head', 'nexter_dynamic_enqueue_scripts', 11 );
 
 /**
  * Customizer Options
