@@ -2,9 +2,9 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.8.1
-Stable tag: 4.0.7
-Version: 4.0.7
+Tested up to: 6.8.2
+Stable tag: 4.1.0
+Version: 4.1.0
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,17 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.1.0 = 02 September 2025
+- Compatibility: Nexter Blocks : Container Block compatibility.
+- Improvement: Customizer : Typography and color enhancements in Block Editor and frontend.
+- Update: Customizer : Google Fonts library updated for typography font family.
+- Optimization: style.css : Optimized loading and removed unused CSS.
+- Fixed : WooCommerce : woocommerce.css now loads only on WooCommerce pages.
+- Fixed : Frontend : Removed frontend.js and moved it to Extension Plugin, loaded via Theme Builder option.
+- Fixed : Block Editor : Resolved body background color issue in Edit Post/Page Customizer option.
+- Fixed : Customizer : Container bug fixed.
+- Fixed : General bug fixes and improvements.
+
 = 4.0.7 = 28 June 2025
 - Fixed : Customizer : CSS load Bug Fix.
 - Fixed : Advanced Custom Field : Add Meta Box function bug Fix.

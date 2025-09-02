@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-14 16:27+0530\n"
+"POT-Creation-Date: 2025-08-27 15:46+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,48 +98,48 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:163
+#: inc/nexter-enqueue-style-script.php:153
 msgid "Activate Nexter Extension Now !!!"
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:164
+#: inc/nexter-enqueue-style-script.php:154
 msgid ""
 "Finally, You are Done Installing Nexter Theme & Extension as Well. Now It’s "
 "Time to Press the Pedal. Activate Nexter Extension and Get Over With it."
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:165
+#: inc/nexter-enqueue-style-script.php:155
 msgid "Activate Nexter Extension"
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:169
+#: inc/nexter-enqueue-style-script.php:159
 msgid "It’s Time to Install Nexter Extension"
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:170
+#: inc/nexter-enqueue-style-script.php:160
 msgid ""
 "Now You’ve Already Installed Nexter Theme, You Need to Install Nexter "
 "Extension in Order to Get the Most of out From it. Nexter Extension is an "
 "Ultimate Solution to Your Page Building Experience Using Templates."
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:170
+#: inc/nexter-enqueue-style-script.php:160
 msgid "Visit Here"
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:170
+#: inc/nexter-enqueue-style-script.php:160
 msgid " to Learn More About Nexter Extension."
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:171
+#: inc/nexter-enqueue-style-script.php:161
 msgid "Install Nexter Extension"
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:204
+#: inc/nexter-enqueue-style-script.php:194
 msgid "Insufficient permissions."
 msgstr ""
 
-#: inc/nexter-enqueue-style-script.php:239
+#: inc/nexter-enqueue-style-script.php:229
 msgid "Failed to retrieve plugin information."
 msgstr ""
 
@@ -255,60 +255,60 @@ msgstr ""
 msgid "Select Template"
 msgstr ""
 
-#: inc/core-function/nxt-helper-function.php:153
-#: inc/custom-metabox/nexter-sidebar-settings.php:84
+#: inc/core-function/nxt-helper-function.php:155
+#: inc/custom-metabox/nexter-sidebar-settings.php:85
 msgid "Custom Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:15
+#: inc/custom-metabox/nexter-sidebar-settings.php:16
 msgid "Sidebar Settings"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:38
+#: inc/custom-metabox/nexter-sidebar-settings.php:39
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:91
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:169
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:252
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:335
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:171
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:224
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:178
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:231
 msgid "Display Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:43
+#: inc/custom-metabox/nexter-sidebar-settings.php:44
 msgid "Customizer Default"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:47
+#: inc/custom-metabox/nexter-sidebar-settings.php:48
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:68
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:147
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:230
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:313
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:159
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:212
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:166
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:219
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:51
+#: inc/custom-metabox/nexter-sidebar-settings.php:52
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:72
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:151
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:234
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:317
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:160
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:213
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:167
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:220
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:55
+#: inc/custom-metabox/nexter-sidebar-settings.php:56
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:76
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:155
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:238
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:321
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:161
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:214
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:168
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:221
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:73
+#: inc/custom-metabox/nexter-sidebar-settings.php:74
 msgid "Select Sidebar"
 msgstr ""
 
@@ -319,12 +319,12 @@ msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:36
 #: inc/customizer/customizer-config/general/class-layout-container.php:45
-#: inc/customizer/customizer-config/general/class-layout-container.php:74
-#: inc/customizer/customizer-config/general/class-layout-container.php:153
-#: inc/customizer/customizer-config/general/class-layout-container.php:233
-#: inc/customizer/customizer-config/general/class-layout-container.php:316
-#: inc/customizer/customizer-config/general/class-layout-container.php:416
-#: inc/customizer/customizer-config/general/class-layout-container.php:500
+#: inc/customizer/customizer-config/general/class-layout-container.php:64
+#: inc/customizer/customizer-config/general/class-layout-container.php:141
+#: inc/customizer/customizer-config/general/class-layout-container.php:215
+#: inc/customizer/customizer-config/general/class-layout-container.php:291
+#: inc/customizer/customizer-config/general/class-layout-container.php:384
+#: inc/customizer/customizer-config/general/class-layout-container.php:461
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:77
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:85
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:92
@@ -333,14 +333,14 @@ msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:45
 #: inc/customizer/customizer-config/general/class-header.php:34
-#: inc/customizer/customizer-config/general/class-layout-container.php:66
+#: inc/customizer/customizer-config/general/class-layout-container.php:52
 #: inc/third-party/class-beaver-build-theme.php:85
 msgid "Header"
 msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:57
 #: inc/customizer/customizer-config/general/class-footer.php:34
-#: inc/customizer/customizer-config/general/class-layout-container.php:145
+#: inc/customizer/customizer-config/general/class-layout-container.php:129
 #: inc/third-party/class-beaver-build-theme.php:113
 msgid "Footer"
 msgstr ""
@@ -392,27 +392,27 @@ msgid "Heading H1"
 msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:209
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:156
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:138
 msgid "Heading H2"
 msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:218
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:264
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:230
 msgid "Heading H3"
 msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:227
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:369
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:319
 msgid "Heading H4"
 msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:236
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:480
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:414
 msgid "Heading H5"
 msgstr ""
 
 #: inc/customizer/customizer-register-panels-sections.php:245
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:586
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:504
 msgid "Heading H6"
 msgstr ""
 
@@ -449,9 +449,9 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:317
 #: inc/customizer/customizer-config/blog/class-single-blog.php:330
 #: inc/customizer/customizer-config/blog/class-single-blog.php:345
-#: inc/customizer/customizer-config/general/class-layout-container.php:312
-#: inc/customizer/customizer-config/general/class-layout-container.php:412
-#: inc/customizer/customizer-config/general/class-layout-container.php:496
+#: inc/customizer/customizer-config/general/class-layout-container.php:287
+#: inc/customizer/customizer-config/general/class-layout-container.php:380
+#: inc/customizer/customizer-config/general/class-layout-container.php:457
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:143
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:226
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:309
@@ -459,8 +459,8 @@ msgstr ""
 #: inc/customizer/customizer-config/typography/class-body-typography.php:81
 #: inc/customizer/customizer-config/typography/class-body-typography.php:96
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:91
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:158
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:211
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:165
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:218
 msgid "Default"
 msgstr ""
 
@@ -582,11 +582,11 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:167
 #: inc/customizer/customizer-config/blog/class-single-blog.php:302
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:82
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:193
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:301
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:409
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:517
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:625
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:175
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:267
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:359
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:451
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:543
 msgid "Inherit"
 msgstr ""
 
@@ -607,7 +607,7 @@ msgid "Custom Fonts"
 msgstr ""
 
 #: inc/customizer/controls/typography/nexter-control-typography.php:118
-#: inc/panel-settings/plus-settings-options.php:150
+#: inc/panel-settings/plus-settings-options.php:152
 msgid "Google Fonts"
 msgstr ""
 
@@ -698,7 +698,7 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:107
 #: inc/customizer/customizer-config/blog/class-single-blog.php:120
 #: inc/customizer/customizer-config/blog/class-single-blog.php:133
-#: inc/customizer/customizer-config/general/class-body-style.php:124
+#: inc/customizer/customizer-config/general/class-body-style.php:125
 #: inc/customizer/customizer-config/general/class-footer.php:47
 #: inc/customizer/customizer-config/general/class-header.php:47
 #: inc/customizer/customizer-config/general/class-maintenance-mode.php:56
@@ -713,7 +713,7 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:108
 #: inc/customizer/customizer-config/blog/class-single-blog.php:121
 #: inc/customizer/customizer-config/blog/class-single-blog.php:134
-#: inc/customizer/customizer-config/general/class-body-style.php:125
+#: inc/customizer/customizer-config/general/class-body-style.php:126
 #: inc/customizer/customizer-config/general/class-footer.php:48
 #: inc/customizer/customizer-config/general/class-header.php:48
 #: inc/customizer/customizer-config/general/class-maintenance-mode.php:57
@@ -758,11 +758,11 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:305
 #: inc/customizer/customizer-config/typography/class-body-typography.php:56
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:56
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:167
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:275
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:383
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:491
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:599
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:149
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:241
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:333
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:425
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:517
 msgid "Font Family"
 msgstr ""
 
@@ -776,11 +776,11 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:332
 #: inc/customizer/customizer-config/typography/class-body-typography.php:83
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:66
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:177
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:285
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:393
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:501
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:609
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:159
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:251
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:343
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:435
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:527
 msgid "Font Weight"
 msgstr ""
 
@@ -788,11 +788,11 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:343
 #: inc/customizer/customizer-config/typography/class-body-typography.php:94
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:75
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:186
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:294
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:402
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:510
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:618
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:168
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:260
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:352
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:444
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:536
 msgid "Text Transform"
 msgstr ""
 
@@ -800,11 +800,11 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:347
 #: inc/customizer/customizer-config/typography/class-body-typography.php:98
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:84
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:195
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:303
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:411
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:519
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:627
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:177
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:269
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:361
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:453
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:545
 msgid "Capitalize"
 msgstr ""
 
@@ -812,11 +812,11 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:348
 #: inc/customizer/customizer-config/typography/class-body-typography.php:99
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:85
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:196
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:304
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:412
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:520
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:628
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:178
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:270
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:362
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:454
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:546
 msgid "Uppercase"
 msgstr ""
 
@@ -824,35 +824,35 @@ msgstr ""
 #: inc/customizer/customizer-config/blog/class-single-blog.php:349
 #: inc/customizer/customizer-config/typography/class-body-typography.php:100
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:86
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:197
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:305
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:413
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:521
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:629
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:179
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:271
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:363
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:455
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:547
 msgid "Lowercase"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:224
 #: inc/customizer/customizer-config/blog/class-single-blog.php:359
 #: inc/customizer/customizer-config/typography/class-body-typography.php:122
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:116
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:225
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:333
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:441
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:549
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:657
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:98
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:191
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:283
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:375
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:467
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:559
 msgid "Font Size"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:244
 #: inc/customizer/customizer-config/blog/class-single-blog.php:379
 #: inc/customizer/customizer-config/typography/class-body-typography.php:141
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:131
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:239
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:347
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:455
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:563
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:671
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:113
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:205
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:297
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:389
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:481
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:573
 msgid "Line Height"
 msgstr ""
 
@@ -873,62 +873,62 @@ msgstr ""
 msgid "Post Meta Color"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:44
+#: inc/customizer/customizer-config/general/class-body-style.php:45
 msgid "Body Background"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:55
+#: inc/customizer/customizer-config/general/class-body-style.php:56
 msgid "Background"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:70
-#: inc/customizer/customizer-config/general/class-body-style.php:81
+#: inc/customizer/customizer-config/general/class-body-style.php:71
+#: inc/customizer/customizer-config/general/class-body-style.php:82
 msgid "Content Background"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:93
+#: inc/customizer/customizer-config/general/class-body-style.php:94
 msgid "Body Frame"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:105
+#: inc/customizer/customizer-config/general/class-body-style.php:106
 msgid "Body Frame (Space)"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:109
+#: inc/customizer/customizer-config/general/class-body-style.php:110
 msgid "Top"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:110
-#: inc/customizer/customizer-config/general/class-layout-container.php:114
-#: inc/customizer/customizer-config/general/class-layout-container.php:195
-#: inc/customizer/customizer-config/general/class-layout-container.php:273
-#: inc/customizer/customizer-config/general/class-layout-container.php:373
-#: inc/customizer/customizer-config/general/class-layout-container.php:457
-#: inc/customizer/customizer-config/general/class-layout-container.php:541
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:125
+#: inc/customizer/customizer-config/general/class-body-style.php:111
+#: inc/customizer/customizer-config/general/class-layout-container.php:111
+#: inc/customizer/customizer-config/general/class-layout-container.php:190
+#: inc/customizer/customizer-config/general/class-layout-container.php:262
+#: inc/customizer/customizer-config/general/class-layout-container.php:355
+#: inc/customizer/customizer-config/general/class-layout-container.php:432
+#: inc/customizer/customizer-config/general/class-layout-container.php:509
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:132
 msgid "Right"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:111
+#: inc/customizer/customizer-config/general/class-body-style.php:112
 msgid "Bottom"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:112
-#: inc/customizer/customizer-config/general/class-layout-container.php:113
-#: inc/customizer/customizer-config/general/class-layout-container.php:194
-#: inc/customizer/customizer-config/general/class-layout-container.php:272
-#: inc/customizer/customizer-config/general/class-layout-container.php:372
-#: inc/customizer/customizer-config/general/class-layout-container.php:456
-#: inc/customizer/customizer-config/general/class-layout-container.php:540
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:124
+#: inc/customizer/customizer-config/general/class-body-style.php:113
+#: inc/customizer/customizer-config/general/class-layout-container.php:110
+#: inc/customizer/customizer-config/general/class-layout-container.php:189
+#: inc/customizer/customizer-config/general/class-layout-container.php:261
+#: inc/customizer/customizer-config/general/class-layout-container.php:354
+#: inc/customizer/customizer-config/general/class-layout-container.php:431
+#: inc/customizer/customizer-config/general/class-layout-container.php:508
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:131
 msgid "Left"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:122
+#: inc/customizer/customizer-config/general/class-body-style.php:123
 msgid "Fixed Body Frame"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-body-style.php:135
+#: inc/customizer/customizer-config/general/class-body-style.php:136
 msgid "Frame Color"
 msgstr ""
 
@@ -940,61 +940,61 @@ msgstr ""
 msgid "Disable Header"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:78
-#: inc/customizer/customizer-config/general/class-layout-container.php:157
-#: inc/customizer/customizer-config/general/class-layout-container.php:237
-#: inc/customizer/customizer-config/general/class-layout-container.php:320
-#: inc/customizer/customizer-config/general/class-layout-container.php:420
-#: inc/customizer/customizer-config/general/class-layout-container.php:504
+#: inc/customizer/customizer-config/general/class-layout-container.php:68
+#: inc/customizer/customizer-config/general/class-layout-container.php:145
+#: inc/customizer/customizer-config/general/class-layout-container.php:219
+#: inc/customizer/customizer-config/general/class-layout-container.php:295
+#: inc/customizer/customizer-config/general/class-layout-container.php:388
+#: inc/customizer/customizer-config/general/class-layout-container.php:465
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:93
 msgid "Full Width"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:88
-#: inc/customizer/customizer-config/general/class-layout-container.php:169
+#: inc/customizer/customizer-config/general/class-layout-container.php:78
+#: inc/customizer/customizer-config/general/class-layout-container.php:157
 msgid "Container(Wide) Width"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:109
-#: inc/customizer/customizer-config/general/class-layout-container.php:190
-#: inc/customizer/customizer-config/general/class-layout-container.php:268
-#: inc/customizer/customizer-config/general/class-layout-container.php:368
-#: inc/customizer/customizer-config/general/class-layout-container.php:452
-#: inc/customizer/customizer-config/general/class-layout-container.php:536
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:120
+#: inc/customizer/customizer-config/general/class-layout-container.php:106
+#: inc/customizer/customizer-config/general/class-layout-container.php:185
+#: inc/customizer/customizer-config/general/class-layout-container.php:257
+#: inc/customizer/customizer-config/general/class-layout-container.php:350
+#: inc/customizer/customizer-config/general/class-layout-container.php:427
+#: inc/customizer/customizer-config/general/class-layout-container.php:504
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:127
 msgid "Spacing(Padding)"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:225
+#: inc/customizer/customizer-config/general/class-layout-container.php:207
 msgid "Content/Body"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:247
-#: inc/customizer/customizer-config/general/class-layout-container.php:349
-#: inc/customizer/customizer-config/general/class-layout-container.php:433
-#: inc/customizer/customizer-config/general/class-layout-container.php:517
+#: inc/customizer/customizer-config/general/class-layout-container.php:229
+#: inc/customizer/customizer-config/general/class-layout-container.php:324
+#: inc/customizer/customizer-config/general/class-layout-container.php:401
+#: inc/customizer/customizer-config/general/class-layout-container.php:478
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:99
 msgid "Container Width"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:304
+#: inc/customizer/customizer-config/general/class-layout-container.php:279
 msgid "Page Container"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:330
+#: inc/customizer/customizer-config/general/class-layout-container.php:305
 msgid "Block(Normal) Width"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:404
+#: inc/customizer/customizer-config/general/class-layout-container.php:372
 msgid "Single Post Container"
 msgstr ""
 
-#: inc/customizer/customizer-config/general/class-layout-container.php:488
+#: inc/customizer/customizer-config/general/class-layout-container.php:449
 msgid "Archive Posts Container"
 msgstr ""
 
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:35
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:142
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:149
 msgid "Side Bar"
 msgstr ""
 
@@ -1006,8 +1006,8 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:181
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:264
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:347
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:183
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:236
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:190
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:243
 msgid "Custom Sidebar Sections"
 msgstr ""
 
@@ -1111,146 +1111,146 @@ msgstr ""
 msgid "Paragraph (P) Margin Bottom"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:62
+#: inc/panel-settings/plus-settings-options.php:65
 msgid " Settings"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:62
-#: inc/panel-settings/plus-settings-options.php:64
-msgid "Nexter Settings"
+#: inc/panel-settings/plus-settings-options.php:65
+#: inc/panel-settings/plus-settings-options.php:67
+msgid "Nexter Extension"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:101
+#: inc/panel-settings/plus-settings-options.php:103
 msgid "Install Nexter Extension to Unlock Nexter Theme"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:102
+#: inc/panel-settings/plus-settings-options.php:104
 msgid ""
 "To get the most out of Nexter Theme, we recommend installing Nexter "
 "Extension to unlock its full potential and access all features."
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:104
+#: inc/panel-settings/plus-settings-options.php:106
 msgid "Install & Activate Nexter Extension"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:105
+#: inc/panel-settings/plus-settings-options.php:107
 msgid "View Features"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:109
+#: inc/panel-settings/plus-settings-options.php:111
 msgid "Theme Builder :"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:111
+#: inc/panel-settings/plus-settings-options.php:113
 msgid "Advanced Header Builder"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:112
+#: inc/panel-settings/plus-settings-options.php:114
 msgid "Advanced Footer Builder"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:113
+#: inc/panel-settings/plus-settings-options.php:115
 msgid "Breadcrumbs Bar"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:114
+#: inc/panel-settings/plus-settings-options.php:116
 msgid "404 Page"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:115
+#: inc/panel-settings/plus-settings-options.php:117
 msgid "Single Pages"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:116
+#: inc/panel-settings/plus-settings-options.php:118
 msgid "Archive Pages"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:117
+#: inc/panel-settings/plus-settings-options.php:119
 msgid "Display Rules for Theme Builder"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:118
+#: inc/panel-settings/plus-settings-options.php:120
 msgid "Action & Filter Hooks"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:122
+#: inc/panel-settings/plus-settings-options.php:124
 msgid "Extra Options :"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:124
+#: inc/panel-settings/plus-settings-options.php:126
 msgid "Adobe Fonts"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:125
+#: inc/panel-settings/plus-settings-options.php:127
 msgid "Disable Admin Settings"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:126
+#: inc/panel-settings/plus-settings-options.php:128
 msgid "Duplicate Post"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:127
+#: inc/panel-settings/plus-settings-options.php:129
 msgid "Branded WP Admin"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:128
+#: inc/panel-settings/plus-settings-options.php:130
 msgid "Custom Upload Fonts"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:129
+#: inc/panel-settings/plus-settings-options.php:131
 msgid "Replace Text & URL"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:130
+#: inc/panel-settings/plus-settings-options.php:132
 msgid "Regenerate Thumbnails"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:134
+#: inc/panel-settings/plus-settings-options.php:136
 msgid "Code Snippets :"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:136
+#: inc/panel-settings/plus-settings-options.php:138
 msgid "Add HTML, CSS, JS & PHP Code"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:137
+#: inc/panel-settings/plus-settings-options.php:139
 msgid "Smart Code Error Handling"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:138
+#: inc/panel-settings/plus-settings-options.php:140
 msgid "Conditional Code Load"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:145
+#: inc/panel-settings/plus-settings-options.php:147
 msgid "Performance :"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:147
+#: inc/panel-settings/plus-settings-options.php:149
 msgid "Advanced Performance"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:148
+#: inc/panel-settings/plus-settings-options.php:150
 msgid "Disable Image Sizes"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:149
+#: inc/panel-settings/plus-settings-options.php:151
 msgid "Disable Icons"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:156
+#: inc/panel-settings/plus-settings-options.php:158
 msgid "Security :"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:158
+#: inc/panel-settings/plus-settings-options.php:160
 msgid "Advanced Security"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:159
+#: inc/panel-settings/plus-settings-options.php:161
 msgid "Content Protections"
 msgstr ""
 
-#: inc/panel-settings/plus-settings-options.php:160
+#: inc/panel-settings/plus-settings-options.php:162
 msgid "2-Factor Authentication"
 msgstr ""
 
@@ -1325,15 +1325,15 @@ msgstr ""
 msgid "Nexter Singular Template"
 msgstr ""
 
-#: inc/third-party/woocommerce/nexter-woocommerce-config.php:210
+#: inc/third-party/woocommerce/nexter-woocommerce-config.php:212
 msgid "Out of stock"
 msgstr ""
 
-#: inc/third-party/woocommerce/nexter-woocommerce-config.php:239
+#: inc/third-party/woocommerce/nexter-woocommerce-config.php:241
 msgid "Sale"
 msgstr ""
 
-#: inc/third-party/woocommerce/nexter-woocommerce-config.php:283
+#: inc/third-party/woocommerce/nexter-woocommerce-config.php:285
 #, php-format
 msgctxt "product categories"
 msgid "(%1$s)"
@@ -1349,11 +1349,11 @@ msgstr ""
 msgid "Secondary Color"
 msgstr ""
 
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:156
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:163
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:209
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:216
 msgid "Single Product"
 msgstr ""
 

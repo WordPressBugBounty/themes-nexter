@@ -268,7 +268,7 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 				'.editor-styles-wrapper .block-editor-block-list__block' => array(
                     'font-family' => nexter_get_font_family_css($body_fontfamily),
                 ),
-				'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container p' => array(
+				':where(.editor-styles-wrapper) p' => array(
                     'margin-bottom' => nexter_get_option_css_value($paragraphy_mb, 'em')
                 ),
             );

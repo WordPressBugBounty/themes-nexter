@@ -191,7 +191,7 @@ if ( ! class_exists( 'Nexter_Body_General_Colors' ) ) {
 			$style =array();
 			
 			$style  = array(
-                'body :where(.editor-styles-wrapper),.block-editor-block-list__block' => array(
+                'body :where(.editor-styles-wrapper)' => array(
                     'color' => esc_attr($body_color),
 				),
 				'.editor-styles-wrapper a, .editor-styles-wrapper .page-title,.wp-block-navigation .wp-block-navigation__container' => array(

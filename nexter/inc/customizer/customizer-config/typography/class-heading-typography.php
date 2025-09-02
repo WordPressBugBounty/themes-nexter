@@ -87,24 +87,6 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					),
 				),
 
-				// array(
-				// 	'name'        => NXT_OPTIONS . '[font-size-h1]',
-				// 	'type'        => 'control',
-				// 	'control'     => 'nxt-responsive',
-				// 	'section'     => 'section-heading-h1-typo',
-				// 	'default'     => nexter_get_option( 'font-size-h1' ),
-				// 	'transport'   => 'postMessage',
-				// 	'priority'    => 5,
-				// 	'title'       => __( 'Font Size', 'nexter' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
-
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-h1]',
 					'type'        => 'control',
@@ -197,23 +179,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
 					),
 				),
-				// array(
-				// 	'name'        => NXT_OPTIONS . '[font-size-h2]',
-				// 	'type'        => 'control',
-				// 	'control'     => 'nxt-responsive',
-				// 	'section'     => 'section-heading-h2-typo',
-				// 	'default'     => nexter_get_option( 'font-size-h2' ),
-				// 	'transport'   => 'postMessage',
-				// 	'priority'    => 5,
-				// 	'title'       => __( 'Font Size', 'nexter' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
+				
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-h2]',
 					'type'        => 'control',
@@ -305,23 +271,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
 					),
 				),
-				// array(
-				// 	'name'        => NXT_OPTIONS . '[font-size-h3]',
-				// 	'type'        => 'control',
-				// 	'control'     => 'nxt-responsive',
-				// 	'section'     => 'section-heading-h3-typo',
-				// 	'priority'    => 5,
-				// 	'default'     => nexter_get_option( 'font-size-h3' ),
-				// 	'transport'   => 'postMessage',
-				// 	'title'       => __( 'Font Size', 'nexter' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
+				
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-h3]',
 					'type'        => 'control',
@@ -413,23 +363,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
 					),
 				),
-				// array(
-				// 	'name'        => NXT_OPTIONS . '[font-size-h4]',
-				// 	'type'        => 'control',
-				// 	'control'     => 'nxt-responsive',
-				// 	'section'     => 'section-heading-h4-typo',
-				// 	'default'     => nexter_get_option( 'font-size-h4' ),
-				// 	'transport'   => 'postMessage',
-				// 	'priority'    => 4,
-				// 	'title'       => __( 'Font Size', 'nexter' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
+				
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-h4]',
 					'type'        => 'control',
@@ -521,23 +455,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
 					),
 				),
-				// array(
-				// 	'name'        => NXT_OPTIONS . '[font-size-h5]',
-				// 	'type'        => 'control',
-				// 	'control'     => 'nxt-responsive',
-				// 	'section'     => 'section-heading-h5-typo',
-				// 	'default'     => nexter_get_option( 'font-size-h5' ),
-				// 	'transport'   => 'postMessage',
-				// 	'priority'    => 5,
-				// 	'title'       => __( 'Font Size', 'nexter' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
+				
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-h5]',
 					'type'        => 'control',
@@ -629,23 +547,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
 					),
 				),
-				// array(
-				// 	'name'        => NXT_OPTIONS . '[font-size-h6]',
-				// 	'type'        => 'control',
-				// 	'control'     => 'nxt-responsive',
-				// 	'section'     => 'section-heading-h6-typo',
-				// 	'default'     => nexter_get_option( 'font-size-h6' ),
-				// 	'transport'   => 'postMessage',
-				// 	'priority'    => 5,
-				// 	'title'       => __( 'Font Size', 'nexter' ),
-				// 	'input_attrs' => array(
-				// 		'min' => 0,
-				// 	),
-				// 	'units'       => array(
-				// 		'px' => 'px',
-				// 		'em' => 'em',
-				// 	),
-				// ),
+				
 				array(
 					'name'        => NXT_OPTIONS . '[font-size-h6]',
 					'type'        => 'control',
@@ -752,12 +654,12 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 		 */
 		public static function gutenberg_dynamic_css( $theme_css ){
 			
-			$heading_selector = [ 'h1' => '.edit-post-visual-editor h1:not(.editor-post-title),.editor-styles-wrapper h1:not(.editor-post-title),.editor-styles-wrapper h1:not(.editor-post-title) a, .editor-styles-wrapper h1.block-editor-block-list__block:not(.editor-post-title)',
-					   'h2' => '.edit-post-visual-editor h2,.editor-styles-wrapper h2, .editor-styles-wrapper h2 a, .editor-styles-wrapper h2.block-editor-block-list__block',
-					   'h3' => '.edit-post-visual-editor h3,.editor-styles-wrapper h3, .editor-styles-wrapper h3 a, .archive-post-title a, .editor-styles-wrapper h3.block-editor-block-list__block',
-					   'h4' => '.edit-post-visual-editor h4,.editor-styles-wrapper h4, .editor-styles-wrapper h4 a, .editor-styles-wrapper h4.block-editor-block-list__block',
-					   'h5' => '.edit-post-visual-editor h5, .editor-styles-wrapper h5, .editor-styles-wrapper h5 a, .editor-styles-wrapper h5.block-editor-block-list__block',
-					   'h6' => '.edit-post-visual-editor h6,.editor-styles-wrapper h6, .editor-styles-wrapper h6 a, .editor-styles-wrapper h6.block-editor-block-list__block'
+			$heading_selector = [ 'h1' => ':where(.editor-styles-wrapper) h1,:where(.editor-styles-wrapper) h1 a, .editor-styles-wrapper h1.block-editor-block-list__block:not(.editor-post-title)',
+					   'h2' => ':where(.editor-styles-wrapper) h2, :where(.editor-styles-wrapper) h2 a, .editor-styles-wrapper h2.block-editor-block-list__block',
+					   'h3' => ':where(.editor-styles-wrapper) h3, :where(.editor-styles-wrapper) h3 a, .archive-post-title a, .editor-styles-wrapper h3.block-editor-block-list__block',
+					   'h4' => ':where(.editor-styles-wrapper) h4, :where(.editor-styles-wrapper) h4 a, .editor-styles-wrapper h4.block-editor-block-list__block',
+					   'h5' => ':where(.editor-styles-wrapper) h5, :where(.editor-styles-wrapper) h5 a, .editor-styles-wrapper h5.block-editor-block-list__block',
+					   'h6' => ':where(.editor-styles-wrapper) h6, :where(.editor-styles-wrapper) h6 a, .editor-styles-wrapper h6.block-editor-block-list__block'
 					];
 					   
 			$opt_val = [];		   

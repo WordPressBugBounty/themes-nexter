@@ -24,21 +24,21 @@
 			
 			//Site Header Block Container Width
             //Site Header Container Width
-			$this.containerCss( themeOption + '[site-header-container-width]', '#nxt-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),#nxt-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),#nxt-header .nxt-container-block-editor .alignwide:not(.tpgb-container-row),#nxt-header .nxt-container', 'max-width' );
+			$this.containerCss( themeOption + '[site-header-container-width]', '#nxt-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),#nxt-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce), .nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),#nxt-header .nxt-container-block-editor .alignwide:not(.tpgb-container-row),#nxt-header .nxt-container-block-editor .alignwide.tpgb-nxtcont-type,#nxt-header .nxt-container', 'max-width' );
 			
 			//Site Header Container Fluid Spacing
 			$this.responsiveDimension( themeOption + '[header-fluid-spacing]', '#nxt-header .nxt-container-fluid', 'padding', ['right', 'left' ] );
 			
 			//Site Footer Block Container Width
             //Site Footer Container Width
-			$this.containerCss( themeOption + '[site-footer-container-width]', '#nxt-footer .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-footer .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),#nxt-footer .nxt-container-block-editor .alignwide:not(.tpgb-container-row),#nxt-footer .nxt-container', 'max-width' );
+			$this.containerCss( themeOption + '[site-footer-container-width]', '#nxt-footer .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-footer .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),#nxt-footer .nxt-container-block-editor .alignwide:not(.tpgb-container-row),#nxt-footer .nxt-container-block-editor .alignwide.tpgb-nxtcont-type,#nxt-footer .nxt-container', 'max-width' );
 			
             //Site Footer Container Fluid Spacing
 			$this.responsiveDimension( themeOption + '[footer-fluid-spacing]', '#nxt-footer .nxt-container-fluid', 'padding', ['right', 'left' ] );
 
 			//Site Block Container Width
             //Site Container Width
-			$this.containerCss( themeOption + '[layout-container]', '.site-content .nxt-container-block-editor > .nxt-row article > .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),.nxt-container-block-editor .site-main > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull), .site-content > .nxt-container-block-editor > *:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),.site-content .nxt-container-block-editor .alignwide:not(.tpgb-container-row),.site-content .nxt-container', 'max-width' );
+			$this.containerCss( themeOption + '[layout-container]', '.site-content .nxt-container-block-editor > .nxt-row article > .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),.nxt-container-block-editor .site-main > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull), .site-content > .nxt-container-block-editor > *:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),.site-content .nxt-container-block-editor .alignwide:not(.tpgb-container-row),.site-content .nxt-container-block-editor .alignwide.tpgb-nxtcont-type,.site-content .nxt-container', 'max-width' );
 			
 			//Site Container Fluid Spacing
 			$this.responsiveDimension( themeOption + '[site-fluid-spacing]', '.site-content .nxt-container-fluid:not(.nxt-archive-cont),.site-content .nxt-container-fluid:not(.nxt-archive-cont) .nxt-row .nxt-col', 'padding', ['right', 'left' ] );
@@ -46,7 +46,7 @@
 
 			//Page Block Container Width
             //Page Container
-			$this.containerCss( themeOption + '[layout-page-container]', '.site-content .nxt-page-cont.nxt-container-block-editor >.nxt-row article >.entry-content >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),.site-content .nxt-page-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .nxt-page-cont.nxt-container', 'max-width' );
+			$this.containerCss( themeOption + '[layout-page-container]', '.site-content .nxt-page-cont.nxt-container-block-editor >.nxt-row article >.entry-content >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce),.site-content .nxt-page-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row),.site-content .nxt-page-cont.nxt-container-block-editor .alignwide.tpgb-nxtcont-type, .nxt-page-cont.nxt-container', 'max-width' );
 			
             //Page Container Fluid Spacing
 			$this.responsiveDimension( themeOption + '[page-fluid-spacing]', '.site-content .nxt-page-cont.nxt-container-fluid,.site-content .nxt-page-cont.nxt-container-fluid .nxt-row .nxt-col', 'padding', ['right', 'left' ] );
@@ -62,7 +62,7 @@
 
 			//Archive Block Container Width
             //Archive Container
-			$this.containerCss( themeOption + '[layout-archive-container]', '.site-content >.nxt-container-block-editor.nxt-archive-cont >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull), .nxt-container-block-editor.nxt-archive-cont .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull),.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-archive-cont.nxt-container', 'max-width' );
+			$this.containerCss( themeOption + '[layout-archive-container]', '.site-content >.nxt-container-block-editor.nxt-archive-cont >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull), .nxt-container-block-editor.nxt-archive-cont .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull),.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row),.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide.tpgb-nxtcont-type, .site-content .nxt-archive-cont.nxt-container', 'max-width' );
 			
 			//Archive Container Fluid Spacing
             $this.responsiveDimension( themeOption + '[archive-fluid-spacing]', '.site-content .nxt-archive-cont.nxt-container-fluid,.site-content .nxt-archive-cont.nxt-container-fluid .site-main > .nxt-row > .nxt-col', 'padding', ['right', 'left' ] );

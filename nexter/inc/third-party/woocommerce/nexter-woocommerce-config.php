@@ -148,7 +148,9 @@ if ( ! class_exists( 'Nexter_Woocommerce_Compatibility' ) ) {
 		 */
 		public function enqueue_scripts() {
 			$minified = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-			wp_enqueue_style( 'nxt-woocommerce', NXT_CSS_URI .'main/woocommerce'. $minified .'.css', false, NXT_VERSION, 'all');
+			if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
+				wp_enqueue_style( 'nxt-woocommerce', NXT_CSS_URI .'main/woocommerce'. $minified .'.css', false, NXT_VERSION, 'all');
+			}
 		}
 		
 		/**

@@ -21,6 +21,7 @@ if ( ! class_exists( 'Nexter_Body_Style' ) ) {
 		 */
 		public function __construct() {
 			add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'nxt_gutenberg_render_theme_css', array( $this, 'gutenberg_dynamic_css' ),1 );
 			parent::__construct();
 		}
 		
@@ -220,6 +221,23 @@ if ( ! class_exists( 'Nexter_Body_Style' ) ) {
 			
 			return $theme_css;
 		}
+
+		/*
+		 * Gutenberg Dynamic Theme Options Css 
+		 * @since 1.0.8
+		 */
+		public static function gutenberg_dynamic_css( $theme_css ){
+			$body_bgcolor	= nexter_get_option('body-bgcolor');
+			
+			if(!empty($body_bgcolor)){
+				$theme_css[]  = array(
+					'body :where(.editor-styles-wrapper)' => nexter_get_background_css($body_bgcolor),
+				);
+			}
+
+			return $theme_css;
+		}
+		
 	}
 }
 

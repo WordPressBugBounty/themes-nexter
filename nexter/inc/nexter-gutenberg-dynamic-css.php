@@ -27,7 +27,15 @@ if (!class_exists('Nexter_Gutenberg_Dynamic_Css')) {
             $theme_css = apply_filters( 'nxt_gutenberg_render_theme_css', $theme_css );
            
             foreach($theme_css as $key => $value){
-                if($key==='tablet' && !empty($value)){
+                if($key==='root_tablet' && !empty($value)){
+                
+                    $parse_css .= nexter_generate_css($value, '', '780'); //Root tablet
+                    
+                }else if($key==='root' && !empty($value)){
+                
+                    $parse_css .= nexter_generate_css($value); //Root desktop
+                    
+                }else if($key==='tablet' && !empty($value)){
                 
                     $parse_tablet_css .= nexter_generate_css($value, '', '1024');   //tablet max=1024
                     

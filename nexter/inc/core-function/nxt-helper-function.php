@@ -108,9 +108,11 @@ if( ! function_exists('nexter_content_load') ){
 		
 		if(!empty( $post_id ) && $post_id != 'none' ){
 			$post_id = apply_filters( 'wpml_object_id', $post_id, NXT_BUILD_POST, TRUE  );
-			$page_builder_base_instance = Nexter_Builder_Compatibility::get_instance();
-			$page_builder_instance = $page_builder_base_instance->get_active_page_builder( $post_id );
-			$page_builder_instance->render_content( $post_id );
+			if ( class_exists( 'Nexter_Builder_Compatibility' ) ) {
+				$page_builder_base_instance = Nexter_Builder_Compatibility::get_instance();
+				$page_builder_instance = $page_builder_base_instance->get_active_page_builder( $post_id );
+				$page_builder_instance->render_content( $post_id );
+			}
 		}
 	}
 }

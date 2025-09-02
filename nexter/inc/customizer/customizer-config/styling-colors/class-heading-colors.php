@@ -146,12 +146,12 @@ if ( ! class_exists( 'Nexter_Heading_Colors' ) ) {
 		 */
 		public static function gutenberg_dynamic_css( $theme_css ){
 			
-			$heading_selector = [ 'h1' => '.edit-post-visual-editor h1:not(.editor-post-title), .editor-styles-wrapper h1:not(.editor-post-title) a',
-								'h2' => '.edit-post-visual-editor h2, .editor-styles-wrapper h2,.editor-styles-wrapper h2 a',
-								'h3' => '.edit-post-visual-editor h3, .editor-styles-wrapper h3, .editor-styles-wrapper h3 a',
-								'h4' => '.edit-post-visual-editor h4, .editor-styles-wrapper h4, .editor-styles-wrapper h4 a',
-								'h5' => '.edit-post-visual-editor h5, .editor-styles-wrapper h5, .editor-styles-wrapper h5 a',
-								'h6' => '.edit-post-visual-editor h6, .editor-styles-wrapper h6, .editor-styles-wrapper h6 a'
+			$heading_selector = [ 'h1' => ':where(.editor-styles-wrapper) h1, :where(.editor-styles-wrapper) h1 a',
+								'h2' => ':where(.editor-styles-wrapper) h2, :where(.editor-styles-wrapper) h2 a',
+								'h3' => ':where(.editor-styles-wrapper) h3, :where(.editor-styles-wrapper) h3 a',
+								'h4' => ':where(.editor-styles-wrapper) h4, :where(.editor-styles-wrapper) h4 a',
+								'h5' => ':where(.editor-styles-wrapper) h5, :where(.editor-styles-wrapper) h5 a',
+								'h6' => ':where(.editor-styles-wrapper) h6, :where(.editor-styles-wrapper) h6 a'
 							];
 			$style = [];			
 			foreach($heading_selector as $key => $selector){
