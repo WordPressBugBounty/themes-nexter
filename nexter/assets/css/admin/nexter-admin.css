@@ -1590,7 +1590,65 @@ button.nxt-wl-save-btn {
     background: #22379C;
     border-radius: 10px;
 }
+ /*Admin Notice Style*/
+.nexter-license-activate {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	padding: 20px;
+}
 
+.nexter-license-content h2 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #1c1c1c;
+}
+
+.nexter-license-content p {
+	margin: 8px 0;
+	color: #5e5e5e;
+	font-size: 12px;
+}
+
+.nxt-nobtn-secondary, .nxt-nobtn-primary{
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-decoration: none;
+    display: inline-flex
+}
+
+.nxt-nobtn-secondary, .nxt-nobtn-secondary:hover, .nxt-nobtn-secondary:focus {
+    background-color: #fff;
+    color: #1717CC;
+    border: 1px solid #1717CC;
+    box-shadow: none;
+    margin-left: 8px;
+    padding: 7px 16px;
+}
+.nxt-nobtn-primary,.nxt-nobtn-primary:hover, .nxt-nobtn-primary:focus {
+	background-color: #1717CC;
+	color: #fff;
+	border: none;
+	box-shadow: none;
+}
+
+.nxt-nobtn-primary:focus, .nxt-nobtn-secondary:focus {
+    box-shadow: none;
+    outline: none;
+}
+.nxt-notice-wrap .notice-dismiss:focus {
+    box-shadow: none;
+    outline: none;
+}
+.nxt-notice-wrap{
+    border-left-color: #1717CC;
+    padding-left: 0;
+}
+ /*Admin Notice Style*/
 /*tablet responsive start*/
 @media (min-width: 768px) and (max-width: 1024px){
     

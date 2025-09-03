@@ -150,17 +150,17 @@ if ( ! class_exists( 'Nexter_Load_Enqueue_Styles_Scripts' ) ) {
 			if ( $this->nexter_extension_activate() ) {
 				if ( ! current_user_can( 'activate_plugins' ) ) { return; }
 				$activation_url = wp_nonce_url( 'plugins.php?action=activate&amp;plugin=' . $plugin . '&amp;plugin_status=all&amp;paged=1&amp;s', 'activate-plugin_' . $plugin );
-				$admin_notice = '<h4 class="nxt-notice-head">' . esc_html__( 'Activate Nexter Extension Now !!!', 'nexter' ) . '</h4>';
+				$admin_notice = '<h2>' . esc_html__( 'Activate Nexter Extension Now !!!', 'nexter' ) . '</h2>';
 				$admin_notice .= '<p>' . esc_html__( 'Finally, You are Done Installing Nexter Theme & Extension as Well. Now It’s Time to Press the Pedal. Activate Nexter Extension and Get Over With it.', 'nexter' ). '</p>';
-				$admin_notice .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $activation_url, esc_html__( 'Activate Nexter Extension', 'nexter' ) ) . '</p>';
+				$admin_notice .= sprintf( '<a href="%s" class="nxt-nobtn-primary">%s</a>', $activation_url, esc_html__( 'Activate Nexter Extension', 'nexter' ) );
 			} else {
 				if ( ! current_user_can( 'install_plugins' ) ) { return; }
 				$install_url = wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=nexter-extension' ), 'install-plugin_nexter-extension' );
-				$admin_notice = '<h4 class="nxt-notice-head">' . esc_html__( 'It’s Time to Install Nexter Extension', 'nexter' ) . '</h4>';
+				$admin_notice = '<h2>' . esc_html__( 'It’s Time to Install Nexter Extension', 'nexter' ) . '</h2>';
 				$admin_notice .= '<p>' . esc_html__( 'Now You’ve Already Installed Nexter Theme, You Need to Install Nexter Extension in Order to Get the Most of out From it. Nexter Extension is an Ultimate Solution to Your Page Building Experience Using Templates.', 'nexter' ) .sprintf( ' <a href="%s" target="_blank" rel="noopener noreferrer" >%s</a>', esc_url('https://nexterwp.com'), esc_html__( 'Visit Here', 'nexter' ) ). esc_html__( ' to Learn More About Nexter Extension.', 'nexter' ) . '</p>';
-				$admin_notice .= '<p>' . sprintf( '<a href="%s" class="button-primary">%s</a>', $install_url, esc_html__( 'Install Nexter Extension', 'nexter' ) ) . '</p>';
+				$admin_notice .= sprintf( '<a href="%s" class="nxt-nobtn-primary">%s</a>', $install_url, esc_html__( 'Install Nexter Extension', 'nexter' ) );
 			}
-			echo '<div class="notice notice-info nexter-ext-notice is-dismissible">'.wp_kses_post($admin_notice).'</div>';
+			echo '<div class="notice notice-info nexter-ext-notice is-dismissible nxt-notice-wrap" data-notice-id="nexter_ext_install"><div class="nexter-license-activate"><div class="nexter-license-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"><rect width="24" height="24" fill="#1717CC" rx="5"></rect><path fill="#fff" d="M12.605 17.374c.026 0 .038.013.039.038.102 0 .192.014.27.04.025 0 .05.012.076.037.128.077.23.167.307.27v.038c0 .026.013.051.039.077v.038a.63.63 0 0 1 .038.193l-.038 1.882h-2.652v-2.613h1.921Zm.308-13.414c.128 0 .23.038.308.115a.259.259 0 0 1 .115.23V15.26c.025.153-.052.295-.23.423a.872.872 0 0 1-.578.192h-1.844V3.96h2.23Z"></path></svg></div><div class="nexter-license-content">'.wp_kses_post($admin_notice).'</div></div></div>';
 		}
 		
 		/**

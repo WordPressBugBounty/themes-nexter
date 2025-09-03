@@ -300,22 +300,6 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					),
 				),
 				array(
-					'name'        => NXT_OPTIONS . '[site-page-block-width]',
-					'default'     => nexter_get_option( 'site-page-block-width' ),
-					'title'       => __( 'Block(Normal) Width', 'nexter' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'control'     => 'nxt-responsive-slider',
-					'section'     => 'section-site-layout-container',
-					'priority'    => 7,
-					'input_attrs' => array(
-						'min'  => 300,
-						'step' => 1,
-						'max'  => 2000,
-					),
-					'conditional' => array( NXT_OPTIONS . '[site-page-container]', '==', 'container-block-editor' ),
-				),
-				array(
 					'name'              => NXT_OPTIONS . '[layout-page-container]',
 					'default'           => nexter_get_option( 'layout-page-container' ),
 					'type'              => 'control',
@@ -646,6 +630,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'#nxt-footer .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-footer .nxt-container-block-editor .tpgb-nxtcont-type, #nxt-footer .tpgb-container' => array(
                         'max-width' => (!empty($footer_container_width) && isset($footer_container_width['desktop']) && $footer_container_width['desktop']!='') ? nexter_get_option_css_value( $footer_container_width['desktop'], 'px' ) : '',
                     ),
+					'#nxt-footer .nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-md' => (!empty($footer_container_width) && isset($footer_container_width['desktop']) && $footer_container_width['desktop']!='') ? nexter_get_option_css_value( $footer_container_width['desktop'], 'px' ) : '',
+					],
                 );
 				$footer_container_css['tb'] = array(
                     '#nxt-footer.site-footer .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-footer.site-footer .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => array(
@@ -654,6 +641,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'#nxt-footer .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-footer .nxt-container-block-editor .tpgb-nxtcont-type, #nxt-footer .tpgb-container' => array(
                         'max-width' => (!empty($footer_container_width) && isset($footer_container_width['tablet']) && $footer_container_width['tablet']!='') ? nexter_get_option_css_value( $footer_container_width['tablet'], 'px' ) : '',
                     ),
+					'#nxt-footer .nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-sm' => (!empty($footer_container_width) && isset($footer_container_width['tablet']) && $footer_container_width['tablet']!='') ? nexter_get_option_css_value( $footer_container_width['tablet'], 'px' ) : '',
+					],
                 );
 				$footer_container_css['mb'] = array(
                     '#nxt-footer.site-footer .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load),#nxt-footer.site-footer .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => array(
@@ -662,6 +652,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'#nxt-footer .nxt-container-block-editor .alignwide:not(.tpgb-container-row), #nxt-footer .nxt-container-block-editor .tpgb-nxtcont-type, #nxt-footer .tpgb-container' => array(
                         'max-width' => (!empty($footer_container_width) && isset($footer_container_width['mobile']) && $footer_container_width['mobile']!='') ? nexter_get_option_css_value( $footer_container_width['mobile'], 'px' ) : '',
                     ),
+					'#nxt-footer .nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-xs' => (!empty($footer_container_width) && isset($footer_container_width['mobile']) && $footer_container_width['mobile']!='') ? nexter_get_option_css_value( $footer_container_width['mobile'], 'px' ) : '',
+					],
                 );
             }
 			if (!empty($footer_container) && $footer_container == 'container' && !empty($footer_container_width['desktop'])) {
@@ -785,6 +778,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 			//Page Container
 			$page_layout_container_css = ['dk'=> [],'tb'=>[],'mb'=>[]];
 			if (is_page() && !empty($site_page_container) && $site_page_container == 'container-block-editor') {
+				
                 $page_layout_container_css['dk'] = array(
                     '.site-content .nxt-page-cont.nxt-container-block-editor >.nxt-row article >.entry-content >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => array(
                         'max-width' => (!empty($layout_page_container) && isset($layout_page_container['desktop']) && $layout_page_container['desktop']!='') ? 'calc('.nexter_get_option_css_value( $layout_page_container['desktop'], 'px' ).' - 3rem)' : '',
@@ -792,6 +786,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-page-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-page-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_page_container) && isset($layout_page_container['desktop']) && $layout_page_container['desktop']!='') ? nexter_get_option_css_value( $layout_page_container['desktop'], 'px' ) : '',
                     ),
+					'.site-content .nxt-page-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-md' => (!empty($layout_page_container) && isset($layout_page_container['desktop']) && $layout_page_container['desktop']!='') ? nexter_get_option_css_value( $layout_page_container['desktop'], 'px' ) : '',
+					],
                 );
 				$page_layout_container_css['tb'] = array(
                     '.site-content .nxt-page-cont.nxt-container-block-editor >.nxt-row article >.entry-content >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => array(
@@ -846,6 +843,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-post-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_posts_container) && isset($layout_posts_container['desktop']) && $layout_posts_container['desktop']!='') ? nexter_get_option_css_value( $layout_posts_container['desktop'], 'px' ) : '',
                     ),
+					'.site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-md' => (!empty($layout_posts_container) && isset($layout_posts_container['desktop']) && $layout_posts_container['desktop']!='') ? nexter_get_option_css_value( $layout_posts_container['desktop'], 'px' ) : '',
+					],
                 );
 				$post_layout_container_css['tb'] = array(
                     '.site-content > .nxt-post-cont.nxt-container-block-editor .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-blog-single-post),.nxt-container-block-editor .site-main .nxt-blog-single-post > article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-single-post-content), .nxt-container-block-editor .site-main .nxt-single-post-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull), .site-content > .nxt-post-cont.nxt-container-block-editor >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull):not(.nxt-content-page-template), .nxt-container-block-editor > .nxt-content-page-template > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.content-area)' => array(
@@ -854,6 +854,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-post-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_posts_container) && isset($layout_posts_container['tablet']) && $layout_posts_container['tablet']!='') ? nexter_get_option_css_value( $layout_posts_container['tablet'], 'px' ) : '',
                     ),
+					'.site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-sm' => (!empty($layout_posts_container) && isset($layout_posts_container['tablet']) && $layout_posts_container['tablet']!='') ? nexter_get_option_css_value( $layout_posts_container['tablet'], 'px' ) : '',
+					],
                 );
 				$post_layout_container_css['mb'] = array(
                     '.site-content > .nxt-post-cont.nxt-container-block-editor .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-blog-single-post),.nxt-container-block-editor .site-main .nxt-blog-single-post > article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-single-post-content), .nxt-container-block-editor .site-main .nxt-single-post-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull), .site-content > .nxt-post-cont.nxt-container-block-editor >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull):not(.nxt-content-page-template), .nxt-container-block-editor > .nxt-content-page-template > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.content-area)' => array(
@@ -862,6 +865,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-post-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_posts_container) && isset($layout_posts_container['mobile']) && $layout_posts_container['mobile']!='') ? nexter_get_option_css_value( $layout_posts_container['mobile'], 'px' ) : '',
                     ),
+					'.site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-xs' => (!empty($layout_posts_container) && isset($layout_posts_container['mobile']) && $layout_posts_container['mobile']!='') ? nexter_get_option_css_value( $layout_posts_container['mobile'], 'px' ) : '',
+					],
                 );
             }
 			if (is_single() && !empty($site_posts_container) && $site_posts_container == 'container' ) {
@@ -886,13 +892,14 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 				$theme_css = self::dimension_value('post-fluid-spacing', '.site-content .nxt-container-fluid,.site-content .nxt-container-fluid .nxt-row .nxt-col', 'padding', $theme_css );
 				$theme_css = self::dimension_value('post-fluid-spacing', '.site-content .nxt-container-fluid .nxt-row', 'margin', $theme_css, 'minus' );
 			}
-			
+
 			$site_archive_container = nexter_get_option('site-archive-container');
 			$layout_archive_container = nexter_get_option('layout-archive-container');
 			
 			//Archive Container
 			$archive_layout_container_css = ['dk'=> [],'tb'=>[],'mb'=>[]];
-			if ((is_home() || is_archive() || is_search() || (isset( $wp_query ) && (bool) $wp_query->is_posts_page)) && (function_exists( 'is_shop' ) && !is_shop() && !is_woocommerce()) && !empty($site_archive_container) && $site_archive_container == 'container-block-editor') {
+			if ((is_home() || is_archive() || is_tax() || is_search() || (isset( $wp_query ) && (bool) $wp_query->is_posts_page)) && ( !function_exists('is_woocommerce') || !is_woocommerce() ) && !empty($site_archive_container) && $site_archive_container == 'container-block-editor') {
+				
                 $archive_layout_container_css['dk'] = array(
                     '.site-content >.nxt-container-block-editor.nxt-archive-cont >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull), .nxt-container-block-editor.nxt-archive-cont .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull)' => array(
                         'max-width' => (!empty($layout_archive_container) && isset($layout_archive_container['desktop']) && $layout_archive_container['desktop']!='') ? 'calc('.nexter_get_option_css_value( $layout_archive_container['desktop'], 'px' ).' - 3rem)' : '',
@@ -900,6 +907,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_archive_container) && isset($layout_archive_container['desktop']) && $layout_archive_container['desktop']!='') ? nexter_get_option_css_value( $layout_archive_container['desktop'], 'px' ) : '',
                     ),
+					'.site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-md' => (!empty($layout_archive_container) && isset($layout_archive_container['desktop']) && $layout_archive_container['desktop']!='') ? nexter_get_option_css_value( $layout_archive_container['desktop'], 'px' ) : '',
+					],
                 );
 				$archive_layout_container_css['tb'] = array(
                     '.site-content >.nxt-container-block-editor.nxt-archive-cont >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull), .nxt-container-block-editor.nxt-archive-cont .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull)' => array(
@@ -908,6 +918,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_archive_container) && isset($layout_archive_container['tablet']) && $layout_archive_container['tablet']!='') ? nexter_get_option_css_value( $layout_archive_container['tablet'], 'px' ) : '',
                     ),
+					'.site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-sm' => (!empty($layout_archive_container) && isset($layout_archive_container['tablet']) && $layout_archive_container['tablet']!='') ? nexter_get_option_css_value( $layout_archive_container['tablet'], 'px' ) : '',
+					],
                 );
 				$archive_layout_container_css['mb'] = array(
                     '.site-content >.nxt-container-block-editor.nxt-archive-cont >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull), .nxt-container-block-editor.nxt-archive-cont .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull)' => array(
@@ -916,6 +929,9 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar' => array(
                         'max-width' => (!empty($layout_archive_container) && isset($layout_archive_container['mobile'])) ? nexter_get_option_css_value( $layout_archive_container['mobile'], 'px' ) : '',
                     ),
+					'.site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type' => [
+						'--tpgb-container-xs' => (!empty($layout_archive_container) && isset($layout_archive_container['mobile'])) ? nexter_get_option_css_value( $layout_archive_container['mobile'], 'px' ) : '',
+					],
                 );
             }
 			

@@ -4,8 +4,8 @@ Theme URI: https://nexterwp.com
 Description: Nexter Theme is an ultra-lightweight, multipurpose WordPress theme built with pure vanilla JavaScript, crafted specifically for users who are serious about performance, speed, and SEO. With a footprint of less than 50KB, it delivers blazing-fast load times, making it the perfect base for business websites, personal portfolios, blogs, and online stores. Designed with clean, SEO-friendly code, Nexter ensures better search engine visibility while offering rock-solid compatibility with popular tools like Elementor, The Plus Addons for Elementor, and the default Gutenberg Block Editor. It’s fully WooCommerce-ready, accessibility-ready, and RTL-compatible, making it suitable for a global and diverse audience. Nexter follows secure coding standards, is regularly updated, and ensures full compatibility with the latest WordPress versions. To get the most out of it, Nexter works best with Nexter Blocks and Nexter Extension—together, they bring powerful blocks, advanced design tools, and performance-focused features that elevate your website-building experience. Plus, with access to over 1000 ready-to-import website templates and sections, you can build and launch stunning websites faster than ever before. Whether you’re a developer, designer, agency, or entrepreneur, Nexter Theme is your go-to choice for building fast, flexible, and professional WordPress websites. Learn More – https://nexterwp.com/nexter-theme/
 Author: POSIMYTH
 Author URI: https://posimyth.com
-Version: 4.1.0
-Stable tag: 4.1.0
+Version: 4.1.1
+Stable tag: 4.1.1
 Requires at least: 4.7
 Tested up to: 6.8.2
 Requires PHP: 5.6
@@ -1073,10 +1073,15 @@ embed, iframe, object {
 	clear: both;
 	content: '';
 }
-.error404 .nxt-container,.error404 .nxt-container-block-editor {
+.error404 .nxt-container,.error404 .nxt-container-block-editor, .archive .nxt-container-block-editor{
 	padding-right: 0;
 	padding-left: 0;
 }
+.single-post .nxt-container-block-editor .nxt-content-page-template {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 .nxt-container-block-editor > .nxt-row article > .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull):not(.tpgb-container-wide),
 .nxt-container-block-editor .site-main > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-blog-single-post):not(.error-404),
 .nxt-container-block-editor .site-main .nxt-blog-single-post > article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-single-post-content),
@@ -1098,6 +1103,7 @@ embed, iframe, object {
 .nxt-container-block-editor .site-main > .error-404 > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.elementor){
 	margin: 0 auto;
 }
+
 .nxt-container-block-editor > .nxt-row article > .entry-content {
     margin-left: -15px;
     margin-right: -15px;
@@ -1121,7 +1127,7 @@ embed, iframe, object {
 
 .nxt-container-block-editor .alignfull {
     width: 100%;
-    max-width: 100%;
+    max-width: none !important;
 }
 .nxt-container-block-editor .nxt-alignfull{
 	width: auto;
@@ -1948,7 +1954,9 @@ embed, iframe, object {
  */
 .nxt-single-post-content {
     position: relative;
-    width: 100%;
+    /* width: 100%; */
+	margin-left: -15px;
+    margin-right: -15px;
 }
 .nxt-blog-image img {
     width: 100%;
@@ -2398,7 +2406,7 @@ ul.children {
     position: relative;
     padding: 4.5rem 2rem;
     background: #eee;
-    margin:0 -15px 20px;
+    margin:0 0 20px;
 }
 .archive-description p {
     margin: 15px 0 0;

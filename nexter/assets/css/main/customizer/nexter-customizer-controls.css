@@ -490,9 +490,6 @@
     visibility: visible;
     z-index: 1;
 }
-#customize-control-nxt-theme-options-site-page-block-width + li#customize-control-nxt-theme-options-layout-page-container {
-    margin-top: 20px;
-}
 /**
  * nxt-responsive-slider Control
  */
