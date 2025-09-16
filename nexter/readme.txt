@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.8.2
-Stable tag: 4.1.1
-Version: 4.1.1
+Stable tag: 4.1.2
+Version: 4.1.2
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,10 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.1.2 = 16 September 2025
+- Compatibility : Blockera Site Builder Bug Fixed Devices Options
+- Fixed : Bug fixes and improvements.
+
 = 4.1.1 = 03 September 2025
 - Fixed : Nexter Blocks : Container Block compatibility Theme Builder Singular and Archive Pages .
 - Fixed : Bug fixes and improvements.
