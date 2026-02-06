@@ -20,21 +20,17 @@ if ( ! class_exists( 'Nexter_Site_Text_Selection_Style' ) ) {
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
 			parent::__construct();
 		}
 		
 		/**
-		 * Register Whole Site Text Selection Style Customizer Configurations.
+		 * Whole Site Text Selection Style Customizer.
 		 * @since 1.0.0
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$options = array(
 
-				/** Start
-				 * Options Site Text Selection Color
-				 */
 				array(
 					'name'      => NXT_OPTIONS . '[heading-text-selection]',
 					'type'      => 'control',
@@ -70,30 +66,6 @@ if ( ! class_exists( 'Nexter_Site_Text_Selection_Style' ) ) {
 			return array_merge( $configurations, $options );
 		}
 		
-		/*
-		 * Dynamic Theme Options Css 
-		 * @since 1.0.0
-		 */
-		public static function dynamic_css( $theme_css ){
-			
-			$selected_text_bg_color = nexter_get_option('selected-text-bg-color');
-			$selected_text_color = nexter_get_option('selected-text-color');
-			
-			$style =array();
-			
-			$style = array(
-				'::selection' => array(
-					'color' => esc_attr($selected_text_color),
-                    'background' => esc_attr($selected_text_bg_color)
-				),
-			);
-			
-			if( !empty($style)){
-				$theme_css[]= $style;
-			}
-			
-			return $theme_css;
-		}
 	}
 }
 

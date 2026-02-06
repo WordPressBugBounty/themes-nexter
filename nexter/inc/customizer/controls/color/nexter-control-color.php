@@ -45,6 +45,20 @@ class Nexter_Control_Color extends WP_Customize_Control {
 		foreach ( $this->input_attrs as $attr => $value ) {
 			$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 		}
+
+		// Color palette for wpColorPicker swatches (global palette or default).
+		$saved_colors = nexter_get_option( 'global-color-palette', array() );
+		if ( empty( $saved_colors ) || ! is_array( $saved_colors ) ) {
+			$saved_colors = array_values( nxt_get_default_color_palette() );
+		}
+		$palette = array();
+		foreach ( $saved_colors as $color ) {
+			$color_value = nxt_sanitize_color_frontend( $color );
+			if ( ! empty( $color_value ) && 0 !== strpos( $color_value, 'var(' ) ) {
+				$palette[] = $color_value;
+			}
+		}
+		$this->json['palette'] = $palette;
 	}
 
 	/**

@@ -34,24 +34,50 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			/*
 			 * Register Controls
 			 */
-			require $customize_config_url .'/general/class-body-style.php';
-			require $customize_config_url .'/general/class-layout-container.php';
-			require $customize_config_url .'/general/class-header.php';
-			require $customize_config_url .'/general/class-footer.php';
-			require $customize_config_url .'/general/class-layout-sidebar.php';
-			require $customize_config_url .'/general/class-text-selection.php';
-			require $customize_config_url .'/general/class-maintenance-mode.php';
-			
-			require $customize_config_url .'/styling-colors/class-body-colors.php';
-			require $customize_config_url .'/styling-colors/class-heading-colors.php';
-			
-			require $customize_config_url .'/typography/class-heading-typography.php';
-			require $customize_config_url .'/typography/class-body-typography.php';
-			
-			require $customize_config_url .'/blog/class-single-blog.php';
-			require $customize_config_url .'/pages/class-single-page.php';
+			if( is_customize_preview() ){
+				if ( nexter_settings_page_get( 'reset_min_css' ) ) {
+					require $customize_config_url .'/general/class-body-style.php';
+				}
+				if ( nexter_settings_page_get( 'container_css' ) ) {
+					require $customize_config_url .'/general/class-layout-container.php';
+				}
+				require $customize_config_url .'/general/class-header.php';
+				require $customize_config_url .'/general/class-footer.php';
+				require $customize_config_url .'/general/class-layout-sidebar.php';
+				if ( nexter_settings_page_get( 'reset_min_css' ) ) {
+					require $customize_config_url .'/general/class-text-selection.php';
+				}
+				require $customize_config_url .'/general/class-maintenance-mode.php';
+				if ( nexter_settings_page_get( 'reset_min_css' ) ) {
+					require $customize_config_url .'/styling-colors/class-color-palette.php';
+					require $customize_config_url .'/styling-colors/class-body-colors.php';
+					require $customize_config_url .'/styling-colors/class-heading-colors.php';
+				
+					require $customize_config_url .'/typography/class-heading-typography.php';
+					require $customize_config_url .'/typography/class-body-typography.php';
+				}
+				require $customize_config_url .'/blog/class-single-blog.php';
+				require $customize_config_url .'/pages/class-single-page.php';
+			}
 
+			if ( nexter_settings_page_get( 'reset_min_css' ) ) {
+				require $customize_config_url .'/general/class-body-style-dynamic.php';
+			}
+			if ( nexter_settings_page_get( 'container_css' ) ) {
+				require $customize_config_url .'/general/class-layout-container-dynamic.php';
+			}
+			if ( nexter_settings_page_get( 'reset_min_css' ) ) {
+				require $customize_config_url .'/general/class-text-selection-dynamic.php';
 			
+				require $customize_config_url .'/styling-colors/class-color-palette-dynamic.php';
+				require $customize_config_url .'/styling-colors/class-body-colors-dynamic.php';
+				require $customize_config_url .'/styling-colors/class-heading-colors-dynamic.php';
+			
+				require $customize_config_url .'/typography/class-heading-typography-dynamic.php';
+				require $customize_config_url .'/typography/class-body-typography-dynamic.php';
+			}
+			require $customize_config_url .'/blog/class-single-blog-dynamic.php';
+		
 		}
 		
 		/**
@@ -319,6 +345,14 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 				)
 			);
 
+			Nexter_Customizer_Control_Base::add_control(
+				'nxt-color-palette',
+				array(
+					'callback'          => 'Nexter_Control_Color_Palette',
+					'sanitize_callback' => array( 'Nexter_Customizer_Sanitizes_Callbacks', 'sanitize_color_palette' ),
+				)
+			);
+
 			/**
 			 * Load sanitization Callbacks
 			 */
@@ -362,14 +396,6 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			
 			/**
 			 * Localize wp-color-picker & wpColorPickerL10n.
-			 *
-			 * This is only needed in WordPress version >= 5.5 because wpColorPickerL10n has been removed.
-			 *
-			 * @see https://github.com/WordPress/WordPress/commit/7e7b70cd1ae5772229abb769d0823411112c748b
-			 *
-			 * This is should be removed once the issue is fixed from wp-color-picker-alpha repo.
-			 * @see https://github.com/kallookoo/wp-color-picker-alpha/issues/35
-			 *
 			 * @since 2.5.3
 			 */
 			if ( version_compare( $wp_version, '5.4.99', '>=' ) ) {
@@ -460,14 +486,15 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			if ( is_admin() || is_customize_preview() ) {
 				add_action( 'customize_register', array( $this, 'include_config_panels' ), 2 );
 				add_action( 'customize_register', array( $this, 'register_control_customizer_settings' ) );
+				add_action( 'customize_preview_init', array( $this, 'customizer_load_preview_css_js' ) );
+
+				add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
+				add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
+				add_action( 'customize_register', array( $this, 'customize_register' ) );
 			}
 			
-			add_action( 'customize_preview_init', array( $this, 'customizer_load_preview_css_js' ) );
-
-			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
-			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 			add_action( 'customize_register', array( $this, 'customize_register_panel_section_controls' ), 2 );
-			add_action( 'customize_register', array( $this, 'customize_register' ) );
+			
 			add_action( 'customize_save_after', array( $this, 'nxt_customize_save' ) );
 		}
 

@@ -36,24 +36,6 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'settings'  => array(),
 					'separator' => false,
 				),
-				/*
-				 * Default Whole Site Sidebar
-				 */
-				// array(
-				// 	'name'     => NXT_OPTIONS . '[whole-site-sidebar]',
-				// 	'type'     => 'control',
-				// 	'control'  => 'select',
-				// 	'section'  => 'section-layout-sidebar',
-				// 	'default'  => 'no-sidebar',
-				// 	'priority' => 5,
-				// 	'title'    => __( 'Site Sidebar Layout', 'nexter' ),
-				// 	'choices'  => array(
-				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
-				// 	),
-				// ),
-
 				array(
 					'name'     => NXT_OPTIONS . '[whole-site-sidebar]',
 					'title'    => __( 'Site Sidebar Layout', 'nexter' ),
@@ -114,21 +96,7 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'priority' => 20,
 					'settings' => array(),
 				),				
-				// array(
-				// 	'name'     => NXT_OPTIONS . '[single-page-sidebar]',
-				// 	'type'     => 'control',
-				// 	'control'  => 'select',
-				// 	'section'  => 'section-layout-sidebar',
-				// 	'default'  => 'default',
-				// 	'priority' => 20,
-				// 	'title'    => __( 'Pages', 'nexter' ),
-				// 	'choices'  => array(
-				// 		'default'       => __( 'Default', 'nexter' ),
-				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
-				// 	),
-				// ),
+				
 				array(
 					'name'     => NXT_OPTIONS . '[single-page-sidebar]',
 					'title'    => __( 'Pages', 'nexter' ),
@@ -197,21 +165,7 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'priority' => 25,
 					'settings' => array(),
 				),
-				// array(
-				// 	'name'     => NXT_OPTIONS . '[single-post-sidebar]',
-				// 	'type'     => 'control',
-				// 	'control'  => 'select',
-				// 	'default'  => 'default',
-				// 	'section'  => 'section-layout-sidebar',
-				// 	'priority' => 25,
-				// 	'title'    => __( 'Blog Posts', 'nexter' ),
-				// 	'choices'  => array(
-				// 		'default'       => __( 'Default', 'nexter' ),
-				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
-				// 	),
-				// ),
+				
 				array(
 					'name'     => NXT_OPTIONS . '[single-post-sidebar]',
 					'title'    => __( 'Blog Posts', 'nexter' ),
@@ -280,21 +234,7 @@ if ( ! class_exists( 'Nexter_Layout_SideBar' ) ) {
 					'priority' => 30,
 					'settings' => array(),
 				),
-				// array(
-				// 	'name'     => NXT_OPTIONS . '[archive-post-sidebar]',
-				// 	'type'     => 'control',
-				// 	'control'  => 'select',
-				// 	'default'  => 'default',
-				// 	'section'  => 'section-layout-sidebar',
-				// 	'priority' => 30,
-				// 	'title'    => __( 'Archives', 'nexter' ),
-				// 	'choices'  => array(
-				// 		'default'       => __( 'Default', 'nexter' ),
-				// 		'no-sidebar'    => __( 'No Sidebar', 'nexter' ),
-				// 		'left-sidebar'  => __( 'Left Sidebar', 'nexter' ),
-				// 		'right-sidebar' => __( 'Right Sidebar', 'nexter' ),
-				// 	),
-				// ),
+				
 				array(
 					'name'     => NXT_OPTIONS . '[archive-post-sidebar]',
 					'title'    => __( 'Archives', 'nexter' ),

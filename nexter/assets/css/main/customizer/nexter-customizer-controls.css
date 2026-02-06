@@ -290,6 +290,9 @@
 .wp-picker-open+.wp-picker-input-wrap input[type=text]:focus {
     box-shadow: none;
 }
+.nxt-colorpicker .wp-picker-active .wp-picker-holder {
+    display: block !important;
+}
 /**
  * nxt-color Control
  */
@@ -435,6 +438,7 @@
     width: 22px;
     z-index: 1;
     top: 5px;
+    margin-bottom: 0;
 }
 .nxt-resp-spacing-btns {
     top: 8px;
@@ -1145,4 +1149,210 @@ label.nxt-text-transform-option:last-child {
 }
 /**
  * nxt-text-transform control end
+ */
+
+/**
+ * nxt-color-palette Control
+ */
+.customize-control-nxt-color-palette .nxt-color-palette-wrapper {
+	margin-top: 15px;
+	position: relative;
+}
+
+/* Color Swatches Row */
+.customize-control-nxt-color-palette .nxt-color-palette-swatches {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-bottom: 15px;
+}
+
+.customize-control-nxt-color-palette .nxt-color-swatch-item {
+	position: relative;
+}
+
+.customize-control-nxt-color-palette .nxt-color-swatch {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 28px;
+    height: 28px;
+    background: #1717CC;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+}
+
+.customize-control-nxt-color-palette .nxt-color-swatch:hover {
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+	transform: scale(1.03);
+}
+
+.customize-control-nxt-color-palette .nxt-color-remove {
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    cursor: pointer;
+    padding: 2px;
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 10;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    position: absolute;
+    background: #FFFFFF;
+    border: 0.5px solid #D1D1D6;
+    border-radius: 32px;
+}
+
+.customize-control-nxt-color-palette .nxt-color-swatch-item:hover .nxt-color-remove {
+	opacity: 1;
+	visibility: visible;
+}
+
+.customize-control-nxt-color-palette .nxt-color-remove:hover {
+    background: #cf2e2e;
+    border-color: #cf2e2e;
+}
+
+.customize-control-nxt-color-palette .nxt-color-remove:hover svg path {
+	fill: #fff;
+}
+
+/* Add Color Button */
+.customize-control-nxt-color-palette .nxt-add-color-item {
+	position: relative;
+}
+
+.customize-control-nxt-color-palette .nxt-add-color {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    background: #F0F0F1;
+    border: 1px solid #D1D1D6;
+    border-radius: 7px;
+}
+
+.customize-control-nxt-color-palette .nxt-add-color:hover {
+	background: #EEEEEE;
+	border-color: #1717CC;
+	border-style: solid;
+}
+.nxt-color-picker-wrapper .wp-picker-container .wp-color-result.button{
+    display : none
+}
+.nxt-color-picker-wrapper {
+    display: none;
+}
+/* Color Picker Modal */
+.customize-control-nxt-color-palette .nxt-color-picker-modal {
+	position: fixed;
+	background: #FFFFFF;
+	border-radius: 8px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+	padding: 16px;
+	min-width: 250px;
+	z-index: 100000;
+}
+
+.customize-control-nxt-color-palette .nxt-color-picker-content {
+	position: relative;
+}
+
+/* WordPress Color Picker Wrapper in Modal */
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper {
+	position: relative;
+}
+
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-container {
+	width: 100%;
+}
+
+/* Hide the color result button */
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-container .wp-color-result,
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-color-result,
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper button.wp-color-result {
+	display: none !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+	width: 0 !important;
+	height: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border: none !important;
+}
+
+/* Show the input field and picker holder */
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-input-wrap {
+	display: block !important;
+	margin-top: 0 !important;
+	margin-bottom: 10px;
+}
+
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-input-wrap.hidden {
+	display: block !important;
+}
+.nxt-color-picker-wp-wrapper .nxt-modal-color-picker {
+    display: none;
+}
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-input-wrap input[type="text"] {
+	width: 200px !important;
+    display : block;
+}
+
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-holder {
+	position: relative !important;
+	top: auto !important;
+	left: auto !important;
+	right: auto !important;
+	bottom: auto !important;
+	margin-top: 10px !important;
+	margin-left: 0 !important;
+	display: block !important;
+	z-index: 1;
+}
+
+.customize-control-nxt-color-palette .nxt-color-picker-wp-wrapper .wp-picker-clear {
+	display: none !important;
+}
+
+.customize-control-nxt-color-palette .nxt-color-palette-value {
+	display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 782px) {
+	.customize-control-nxt-color-palette .nxt-color-picker-modal {
+		min-width: 225px;
+	}
+	
+	.customize-control-nxt-color-palette .nxt-color-picker-saturation {
+		height: 180px;
+	}
+}
+
+@media (max-width: 600px) {
+	.customize-control-nxt-color-palette .nxt-color-picker-modal {
+		min-width: 225px;
+		padding: 12px;
+	}
+	
+	.customize-control-nxt-color-palette .nxt-color-picker-saturation {
+		height: 160px;
+	}
+}
+/**
+ * nxt-color-palette control end
  */

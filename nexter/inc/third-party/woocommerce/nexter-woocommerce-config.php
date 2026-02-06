@@ -34,7 +34,9 @@ if ( ! class_exists( 'Nexter_Woocommerce_Compatibility' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'woo_setup_theme' ) );
 			
 			// Woocommerce Style And Scripts
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			if ( nexter_settings_page_get( 'woocommerce_min_css' ) ) {
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			}
 			
 			add_action( 'wp_head', array( $this, 'single_product_config' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_actions' ), 1 );
@@ -148,7 +150,7 @@ if ( ! class_exists( 'Nexter_Woocommerce_Compatibility' ) ) {
 		 */
 		public function enqueue_scripts() {
 			$minified = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-			if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
+			if ( function_exists( 'is_woocommerce' ) && is_woocommerce() && nexter_settings_page_get( 'theme_min_css' ) ) {
 				wp_enqueue_style( 'nxt-woocommerce', NXT_CSS_URI .'main/woocommerce'. $minified .'.css', false, NXT_VERSION, 'all');
 			}
 		}

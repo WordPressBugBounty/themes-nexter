@@ -2,9 +2,9 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.8.2
-Stable tag: 4.1.2
-Version: 4.1.2
+Tested up to: 6.9
+Stable tag: 4.2.5
+Version: 4.2.5
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,9 +65,32 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
-= 4.1.2 = 16 September 2025
-- Compatibility : Blockera Site Builder Bug Fixed Devices Options
+= 4.2.5 = 03 February 2026
+- Improved : Customizer : Global Color Palette Opacity Color picker
+
+= 4.2.4 = 02 February 2026
+- Added : Customizer : Styling Colors : Global Color Palette
+- Compatibility : Customizer : Global Color Palette Elementor Global Colors
 - Fixed : Bug fixes and improvements.
+
+= 4.2.3 = 13 January 2026
+- Fixed : Pages : Hide Featured Image
+- Fixed : Bug fixes and improvements.
+
+= 4.2.2 = 12 December 2025
+- Fixed : Custom Fonts Upload : Font loading errors in both the Editor and Frontend
+- Fixed : Theme Customizer : JS Bug Fix
+- Fixed : Bug fixes and improvements.
+
+= 4.2.1 = 24 November 2025
+- Fixed : Bug fixes and improvements.
+
+= 4.2.0 = 24 November 2025
+- Important Release:  Introduced a unified Nexter Settings Panel that combines all options from Nexter Theme, Nexter Blocks, and Nexter Extension into one centralized dashboard. 
+- Added : Nexter Settings : Theme Customizer : Theme Performance options added
+- Improvements : Optimized memory usage to reduce load and improve performance throughout both backend and frontend.
+- Fixed : General bug fixes and improvements.
+
 
 = 4.1.1 = 03 September 2025
 - Fixed : Nexter Blocks : Container Block compatibility Theme Builder Singular and Archive Pages .

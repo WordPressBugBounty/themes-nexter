@@ -181,7 +181,7 @@
           var deviceStyle = { md: '', sm: '', xs: '' };
           ['md', 'sm', 'xs'].forEach(function (d) {
             align.forEach(function (a) {
-              if (val[d][a]) {
+              if (val[d] && val[d][a]) {
                 var prop = property + (fixed_val ? '' : '-' + a);
                 deviceStyle[d] += prop + ':' + (minus === 'minus' ? '-' : '') + val[d][a] + val[d + '-unit'] + ';';
               }

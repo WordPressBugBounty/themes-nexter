@@ -34,11 +34,6 @@ if ( ! class_exists( 'Nexter_Theme_Builder_Load' ) ) {
 			if (  did_action( 'elementor/loaded' ) && class_exists( '\Elementor\Plugin' ) ) {
 				add_action( 'init', array( $this, 'init_elementor' ), -999 );
 			}
-			/*
-			global $pagenow;
-			if(in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) && isset($_GET['post']) && NXT_BUILD_POST === get_post_type( $_GET['post'] )){
-				add_action( 'init', array( $this, 'init_block_editor' ), 10 );
-			}*/
 			add_filter( 'preview_post_link', array( $this, 'nxt_preview_post_link' ) , 10, 2);
 		}
 		
@@ -47,7 +42,7 @@ if ( ! class_exists( 'Nexter_Theme_Builder_Load' ) ) {
 		 */	
 		public function init_elementor(){
 			$this->load_files();
-			$this->documents     = new Nexter_Builder_Elementor_Documents();
+			$this->documents = new Nexter_Builder_Elementor_Documents();
 		}
 		
 		/*

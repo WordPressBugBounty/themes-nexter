@@ -35,7 +35,8 @@ if ( ! class_exists( 'Nexter_Customizer_Options' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'after_setup_theme', array( $this, 'refresh' ) );
+			// Priority 0 so options are loaded before nexter_setup (priority 10) and editor-color-palette uses saved global-color-palette.
+			add_action( 'after_setup_theme', array( $this, 'refresh' ), 0 );
 
 		}
 		

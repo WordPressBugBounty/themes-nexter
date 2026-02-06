@@ -42,9 +42,21 @@
     margin-right: 20px;
 }
 .wp-menu-image.dashicons-nxt-builder-groups {
-    background: url(../../images/nexter-builder.svg);
-    background-size: 17px;
-    background-repeat: no-repeat;
+    background: url(../../images/nxt-favicon.svg);	
+    background-size: 22px;
+    background-repeat: no-repeat;	
+    background-position: center;
+}
+li.wp-has-current-submenu.wp-menu-open.menu-top .wp-menu-image.dashicons-nxt-builder-groups{
+    background: url(../../images/nxt-favicon-white.svg);	
+    background-size: 22px;
+    background-repeat: no-repeat;	
+    background-position: center;
+}
+li.wp-not-current-submenu:hover .wp-menu-image.dashicons-nxt-builder-groups{
+    background: url(../../images/nxt-favicon-blue.svg);	
+    background-size: 22px;
+    background-repeat: no-repeat;	
     background-position: center;
 }
 .nexter_settings_opts * :not(.dashicons) {
@@ -1648,7 +1660,39 @@ button.nxt-wl-save-btn {
     border-left-color: #1717CC;
     padding-left: 0;
 }
- /*Admin Notice Style*/
+/*Admin Notice Style*/
+.wp-submenu li:has( > a[href*="nexterwp.com/pricing/"]) {
+    font-weight: 500;
+    background-color: #FF1400;
+    color: #fff !important;
+    transition: all .3s;
+}
+.wp-submenu li a[href*="nexterwp.com/pricing/"] {
+    color: #fff !important;
+    font-weight: 500;
+}
+.wp-submenu li:has( > a[href*="nexterwp.com/pricing/"]) > a{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.wp-submenu li:has( > a[href*="nexterwp.com/pricing/"]) > a:after {
+    position : absolute;
+    content : '';
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    right: 35px;
+    top: 4px;
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-image : url( data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22none%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20stroke%3D%22%23fff%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.333%22%20d%3D%22m4.667%2011.333%206.666-6.666M4.667%204.667h6.666v6.666%22%2F%3E%3C%2Fsvg%3E )
+}
+.toplevel_page_nexter_welcome.nxt-ext-admin-notice-active > a,.toplevel_page_nexter_welcome.nxt-ext-admin-notice-active:hover > a{
+    background: #162d9e !important;
+    color: #f0f0f1 !important;
+}
+
 /*tablet responsive start*/
 @media (min-width: 768px) and (max-width: 1024px){
     
@@ -1827,115 +1871,5 @@ button.nxt-wl-save-btn {
     .nxt-activate-sidebar, .nxt-activate-form, .nxt-active-notice-pro{
         max-width: 1140px;
         margin: 0em auto;
-    }
-}
-
-/* Nexter Theme Dashboard */
-.nexter-main-container {
-    background: #1717CC;
-    padding: 30px;
-    margin-top: 20px;
-    margin-right: 20px
-}
-.nexter-main-heading {
-    font-size: 32px;
-    line-height: 40px;
-    color: #fff;
-    margin: 0;
-}
-.nexter-sub-heading {
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: #fff;
-}
-.nexter-action-btn {
-    display: flex;
-    gap: 10px;
-}
-.nexter-install-ext, .nexter-view-features {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #1717CC;
-    border: none;
-    cursor: pointer;
-    border-radius: 2px;
-}
-.nexter-install-ext {
-    width: 290px;
-}
-a.nexter-view-features {
-    border: 1px solid #FFFFFF80;
-    background: transparent;
-    color: #fff;
-}
-.nexter-features {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 5px;
-}
-.nexter-features .nxt-feature-inner {
-    display: flex;
-    gap: 7px;
-    width: 45%;
-    margin: 5px 0;
-    text-align: left;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 18px;
-    color: #fff;
-}
-.nxt-feature-inner span {
-    max-width: 85%;
-}
-.nexter-features-heading {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-top: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    color: #fff
-}
-
-.nexter-container-wrap {
-    display: flex;
-}
-.nexter-column.nxt-col-33 {
-    width: 33.3%;
-}
-.nexter-bottom-part-cnt {
-    position: relative;
-}
-.nexter-bottom-part-cnt img {
-    position: absolute;
-    top: 0;
-    right: 50px;
-    width: 500px;
-    height: 100%;
-    -webkit-user-drag: none;
-}
-.nexter-loading-circle {
-    display: inline-flex;
-    animation: nxtextloading 1s linear infinite;
-    border: 3px solid #1717cc;
-    border-bottom-color: #1717cc4a;
-    border-radius: 50%;
-    height: 15px;
-    width: 15px;
-}
-@keyframes nxtextloading {
-    0% {
-        transform: rotate(0deg)
-    }
-
-    to {
-        transform: rotate(1turn)
     }
 }

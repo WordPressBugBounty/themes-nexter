@@ -15,9 +15,7 @@ if ( ! class_exists( 'Nexter_Site_Maintenance_Mode' ) ) {
 	class Nexter_Site_Maintenance_Mode extends Nexter_Customizer_Config {
 
 		/**
-		 * Register Maintenance Mode Or Coming Soon Customizer Configurations.
-		 * @return Array Nexter Customizer Options with updated Options.
-		 * @since 1.0.0
+		 * Maintenance Mode Or Coming Soon Customizer.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 			

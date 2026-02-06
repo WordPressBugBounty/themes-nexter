@@ -20,12 +20,11 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
 			parent::__construct();
 		}
 		
 		/**
-		 * Register Single Blog Options Customizer Configurations.
+		 * Single Blog Options Customizer.
 		 * @since 1.0.0
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -417,105 +416,6 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 			);
 
 			return array_merge( $configurations, $options );
-		}
-		
-		/*
-		 * Dynamic Theme Options Css 
-		 * @since 1.0.0
-		 */
-		public static function dynamic_css( $theme_css ){
-			
-			
-			$style =array();
-			
-			$single_title_fontsize   = nexter_get_option('font-size-s-blog-title');
-			$single_title_lineheight = nexter_get_option('s-blog-title-line-height');
-			$single_title_fontfamily = nexter_get_option('s-blog-title-font-family');
-			$single_title_fontweight = nexter_get_option('s-blog-title-font-weight');
-			$single_title_transform  = nexter_get_option('s-blog-title-transform');
-			$single_title_letter_space = nexter_get_option('s-blog-title-letter-spacing');
-			$single_title_color      = nexter_get_option('s-blog-title-color');
-			
-			$post_meta_fontsize   = nexter_get_option('font-size-s-post-meta');
-			$post_meta_lineheight = nexter_get_option('s-post-meta-line-height');
-			$post_meta_fontfamily = nexter_get_option('s-post-meta-font-family');
-			$post_meta_fontweight = nexter_get_option('s-post-meta-font-weight');
-			$post_meta_transform  = nexter_get_option('s-post-meta-transform');
-			$post_meta_letter_space = nexter_get_option('s-post-meta-letter-spacing');
-			$post_meta_color      = nexter_get_option('s-post-meta-color');
-				
-			$post_primary_color      = nexter_get_option('s-blog-primary-color');
-		
-			$style = array(
-				'.single-post-title h1' => array(
-					'font-family' => nexter_get_font_family_css($single_title_fontfamily),
-					'font-weight' => esc_attr($single_title_fontweight),
-					'font-size' => nexter_responsive_size_css($single_title_fontsize, 'desktop'),
-					'line-height' => esc_attr($single_title_lineheight),
-					'text-transform' => esc_attr($single_title_transform),
-					'letter-spacing' => (!empty($single_title_letter_space) ? esc_attr($single_title_letter_space) . 'px' : ''),
-					'color' => esc_attr($single_title_color)
-				),
-				'.nxt-meta-info' => array(
-					'font-family' => nexter_get_font_family_css($post_meta_fontfamily),
-					'font-weight' => esc_attr($post_meta_fontweight),
-					'font-size' => nexter_responsive_size_css($post_meta_fontsize, 'desktop'),
-					'line-height' => esc_attr($post_meta_lineheight),
-					'letter-spacing' => (!empty($post_meta_letter_space) ? esc_attr($post_meta_letter_space) . 'px' : ''),
-					'text-transform' => esc_attr($post_meta_transform)						
-				),
-				'.nxt-meta-info,.nxt-meta-info a' => array(
-					'color' => esc_attr($post_meta_color)
-				),
-				'.nxt-meta-info a:focus, .nxt-meta-info a:hover, .nxt-post-next-prev .prev:hover span:last-child, .nxt-post-next-prev .next:hover span:last-child, .author-meta-title:hover' => array(
-					'color' => esc_attr($post_primary_color)
-				),
-				'.nxt-post-tags ul li a:hover' => array(
-					'background' => esc_attr($post_primary_color),
-					'border-color' => esc_attr($post_primary_color),
-				),
-				'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus' => array(
-					'border-color' => esc_attr($post_primary_color),
-				),
-				'.nxt-btn, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' => array(
-					'background' => esc_attr($post_primary_color),
-					'border-color' => esc_attr($post_primary_color),
-				),
-			);
-			//Tablet Css
-			$tablet_style =array(
-				'.single-post-title h1' => array(
-					'font-size' => nexter_responsive_size_css($single_title_fontsize, 'tablet'),
-				),
-				'.nxt-meta-info' => array(
-					'font-size' => nexter_responsive_size_css($post_meta_fontsize, 'tablet' )
-				),
-			);
-			
-			if(!empty($tablet_style)){
-				$theme_css['tablet'] = array_merge_recursive($theme_css['tablet'],$tablet_style);
-			}
-			
-			//Mobile Css
-			$mobile_style =array(
-				'.single-post-title h1' => array(
-					'font-size' => nexter_responsive_size_css($single_title_fontsize, 'mobile'),
-				),
-				'.nxt-meta-info' => array(
-					'font-size' => nexter_responsive_size_css($post_meta_fontsize, 'mobile')
-				),
-			);
-			
-			if(!empty($mobile_style)){
-				$theme_css['mobile'] = array_merge_recursive($theme_css['mobile'],$mobile_style);
-			}
-			
-			
-			if( !empty($style)){
-				$theme_css[]= $style;
-			}
-			
-			return $theme_css;
 		}
 		
 	}

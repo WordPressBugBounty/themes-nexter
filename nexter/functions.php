@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '4.1.2' );
+define( 'NXT_VERSION', '4.2.5' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );
@@ -104,7 +104,6 @@ if ( ! function_exists( 'nexter_setup' ) ) :
 			'flex-height' => true,
 		) );
 		
-		
 		// WooCommerce.
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'editor-styles' );
@@ -117,11 +116,6 @@ add_action( 'after_setup_theme', 'nexter_setup' );
 
 /**
  * Fix skip link focus in IE11.
- *
- * This does not enqueue the script because it is tiny and because it is only for IE11,
- * thus it does not warrant having an entire dedicated blocking script being loaded.
- *
- * @link https://git.io/vWdr2
  */
 function nexter_skip_link_focus_fix() {
 	?>
@@ -134,16 +128,18 @@ add_action( 'wp_print_footer_scripts', 'nexter_skip_link_focus_fix' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
  */
 function nexter_content_width() {	
 	$GLOBALS['content_width'] = apply_filters( 'nexter_content_width', 1200 );
 }
 add_action( 'after_setup_theme', 'nexter_content_width', 0 );
 
+if ( is_admin() ) {
+	require NXT_THEME_DIR . 'inc/migrations.php';
+}
+/**
+ * Move comment field to bottom
+ */
 function nexter_move_comment_field_to_bottom( $fields ) {
 	$comment_field = $fields['comment'];
 	unset( $fields['comment'] );
@@ -153,20 +149,28 @@ function nexter_move_comment_field_to_bottom( $fields ) {
 }
 add_filter( 'comment_form_fields', 'nexter_move_comment_field_to_bottom' );
 
+
+
 require_once NXT_THEME_DIR . 'inc/widgets.php';
-if(!defined('NEXTER_EXT_VER')){
+if(is_admin()){  //!defined('NEXTER_EXT_VER')
 	require_once NXT_THEME_DIR . 'inc/panel-settings/plus-settings-options.php';
 }
 
 require_once NXT_THEME_DIR . 'inc/core-function/nxt-core-hooks.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-builder-compatibility.php';
 require_once NXT_THEME_DIR . 'inc/third-party/class-nxt-theme-builder-load.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-elementor.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-elementor-pro.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-gutenberg.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-visual-composer.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-beaver.php';
-require_once NXT_THEME_DIR . 'inc/third-party/class-beaver-build-theme.php';
+
+if ( class_exists( 'FLBuilderModel' ) && class_exists( 'FLThemeBuilderLoader' ) ) {
+    require_once NXT_THEME_DIR . 'inc/third-party/class-beaver-build-theme.php';
+}
+
+// Elementor compatibility – merge theme global color palette with Elementor global colors.
+if ( did_action( 'elementor/loaded' ) ) {
+	require_once NXT_THEME_DIR . 'inc/third-party/class-nexter-elementor.php';
+} else {
+	add_action( 'elementor/loaded', function () {
+		require_once NXT_THEME_DIR . 'inc/third-party/class-nexter-elementor.php';
+	}, 20 );
+}
 
 require NXT_THEME_DIR .'inc/core-function/nxt-helper-function.php';
 require NXT_THEME_DIR .'inc/core-function/nxt-core-function.php';
@@ -175,11 +179,9 @@ require_once NXT_THEME_DIR . 'inc/customizer/nexter-font-families-list.php';
 require_once NXT_THEME_DIR . 'inc/customizer/nexter-render-fonts-load.php';
 
 //Metabox Options
-require_once NXT_THEME_DIR . 'inc/custom-metabox/nexter-sidebar-settings.php';
-
-//Load Enqueue Styles And Scripts
-require_once NXT_THEME_DIR .'inc/nexter-enqueue-style-script.php';
-
+if ( is_admin() ) {
+	require_once NXT_THEME_DIR . 'inc/custom-metabox/nexter-sidebar-settings.php';
+}
 /**
  * Implement the Custom Header feature.
  */
@@ -200,20 +202,14 @@ require NXT_THEME_DIR . 'inc/template-functions.php';
  */
 require_once NXT_THEME_DIR . 'inc/nexter-theme-options.php';
 
-/**
- * Nexter Dynamic Css
- */
-require_once NXT_THEME_DIR . 'inc/nexter-gutenberg-dynamic-css.php';
-require_once NXT_THEME_DIR . 'inc/nexter-dynamic-css.php';
-
-function nexter_dynamic_enqueue_scripts() {
-    $dynamic_css = Nexter_Dynamic_Css::render_theme_css();
-
-    if ( ! empty( $dynamic_css ) ) {
-        wp_add_inline_style( 'nexter-style', wp_strip_all_tags( $dynamic_css ) );
-    }
+//Load Enqueue Styles And Scripts
+if(is_admin()){
+	require_once NXT_THEME_DIR . 'inc/nexter-gutenberg-dynamic-css.php';
+	require_once NXT_THEME_DIR .'inc/nexter-admin-enqueue.php';
+}else{
+	require_once NXT_THEME_DIR . 'inc/nexter-dynamic-css.php';
+	require_once NXT_THEME_DIR .'inc/nexter-frontend-enqueue.php';
 }
-add_action( 'wp_enqueue_scripts', 'nexter_dynamic_enqueue_scripts', 20 );
 
 /**
  * Customizer Options
@@ -233,9 +229,3 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require_once NXT_THEME_DIR . 'inc/third-party/woocommerce/nexter-woocommerce-config.php';
 }
-
-add_action('init', function() {
-    if (has_action('wp_footer', 'wp_print_speculation_rules')) {
-        remove_action('wp_footer', 'wp_print_speculation_rules');
-    }
-});

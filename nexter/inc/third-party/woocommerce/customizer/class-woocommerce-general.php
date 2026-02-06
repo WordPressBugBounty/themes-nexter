@@ -333,7 +333,15 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 				$theme_css = self::dimension_value('woo-fluid-spacing', '.woocommerce .site-content .nxt-container-fluid,.woocommerce .site-content .nxt-container-fluid .nxt-row .nxt-col', 'padding', $theme_css );
 				$theme_css = self::dimension_value('woo-fluid-spacing', '.woocommerce .site-content .nxt-container-fluid .site-main > .nxt-row,.woocommerce ul.products, .woocommerce-page ul.products,.nxt-prodcut-nav.nxt-row', 'margin', $theme_css, 'minus' );
 			}
-			
+			if(!isset($theme_css['container_d'])){
+				$theme_css['container_d'] = [];
+			}
+			if(!isset($theme_css['container_t'])){
+				$theme_css['container_t'] = [];
+			}
+			if(!isset($theme_css['container_m'])){
+				$theme_css['container_m'] = [];
+			}
 			$theme_css['container_m']= array_merge($theme_css['container_m'], $woo_layout_css['mb']);
 			$theme_css['container_t']= array_merge($theme_css['container_t'],$woo_layout_css['tb']);
 			$theme_css['container_d']= array_merge($theme_css['container_d'],$woo_layout_css['dk']);

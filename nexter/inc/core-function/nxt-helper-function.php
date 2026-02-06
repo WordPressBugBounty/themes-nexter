@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/*Global Color Palette*/
-function nxt_global_color_palette(){
+/*Global Color Palette - Get Default Colors*/
+function nxt_get_default_color_palette(){
 	$globalPalettes = [
 		'color1' => '#162d9e',
 		'color2' => '#fc4032',
@@ -21,16 +21,82 @@ function nxt_global_color_palette(){
 		'color7' => '#FAFBFC',
 		'color8' => '#ffffff',
 	];
+	return $globalPalettes;
+}
+
+/**
+ * Sanitize color for frontend.
+ */
+function nxt_sanitize_color_frontend( $color ) {
+	if ( empty( $color ) || is_array( $color ) ) {
+		return '';
+	}
+	$color = trim( $color );
+
+	// Hex check
+	if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
+		return $color;
+	}
+
+	/* rgba(r,g,b,a) */
+	if ( false !== strpos( $color, 'rgba' ) ) {
+		$color = str_replace( ' ', '', $color );
+		$red = $green = $blue = $alpha = null;
+		sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+		if ( null !== $red && null !== $green && null !== $blue && null !== $alpha ) {
+			$red   = max( 0, min( 255, (int) $red ) );
+			$green = max( 0, min( 255, (int) $green ) );
+			$blue  = max( 0, min( 255, (int) $blue ) );
+			$alpha = max( 0, min( 1, (float) $alpha ) );
+			return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+		}
+		return '';
+	}
+
+	/* rgb(r,g,b) */
+	if ( false !== strpos( $color, 'rgb(' ) && false === strpos( $color, 'rgba' ) ) {
+		$color = str_replace( ' ', '', $color );
+		$red = $green = $blue = null;
+		sscanf( $color, 'rgb(%d,%d,%d)', $red, $green, $blue );
+		if ( null !== $red && null !== $green && null !== $blue ) {
+			$red   = max( 0, min( 255, (int) $red ) );
+			$green = max( 0, min( 255, (int) $green ) );
+			$blue  = max( 0, min( 255, (int) $blue ) );
+			return 'rgb(' . $red . ',' . $green . ',' . $blue . ')';
+		}
+		return '';
+	}
+
+	return '';
+}
+
+/*Global Color Palette*/
+function nxt_global_color_palette(){
+	// Get saved colors from options
+	$saved_colors = nexter_get_option( 'global-color-palette', array() );
+	
+	// If no saved colors, use defaults
+	if ( empty( $saved_colors ) || ! is_array( $saved_colors ) ) {
+		$default_colors = nxt_get_default_color_palette();
+		$color_array = array();
+		foreach ( $default_colors as $key => $color ) {
+			$color_array[] = $color;
+		}
+	} else {
+		$color_array = $saved_colors;
+	}
+	
 	$colors = [];
 	
-	if ( isset( $globalPalettes ) ) {
+	if ( !empty( $color_array ) ) {
 		$i = 1;
-		foreach ( $globalPalettes as $key => $color ) {
-
+		foreach ( $color_array as $color ) {
+			$color_value = nxt_sanitize_color_frontend( $color );
+			// Use actual color value so Gutenberg theme palette shows correct swatches (e.g. newly added red).
 			$colors[] = array(
 				'name'  => __('Theme Color ', 'nexter') . $i,
 				'slug'  => '--nxt-global-color-' . $i,
-				'color' => 'var(--nxt-global-color-'.$i.')',
+				'color' => ! empty( $color_value ) ? $color_value : 'var(--nxt-global-color-' . $i . ')',
 			);
 			
 			$i++;
@@ -40,39 +106,21 @@ function nxt_global_color_palette(){
 	return $colors;
 }
 
-add_filter('nexter_theme_dynamic_css', 'nxt_global_color_palette_css', 10);
-add_filter('nxt_gutenberg_dynamic_style_css', 'nxt_global_color_palette_css', 10);
-function nxt_global_color_palette_css( $dynamic_css ){
-	$colors = [
-		'color1' => '#2872fa',
-		'color2' => '#1559ed',
-		'color3' => '#3A4F66',
-		'color4' => '#192a3d',
-		'color5' => '#e1e8ed',
-		'color6' => '#f2f5f7',
-		'color7' => '#FAFBFC',
-		'color8' => '#ffffff',
-	];
-	if( !empty($colors) ){
-		$i = 1;
-		$css_output = ':root{';
-		foreach($colors as $key => $val){
-			$css_output .= '--nxt-global-color-'.$i.':'.$val.';';
-			$i++;
-		}
-		$css_output .= '}';
-		
-		$ij = 1;
-		foreach($colors as $key => $val){
-			$css_output .= ':root .has---nxt-global-color-'.$ij.'-background-color, :root .has-nxt-global-color-'.$ij.'-background-color{background-color : var(--nxt-global-color-'.$ij.');}';
-			$css_output .= ':root .has---nxt-global-color-'.$ij.'-color, :root .has-nxt-global-color-'.$ij.'-color, :root .has-nxt-global-color-'.$ij.'-color > .wp-block-navigation-item__content{color : var(--nxt-global-color-'.$ij.');}';
-			$css_output .= ':root .has---nxt-global-color-'.$ij.'-border-color, :root .has-nxt-global-color-'.$ij.'-border-color{border-color : var(--nxt-global-color-'.$ij.');}';
-			$ij++;
-		}
-		$dynamic_css .= nexter_minify_css_generate($css_output);
-	}
+// This function is now moved to class-color-palette-dynamic.php
+
+function nexter_settings_page_get( $key ){
+
+	static $cached_options = null;
+
+    if ( $cached_options === null ) {
+        $cached_options = (array) get_option( 'nexter_settings_opts', [] );
+    }
 	
-	return $dynamic_css;
+	if(!empty($cached_options) && isset($cached_options['switch']) && $cached_options['switch'] == false){
+		return true;
+	}
+
+    return ! isset( $cached_options['values'][ $key ] ) || $cached_options['values'][ $key ] == '0';
 }
 
 /**
@@ -95,26 +143,6 @@ function nexter_builders_posts_list() {
 		}
 	}
 	return $array_list;
-}
-
-/*
- * Get the content load 
- *
- * @since 1.0.0
- */
-if( ! function_exists('nexter_content_load') ){
-	
-	function nexter_content_load( $post_id ) {
-		
-		if(!empty( $post_id ) && $post_id != 'none' ){
-			$post_id = apply_filters( 'wpml_object_id', $post_id, NXT_BUILD_POST, TRUE  );
-			if ( class_exists( 'Nexter_Builder_Compatibility' ) ) {
-				$page_builder_base_instance = Nexter_Builder_Compatibility::get_instance();
-				$page_builder_instance = $page_builder_base_instance->get_active_page_builder( $post_id );
-				$page_builder_instance->render_content( $post_id );
-			}
-		}
-	}
 }
 
 /**
@@ -155,6 +183,21 @@ if ( ! function_exists( 'nexter_get_sidebar_list' ) ) {
 		$options['custom'] = __( 'Custom Sidebar', 'nexter' );
 		return $options;
 	}	
+}
+
+/**
+ * Get container class.
+ */
+function nexter_get_container_class( $option_key, $default_class = 'nxt-container-block-editor' ) {
+    $value = nexter_get_option( $option_key );
+
+    if ( ! empty( $value ) ) {
+        return 'nxt-' . esc_attr( $value );
+    }else if(empty($value)){
+		return 'nxt-' .nexter_get_option('site-layout-container','container-block-editor');
+	}
+
+    return $default_class;
 }
 
 /**

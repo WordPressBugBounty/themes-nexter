@@ -200,8 +200,11 @@ final class Nexter_Get_Fonts {
 					foreach( $font_val as $font_key => $font_value){
 						if(!empty( $font_value['url'] )){
 							$format = self::check_format_font_url($font_value['url']);
+							if($format === 'otf'){
+								$format = 'opentype';
+							}
 							$font_faces .= '@font-face {';
-							$font_faces .= 'font-family: ' . esc_html($font_name) . ';';
+							$font_faces .= 'font-family: "' . esc_html($font_name) . '";';
 							$font_faces .= "font-style: " . esc_html($font_value['font-style']) . ";";
 							$font_faces .= "font-weight: " . esc_attr($font_value['weight']) . ";";
 							$font_faces .= "font-display: swap;";

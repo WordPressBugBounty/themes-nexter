@@ -80,10 +80,11 @@ if( ! function_exists('nexter_header_template') ){
 		$sections	= apply_filters( 'nexter_header_sections_ids', $sections );
 		$header_disable = nexter_get_option( 'nxt-header-disable-opt' );
 		if($header_disable!='on' || !empty($sections)){
-			echo '<header itemscope="itemscope" id="nxt-header" class="'.esc_attr(nexter_header_classes()).'" role="banner">'; ?>
-				<a class="nexter-skip-link screen-reader-text" href="#content" tabindex="0">
-				<?php echo __( 'Skip to content', 'nexter' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				</a>
+			echo '<header itemscope="itemscope" id="nxt-header" class="'.esc_attr(nexter_header_classes()).'" role="banner">';
+				if(nexter_settings_page_get( 'skip_link' )){
+					echo '<a class="nexter-skip-link screen-reader-text" href="#content" tabindex="0">'.esc_html__( 'Skip to content', 'nexter' ).'</a>';
+				}
+				?>
 				<?php
 				if(!empty($sections)){
 					$normal_header = false;
@@ -120,8 +121,7 @@ if( ! function_exists('nexter_header_template') ){
 				}else{
 					$site_name = get_bloginfo( 'name' );
 					$tagline   = get_bloginfo( 'description', 'display' );
-					$header_container = nexter_get_option( 'site-header-container' );
-					$header_container = (!empty($header_container)) ? 'nxt-'.esc_attr($header_container) : 'nxt-container-block-editor';
+					$header_container = nexter_get_container_class( 'site-header-container' );
 					echo '<div class="'.esc_attr($header_container).' p-15">';
 						echo '<div class="nxt-header-wrap nxt-flex nxt-flex-wrap align-items-center">';
 							echo '<div class="site-branding">';
@@ -141,7 +141,7 @@ if( ! function_exists('nexter_header_template') ){
 							}
 							echo '</div>';
 							if ( has_nav_menu( 'menu-1' ) ) {
-								echo '<nav class="site-navigation nxt-flex justify-content-end" role="navigation">';
+								echo '<nav class="site-navigation nxt-flex" role="navigation">';
 									wp_nav_menu( array( 'menu_class' => 'menu nxt-primary-menu', 'theme_location' => 'menu-1' ) );
 								echo '</nav>';
 							}
@@ -237,10 +237,9 @@ if( ! function_exists('nexter_footer_template') ) {
 				if(!empty($sections)){
 					get_template_part( 'template-parts/footer/footer-content' );
 				}else{
-					$footer_container = nexter_get_option( 'site-footer-container' );
-					$footer_container = (!empty($footer_container)) ? 'nxt-'.esc_attr($footer_container) : 'nxt-container-block-editor';
-					echo '<div class="nxt-footer-copyright '.esc_attr($footer_container).' p-15 ">';
-						echo '<div class="nxt-flex align-items-center justify-content-center">';
+					$footer_container = nexter_get_container_class( 'site-footer-container' );
+					echo '<div class="nxt-footer-copyright '.esc_attr($footer_container).' p-15">';
+						echo '<div class="nxt-flex align-items-center">';
 							printf(
 								/* translators: copyright: Made By Nexter */
 								esc_html__( '%1$s Made by&nbsp;%2$s&nbsp;WP Theme', 'nexter' ),
@@ -301,7 +300,7 @@ if( ! function_exists( 'nexter_archive_template_content' ) ) {
 			$content_column = ' nxt-col-md-8 nxt-col-sm-12';		
 		}
 	?>
-		<header class="archive-page-header nxt-block nxt-alignfull">						
+		<header class="archive-page-header nxt-alignfull">						
 			<div class="nxt-container">
 				<div class="archive-header-content nxt-flex nxt-flex-column nxt-flex-wrap text-center">
 					<?php									
@@ -340,7 +339,7 @@ if( ! function_exists( 'nexter_archive_template_content' ) ) {
 			
 			echo '<div class="nxt-col '.esc_attr($content_column).'">';
 		
-				echo '<div class="nxt-blog-post-listing nxt-block">';
+				echo '<div class="nxt-blog-post-listing">';
 				
 					echo '<div class="nxt-row m-0">';
 					/* Start the Loop */
@@ -584,7 +583,7 @@ function nexter_pagination($pages = '', $range = 4){
 	}
 	
 	if( 1 != $pages ) {
-		$paginate ="<div class=\"nxt-paginate nxt-flex align-items-center nxt-flex-wrap justify-content-center\">";
+		$paginate ="<div class=\"nxt-paginate nxt-flex align-items-center nxt-flex-wrap\">";
 		
 		if ($paged > 1) $paginate .= "<a class='prev' href='".get_pagenum_link($paged - 1)."'>".esc_html__('PREV','nexter')."</a>";
 		if ( get_previous_posts_link() ){

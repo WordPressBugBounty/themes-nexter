@@ -30,23 +30,27 @@ global $wp_query;
 
 	<?php nxt_body_top(); ?>
 	
-	<?php  do_action('nxt_body_frame'); ?>
+	<?php do_action('nxt_body_frame'); ?>
 	
 	<?php	
 		$layout_container = nexter_content_layout_container();
+		$get_sidebar = nexter_site_sidebar_layout();
+		
+		$has_sidebar = !empty($get_sidebar) && ($get_sidebar['layout'] === 'left-sidebar' || $get_sidebar['layout'] === 'right-sidebar');
 		if(!empty($layout_container)){
 			$layout_container = 'nxt-'.nexter_content_layout_container();
 			
-			$get_sidebar = nexter_site_sidebar_layout();
-			if(!empty($get_sidebar) && ($get_sidebar['layout'] == 'left-sidebar' || $get_sidebar['layout'] == 'right-sidebar') ){
+			if( $has_sidebar ){
 				if( $layout_container == 'nxt-container-block-editor' ){
 					$layout_container .= ' nxt-container';
 				}
 				$layout_container .= ' nxt-with-sidebar';
-				
 			}
 		}else{
 			$layout_container = 'nxt-container-block-editor';
+			if( $has_sidebar && !nexter_settings_page_get( 'container_css' )){
+				$layout_container .= ' nxt-with-sidebar';
+			}
 		}
 	?>
 	<div class="wrapper-main">
@@ -58,6 +62,7 @@ global $wp_query;
 		<?php do_action( 'nexter_breadcrumb' ); ?>
 		
 		<div id="content" class="site-content"><!--content-->
-		
-			<div class="<?php echo esc_attr($layout_container); ?>"><!--nxt container-->
-			<?php nxt_content_top(); ?>
+			<?php if(nexter_settings_page_get( 'container_css' ) || $has_sidebar){ ?>
+				<div class="<?php echo esc_attr($layout_container); ?>"><!--nxt container-->
+			<?php } ?>
+				<?php nxt_content_top(); ?>

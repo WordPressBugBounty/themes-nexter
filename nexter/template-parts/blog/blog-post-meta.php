@@ -1,4 +1,4 @@
-<div class="align-items-center nxt-inline-block nxt-meta-info nxt-flex-wrap">
+<div class="align-items-center nxt-meta-info nxt-flex-wrap">
 	<?php get_template_part('template-parts/blog/meta', 'date'); ?>
 	<?php if ( ! empty( get_the_category() ) ) { ?>
 	<span class="nxt-meta-category"><span><?php echo esc_html__('in ', 'nexter'); ?></span><?php echo get_the_category_list( __( ', ', 'nexter' ) ); // phpcs:ignore ?></span>

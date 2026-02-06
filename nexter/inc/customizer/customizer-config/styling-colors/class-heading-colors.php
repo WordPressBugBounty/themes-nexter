@@ -18,13 +18,11 @@ if ( ! class_exists( 'Nexter_Heading_Colors' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
-			add_filter( 'nxt_gutenberg_render_theme_css', array( $this, 'gutenberg_dynamic_css' ),1 );
 			parent::__construct();
 		}
 		
 		/**
-		 * Register Heading Color Customizer Configurations.
+		 * Heading Color Customizer.
 		 * @since 1.0.0
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
@@ -110,61 +108,6 @@ if ( ! class_exists( 'Nexter_Heading_Colors' ) ) {
 			);
 
 			return array_merge( $configurations, $options );
-		}
-		
-		/*
-		 * Dynamic Theme Options Css 
-		 * @since 1.0.0
-		 */
-		public static function dynamic_css( $theme_css ){
-			
-			$heading_selector = [ 'h1' => 'h1, h1 a',
-								'h2' => 'h2, h2 a',
-								'h3' => 'h3, h3 a, .archive-post-title a',
-								'h4' => 'h4, h4 a',
-								'h5' => 'h5, h5 a',
-								'h6' => 'h6, h6 a'
-							];
-			$style = [];			
-			foreach($heading_selector as $key => $selector){
-				$color	= nexter_get_option('heading-color-'.$key);
-				$style[$selector]  = [
-					'color' => esc_attr($color)
-				];
-			}
-			
-			if( !empty($style)){
-				$theme_css[]= $style;
-			}
-			
-			return $theme_css;
-		}
-		
-		/*
-		 * Gutenberg Dynamic Theme Options Css 
-		 * @since 1.0.0
-		 */
-		public static function gutenberg_dynamic_css( $theme_css ){
-			
-			$heading_selector = [ 'h1' => ':where(.editor-styles-wrapper) h1, :where(.editor-styles-wrapper) h1 a',
-								'h2' => ':where(.editor-styles-wrapper) h2, :where(.editor-styles-wrapper) h2 a',
-								'h3' => ':where(.editor-styles-wrapper) h3, :where(.editor-styles-wrapper) h3 a',
-								'h4' => ':where(.editor-styles-wrapper) h4, :where(.editor-styles-wrapper) h4 a',
-								'h5' => ':where(.editor-styles-wrapper) h5, :where(.editor-styles-wrapper) h5 a',
-								'h6' => ':where(.editor-styles-wrapper) h6, :where(.editor-styles-wrapper) h6 a'
-							];
-			$style = [];			
-			foreach($heading_selector as $key => $selector){
-				$color	= nexter_get_option('heading-color-'.$key);
-				$style[$selector]  = [
-					'color' => esc_attr($color)
-				];
-			}
-			if( !empty($style)){
-				$theme_css[]= $style;
-			}
-			
-			return $theme_css;
 		}
 		
 	}

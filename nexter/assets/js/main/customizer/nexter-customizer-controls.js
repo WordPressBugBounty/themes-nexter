@@ -32,11 +32,11 @@
 
                 databg.prop('checked', false);
 				control.setData('bg-type', '');
-                databg.trigger('change')
+                databg.trigger('change');
                 control.container.find(".nxt-bg-image").addClass("hidden");
 			});
 
-            // Background Color.
+            // Background Color (alpha/opacity enabled).
             colorpicker.wpColorPicker({
                 change: function () {
                     if ($('html').hasClass('background-colorpicker-ready')) {
@@ -194,9 +194,14 @@
 			'use strict';
 
 			var control = this;
+			var paletteSettingId = control.params.palette_setting_id || '';
+
+			var palette = ( control.params.palette && control.params.palette.length ) ? control.params.palette : true;
 
 			this.container.find('.nxt-color-picker-alpha' ).wpColorPicker({
-				
+				alpha: true,
+				palettes: palette,
+
 			    change: function (e, ui) {
 			        var element = e.target;
 			        var color = ui.color.toString();
@@ -668,6 +673,316 @@
 		}
 	});
 	/*Style Control*/
+
+	/*Color Palette Control*/
+	wp.customize.controlConstructor['nxt-color-palette'] = wp.customize.Control.extend({
+
+		ready: function() {
+			'use strict';
+			var control = this;
+			var colors = [];
+			var hiddenInput = control.container.find('.nxt-color-palette-value');
+			var currentEditingIndex = -1;
+			var $modal = control.container.find('.nxt-color-picker-modal');
+			var $wpWrapper = control.container.find('.nxt-color-picker-wp-wrapper');
+			var $currentPicker = null;
+			
+			// Initialize colors from saved value or default (supports hex, rgb, rgba)
+			if ( control.setting._value && Array.isArray( control.setting._value ) ) {
+				colors = control.setting._value.slice();
+			} else if ( control.setting._value && typeof control.setting._value === 'string' ) {
+				try {
+					var parsed = JSON.parse( control.setting._value );
+					colors = Array.isArray( parsed ) ? parsed : [];
+				} catch ( e ) {
+					colors = [];
+				}
+			} else if ( control.params.default && Array.isArray( control.params.default ) ) {
+				colors = control.params.default.slice();
+			}
+			
+			// Function to update the setting
+			function updateSetting() {
+				var jsonValue = JSON.stringify( colors );
+				hiddenInput.val( jsonValue ).trigger('change');
+				control.setting.set( colors );
+				updateColorSwatches();
+			}
+			
+			// Update color swatches visual display (hex, rgb, rgba all work in background-color)
+			function updateColorSwatches() {
+				control.container.find('.nxt-color-swatch').each(function() {
+					var index = parseInt($(this).closest('.nxt-color-swatch-item').data('index'));
+					if ( !isNaN(index) && colors[index] !== undefined ) {
+						$(this).css('background-color', colors[index]);
+					}
+				});
+			}
+
+			// Check if string is a valid CSS color (hex, rgb, rgba, etc.)
+			function isValidColorString( str ) {
+				if ( !str || typeof str !== 'string' ) { return false; }
+				str = str.trim();
+				if ( /^#[A-Fa-f0-9]{3}$|^#[A-Fa-f0-9]{6}$|^#[A-Fa-f0-9]{8}$/.test( str ) ) { return true; }
+				if ( /^rgba?\s*\(\s*[\d.]+\s*,\s*[\d.]+\s*,\s*[\d.]+\s*(,\s*[\d.]+\s*)?\)$/.test( str ) ) { return true; }
+				if ( /^hsla?\s*\(/.test( str ) ) { return true; }
+				return false;
+			}
+
+			// Escape color for use in HTML attribute (avoid breaking quotes)
+			function escapeColorForAttr( color ) {
+				if ( !color ) { return ''; }
+				return String( color ).replace( /&/g, '&amp;' ).replace( /"/g, '&quot;' ).replace( /</g, '&lt;' );
+			}
+			
+			// Initialize individual color picker for a specific index
+			function initColorPicker(index) {
+				var $picker = control.container.find('.nxt-color-picker-' + index);
+				var $pickerWrapper = $picker.closest('.nxt-color-picker-wrapper');
+				
+				if ( $picker.length && !$picker.hasClass('wp-color-picker-initialized') ) {
+					// Temporarily show wrapper if hidden (needed for proper initialization)
+					var wasHidden = $pickerWrapper.css('display') === 'none';
+					if ( wasHidden ) {
+						$pickerWrapper.css({
+							'display': 'block',
+							'visibility': 'hidden',
+							'position': 'absolute',
+							'left': '-9999px'
+						});
+					}
+					
+					$picker.wpColorPicker({
+						alpha: true,
+						change: function(e, ui) {
+							var color = ui.color.toString();
+							var pickerIndex = parseInt($(this).data('index'));
+							if ( colors[pickerIndex] !== undefined ) {
+								colors[pickerIndex] = color;
+								updateSetting();
+							}
+						},
+						clear: function(e) {
+							var color = '#ffffff';
+							var pickerIndex = parseInt($(this).data('index'));
+							if ( colors[pickerIndex] !== undefined ) {
+								colors[pickerIndex] = color;
+								updateSetting();
+							}
+						}
+					});
+					
+					// Reset wrapper visibility after initialization
+					if ( wasHidden ) {
+						$pickerWrapper.css({
+							'display': 'none',
+							'visibility': '',
+							'position': '',
+							'left': ''
+						});
+					}
+					
+					$picker.addClass('wp-color-picker-initialized');
+				}
+			}
+			
+			// Initialize all color pickers
+			function initAllColorPickers() {
+				control.container.find('.nxt-color-picker-alpha').each(function() {
+					var index = parseInt($(this).data('index'));
+					if ( !isNaN(index) ) {
+						initColorPicker(index);
+					}
+				});
+			}
+			
+			// Function to open color picker in modal
+			function openColorPicker(index) {
+				currentEditingIndex = index;
+				var color = colors[index] || '#ffffff';
+				
+				// Remove existing picker if any
+				$wpWrapper.empty();
+				
+				// Create new picker input for modal with proper attributes (value supports hex, rgb, rgba)
+				var pickerId = 'nxt-color-picker-modal-' + control.id.replace(/[\[\]]/g, '-') + '-' + index;
+				var $modalPicker = $('<input type="text" id="' + pickerId + '" name="' + pickerId + '" class="nxt-modal-color-picker nxt-color-picker-alpha" data-alpha="true" value="' + escapeColorForAttr( color ) + '" />');
+				$wpWrapper.append($modalPicker);
+				
+				// Show modal first so wpColorPicker can initialize properly
+				$modal.fadeIn(2);
+				
+				// Position modal
+				var $swatch = control.container.find('.nxt-color-swatch-item[data-index="' + index + '"]');
+				if ($swatch.length) {
+					var offset = $swatch.offset();
+					var modalWidth = 300;
+					var leftPos = offset.left - (modalWidth / 2) + ($swatch.outerWidth() / 2);
+					$modal.css({
+						position: 'fixed',
+					//	top: offset.top + $swatch.outerHeight() + 10 + 'px',
+						left: Math.max(20, leftPos) + 'px',
+						zIndex: 100000
+					});
+				}
+				
+				// Initialize wpColorPicker after modal is visible (alpha/opacity enabled)
+				//setTimeout(function() {
+					$modalPicker.wpColorPicker({
+						alpha: true,
+						change: function(e, ui) {
+							var selectedColor = ui.color.toString();
+							if (currentEditingIndex >= 0 && colors[currentEditingIndex] !== undefined) {
+								colors[currentEditingIndex] = selectedColor;
+								updateSetting();
+							}
+						},
+						clear: function(e) {
+							var defaultColor = '#ffffff';
+							if (currentEditingIndex >= 0 && colors[currentEditingIndex] !== undefined) {
+								colors[currentEditingIndex] = defaultColor;
+								updateSetting();
+							}
+						}
+					});
+					
+					// Update the input field value to match the color
+					$modalPicker.val(color);
+					
+					// Ensure input wrap is visible
+					var $inputWrap = $modalPicker.closest('.wp-picker-container').find('.wp-picker-input-wrap');
+					$inputWrap.removeClass('hidden').show();
+					
+					// Also listen to input field changes (accept hex, rgb, rgba)
+					$modalPicker.on('input change', function() {
+						var inputColor = $(this).val().trim();
+						if (inputColor && isValidColorString( inputColor )) {
+							if (currentEditingIndex >= 0 && colors[currentEditingIndex] !== undefined) {
+								colors[currentEditingIndex] = inputColor;
+								updateSetting();
+							}
+						}
+					});
+					
+					// Trigger iris change to update the picker display
+					if ($modalPicker.data('wp-color-picker')) {
+						$modalPicker.iris('color', color);
+					}
+					
+					// Open the color picker automatically by clicking the input or triggering iris
+					//setTimeout(function() {
+						// Try to open picker by focusing the input and triggering iris
+						$modalPicker.focus();
+						if ($modalPicker.data('wp-color-picker')) {
+							var $pickerHolder = $modalPicker.closest('.wp-picker-container').find('.wp-picker-holder');
+							if ($pickerHolder.length) {
+								$pickerHolder.show();
+							}
+						}
+					//}, 50);
+				//}, 1);
+			}
+			
+			// Function to close color picker modal
+			function closeColorPicker() {
+				// Close any open wpColorPicker first
+				var $pickerHolder = $('.nxt-color-palette-control').find('.wp-picker-holder');
+				if ($pickerHolder.length) {
+					$pickerHolder.hide();
+				}
+				
+				// Close modal
+				$modal.fadeOut(5);
+				currentEditingIndex = -1;
+				
+				// Clean up the picker
+				var $modalPicker = $wpWrapper.find('.nxt-modal-color-picker');
+				if ($modalPicker.length && $modalPicker.data('wp-color-picker')) {
+					$modalPicker.wpColorPicker('close');
+				}
+			}
+			
+			// Click on swatch to open picker
+			control.container.on('click', '.nxt-color-swatch', function(e) {
+				if ($(e.target).closest('.nxt-color-remove').length) {
+					return;
+				}
+				var index = parseInt($(this).closest('.nxt-color-swatch-item').data('index'));
+				if (!isNaN(index)) {
+					openColorPicker(index);
+				}
+			});
+			
+			// Remove color
+			control.container.on('click', '.nxt-color-remove', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				var index = parseInt($(this).data('index'));
+				if (colors.length > 1) {
+					colors.splice(index, 1);
+					updateColorList();
+				} else {
+					alert('You must have at least one color in the palette.');
+				}
+			});
+			
+			// Add new color
+			control.container.on('click', '.nxt-add-color', function(e) {
+				e.preventDefault();
+				e.stopPropagation();
+				var newIndex = colors.length;
+				colors.push('#ffffff');
+				updateColorList();
+				/* setTimeout(function() {
+					openColorPicker(newIndex);
+				}, 100); */
+			});
+			
+			// Close picker on outside click
+			$(document).on('click', function(e) {
+				if (!$(e.target).closest('.nxt-color-picker-modal').length &&
+					!$(e.target).closest('.wp-picker-holder').length &&
+					!$(e.target).closest('.nxt-color-swatch-item').length &&
+					!$(e.target).closest('.wp-picker-container').length) {
+					closeColorPicker();
+				}
+			});
+			
+			// Update color list in DOM (hex, rgb, rgba; escape for HTML attributes)
+			function updateColorList() {
+				var $swatches = control.container.find('.nxt-color-palette-swatches');
+				$swatches.find('.nxt-color-swatch-item:not(.nxt-add-color-item)').remove();
+				
+				_.each(colors, function(color, index) {
+					var safeAttr = escapeColorForAttr( color );
+					var safeStyle = String( color ).replace( /"/g, '\\"' );
+					var $item = $('<div class="nxt-color-swatch-item" data-index="' + index + '">' +
+						'<div class="nxt-color-swatch" style="background-color: ' + safeStyle + ';" data-color="' + safeAttr + '">' +
+						'<button type="button" class="nxt-color-remove" data-index="' + index + '" title="Remove Color">' +
+						'<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="none" viewBox="0 0 6 6"><path fill="#666" d="M4.459 5.078 2.603 3.22.747 5.078a.437.437 0 1 1-.619-.619l1.856-1.856L.128.747A.438.438 0 0 1 .747.128l1.856 1.856L4.459.128a.438.438 0 0 1 .618.619L3.221 2.603l1.856 1.856a.437.437 0 1 1-.618.619"/></svg>' +
+						'</button>' +
+						'</div>' +
+						'<div class="nxt-color-picker-wrapper">' +
+						'<input type="text" class="nxt-color-picker-alpha color-picker-hex nxt-color-picker-' + index + '" data-alpha="true" data-index="' + index + '" value="' + safeAttr + '" style="display: none;" />' +
+						'</div>' +
+						'</div>');
+					$swatches.find('.nxt-add-color-item').before($item);
+					
+					// Initialize picker for this new swatch
+					setTimeout(function() {
+						initColorPicker(index);
+					}, 50);
+				});
+				
+				updateSetting();
+			}
+			
+			// Initialize all color pickers on ready
+			initAllColorPickers();
+			updateColorSwatches();
+		}
+	});
+	/*Color Palette Control*/
 	
 	//Device Responsive And Responsive Slider Preview
 	$(' .wp-full-overlay-footer .devices button ').on('click', function() {

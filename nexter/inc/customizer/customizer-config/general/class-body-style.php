@@ -20,8 +20,6 @@ if ( ! class_exists( 'Nexter_Body_Style' ) ) {
 		 * @since 1.0
 		 */
 		public function __construct() {
-			add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
-			add_filter( 'nxt_gutenberg_render_theme_css', array( $this, 'gutenberg_dynamic_css' ),1 );
 			parent::__construct();
 		}
 		
@@ -140,104 +138,7 @@ if ( ! class_exists( 'Nexter_Body_Style' ) ) {
 
 			return array_merge( $configurations, $options );
 		}
-		
-		/*
-		 * Dynamic Theme Options Css 
-		 * @since 1.0.0
-		 */
-		public static function dynamic_css( $theme_css ){
-			
-			$body_bgcolor           = nexter_get_option('body-bgcolor');
-            $content_bgcolor           = nexter_get_option('content-bgcolor');
-			
-			$body_frame_padding     = nexter_get_option('body-frame-padding');
-            $fixed_body_frame       = nexter_get_option('fixed-body-frame');
-            $fixed_body_frame_color = nexter_get_option('body-frame-color');
-			
-			$option_frame = ['top' => 'height', 'bottom' => 'height', 'left' => 'width', 'right' => 'width'];
-			$style = [];
-			foreach($option_frame as $key => $val){
-				$style['body']['padding-'.$key] = nexter_dimension_responsive_css($body_frame_padding, $key, 'md');
-			}
-			
-			$body_content_bg_css  = array(
-                'body' => nexter_get_background_css($body_bgcolor),
-                '#content.site-content' => nexter_get_background_css($content_bgcolor)
-            );
-			
-			$fixed_body_frame_css = [];
-            if ($fixed_body_frame == 'on') {
-                $fixed_body_frame_css = array(
-                    '.nxt-body-frame' => array(
-                        'background-color' => esc_attr($fixed_body_frame_color)
-                    ),
-                );
-				foreach( $option_frame as $key => $val ){
-					$fixed_body_frame_css['.nxt-body-frame.frame-'.$key] = [
-						$val => nexter_dimension_responsive_css($body_frame_padding, $key, 'md')
-					];
-				}
-            }
-			
-			$style = array_merge_recursive($style,$body_content_bg_css, $fixed_body_frame_css);
-			
-			if( !empty($style)){
-				$theme_css[]= $style;
-			}
-			
-			//Tablet Css
-			$tablet_css = [];
-			$tablet_fixed_css = [];
-			
-			foreach($option_frame as $key => $val){
-				$tablet_css['body']['padding-'.$key] = nexter_dimension_responsive_css($body_frame_padding, $key, 'sm');
-				if ($fixed_body_frame == 'on') {
-					$tablet_fixed_css['.nxt-body-frame.frame-'.$key] = [
-						$val => nexter_dimension_responsive_css($body_frame_padding, $key, 'sm')
-					];
-				}
-			}
-			
-			if($tablet_css){
-				$theme_css['tablet'] = array_merge_recursive($theme_css['tablet'],$tablet_css,$tablet_fixed_css);
-			}
-			
-			//Mobile Css
-			$mobile_css = [];
-			$mobile_fixed_css = [];
-			
-			foreach($option_frame as $key => $val){
-				$mobile_css['body']['padding-'.$key] = nexter_dimension_responsive_css($body_frame_padding, $key, 'xs');
-				if ($fixed_body_frame == 'on') {
-					$mobile_fixed_css['.nxt-body-frame.frame-'.$key] = [
-						$val => nexter_dimension_responsive_css($body_frame_padding, $key, 'xs')
-					];
-				}
-			}
-			
-			if($mobile_css){
-				$theme_css['mobile'] = array_merge_recursive($theme_css['mobile'],$mobile_css,$mobile_fixed_css);
-			}
-			
-			return $theme_css;
-		}
 
-		/*
-		 * Gutenberg Dynamic Theme Options Css 
-		 * @since 1.0.8
-		 */
-		public static function gutenberg_dynamic_css( $theme_css ){
-			$body_bgcolor	= nexter_get_option('body-bgcolor');
-			
-			if(!empty($body_bgcolor)){
-				$theme_css[]  = array(
-					'body :where(.editor-styles-wrapper)' => nexter_get_background_css($body_bgcolor),
-				);
-			}
-
-			return $theme_css;
-		}
-		
 	}
 }
 

@@ -48,6 +48,7 @@ if ( ! class_exists( 'Nexter_Font_Families_Listing' ) ) {
 					self::$google_fonts_list[ $key ][] =  $gfonts[ 'category' ];
 				}
 			}
+
 			return apply_filters( 'nexter_google_fonts_load', self::$google_fonts_list );
 		}
 		
@@ -56,6 +57,7 @@ if ( ! class_exists( 'Nexter_Font_Families_Listing' ) ) {
 		 * @since 1.1.0
 		 */
 		public static function get_local_google_fonts_load(){
+			
 			$nxt_ext = get_option( 'nexter_extra_ext_options' );
 			self::$google_fonts_list = self::get_google_fonts_load();
 			//local google font load

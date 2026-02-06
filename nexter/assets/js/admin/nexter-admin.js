@@ -13,7 +13,7 @@ window.onload = function(){
 		});
 	}
 
-    let nxtExtInstall = document.querySelector('.nexter-install-ext');
+    /* let nxtExtInstall = document.querySelector('.nexter-install-ext');
     if(nxtExtInstall){
         nxtExtInstall.addEventListener('click', (e)=>{
             e.currentTarget.innerHTML = "<span class='nexter-loading-circle'></span>";
@@ -41,5 +41,5 @@ window.onload = function(){
             };
 			request.send('action=nexter_ext_install&nexter_nonce=' + nexter_admin_config.ajax_nonce);
         })
-    }
+    } */
 }

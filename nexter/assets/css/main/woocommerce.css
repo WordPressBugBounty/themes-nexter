@@ -1,6 +1,59 @@
 /**
  * Nexter Woocommerce Style
  */
+.justify-content-end {
+	-ms-flex-pack: end !important;
+	justify-content: flex-end !important;
+}
+.nxt-col-lg-2, .nxt-col-lg-3, .nxt-col-lg-4, .nxt-col-lg-6, .nxt-col-lg-12 {
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+.nxt-col-6 {
+	-ms-flex: 0 0 50%;
+	    flex: 0 0 50%;
+	max-width: 50%;
+}
+
+@media (min-width: 992px) {
+	.nxt-col-lg-2 {
+		-ms-flex: 0 0 16.666667%;
+		flex: 0 0 16.666667%;
+		max-width: 16.666667%;
+	}
+
+	.nxt-col-lg-3 {
+		-ms-flex: 0 0 25%;
+		flex: 0 0 25%;
+		max-width: 25%;
+	}
+
+	.nxt-col-lg-4 {
+		-ms-flex: 0 0 33.333333%;
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+
+	.nxt-col-lg-6 {
+		-ms-flex: 0 0 50%;
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+
+	.nxt-col-lg-8 {
+		-ms-flex: 0 0 66.666667%;
+		flex: 0 0 66.666667%;
+		max-width: 66.666667%;
+	}
+
+	.nxt-col-lg-12 {
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+}
 /*------------ Porduct Listing ------------*/
 /*On Sale*/
 .woocommerce ul.products li.product .onsale {
@@ -216,6 +269,12 @@
 .woocommerce .woocommerce-pagination ul.page-numbers li, .woocommerce-page .woocommerce-pagination ul.page-numbers li {
     border: 0;
     float: none;
+}
+.woocommerce nav.woocommerce-pagination ul {
+    position: relative;
+	font-size: 15px;
+    line-height: 1;
+	margin-top: 15px;
 }
 .woocommerce nav.woocommerce-pagination ul li a, .woocommerce nav.woocommerce-pagination ul li span{    
     width: 28px;

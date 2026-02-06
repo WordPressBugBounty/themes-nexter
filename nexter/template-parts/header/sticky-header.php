@@ -7,10 +7,7 @@
  * @package	Nexter
  * @since	1.0.10
  */
-
-$header_container = nexter_get_option( 'site-header-container' );
-$header_container = (!empty($header_container)) ? 'nxt-'.esc_attr($header_container) : 'nxt-container-block-editor';
 ?>
-<div class="nxt-sticky-header <?php echo esc_attr($header_container); ?>">
+<div class="nxt-sticky-header <?php echo (nexter_settings_page_get( 'header_footer_css' ) ? esc_attr(nexter_get_container_class('site-header-container')) : ''); ?>">
 	<?php do_action('nexter_sticky_header_content'); ?>			
 </div> <!-- sticky Header Content -->

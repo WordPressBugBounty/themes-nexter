@@ -313,6 +313,88 @@ if ( ! class_exists( 'Nexter_Customizer_Sanitizes_Callbacks' ) ) {
 			return $bg_array;
 		}
 
+		/**
+		 * Sanitize a single color in any format (hex, rgb, rgba).
+		 * Used by color palette to support hash, rgb(), and rgba() values.
+		 *
+		 * @param string $color Color string in #hex, rgb(r,g,b), or rgba(r,g,b,a) format.
+		 * @return string Sanitized color string or empty string if invalid.
+		 */
+		public static function sanitize_color_any_format( $color ) {
+			if ( empty( $color ) || is_array( $color ) ) {
+				return '';
+			}
+			$color = trim( $color );
+
+			/* Hex */
+			$hex = self::sanitize_hex_color( $color );
+			if ( '' !== $hex ) {
+				return $hex;
+			}
+
+			/* rgba(r,g,b,a) */
+			if ( false !== strpos( $color, 'rgba' ) ) {
+				$color = str_replace( ' ', '', $color );
+				$red = $green = $blue = $alpha = null;
+				sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+				if ( null !== $red && null !== $green && null !== $blue && null !== $alpha ) {
+					$red   = max( 0, min( 255, (int) $red ) );
+					$green = max( 0, min( 255, (int) $green ) );
+					$blue  = max( 0, min( 255, (int) $blue ) );
+					$alpha = max( 0, min( 1, (float) $alpha ) );
+					return 'rgba(' . $red . ',' . $green . ',' . $blue . ',' . $alpha . ')';
+				}
+				return '';
+			}
+
+			/* rgb(r,g,b) */
+			if ( false !== strpos( $color, 'rgb(' ) && false === strpos( $color, 'rgba' ) ) {
+				$color = str_replace( ' ', '', $color );
+				$red = $green = $blue = null;
+				sscanf( $color, 'rgb(%d,%d,%d)', $red, $green, $blue );
+				if ( null !== $red && null !== $green && null !== $blue ) {
+					$red   = max( 0, min( 255, (int) $red ) );
+					$green = max( 0, min( 255, (int) $green ) );
+					$blue  = max( 0, min( 255, (int) $blue ) );
+					return 'rgb(' . $red . ',' . $green . ',' . $blue . ')';
+				}
+				return '';
+			}
+
+			return '';
+		}
+
+		/**
+		 * Color Palette Sanitize
+		 * Supports hex (#), rgb(), rgba(), hsl(), hsla(), and other valid CSS color values.
+		 * Uses Nexter_Control_Color_Palette sanitizer for full compatibility.
+		 */
+		public static function sanitize_color_palette( $value ) {
+			if ( class_exists( 'Nexter_Control_Color_Palette' ) ) {
+				return Nexter_Control_Color_Palette::sanitize_palette_static( $value );
+			}
+			// Fallback: use existing per-color sanitizer
+			if ( is_string( $value ) ) {
+				$decoded = json_decode( $value, true );
+				if ( json_last_error() === JSON_ERROR_NONE && is_array( $decoded ) ) {
+					$value = $decoded;
+				} else {
+					$value = array();
+				}
+			}
+			if ( ! is_array( $value ) ) {
+				return array();
+			}
+			$sanitized = array();
+			foreach ( $value as $color ) {
+				$sanitized_color = self::sanitize_color_any_format( $color );
+				if ( '' !== $sanitized_color ) {
+					$sanitized[] = $sanitized_color;
+				}
+			}
+			return $sanitized;
+		}
+
 	}
 }
 
