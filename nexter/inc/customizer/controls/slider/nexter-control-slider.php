@@ -23,6 +23,7 @@ class Nexter_Control_Slider extends WP_Customize_Control {
 	 * The control type.
 	 */
 	public $suffix = '';
+	public $placeholder = '';
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -41,6 +42,7 @@ class Nexter_Control_Slider extends WP_Customize_Control {
 		$this->json['id']     = $this->id;
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['suffix'] = $this->suffix;
+		$this->json['placeholder'] = $this->placeholder;
 
 		$this->json['inputAttrs'] = '';
 		foreach ( $this->input_attrs as $attr => $value ) {
@@ -68,9 +70,19 @@ class Nexter_Control_Slider extends WP_Customize_Control {
 				<span class="description customize-control-description">{{{ data.description }}}</span>
 			<# } #>
 			<div class="nxt_slider_wrap">
+				<# 
+				var placeholder_val = data.default;
+				if ( data.placeholder ) {
+					if ( typeof data.placeholder === 'object' && data.placeholder['desktop'] ) {
+						placeholder_val = data.placeholder['desktop'];
+					} else if ( typeof data.placeholder !== 'object' ) {
+						placeholder_val = data.placeholder;
+					}
+				}
+				#>
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
 				<div class="nxt_range_value">
-					<input type="number" class="value nxt-slide-val-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
+					<input type="number" class="value nxt-slide-val-input" {{{ data.link }}} placeholder="{{ placeholder_val }}" value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {
 
 					#><span class="nxt-slide-unit">{{ data.suffix }}</span><#

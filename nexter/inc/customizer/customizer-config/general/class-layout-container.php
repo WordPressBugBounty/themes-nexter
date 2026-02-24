@@ -80,6 +80,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 						'type'        => 'control',
 						'transport'   => 'postMessage',
 						'control'     => 'nxt-responsive-slider',
+						'placeholder' => array( 'desktop' => 1140, 'tablet' => 960 ),
 						'section'     => 'section-site-layout-container',
 						'priority'    => 5,
 						'input_attrs' => array(
@@ -157,6 +158,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 						'type'        => 'control',
 						'transport'   => 'postMessage',
 						'control'     => 'nxt-responsive-slider',
+						'placeholder' => array( 'desktop' => 1140, 'tablet' => 960 ),
 						'section'     => 'section-site-layout-container',
 						'priority'    => 5,
 						'input_attrs' => array(
@@ -239,6 +241,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'type'        => 'control',
 					'transport'   => 'postMessage',
 					'control'     => 'nxt-responsive-slider',
+					'placeholder' => array( 'desktop' => 1140, 'tablet' => 960 ),
 					'section'     => 'section-site-layout-container',
 					'priority'    => 5,
 					'input_attrs' => array(
@@ -322,6 +325,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'default'           => nexter_get_option( 'layout-page-container' ),
 					'type'              => 'control',
 					'control'           => 'nxt-responsive-slider',
+					'placeholder'       => array( 'desktop' => 1140, 'tablet' => 960 ),
 					'section'           => 'section-site-layout-container',
 					'title'             => __( 'Container Width', 'nexter' ),
 					'transport'         => 'postMessage',
@@ -399,6 +403,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'default'           => nexter_get_option( 'layout-posts-container' ),
 					'type'              => 'control',
 					'control'           => 'nxt-responsive-slider',
+					'placeholder'       => array( 'desktop' => 1140, 'tablet' => 960 ),
 					'section'           => 'section-site-layout-container',
 					'title'             => __( 'Container Width', 'nexter' ),
 					'transport'         => 'postMessage',
@@ -476,6 +481,7 @@ if ( ! class_exists( 'Nexter_Layout_Container' ) ) {
 					'default'           => nexter_get_option( 'layout-archive-container' ),
 					'type'              => 'control',
 					'control'           => 'nxt-responsive-slider',
+					'placeholder'       => array( 'desktop' => 1140, 'tablet' => 960 ),
 					'section'           => 'section-site-layout-container',
 					'title'             => __( 'Container Width', 'nexter' ),
 					'transport'         => 'postMessage',

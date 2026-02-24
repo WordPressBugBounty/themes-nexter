@@ -99,6 +99,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 32,
+						'tablet'  => 32,
+						'mobile'  => 32,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -118,6 +123,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'min'  => 0.5,
 						'step' => 0.01,
 						'max'  => 15,
+					),
+					'placeholder' => array(
+						'desktop' => 1.2,
+						'tablet'  => 1.2,
+						'mobile'  => 1.2,
 					),
 				),
 				/** End
@@ -171,7 +181,6 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					'priority' => 4,
 					'choices'  => array(
 						''           => __( 'Inherit', 'nexter' ),
-						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -192,6 +201,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 27,
+						'tablet'  => 27,
+						'mobile'  => 27,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -210,6 +224,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'min'  => 0.5,
 						'step' => 0.01,
 						'max'  => 15,
+					),
+					'placeholder' => array(
+						'desktop' => 1.3,
+						'tablet'  => 1.3,
+						'mobile'  => 1.3,
 					),
 				),
 				/** End
@@ -263,7 +282,6 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					'priority' => 4,
 					'choices'  => array(
 						''           => __( 'Inherit', 'nexter' ),
-						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -284,6 +302,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 24,
+						'tablet'  => 24,
+						'mobile'  => 24,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -302,6 +325,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'min'  => 0.5,
 						'step' => 0.01,
 						'max'  => 15,
+					),
+					'placeholder' => array(
+						'desktop' => 1.4,
+						'tablet'  => 1.4,
+						'mobile'  => 1.4,
 					),
 				),
 				/** End
@@ -355,7 +383,6 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					'priority' => 4,
 					'choices'  => array(
 						''           => __( 'Inherit', 'nexter' ),
-						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -376,6 +403,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 20,
+						'tablet'  => 20,
+						'mobile'  => 20,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -394,6 +426,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'min'  => 0.5,
 						'step' => 0.01,
 						'max'  => 15,
+					),
+					'placeholder' => array(
+						'desktop' => 1.5,
+						'tablet'  => 1.5,
+						'mobile'  => 1.5,
 					),
 				),
 				/** End
@@ -447,7 +484,6 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					'priority' => 4,
 					'choices'  => array(
 						''           => __( 'Inherit', 'nexter' ),
-						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -468,6 +504,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 19,
+						'tablet'  => 19,
+						'mobile'  => 19,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -486,6 +527,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'min'  => 0.5,
 						'step' => 0.01,
 						'max'  => 15,
+					),
+					'placeholder' => array(
+						'desktop' => 1.6,
+						'tablet'  => 1.6,
+						'mobile'  => 1.6,
 					),
 				),
 				/** End
@@ -539,7 +585,6 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					'priority' => 4,
 					'choices'  => array(
 						''           => __( 'Inherit', 'nexter' ),
-						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -560,6 +605,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 17,
+						'tablet'  => 17,
+						'mobile'  => 17,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -578,6 +628,11 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 						'min'  => 0.5,
 						'step' => 0.01,
 						'max'  => 15,
+					),
+					'placeholder' => array(
+						'desktop' => 1.7,
+						'tablet'  => 1.7,
+						'mobile'  => 1.7,
 					),
 				),
 				/** End

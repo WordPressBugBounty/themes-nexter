@@ -22,7 +22,8 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @suffix
 	 */
 	public $suffix = '';
-	public $units = array( 'px' => 'px' );
+	public $placeholder = array();
+	public $units = array();
 
 	/**
 	 * Refresh the parameters passed to the JavaScript via JSON.
@@ -65,6 +66,7 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 		$this->json['label']  = esc_html( $this->label );
 		$this->json['id']     = $this->id;
 		$this->json['suffix'] = $this->suffix;
+		$this->json['placeholder'] = $this->placeholder;
 		$this->json['units']	= $this->units;
 
 		$this->json['inputAttrs'] = '';
@@ -131,7 +133,7 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 			if ( data.value['mobile-unit'] ) { 
 				mobile_unit_val = data.value['mobile-unit'];
 			}
-
+			
 			value_md = '';
 			value_sm  = '';
 			value_xs  = '';
@@ -141,7 +143,7 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 
 			if ( data.value['desktop'] ) { 
 				value_md = data.value['desktop'];
-			} 
+			}
 
 			if ( data.value['tablet'] ) { 
 				value_sm = data.value['tablet'];
@@ -161,6 +163,22 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 
 			if ( data.default['mobile'] ) { 
 				default_xs = data.default['mobile'];
+			} 
+			
+			placeholder_md = default_md;
+			placeholder_sm = default_sm;
+			placeholder_xs = default_xs;
+
+			if ( data.placeholder ) {
+				if ( data.placeholder['desktop'] ) { 
+					placeholder_md = data.placeholder['desktop'];
+				} 
+				if ( data.placeholder['tablet'] ) { 
+					placeholder_sm = data.placeholder['tablet'];
+				} 
+				if ( data.placeholder['mobile'] ) { 
+					placeholder_xs = data.placeholder['mobile'];
+				}
 			} #>
 			
 			<div class="wrapper">
@@ -172,11 +190,12 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 				<div class="nxt-slider-wrap desktop active">
 					<input type="range" value="{{ value_md }}" data-reset="{{ default_md }}" {{{ data.inputAttrs }}} data-id="desktop"/>
 					<div class="nxt-slider-field">
-						<input type="number" data-id="desktop" class="nxt-responsive-slider-number" value="{{ value_md }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id="desktop" class="nxt-responsive-slider-number" placeholder="{{ placeholder_md }}" value="{{ value_md }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="nxt-slider-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
+					<# if ( ! _.isEmpty( data.units ) ) { #>
 					<select class="nxt-slider-units-devices nxt-slider-desktop-responsive-units">
 						<#_.each( data.units, function( key_unit ) { 
 							unit_active = '', selected = '';
@@ -189,15 +208,17 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 						</option><# 
 						});#>
 					</select>
+					<# } #>
 				</div>
 				<div class="nxt-slider-wrap tablet">
 					<input type="range" value="{{ value_sm }}" data-reset="{{ default_sm }}" {{{ data.inputAttrs }}} data-id="tablet"/>
 					<div class="nxt-slider-field">
-						<input type="number" data-id="tablet" class="nxt-responsive-slider-number" value="{{ value_sm }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id="tablet" class="nxt-responsive-slider-number" placeholder="{{ placeholder_sm }}" value="{{ value_sm }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="nxt-slider-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
+					<# if ( ! _.isEmpty( data.units ) ) { #>
 					<select class="nxt-slider-units-devices nxt-slider-tablet-responsive-units">
 						<#_.each( data.units, function( key_unit ) { 
 							unit_active = '', selected = '';
@@ -210,15 +231,17 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 						</option><# 
 						});#>
 					</select>
+					<# } #>
 				</div>
 				<div class="nxt-slider-wrap mobile">
 					<input type="range" value="{{ value_xs }}" data-reset="{{ default_xs }}" {{{ data.inputAttrs }}} data-id="mobile"/>
 					<div class="nxt-slider-field">
-						<input type="number" data-id="mobile" class="nxt-responsive-slider-number" value="{{ value_xs }}" {{{ data.inputAttrs }}} ><#
+						<input type="number" data-id="mobile" class="nxt-responsive-slider-number" placeholder="{{ placeholder_xs }}" value="{{ value_xs }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="nxt-slider-unit">{{ data.suffix }}</span><#
 						} #>
 					</div>
+					<# if ( ! _.isEmpty( data.units ) ) { #>
 					<select class="nxt-slider-units-devices nxt-slider-mobile-responsive-units">
 						<#_.each( data.units, function( key_unit ) { 
 							unit_active = '', selected = '';
@@ -231,6 +254,7 @@ class Nexter_Control_Responsive_Slider extends WP_Customize_Control {
 						</option><# 
 						});#>
 					</select>
+					<# } #>
 				</div>
 			</div>
 		</label>

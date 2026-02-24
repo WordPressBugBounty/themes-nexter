@@ -247,6 +247,7 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 						'step' => 0.01,
 						'max'  => 15,
 					),
+					'placeholder'       => 1.4,
 				),
 				array(
 					'name'              => NXT_OPTIONS . '[s-blog-title-letter-spacing]',
@@ -264,6 +265,7 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 						'step' => 0.01,
 						'max'  => 3,
 					),
+					'placeholder'       => 0,
 				),
 				array(
 					'name'     => NXT_OPTIONS . '[s-blog-title-color]',
@@ -382,6 +384,7 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 						'step' => 0.01,
 						'max'  => 15,
 					),
+					'placeholder'       => 1.5,
 				),
 				array(
 					'name'              => NXT_OPTIONS . '[s-post-meta-letter-spacing]',
@@ -399,6 +402,7 @@ if ( ! class_exists( 'Nexter_Single_Blog' ) ) {
 						'step' => 0.01,
 						'max'  => 3,
 					),
+					'placeholder'       => 0,
 				),
 				array(
 					'name'     => NXT_OPTIONS . '[s-post-meta-color]',

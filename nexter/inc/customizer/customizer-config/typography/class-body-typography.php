@@ -92,7 +92,6 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 					'title'    => __( 'Text Transform', 'nexter' ),
 					'choices'  => array(
 						''           => __( 'Default', 'nexter' ),
-						// 'none'       => __( 'None', 'nexter' ),
 						'capitalize' => __( 'Capitalize', 'nexter' ),
 						'uppercase'  => __( 'Uppercase', 'nexter' ),
 						'lowercase'  => __( 'Lowercase', 'nexter' ),
@@ -112,6 +111,11 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 						'max'  => 100,
 						'step' => 1
 					),
+					'placeholder' => array(
+						'desktop' => 16,
+						'tablet'  => 16,
+						'mobile'  => 16,
+					),
 					'units'       => array(
 						'px' => 'px',
 						'em' => 'em',
@@ -126,6 +130,11 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 					'control'     => 'nxt-responsive-slider',
 					'section'     => 'section-body-typography',
 					'priority'    => 25,
+					'placeholder' => array(
+						'desktop' => 1.5,
+						'tablet'  => 1.5,
+						'mobile'  => 1.5,
+					),
 					'input_attrs' => array(
 						'min'  => 0.5,
 						'step' => 0.01,
@@ -155,6 +164,7 @@ if ( ! class_exists( 'Nexter_Body_Typography' ) ) {
 						'step' => 0.01,
 						'max'  => 5,
 					),
+					'placeholder' => 1.5,
 				),
 
 			);

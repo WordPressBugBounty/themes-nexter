@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 4.2.5
-Version: 4.2.5
+Stable tag: 4.2.6
+Version: 4.2.6
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,11 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.6 = 24 February 2026
+- Improved : Customizer : Default values are now displayed as placeholders in input fields
+- Fixed : Search Page : Container CSS Padding Bug Fix.
+- Fixed : Bug fixes and improvements.
+
 = 4.2.5 = 03 February 2026
 - Improved : Customizer : Global Color Palette Opacity Color picker
 
