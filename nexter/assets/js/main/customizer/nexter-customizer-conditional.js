@@ -267,7 +267,7 @@
 			}else{
 				if (_.isArray(value2)) {
 					if (!_.isEmpty(value2) && !_.isEmpty(currentValue)) {
-						display = _.contains(value2, currentValue);
+						display = _.includes(value2, currentValue);
 					} else {
 						display = false;
 					}

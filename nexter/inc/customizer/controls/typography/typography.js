@@ -59,7 +59,7 @@
             var e = ["400", "600"];
             return "inherit" == t ? e = ["100", "200", "300", "400", "500", "600", "700", "800", "900"] : void 0 !== NxtLoadFontFamily.system[t] ? e = NxtLoadFontFamily.system[t].weights : void 0 !== NxtLoadFontFamily.google[t] ? (e = NxtLoadFontFamily.google[t][0], e = Object.keys(e).map(function(t) {
                 return e[t]
-            })) : void 0 !== NxtLoadFontFamily.custom[t.split(",")[0]] && (e = NxtLoadFontFamily.custom[t.split(",")[0]].weights), e
+            })) : NxtLoadFontFamily.custom && void 0 !== NxtLoadFontFamily.custom[t.split(",")[0]] && (e = NxtLoadFontFamily.custom[t.split(",")[0]].weights), e
         },
         setFontWeightOptions: function(t) {
             var e = 0,

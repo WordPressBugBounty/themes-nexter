@@ -24,31 +24,35 @@ if (!class_exists('Nexter_Dynamic_Css')) {
             $theme_css = apply_filters( 'nxt_render_theme_css', $theme_css );
             if(!empty($theme_css)){
                 foreach($theme_css as $key => $value){
-            
-                    if($key==='tablet' && !empty($value)){
-                    
+
+                    if($key==='root_tablet' && !empty($value)){
+
+                        $parse_css .= nexter_generate_css($value, '', '780'); //Root tablet max=780
+
+                    }else if($key==='tablet' && !empty($value)){
+
                         $parse_tablet_css .= nexter_generate_css($value, '', '1024');   //tablet max=1024
-                        
+
                     }else if($key==='mobile' && !empty($value)){
-                    
+
                         $parse_mobile_css .= nexter_generate_css($value, '', '767'); //mobile max=767
-                        
+
                     }else if($key==='container_d' && !empty($value)){
-                    
+
                         $parse_css .= nexter_generate_css($value, '1200');  //desktop container min=1200
-                        
+
                     }else if($key==='container_t' && !empty($value)){
-                    
-                        $parse_css .= nexter_generate_css($value,'768', '1199');  //tablet container max=768px
-                        
+
+                        $parse_css .= nexter_generate_css($value,'768', '1199');  //tablet container min=768 max=1199
+
                     }else if($key==='container_m' && !empty($value)){
-                    
-                        $parse_css .= nexter_generate_css($value,'', '767');  //mobile container max=576px
-                        
+
+                        $parse_css .= nexter_generate_css($value,'', '767');  //mobile container max=767
+
                     }else if(!empty($value)){
-                    
+
                         $parse_css .= nexter_generate_css($value);  //Normal/default Css
-                        
+
                     }
                 }
             }

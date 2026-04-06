@@ -42,7 +42,7 @@ function nxt_body_color_dynamic_css( $theme_css ){
 		'.widget-area ul li:not(.page_item):not(.menu-item):hover:before, .widget-area ul li.page_item a:hover:before, .widget-area ul li.menu-item a:hover:before' => array(
 			'border-color' => esc_attr($a_link_hover_color)
 		),
-		'.widget_calendar #today' => array(
+		'.widget_calendar :where(#today)' => array(
 			'background' => esc_attr($a_link_color)
 		),
 		

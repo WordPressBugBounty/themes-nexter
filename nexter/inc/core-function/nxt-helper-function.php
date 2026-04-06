@@ -106,7 +106,19 @@ function nxt_global_color_palette(){
 	return $colors;
 }
 
-// This function is now moved to class-color-palette-dynamic.php
+/**
+ * Get cached nexter_extra_ext_options — avoids repeated get_option() calls.
+ *
+ * @since 4.2.7
+ * @return array
+ */
+function nexter_get_extra_ext_options() {
+	static $cached = null;
+	if ( $cached === null ) {
+		$cached = (array) get_option( 'nexter_extra_ext_options', [] );
+	}
+	return $cached;
+}
 
 function nexter_settings_page_get( $key ){
 
@@ -116,11 +128,11 @@ function nexter_settings_page_get( $key ){
         $cached_options = (array) get_option( 'nexter_settings_opts', [] );
     }
 	
-	if(!empty($cached_options) && isset($cached_options['switch']) && $cached_options['switch'] == false){
+	if(!empty($cached_options) && isset($cached_options['switch']) && $cached_options['switch'] === false){
 		return true;
 	}
 
-    return ! isset( $cached_options['values'][ $key ] ) || $cached_options['values'][ $key ] == '0';
+    return ! isset( $cached_options['values'][ $key ] ) || $cached_options['values'][ $key ] === '0';
 }
 
 /**
@@ -130,17 +142,13 @@ function nexter_builders_posts_list() {
     $args = array( 'post_type' => 'nxt_builder', 'post_status' => 'publish', 'posts_per_page' => -1, 'suppress_filters' => true );
     $get_list_posts = new WP_Query( $args );	
 	$array_list = array();
-	if($get_list_posts){
-		$array_list["none"] = esc_html__( 'Select Template', 'nexter' );
-		if ( $get_list_posts->have_posts() ) {
-			while ( $get_list_posts->have_posts() ) {
-				
-				$get_list_posts->the_post();
-				$post = $get_list_posts->post;
-					
-				$array_list[$post->ID] = $post->post_title;
-			}
+	$array_list["none"] = esc_html__( 'Select Template', 'nexter' );
+	if ( $get_list_posts->have_posts() ) {
+		while ( $get_list_posts->have_posts() ) {
+			$get_list_posts->the_post();
+			$array_list[ get_the_ID() ] = get_the_title();
 		}
+		wp_reset_postdata();
 	}
 	return $array_list;
 }
@@ -176,9 +184,9 @@ if ( ! function_exists( 'nexter_get_post_id' ) ) {
 if ( ! function_exists( 'nexter_get_sidebar_list' ) ) {
 	
 	function nexter_get_sidebar_list() {
-		$options=array();		
+		$options=array();
 		foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-			$options[ucwords( $sidebar['id'] )] = ucwords( $sidebar['name'] );
+			$options[ $sidebar['id'] ] = ucwords( $sidebar['name'] );
 		}
 		$options['custom'] = __( 'Custom Sidebar', 'nexter' );
 		return $options;
@@ -193,11 +201,9 @@ function nexter_get_container_class( $option_key, $default_class = 'nxt-containe
 
     if ( ! empty( $value ) ) {
         return 'nxt-' . esc_attr( $value );
-    }else if(empty($value)){
-		return 'nxt-' .nexter_get_option('site-layout-container','container-block-editor');
-	}
+    }
 
-    return $default_class;
+    return 'nxt-' . nexter_get_option( 'site-layout-container', 'container-block-editor' );
 }
 
 /**
@@ -598,7 +604,7 @@ if ( ! function_exists( 'nexter_get_option_meta' ) ) {
 			}
 		}
 
-		return apply_filters( "nexter_get_option_meta_{$meta_key}", $value, $default, $default );
+		return apply_filters( "nexter_get_option_meta_{$meta_key}", $value, $default, $meta );
 	}
 }
 

@@ -1,23 +1,10 @@
 <?php
 /**
- * Sample implementation of the Custom Header feature
- *
- * @link https://developer.wordpress.org/themes/functionality/custom-headers/
+ * Custom Header feature — intentionally disabled.
+ * Builder-first theme: headers are built via Elementor/Gutenberg, not WP custom-header.
  *
  * @package Nexter
  */
-
-/**
- * Set up the WordPress core custom header feature.
- */
-function nexter_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'nexter_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
-		//'wp-head-callback'       => 'nexter_header_style',
-	) ) );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-add_action( 'after_setup_theme', 'nexter_custom_header_setup' );

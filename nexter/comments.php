@@ -70,7 +70,10 @@ if ( post_password_required() ) {
 	if ( comments_open() ) : 
 
 		$required_text = null;
-		
+		$commenter     = wp_get_current_commenter();
+		$user          = wp_get_current_user();
+		$user_identity = $user->exists() ? $user->display_name : '';
+
 		$args = array(
 		  'id_form'           => 'commentform',
 		  'class_form' => 'comment-form',
@@ -87,7 +90,7 @@ if ( post_password_required() ) {
 			sprintf(
 			/* translators: 1: logged. */
 			  __( 'You must be %1$slogged in%2$s to post a comment.', 'nexter' ),
-			  '<a href="'.wp_login_url( apply_filters( "the_permalink", get_permalink() ) ).'">',
+			  '<a href="'.esc_url( wp_login_url( apply_filters( "the_permalink", get_permalink() ) ) ).'">',
 			  '</a>'
 			) . '</p>',
 			
@@ -95,9 +98,9 @@ if ( post_password_required() ) {
 			sprintf(
 			/* translators: 1: logged. */
 			esc_html__( 'Logged in as %1$s%2$s. %3$sLog out?%4$s', 'nexter' ),
-			  '<a href="'.admin_url( "profile.php" ).'">'.$user_identity,
+			  '<a href="'.esc_url( admin_url( "profile.php" ) ).'">'.esc_html( $user_identity ),
 			  '</a>',
-			  '<a href="'.wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ).'" title="'.esc_attr__("Log out of this account","nexter").'">',
+			  '<a href="'.esc_url( wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ).'" title="'.esc_attr__("Log out of this account","nexter").'">',
 			  '</a>'
 			) . '</p>',
 
@@ -114,12 +117,12 @@ if ( post_password_required() ) {
 
 			'email' =>
 			  '<div class="nxt-col-md-4 nxt-col"><label>' .
-			  '<input id="email" name="email" type="text" placeholder="'.esc_attr__('Email Address *','nexter').'" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+			  '<input id="email" name="email" type="email" placeholder="'.esc_attr__('Email Address *','nexter').'" value="' . esc_attr(  $commenter['comment_author_email'] ) .
 			  '" size="30" /></label></div>',
 
 			'url' =>
 			  '<div class="nxt-col-md-4 nxt-col"><label>' .
-			  '<input id="url" name="url" type="text" placeholder="'.esc_attr__('Website','nexter').'" value="' . esc_attr( $commenter['comment_author_url'] ) .
+			  '<input id="url" name="url" type="url" placeholder="'.esc_attr__('Website','nexter').'" value="' . esc_attr( $commenter['comment_author_url'] ) .
 			  '" size="30" /></label></div></div>'
 			)
 		  ),

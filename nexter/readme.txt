@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 4.2.6
-Version: 4.2.6
+Stable tag: 4.2.7
+Version: 4.2.7
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,26 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.7 = 06 April 2026
+- Improved Performance : Added static variable caching for get_option() calls in helper functions
+- Improved Performance : Gated Customizer hooks behind is_admin / is_customize_preview checks
+- Improved Performance : Scoped wp_enqueue_media() to relevant admin pages only
+- Improved Performance : Prevented empty Google Fonts URL from generating unnecessary request
+- Fixed : Removed IE11 conditional body class legacy logic
+- Fixed : Disabled custom header support to reduce unused theme overhead
+- Fixed : Removed custom-background theme support for cleaner base layer
+- Fixed : Broken calc() CSS string output in Layout Container Dynamic CSS (3 instances)
+- Fixed : CSS : Wrapped #today calendar selector in :where() for zero specificity
+- Fixed : Added wp_reset_postdata() after WP_Query loop in builder posts list
+- Fixed : Removed dead code branch in nexter_get_container_class()
+- Fixed : Replaced unserialize() with maybe_unserialize() for safer deserialization
+- Fixed : Changed loose equality checks to strict === in nexter_settings_page_get()
+- Fixed : Removed orphaned code comment in helper functions
+- Fixed : Consolidated duplicated plugin install logic into shared private method
+- Fixed : Comment form — corrected email field to type="email", URL field to type="url"
+- Fixed : Skip link now enabled by default for new installations
+- Fixed : Bug fixes and improvements
+
 = 4.2.6 = 24 February 2026
 - Improved : Customizer : Default values are now displayed as placeholders in input fields
 - Fixed : Search Page : Container CSS Padding Bug Fix.

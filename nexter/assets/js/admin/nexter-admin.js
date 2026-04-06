@@ -1,5 +1,5 @@
 "use strict";
-window.onload = function(){
+window.addEventListener('load', function(){
 	var nexterNotice = document.querySelector(".nexter-ext-notice .notice-dismiss");
 	if( nexterNotice ){
 		nexterNotice.addEventListener('click', function(){

@@ -145,7 +145,7 @@ final class Nexter_Get_Fonts {
 	}
 	
 	public static function get_custom_fonts_face(){
-		$nxt_ext = get_option( 'nexter_extra_ext_options' );
+		$nxt_ext = nexter_get_extra_ext_options();
 
 		$font_faces = '';
 		//custom upload font load
@@ -263,8 +263,10 @@ final class Nexter_Get_Fonts {
 			}
 		}
 		$gfont_url = self::generate_google_fonts_url( $google_fonts, $font_subset );
-		
-		wp_enqueue_style( 'nxt-google-fonts', $gfont_url, array(), NXT_VERSION, 'all' );
+
+		if ( ! empty( $gfont_url ) ) {
+			wp_enqueue_style( 'nxt-google-fonts', $gfont_url, array(), NXT_VERSION, 'all' );
+		}
 	}
 	
 	/**

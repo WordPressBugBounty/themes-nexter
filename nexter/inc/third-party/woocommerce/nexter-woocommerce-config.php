@@ -85,7 +85,19 @@ if ( ! class_exists( 'Nexter_Woocommerce_Compatibility' ) ) {
 		}
 		
 		public function woo_sidebar_layout( $get_sidebar ){
-		
+
+			if ( is_product() ) {
+				$single_sidebar = nexter_get_option( 'single-product-sidebar', 'default' );
+				if ( 'default' !== $single_sidebar && ! empty( $single_sidebar ) ) {
+					$get_sidebar['layout'] = $single_sidebar;
+					$get_sidebar['sidebar'] = nexter_get_option( 'single-product-display-sidebar', 'sidebar-1' );
+					if ( $get_sidebar['sidebar'] === 'custom' ) {
+						$get_sidebar['custom'] = nexter_get_option( 'single-product-custom-sidebar', 'none' );
+					}
+					return $get_sidebar;
+				}
+			}
+
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() ) {
 				$woo_sidebar = nexter_get_option( 'woo-sidebar-layout', 'default' );
 				if('default' == $woo_sidebar || empty( $woo_sidebar )){
@@ -98,7 +110,7 @@ if ( ! class_exists( 'Nexter_Woocommerce_Compatibility' ) ) {
 					}
 				}
 			}
-			
+
 			return $get_sidebar;
 		}
 		
@@ -226,17 +238,19 @@ if ( ! class_exists( 'Nexter_Woocommerce_Compatibility' ) ) {
 							$variable_product1= new WC_Product_Variation( $variation_id );
 							$regular_price = $variable_product1->get_regular_price();
 							$sales_price = $variable_product1->get_sale_price();
-							$percentage = $sales_price ? round( ( ( $regular_price - $sales_price ) / $regular_price ) * 100) : 0;
+							$percentage = ( $sales_price && ! empty( $regular_price ) && $regular_price > 0 ) ? round( ( ( $regular_price - $sales_price ) / $regular_price ) * 100) : 0;
 							if ($percentage > $maximumper) {
 								$maximumper = $percentage;
 							}
 						}
 						echo apply_filters('woocommerce_sale_flash', '<span class="badge onsale perc">&darr; '.$maximumper.'%</span>', $post, $product);// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					} else if ($product->get_type() == 'simple'){
-						$percentage = round( ( ( $product->get_regular_price() - $product->get_sale_price() ) / $product->get_regular_price() ) * 100 );
+						$regular = $product->get_regular_price();
+						$percentage = ( ! empty( $regular ) && $regular > 0 ) ? round( ( ( $regular - $product->get_sale_price() ) / $regular ) * 100 ) : 0;
 						echo apply_filters('woocommerce_sale_flash', '<span class="badge onsale perc">&darr; '.$percentage.'%</span>', $post, $product);// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					} else if ($product->get_type() == 'external'){
-						$percentage = round( ( ( $product->get_regular_price() - $product->get_sale_price() ) / $product->get_regular_price() ) * 100 );
+						$regular = $product->get_regular_price();
+						$percentage = ( ! empty( $regular ) && $regular > 0 ) ? round( ( ( $regular - $product->get_sale_price() ) / $regular ) * 100 ) : 0;
 						echo apply_filters('woocommerce_sale_flash', '<span class="badge onsale perc">&darr; '.$percentage.'%</span>', $post, $product);// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					}
 				} else {

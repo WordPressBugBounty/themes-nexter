@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '4.2.6' );
+define( 'NXT_VERSION', '4.2.7' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );
@@ -85,11 +85,7 @@ if ( ! function_exists( 'nexter_setup' ) ) :
 			'caption',
 		) );
 
-		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'nexter_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		// Custom background removed — builders should control backgrounds.
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -114,17 +110,6 @@ if ( ! function_exists( 'nexter_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'nexter_setup' );
 
-/**
- * Fix skip link focus in IE11.
- */
-function nexter_skip_link_focus_fix() {
-	?>
-	<script>
-	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
-	</script>
-	<?php
-}
-add_action( 'wp_print_footer_scripts', 'nexter_skip_link_focus_fix' ); 
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -143,7 +128,6 @@ if ( is_admin() ) {
 function nexter_move_comment_field_to_bottom( $fields ) {
 	$comment_field = $fields['comment'];
 	unset( $fields['comment'] );
-	unset( $fields['cookies'] );
 	$fields['comment'] = $comment_field;
 	return $fields;
 }

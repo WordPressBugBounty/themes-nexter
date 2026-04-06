@@ -8,7 +8,7 @@
  * @since	1.0.0
  */
 ?>
-<div class="nxt-breadcrumb-wrap">
+<div class="nxt-breadcrumb-wrap" aria-label="<?php esc_attr_e( 'Breadcrumb', 'nexter' ); ?>">
 	<?php
 		if ( nexter_settings_page_get( 'header_footer_css' ) ) {
 			echo '<div class="' . esc_attr( nexter_get_container_class( 'site-header-container' ) ) . '">';

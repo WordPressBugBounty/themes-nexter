@@ -419,10 +419,10 @@ function nxt_container_dynamic_css( $theme_css ){
 		if ( $tablet_val ) {
 			$page_layout_container_css['tb'] = [
 				'.site-content .nxt-page-cont.nxt-container-block-editor > .nxt-row article > .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce)' => [
-					'max-width' => "calc('.$tablet_val.' - 3rem)",
+					'max-width' => 'calc(' . $tablet_val . ' - 3rem)',
 				],
-				'.site-content .nxt-page-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), 
-				.site-content .nxt-page-cont.nxt-container-block-editor .tpgb-nxtcont-type, 
+				'.site-content .nxt-page-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row),
+				.site-content .nxt-page-cont.nxt-container-block-editor .tpgb-nxtcont-type,
 				.nxt-container.nxt-with-sidebar' => [
 					'max-width' => $tablet_val,
 				],
@@ -492,10 +492,10 @@ function nxt_container_dynamic_css( $theme_css ){
 				.nxt-container-block-editor .site-main .nxt-single-post-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull), 
 				.site-content > .nxt-post-cont.nxt-container-block-editor > *:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull):not(.nxt-content-page-template), 
 				.nxt-container-block-editor > .nxt-content-page-template > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.content-area)' => [
-					'max-width' => "calc('.$desktop_val.' - 3rem)",
+					'max-width' => 'calc(' . $desktop_val . ' - 3rem)',
 				],
-				'.site-content .nxt-post-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), 
-				.site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type, 
+				'.site-content .nxt-post-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row),
+				.site-content .nxt-post-cont.nxt-container-block-editor .tpgb-nxtcont-type,
 				.nxt-container.nxt-with-sidebar' => [
 					'max-width' => $desktop_val,
 				],
@@ -512,11 +512,11 @@ function nxt_container_dynamic_css( $theme_css ){
 		if ( $tablet_val ) {
 			$post_layout_container_css['tb'] = [
 				'.site-content > .nxt-post-cont.nxt-container-block-editor .site-main > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-blog-single-post),
-				.nxt-container-block-editor .site-main .nxt-blog-single-post > article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-single-post-content), 
-				.nxt-container-block-editor .site-main .nxt-single-post-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull), 
-				.site-content > .nxt-post-cont.nxt-container-block-editor > *:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull):not(.nxt-content-page-template), 
+				.nxt-container-block-editor .site-main .nxt-blog-single-post > article > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.nxt-single-post-content),
+				.nxt-container-block-editor .site-main .nxt-single-post-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull),
+				.site-content > .nxt-post-cont.nxt-container-block-editor > *:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull):not(.nxt-content-page-template),
 				.nxt-container-block-editor > .nxt-content-page-template > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull):not(.content-area)' => [
-					'max-width' => "calc('.$tablet_val.' - 3rem)",
+					'max-width' => 'calc(' . $tablet_val . ' - 3rem)',
 				],
 
 				'.site-content .nxt-post-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), 

@@ -347,7 +347,7 @@ a {
 	transition: all .3s linear;
 }
 
-#content[tabindex='-1']:focus {
+#content[tabindex='-1']:focus:not(:focus-visible) {
 	outline: 0;
 }
 
@@ -371,7 +371,9 @@ button:hover, input[type='button']:hover, input[type='reset']:hover, input[type=
 
 button:active, button:focus, input[type='button']:active, input[type='button']:focus, input[type='reset']:active, input[type='reset']:focus, input[type='submit']:active, input[type='submit']:focus {
 	border-color: #aaa #bbb #bbb;
-	outline:none;
+}
+button:focus:not(:focus-visible), input[type='button']:focus:not(:focus-visible), input[type='reset']:focus:not(:focus-visible), input[type='submit']:focus:not(:focus-visible) {
+	outline: none;
 }
 
 input[type='text'], input[type='email'], input[type='url'], input[type='password'], input[type='search'], input[type='number'], input[type='tel'], input[type='range'], input[type='date'], input[type='month'], input[type='week'], input[type='time'], input[type='datetime'], input[type='datetime-local'], input[type='color'], textarea {
@@ -383,6 +385,8 @@ input[type='text'], input[type='email'], input[type='url'], input[type='password
 
 input[type='text']:focus, input[type='email']:focus, input[type='url']:focus, input[type='password']:focus, input[type='search']:focus, input[type='number']:focus, input[type='tel']:focus, input[type='range']:focus, input[type='date']:focus, input[type='month']:focus, input[type='week']:focus, input[type='time']:focus, input[type='datetime']:focus, input[type='datetime-local']:focus, input[type='color']:focus, textarea:focus {
 	color: #111;
+}
+input[type='text']:focus:not(:focus-visible), input[type='email']:focus:not(:focus-visible), input[type='url']:focus:not(:focus-visible), input[type='password']:focus:not(:focus-visible), input[type='search']:focus:not(:focus-visible), input[type='number']:focus:not(:focus-visible), input[type='tel']:focus:not(:focus-visible), input[type='range']:focus:not(:focus-visible), input[type='date']:focus:not(:focus-visible), input[type='month']:focus:not(:focus-visible), input[type='week']:focus:not(:focus-visible), input[type='time']:focus:not(:focus-visible), input[type='datetime']:focus:not(:focus-visible), input[type='datetime-local']:focus:not(:focus-visible), input[type='color']:focus:not(:focus-visible), textarea:focus:not(:focus-visible) {
 	outline: none;
 }
 
@@ -397,6 +401,9 @@ input[type=email], input[type=number], input[type=password], input[type=reset], 
     border-radius: 4px;
 	outline: none;
     transition: all .3s ease;
+}
+input[type=email]:focus:not(:focus-visible), input[type=number]:focus:not(:focus-visible), input[type=password]:focus:not(:focus-visible), input[type=reset]:focus:not(:focus-visible), input[type=search]:focus:not(:focus-visible), input[type=tel]:focus:not(:focus-visible), input[type=text]:focus:not(:focus-visible), input[type=url]:focus:not(:focus-visible), select:focus:not(:focus-visible), textarea:focus:not(:focus-visible){
+	outline: none;
 }
 
 .menu-toggle,button,.button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] {

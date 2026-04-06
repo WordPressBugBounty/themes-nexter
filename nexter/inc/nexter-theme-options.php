@@ -44,7 +44,7 @@ if ( ! class_exists( 'Nexter_Customizer_Options' ) ) {
 		 * Update theme option.
 		 */
 		public static function refresh() {
-			self::$theme_options = wp_parse_args( get_option( NXT_OPTIONS ));
+			self::$theme_options = wp_parse_args( get_option( NXT_OPTIONS ), array() );
 		}
 		
 		/**

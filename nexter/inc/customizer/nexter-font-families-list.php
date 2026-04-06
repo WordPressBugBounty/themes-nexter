@@ -58,7 +58,7 @@ if ( ! class_exists( 'Nexter_Font_Families_Listing' ) ) {
 		 */
 		public static function get_local_google_fonts_load(){
 			
-			$nxt_ext = get_option( 'nexter_extra_ext_options' );
+			$nxt_ext = nexter_get_extra_ext_options();
 			self::$google_fonts_list = self::get_google_fonts_load();
 			//local google font load
 			if( !empty($nxt_ext) && isset($nxt_ext['local-google-font']) && !empty($nxt_ext['local-google-font']['switch']) && !empty($nxt_ext['local-google-font']['values']) ){
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Nexter_Font_Families_Listing' ) ) {
 						}
 					}
 					
-					$nxt_ext = get_option( 'nexter_extra_ext_options' );
+					$nxt_ext = nexter_get_extra_ext_options();
 					if( !empty($nxt_ext) && isset($nxt_ext['local-google-font']) && !empty($nxt_ext['local-google-font']['switch']) && !empty($nxt_ext['local-google-font']['values']) ){
 						$nxt_ext['local-google-font']['style'] = $googleFontCss;
 						update_option('nexter_extra_ext_options', $nxt_ext);

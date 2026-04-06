@@ -193,16 +193,16 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 		 * Print Footer Scripts
 		 */
 		public function print_footer_scripts() {
-			$default_font = json_encode( Nexter_Font_Families_Listing::get_default_fonts_load() );
-			$custom_font = json_encode( Nexter_Font_Families_Listing::get_custom_fonts_load() );
-			$google_font = json_encode( Nexter_Font_Families_Listing::get_local_google_fonts_load() );
-			
-			if ( ! empty( $custom_font ) ) {
+			$default_font = wp_json_encode( Nexter_Font_Families_Listing::get_default_fonts_load() );
+			$custom_font = wp_json_encode( Nexter_Font_Families_Listing::get_custom_fonts_load() );
+			$google_font = wp_json_encode( Nexter_Font_Families_Listing::get_local_google_fonts_load() );
+
+			if ( ! empty( $custom_font ) && '[]' !== $custom_font && 'null' !== $custom_font ) {
 				$font_load = 'var NxtLoadFontFamily = { system: ' . $default_font . ', custom: ' . $custom_font . ', google: ' . $google_font . ' };';
 			} else {
-				$font_load = 'var NxtLoadFontFamily = { system: ' . $default_font . ', google: ' . $google_font . ' };';
+				$font_load = 'var NxtLoadFontFamily = { system: ' . $default_font . ', custom: {}, google: ' . $google_font . ' };';
 			}
-			$scripts  = '<script type="text/javascript">'; 
+			$scripts  = '<script type="text/javascript">';
 				$scripts .= $font_load;
 			$scripts .= '</script>';
 
@@ -260,8 +260,8 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			Nexter_Customizer_Control_Base::add_control(
 				'nxt-multi-checkbox',
 				array(
-					'callback'         => 'Nexter_Control_MultiCheckbox',
-					'santize_callback' => '',
+					'callback'          => 'Nexter_Control_MultiCheckbox',
+					'sanitize_callback' => array( 'Nexter_Customizer_Sanitizes_Callbacks', 'sanitize_multi_choices' ),
 				)
 			);
 
@@ -291,16 +291,16 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			Nexter_Customizer_Control_Base::add_control(
 				'nxt-switcher',
 				array(
-					'callback'         => 'Nexter_Control_Switcher',
-					'santize_callback' => '',
+					'callback'          => 'Nexter_Control_Switcher',
+					'sanitize_callback' => array( 'Nexter_Customizer_Sanitizes_Callbacks', 'sanitize_checkbox' ),
 				)
 			);
 
 			Nexter_Customizer_Control_Base::add_control(
 				'nxt-style',
 				array(
-					'callback'         => 'Nexter_Control_Image_Selector',
-					'santize_callback' => '',
+					'callback'          => 'Nexter_Control_Image_Selector',
+					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 			
@@ -413,7 +413,7 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			
 			//Customizer Assets - Panel/Section
 			wp_enqueue_style( 'nexter-extend-customizer-css', NXT_CSS_URI . 'main/customizer/nexter-extend-customizer'. $minified .'.css', null, NXT_VERSION );
-			wp_enqueue_script( 'nexter-extend-customizer-js', NXT_JS_URI . 'main/customizer/nexter-extend-customizer'. $minified .'.js', array(), NXT_VERSION, true );
+			wp_enqueue_script( 'nexter-extend-customizer-js', NXT_JS_URI . 'main/customizer/nexter-extend-customizer'. $minified .'.js', array( 'jquery', 'customize-base', 'underscore' ), NXT_VERSION, true );
 
 			wp_enqueue_script( 'nexter-customizer-controls', NXT_JS_URI . 'main/customizer/nexter-customizer-controls'. $minified .'.js', array('nexter-color-picker','jquery', 'customize-base'), NXT_VERSION, true );
 			wp_localize_script(
@@ -424,7 +424,7 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 				)
 			);
 			
-			wp_enqueue_script( 'nexter-customizer-conditional', NXT_JS_URI . 'main/customizer/nexter-customizer-conditional'. $minified .'.js', array(), NXT_VERSION, true );
+			wp_enqueue_script( 'nexter-customizer-conditional', NXT_JS_URI . 'main/customizer/nexter-customizer-conditional'. $minified .'.js', array( 'jquery', 'customize-base', 'underscore' ), NXT_VERSION, true );
 
 			//Customizer Controls
 			wp_enqueue_style( 'nexter-customizer-controls-css', NXT_CSS_URI . 'main/customizer/nexter-customizer-controls'. $minified .'.css', null, NXT_VERSION );
@@ -493,9 +493,10 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 				add_action( 'customize_register', array( $this, 'customize_register' ) );
 			}
 			
-			add_action( 'customize_register', array( $this, 'customize_register_panel_section_controls' ), 2 );
-			
-			add_action( 'customize_save_after', array( $this, 'nxt_customize_save' ) );
+			if ( is_admin() || is_customize_preview() ) {
+				add_action( 'customize_register', array( $this, 'customize_register_panel_section_controls' ), 2 );
+				add_action( 'customize_save_after', array( $this, 'nxt_customize_save' ) );
+			}
 		}
 
 	}

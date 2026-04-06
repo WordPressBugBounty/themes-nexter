@@ -157,15 +157,25 @@ if ( ! class_exists( 'Nexter_Builder_Elementor_Documents' ) ) {
 			if ( empty( $new_query_args ) ) {
 				return null;
 			}
-			
-			Elementor\Plugin::instance()->db->switch_to_query( $new_query_args );
+
+			$documents = Elementor\Plugin::instance()->documents;
+			if ( is_callable( array( $documents, 'switch_to_document' ) ) ) {
+				$documents->switch_to_document( $document );
+			} elseif ( isset( Elementor\Plugin::instance()->db ) && is_callable( array( Elementor\Plugin::instance()->db, 'switch_to_query' ) ) ) {
+				Elementor\Plugin::instance()->db->switch_to_query( $new_query_args );
+			}
 		}
-		
+
 		/**
 		 * Restore default query
 		 */
 		public function restore_current_query() {
-			Elementor\Plugin::instance()->db->restore_current_query();
+			$documents = Elementor\Plugin::instance()->documents;
+			if ( is_callable( array( $documents, 'restore_document' ) ) ) {
+				$documents->restore_document();
+			} elseif ( isset( Elementor\Plugin::instance()->db ) && is_callable( array( Elementor\Plugin::instance()->db, 'restore_current_query' ) ) ) {
+				Elementor\Plugin::instance()->db->restore_current_query();
+			}
 		}
 		
 		public function nexter_preview_post_setting( $main_post_id = ''){

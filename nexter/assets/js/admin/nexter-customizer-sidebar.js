@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let pagePostSidebar = getSideBar.querySelector('select[name="nxt-post-page-display-sidebar"]');
         let customSidebar = getSideBar.querySelector('select[name="nxt-post-page-custom-sidebar"]');
 
-        if (sideBarType) {
+        if (sideBarType && pagePostSidebar && customSidebar) {
             sideBarType.forEach(radio => {
                 radio.addEventListener('change', handleVisibility);
             });

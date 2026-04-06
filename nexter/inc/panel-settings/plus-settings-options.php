@@ -28,7 +28,7 @@ class Nexter_Settings_Panel {
         'sidebar_css'        => '',
         'theme_min_css'      => '',
         'woocommerce_min_css'=> '',
-        'skip_link'=> '',
+        'skip_link'=> '0',
     ];
 
 	/**
@@ -233,7 +233,12 @@ class Nexter_Settings_Panel {
         $themes = wp_get_themes();
         $nexterInstalled = array_key_exists('nexter', $themes);
         $theme_det_link = self::get_nexter_theme_details_link('nexter');
-        
+
+        $nxt_admin_pages = array( 'toplevel_page_nexter_welcome', 'nexter_page_nxt_builder', 'nexter_page_nxt_code_snippets' );
+        if ( ! in_array( $hook_suffix, $nxt_admin_pages, true ) && ( ! isset( $_GET['page'] ) || strpos( $_GET['page'], 'nexter' ) === false ) ) {
+            return;
+        }
+
         wp_enqueue_style( 'nexter-dash-style', NXT_THEME_URI . 'inc/panel-settings/dashboard/build/index.css', array(), NXT_VERSION, 'all' );
 
         wp_enqueue_script( 'nexter-dashscript', NXT_THEME_URI . 'inc/panel-settings/dashboard/build/index.js', array( 'react', 'react-dom','wp-i18n', 'wp-dom-ready', 'wp-element','wp-components', 'wp-block-editor', 'wp-editor' ), NXT_VERSION, true );  //
@@ -242,7 +247,7 @@ class Nexter_Settings_Panel {
         wp_set_script_translations(
             'nexter-dashscript',  // Handle must match enqueue
             'nexter',                 // Your text domain
-            NXT_THEME_URI . 'languages'
+            NXT_THEME_DIR . 'languages'
         );
 
         $dashData = [
@@ -311,7 +316,7 @@ class Nexter_Settings_Panel {
             wp_set_script_translations(
                 'nexter-theme-builder',  // Handle must match enqueue
                 'nexter',                 // Your text domain
-                NXT_THEME_URI . 'languages'
+                NXT_THEME_DIR . 'languages'
             );
             $nexter_theme_builder_config = array(
                 'adminUrl' => admin_url(),
@@ -450,11 +455,13 @@ class Nexter_Settings_Panel {
         }
         
         if(!empty($raw_fields) && !empty($raw_fields['values'])){
+            $clean_values = array();
             foreach ( $raw_fields['values'] as $field => $value ) {
                 if ( array_key_exists( $field, $this->fields ) ) {
-                    $raw_fields['values'][ $field ] = ( $value == 1 ) ? 1 : 0;
+                    $clean_values[ $field ] = ( $value == 1 ) ? 1 : 0;
                 }
             }
+            $raw_fields['values'] = $clean_values;
         }
 
         //customizer header footer save option
@@ -549,6 +556,14 @@ class Nexter_Settings_Panel {
         $api_url = isset( $_POST['api_url'] ) ? esc_url_raw( wp_unslash( $_POST['api_url'] ) ) : '';
         $body    = isset( $_POST['url_body'] ) ? json_decode( wp_unslash( $_POST['url_body'] ), true ) : array();
 
+        // Validate URL against allowed domains to prevent SSRF
+        $allowed_hosts = array( 'api.wdesignkit.com', 'wdesignkit.com' );
+        $parsed = wp_parse_url( $api_url );
+        if ( empty( $api_url ) || ! isset( $parsed['host'] ) || ! in_array( $parsed['host'], $allowed_hosts, true ) ) {
+            wp_send_json_error( array( 'error' => 'URL not allowed' ) );
+            wp_die();
+        }
+
         $args = array(
             'method'  => $method,
             'timeout' => 30,
@@ -571,6 +586,11 @@ class Nexter_Settings_Panel {
                 'HTTP_CODE' => 400,
                 'error' => 'Invalid HTTP method'
             ) );
+            wp_die();
+        }
+
+        if ( is_wp_error( $response ) ) {
+            wp_send_json_error( array( 'error' => $response->get_error_message() ) );
             wp_die();
         }
 

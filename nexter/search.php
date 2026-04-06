@@ -27,7 +27,7 @@ $content_column = $has_sidebar ? 'nxt-col-md-8 nxt-col-sm-12' : 'nxt-col-md-12';
 			<h2 class="page-title">
 				<?php
 				/* translators: %s: search query. */
-				printf( esc_html__( 'Search Results for : %s', 'nexter' ), '<span>' . get_search_query() . '</span>' );
+				printf( esc_html__( 'Search Results for : %s', 'nexter' ), '<span>' . esc_html( get_search_query() ) . '</span>' );
 				?>
 			</h2>
 		</header><!-- .page-header -->

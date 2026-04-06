@@ -343,7 +343,7 @@ if ( ! class_exists( 'Nexter_Heading_Typography' ) ) {
 					'name'     => NXT_OPTIONS . '[heading-section-h4]',
 					'type'     => 'control',
 					'title'    => __( 'Heading H4', 'nexter' ),
-					'section'  => 'section-content-typo',
+					'section'  => 'section-heading-h4-typo',
 					'control'  => 'nxt-heading',
 					'priority' => 4,
 					'settings' => array(),

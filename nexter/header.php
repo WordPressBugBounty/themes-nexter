@@ -24,9 +24,11 @@ global $wp_query;
 </head>
 
 <body <?php body_class(); ?>>
-	<?php if ( function_exists('get_current_screen')) {
-    	wp_body_open();
-	} ?>
+	<?php
+	if ( function_exists( 'wp_body_open' ) ) {
+		wp_body_open();
+	}
+	?>
 
 	<?php nxt_body_top(); ?>
 	

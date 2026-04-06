@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_filter( 'nxt_render_theme_css', 'nxt_text_selection_dynamic_css' );
 function nxt_text_selection_dynamic_css( $theme_css ){
 
-	$selected_text_bg_color = nexter_get_option('selected-text-bg-color');
-	$selected_text_color = nexter_get_option('selected-text-color');
+	$selected_text_bg_color = nexter_get_option('selected-text-bg-color', '#ff5a6e');
+	$selected_text_color = nexter_get_option('selected-text-color', '#fff');
 
 	$style =array();
 

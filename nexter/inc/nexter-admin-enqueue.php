@@ -40,7 +40,7 @@ if ( ! class_exists( 'Nexter_Admin_Enqueue' ) ) {
 		 */
 		public function check_nxt_ext_local_google_font( $style = false){
 			$check = false;
-			$nxt_ext = get_option( 'nexter_extra_ext_options' );
+			$nxt_ext = nexter_get_extra_ext_options();
 			if( !empty($nxt_ext) && isset($nxt_ext['local-google-font']) && !empty($nxt_ext['local-google-font']['switch']) && !empty($nxt_ext['local-google-font']['values']) ){
 				$check = true;
 				if($style==true){
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Nexter_Admin_Enqueue' ) ) {
 			$minified = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 			if ('post.php' != $hook_suffix && 'post-new.php' != $hook_suffix ) {
 				wp_enqueue_style( 'nexter-select-css', NXT_CSS_URI .'extra/select2'. $minified .'.css', array(), NXT_VERSION );
-				wp_enqueue_script( 'nexter-select-js', NXT_JS_URI . 'extra/select2'. $minified .'.js', array(), NXT_VERSION, false );
+				wp_enqueue_script( 'nexter-select-js', NXT_JS_URI . 'extra/select2'. $minified .'.js', array( 'jquery' ), NXT_VERSION, false );
 			}
 
 			wp_enqueue_style( 'nxt-admin-css', NXT_CSS_URI .'admin/nexter-admin'. $minified .'.css', array(), NXT_VERSION );
@@ -102,8 +102,10 @@ if ( ! class_exists( 'Nexter_Admin_Enqueue' ) ) {
 				wp_localize_script( 'nexter-admin-js', 'nexter_admin_config', $nexter_admin_localize );
 			}
 			
-			if(! did_action('wp_enqueue_media')){
-				wp_enqueue_media();
+			if ( 'post.php' === $hook_suffix || 'post-new.php' === $hook_suffix ) {
+				if ( ! did_action( 'wp_enqueue_media' ) ) {
+					wp_enqueue_media();
+				}
 			}
 			
 			if ( ! is_customize_preview() ) {
@@ -116,7 +118,7 @@ if ( ! class_exists( 'Nexter_Admin_Enqueue' ) ) {
 			}
 			wp_register_script( 'nexter-color-picker', NXT_JS_URI . 'extra/wp-color-picker-alpha'. $minified .'.js', $js_handle, NXT_VERSION, true );
 			
-			wp_enqueue_style( 'nxt-metabox-editor-style', NXT_CSS_URI .'admin/metabox-editor-style'. $minified .'.css', array() );
+			wp_enqueue_style( 'nxt-metabox-editor-style', NXT_CSS_URI .'admin/metabox-editor-style'. $minified .'.css', array(), NXT_VERSION );
 		}
 		
 		/**
@@ -159,162 +161,118 @@ if ( ! class_exists( 'Nexter_Admin_Enqueue' ) ) {
 				wp_send_json_error();
 			}
 			update_option( 'nexter-extension-load-notice', 1 );
+			wp_send_json_success();
 		}
 
 		/**
 		 * Nexter Extension Install Ajax
 		 */
 		public function nexter_ext_install_ajax(){
-			check_ajax_referer( 'nexter_admin_nonce', 'nexter_nonce' ); 
-	
-			if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
+			check_ajax_referer( 'nexter_admin_nonce', 'nexter_nonce' );
+
+			if ( ! is_user_logged_in() || ! current_user_can( 'install_plugins' ) ) {
 				wp_send_json_error( array( 'content' => __( 'Insufficient permissions.', 'nexter' ) ) );
 			}
-	
-			$plu_slug = 'nexter-extension';
+
+			$this->install_and_activate_plugin( 'nexter-extension', 'nexter-extension', array(
+				'redirectUrl' => admin_url( 'admin.php?page=nexter_welcome' ),
+			) );
+		}
+
+		/**
+		 * Nexter Other Plugin Install
+		 */
+		public function nexter_ext_plugin_install_ajax(){
+			check_ajax_referer( 'nexter_admin_nonce', 'nexter_nonce' );
+
+			if ( ! is_user_logged_in() || ! current_user_can( 'install_plugins' ) ) {
+				wp_send_json_error( array( 'content' => __( 'Insufficient permissions.', 'nexter' ) ) );
+			}
+
+			$plu_slug = ( isset( $_POST['slug'] ) && !empty( $_POST['slug'] ) ) ? sanitize_text_field( wp_unslash($_POST['slug']) ) : '';
 
 			$phpFileName = $plu_slug;
-	
-			$installed_plugins = get_plugins();
-	
+			if( !empty($plu_slug) && $plu_slug === 'the-plus-addons-for-elementor-page-builder' ){
+				$phpFileName = 'theplus_elementor_addon';
+			}
+
+			$this->install_and_activate_plugin( $plu_slug, $phpFileName, array(), function() use ( $plu_slug ) {
+				if( !empty($plu_slug) && $plu_slug === 'wdesignkit' ){
+					$this->wdk_installed_settings_enable();
+				}
+			} );
+		}
+
+		/**
+		 * Shared plugin install and activate logic.
+		 *
+		 * @since 4.2.7
+		 */
+		private function install_and_activate_plugin( $slug, $file_name, $extra_response = array(), $after_activate = null ) {
 			include_once ABSPATH . 'wp-admin/includes/file.php';
 			include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 			include_once ABSPATH . 'wp-admin/includes/class-automatic-upgrader-skin.php';
 			include_once ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php';
-	
-			$result   = array();
-			$response = wp_remote_post(
-				'http://api.wordpress.org/plugins/info/1.0/',
-				array(
-					'body' => array(
-						'action'  => 'plugin_information',
-						'request' => serialize(
-							(object) array(
-								'slug'   => $plu_slug,
-								'fields' => array(
-									'version' => false,
-								),
-							)
+
+			$installed_plugins = get_plugins();
+			$plugin_basename   = $slug . '/' . $file_name . '.php';
+
+			if ( ! isset( $installed_plugins[ $plugin_basename ] ) ) {
+				$response = wp_remote_post(
+					'http://api.wordpress.org/plugins/info/1.0/',
+					array(
+						'body' => array(
+							'action'  => 'plugin_information',
+							'request' => serialize(
+								(object) array(
+									'slug'   => $slug,
+									'fields' => array( 'version' => false ),
+								)
+							),
 						),
-					),
-				)
-			);
-	
-			$plugin_info = unserialize( wp_remote_retrieve_body( $response ) );
-	
-			if ( ! $plugin_info ) {
-				wp_send_json_error( array( 'content' => __( 'Failed to retrieve plugin information.', 'nexter' ) ) );
-			}
-	
-			$skin     = new \Automatic_Upgrader_Skin();
-			$upgrader = new \Plugin_Upgrader( $skin );
-	
-			$plugin_basename = ''.$plu_slug.'/'.$phpFileName.'.php';
-			
-			if ( ! isset( $installed_plugins[ $plugin_basename ] ) && empty( $installed_plugins[ $plugin_basename ] ) ) {
+					)
+				);
+
+				if ( is_wp_error( $response ) ) {
+					wp_send_json_error( array( 'content' => __( 'Failed to connect to WordPress.org.', 'nexter' ) ) );
+				}
+
+				$plugin_info = maybe_unserialize( wp_remote_retrieve_body( $response ) );
+
+				if ( ! $plugin_info ) {
+					wp_send_json_error( array( 'content' => __( 'Failed to retrieve plugin information.', 'nexter' ) ) );
+				}
+
+				$skin     = new \Automatic_Upgrader_Skin();
+				$upgrader = new \Plugin_Upgrader( $skin );
 				$installed = $upgrader->install( $plugin_info->download_link );
-	
-				$activation_result = activate_plugin( $plugin_basename );
-	
-				$success = null === $activation_result;
-				wp_send_json([
-					'Success' => true,
-					'redirectUrl' => admin_url( 'admin.php?page=nexter_welcome' )
-				]);
-	
-			}else if ( isset( $installed_plugins[ $plugin_basename ] ) ) {
-				$activation_result = activate_plugin( $plugin_basename );
-	
-				$success = null === $activation_result;
-				wp_send_json([
-					'Success' => true,
-					'redirectUrl' => admin_url( 'admin.php?page=nexter_welcome' )
-				]);
+
+				if ( is_wp_error( $installed ) || ! $installed ) {
+					wp_send_json_error( array( 'content' => __( 'Plugin installation failed.', 'nexter' ) ) );
+				}
 			}
+
+			$activation_result = activate_plugin( $plugin_basename );
+
+			if ( is_wp_error( $activation_result ) ) {
+				wp_send_json_error( array( 'content' => __( 'Plugin activation failed.', 'nexter' ) ) );
+			}
+
+			if ( is_callable( $after_activate ) ) {
+				$after_activate();
+			}
+
+			wp_send_json( array_merge( array( 'Success' => true ), $extra_response ) );
 		}
-		
-		/**
-         * Nexter Other Plugin Install
-         */
-        public function nexter_ext_plugin_install_ajax(){
-            check_ajax_referer( 'nexter_admin_nonce', 'nexter_nonce' ); 
-    
-            if ( ! is_user_logged_in() || ! current_user_can( 'manage_options' ) ) {
-                wp_send_json_error( array( 'content' => __( 'Insufficient permissions.', 'nexter' ) ) );
-            }
-    
-            $plu_slug = ( isset( $_POST['slug'] ) && !empty( $_POST['slug'] ) ) ? sanitize_text_field( wp_unslash($_POST['slug']) ) : '';
 
-            $phpFileName = $plu_slug;
-            if(!empty($plu_slug) && $plu_slug == 'the-plus-addons-for-elementor-page-builder'){
-                $phpFileName = 'theplus_elementor_addon';
-            }
-    
-            $installed_plugins = get_plugins();
-    
-            include_once ABSPATH . 'wp-admin/includes/file.php';
-            include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
-            include_once ABSPATH . 'wp-admin/includes/class-automatic-upgrader-skin.php';
-            include_once ABSPATH . 'wp-admin/includes/class-plugin-upgrader.php';
-    
-            $result   = array();
-            $response = wp_remote_post(
-                'http://api.wordpress.org/plugins/info/1.0/',
-                array(
-                    'body' => array(
-                        'action'  => 'plugin_information',
-                        'request' => serialize(
-                            (object) array(
-                                'slug'   => $plu_slug,
-                                'fields' => array(
-                                    'version' => false,
-                                ),
-                            )
-                        ),
-                    ),
-                )
-            );
-    
-            $plugin_info = unserialize( wp_remote_retrieve_body( $response ) );
-    
-            if ( ! $plugin_info ) {
-                wp_send_json_error( array( 'content' => __( 'Failed to retrieve plugin information.', 'nexter' ) ) );
-            }
-    
-            $skin     = new \Automatic_Upgrader_Skin();
-            $upgrader = new \Plugin_Upgrader( $skin );
-    
-            $plugin_basename = ''.$plu_slug.'/'.$phpFileName.'.php';
-            
-            
-            if ( ! isset( $installed_plugins[ $plugin_basename ] ) && empty( $installed_plugins[ $plugin_basename ] ) ) {
-                $installed = $upgrader->install( $plugin_info->download_link );
-    
-                $activation_result = activate_plugin( $plugin_basename );
-                if(!empty($plu_slug) && $plu_slug == 'wdesignkit'){
-                    $this->wdk_installed_settings_enable();
-                }
-                $success = null === $activation_result;
-                wp_send_json(['Sucees' => true]);
-    
-            } elseif ( isset( $installed_plugins[ $plugin_basename ] ) ) {
-                $activation_result = activate_plugin( $plugin_basename );
-                if(!empty($plu_slug) && $plu_slug == 'wdesignkit'){
-                    $this->wdk_installed_settings_enable();
-                }
-                $success = null === $activation_result;
-                wp_send_json(['Sucees' => true]);
-            }
-        }
-
-        public function wdk_installed_settings_enable(){
+		public function wdk_installed_settings_enable(){
             if( defined( 'TPGB_VERSION' ) ){
                 $settings = array('gutenberg_builder' => true,'gutenberg_template' => true);
-                $builder = array( 'elementor' );
+                $builder = array( 'nexter-blocks' );
                 do_action( 'wdkit_active_settings', $settings, $builder );
             }else if( defined('ELEMENTOR_VERSION') ){
                 $settings = array('elementor_builder' => true,'elementor_template' => true);
-                $builder = array( 'nexter-blocks');
+                $builder = array( 'elementor' );
                 do_action( 'wdkit_active_settings', $settings, $builder );
             }
         }

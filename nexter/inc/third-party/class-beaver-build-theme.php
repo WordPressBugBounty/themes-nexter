@@ -96,13 +96,6 @@ if ( ! class_exists( 'Nexter_Beaver_Theme_Build' ) ) {
 					),
 				),
 				array(
-					'label' => esc_html__( 'Content', 'nexter' ),
-					'hooks' => array(
-						'nxt_content_top'	=> esc_html__( 'Content Top', 'nexter' ),
-						'nxt_content_bottom'	=> esc_html__( 'Content Bottom', 'nexter' ),
-					),
-				),
-				array(
 					'label' => esc_html__( 'Sidebar', 'nexter' ),
 					'hooks' => array(
 						'nxt_sidebars_before'	=> esc_html__( 'Sidebar Before', 'nexter' ),

@@ -33,7 +33,7 @@ add_action( 'nxt_body_frame', 'nxt_fixed_body_frame' );
 if ( ! function_exists( 'nexter_content_layout_container' ) ) {
 
 	function nexter_content_layout_container() {
-		
+		global $wp_query;
 		$layout_container = '';
 		$current_pagenow = '';
 		if ( is_singular() ) {
@@ -226,7 +226,7 @@ if( ! function_exists( 'nexter_breadcrumb_template' ) ) {
  */
 if( ! function_exists('nexter_footer_template') ) {
 	
-	function nexter_footer_template( $post_id ) {
+	function nexter_footer_template( $post_id = '' ) {
 		$sections	= [];
 		$sections	= apply_filters( 'nexter_footer_sections_ids', $sections );
 
@@ -306,20 +306,20 @@ if( ! function_exists( 'nexter_archive_template_content' ) ) {
 					<?php									
 						echo wp_kses_post(nexter_breadcrumbs());
 						if ( is_category() ) {
-							echo '<div class="archive-post-title">'.single_cat_title("", false).'</div>';
+							echo '<div class="archive-post-title">'.esc_html( single_cat_title("", false) ).'</div>';
 						} elseif ( is_tag() ) {
-							echo '<div class="archive-post-title">'.single_tag_title( '', false ).'</div>';
+							echo '<div class="archive-post-title">'.esc_html( single_tag_title( '', false ) ).'</div>';
 						} elseif ( is_author() ) {
 							$author = get_userdata( get_query_var('author') );
 							echo '<div class="archive-post-title">'.esc_html($author->display_name).'</div>';
 						} elseif ( is_year() ) {
-							echo '<div class="archive-post-title">'.get_the_date('Y').'</div>';
+							echo '<div class="archive-post-title">'.esc_html( get_the_date('Y') ).'</div>';
 						}elseif ( is_month() ) {
-							echo '<div class="archive-post-title">'.get_the_date('F Y').'</div>';
+							echo '<div class="archive-post-title">'.esc_html( get_the_date('F Y') ).'</div>';
 						}elseif ( is_day() ) {
-							echo '<div class="archive-post-title">'.get_the_date( 'F j, Y').'</div>';
+							echo '<div class="archive-post-title">'.esc_html( get_the_date( 'F j, Y') ).'</div>';
 						}elseif ( is_post_type_archive() ) {
-							echo '<div class="archive-post-title">'.post_type_archive_title( '', false ).'</div>';
+							echo '<div class="archive-post-title">'.esc_html( post_type_archive_title( '', false ) ).'</div>';
 						} else {
 							echo '<div class="archive-post-title">'.esc_html__( 'Archives','nexter' ).'</div>';
 						}
@@ -439,6 +439,7 @@ function nexter_breadcrumbs() {
     $linkBefore = '<span>';
     $linkAfter = '</span>';
     $link = $linkBefore . '<a href="%1$s">%2$s</a>' . $linkAfter;
+    $crumbs_output = '';
 
     if (is_home() || is_front_page()) {
 
@@ -456,10 +457,10 @@ function nexter_breadcrumbs() {
                 $cats = str_replace('</a>', '</a>' . $linkAfter, $cats);
                 $crumbs_output .= $cats;
             }
-            $crumbs_output .= $before . sprintf($breadArr['category'], single_cat_title('', false)) . $after;
+            $crumbs_output .= $before . sprintf($breadArr['category'], esc_html( single_cat_title('', false) )) . $after;
 
         } elseif ( is_search() ) {
-            $crumbs_output .= $before . sprintf($breadArr['search'], get_search_query()) . $after;
+            $crumbs_output .= $before . sprintf($breadArr['search'], esc_html( get_search_query() )) . $after;
         }
         elseif (is_singular('topic') ){
             $post_type = get_post_type_object(get_post_type());
@@ -540,12 +541,12 @@ function nexter_breadcrumbs() {
             if ($showCurrent == 1) $crumbs_output .= $delimiter . $before . esc_html(get_the_title()) . $after;
 
         } elseif ( is_tag() ) {
-            $crumbs_output .= $before . sprintf($breadArr['tag'], single_tag_title('', false)) . $after;
+            $crumbs_output .= $before . sprintf($breadArr['tag'], esc_html( single_tag_title('', false) )) . $after;
 
         } elseif ( is_author() ) {
             global $author;
             $userdata = get_userdata($author);
-            $crumbs_output .= $before . sprintf($breadArr['author'], $userdata->display_name) . $after;
+            $crumbs_output .= $before . sprintf($breadArr['author'], esc_html( $userdata->display_name )) . $after;
 
         } elseif ( is_404() ) {
             $crumbs_output .= $before . $breadArr['404'] . $after;
@@ -635,7 +636,7 @@ if ( ! function_exists( 'nexter_site_sidebar_layout' ) ) {
 						$get_sidebar['custom'] = nexter_get_option( 'whole-site-custom-sidebar', 'none' );
 					}
 				}
-			}else if(!empty($get_sidebar['layout']) && ($get_sidebar['layout'] != 'default' || $get_sidebar['layout'] != 'no-sidebar') ){
+			}else if(!empty($get_sidebar['layout']) && $get_sidebar['layout'] != 'default' && $get_sidebar['layout'] != 'no-sidebar' ){
 				$post_type = get_post_type();
 				if ( 'post' === $post_type || 'page' === $post_type || 'product' === $post_type ) {
 					$get_sidebar['sidebar'] = nexter_get_option_meta( 'nxt-post-page-display-sidebar', '', true );
