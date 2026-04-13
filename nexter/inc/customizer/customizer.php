@@ -292,7 +292,7 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 				'nxt-switcher',
 				array(
 					'callback'          => 'Nexter_Control_Switcher',
-					'sanitize_callback' => array( 'Nexter_Customizer_Sanitizes_Callbacks', 'sanitize_checkbox' ),
+					'sanitize_callback' => '',
 				)
 			);
 

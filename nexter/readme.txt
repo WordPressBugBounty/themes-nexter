@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 4.2.7
-Version: 4.2.7
+Stable tag: 4.2.8
+Version: 4.2.8
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,10 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.8 = 13 April 2026
+- Fixed : Customizer : Switcher option : bug fix
+- Fixed : Customizer : Typography : Body Fonts family overright bug fix
+
 = 4.2.7 = 06 April 2026
 - Improved Performance : Added static variable caching for get_option() calls in helper functions
 - Improved Performance : Gated Customizer hooks behind is_admin / is_customize_preview checks

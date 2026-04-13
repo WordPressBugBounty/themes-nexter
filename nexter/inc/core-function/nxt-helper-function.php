@@ -453,6 +453,10 @@ if ( ! function_exists( 'nexter_get_font_family_css' ) ) {
 if ( ! function_exists( 'nexter_get_body_fontfamily' ) ) {
 	function nexter_get_body_fontfamily() {
 		$font = nexter_get_option( 'body-font-family' );
+		// Global / builder may save the token "body" for "use theme body typography"; it is not a valid CSS font name.
+		if ( is_string( $font ) && 'body' === strtolower( trim( $font ) ) ) {
+			$font = '';
+		}
 		if ( $font == 'inherit' ) {
 			$font = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif';
 		}

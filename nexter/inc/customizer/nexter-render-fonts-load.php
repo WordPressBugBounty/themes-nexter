@@ -25,7 +25,7 @@ final class Nexter_Get_Fonts {
 	 */
 	public static function include_font_rendered( $fontname, $weights = [] ) {
 
-		if ( $fontname == 'inherit' ) {
+		if ( $fontname == 'inherit' || ( is_string( $fontname ) && 'body' === strtolower( trim( $fontname ) ) ) ) {
 			return;
 		}
 		
