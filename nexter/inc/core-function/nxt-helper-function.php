@@ -128,11 +128,11 @@ function nexter_settings_page_get( $key ){
         $cached_options = (array) get_option( 'nexter_settings_opts', [] );
     }
 	
-	if(!empty($cached_options) && isset($cached_options['switch']) && $cached_options['switch'] === false){
+	if(!empty($cached_options) && isset($cached_options['switch']) && $cached_options['switch'] == false){
 		return true;
 	}
-
-    return ! isset( $cached_options['values'][ $key ] ) || $cached_options['values'][ $key ] === '0';
+	
+    return ! isset( $cached_options['values'][ $key ] ) || $cached_options['values'][ $key ] == '0';
 }
 
 /**
