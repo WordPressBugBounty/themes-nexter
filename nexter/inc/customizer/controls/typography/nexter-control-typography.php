@@ -70,6 +70,9 @@ final class Nexter_Control_Typography extends WP_Customize_Control {
 		wp_enqueue_style( 'select2', $typo_uri . 'select2'. $minified .'.css', null );
 		wp_enqueue_script( 'nexter-select2', $typo_uri . 'select2'. $minified .'.js', array( 'jquery' ), NXT_VERSION, true );
 		wp_enqueue_script( 'nexter-typography', $typo_uri . 'typography'. $minified .'.js', array( 'jquery', 'customize-base' ), NXT_VERSION, true );
+		wp_localize_script( 'nexter-typography', 'NexterTypoI18n', array(
+			'selectFontFamily' => esc_html__( 'Select Font Family', 'nexter' ),
+		) );
 	}
 	
 	/**

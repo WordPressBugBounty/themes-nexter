@@ -79,7 +79,7 @@ if ( ! function_exists( 'nexter_entry_footer' ) ) :
 		edit_post_link(
 			sprintf(
 				wp_kses(
-					/* translators: %s: screen readers text */
+					/* translators: %s: Name of current post. Only visible to screen readers */
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'nexter' ),
 					array(
 						'span' => array(

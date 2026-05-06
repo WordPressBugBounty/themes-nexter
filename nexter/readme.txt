@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 6.9
-Stable tag: 4.2.9
-Version: 4.2.9
+Stable tag: 4.2.10
+Version: 4.2.10
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,12 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.10 = 06 May 2026
+- Fixed : i18n : Customizer Section : "Customizing" and "Customizing ▶ %s" breadcrumb strings are now translatable
+- Fixed : i18n : Customizer : Section titles (Container, Header, Footer, Sidebar, Body Style, Selection Text Color, Maintenance Mode, Color Palette, Body, Headings H1-H6, Heading H1–H6, Single Page, Single Post) are now translatable
+- Fixed : i18n : Typography Control : "Select Font Family" select2 placeholder is now translatable via wp_localize_script
+- Fixed : i18n : Global Color Palette : "Theme Color %d" label now uses sprintf() instead of string concatenation for proper translation support
+
 = 4.2.9 = 17 April 2026
 - Fixed : Theme Optimization Controls : Conditional bug Fix
 

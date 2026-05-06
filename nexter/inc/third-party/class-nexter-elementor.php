@@ -82,7 +82,8 @@ if ( ! class_exists( 'Nexter_Elementor' ) ) {
 		 * @return string
 		 */
 		public static function get_palette_label( $index ) {
-			return sprintf( /* translators: 1: color number */ __( 'Theme Color %d', 'nexter' ), (int) $index );
+			/* translators: %d: color number */
+		return sprintf( __( 'Theme Color %d', 'nexter' ), (int) $index );
 		}
 
 		/**

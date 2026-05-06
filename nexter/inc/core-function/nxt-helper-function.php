@@ -94,7 +94,8 @@ function nxt_global_color_palette(){
 			$color_value = nxt_sanitize_color_frontend( $color );
 			// Use actual color value so Gutenberg theme palette shows correct swatches (e.g. newly added red).
 			$colors[] = array(
-				'name'  => __('Theme Color ', 'nexter') . $i,
+				/* translators: %d: color number */
+			'name'  => sprintf( __( 'Theme Color %d', 'nexter' ), $i ),
 				'slug'  => '--nxt-global-color-' . $i,
 				'color' => ! empty( $color_value ) ? $color_value : 'var(--nxt-global-color-' . $i . ')',
 			);
