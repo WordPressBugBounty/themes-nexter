@@ -1643,9 +1643,10 @@ button.nxt-wl-save-btn {
 }
 .nxt-nobtn-primary,.nxt-nobtn-primary:hover, .nxt-nobtn-primary:focus {
 	background-color: #1717CC;
-	color: #fff;
+    color: #fff !important;
 	border: none;
 	box-shadow: none;
+    text-decoration: blink !important;
 }
 
 .nxt-nobtn-primary:focus, .nxt-nobtn-secondary:focus {

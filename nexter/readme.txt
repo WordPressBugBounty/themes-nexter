@@ -2,9 +2,9 @@
 
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
-Tested up to: 6.9
-Stable tag: 4.2.10
-Version: 4.2.10
+Tested up to: 7.0
+Stable tag: 4.2.11
+Version: 4.2.11
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,10 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.11 = 26 May 2026
+- Compatibility : WP7.0 compatible
+- Fixed : CSS Overright bug fix
+
 = 4.2.10 = 06 May 2026
 - Fixed : i18n : Customizer Section : "Customizing" and "Customizing ▶ %s" breadcrumb strings are now translatable
 - Fixed : i18n : Customizer : Section titles (Container, Header, Footer, Sidebar, Body Style, Selection Text Color, Maintenance Mode, Color Palette, Body, Headings H1-H6, Heading H1–H6, Single Page, Single Post) are now translatable
