@@ -77,9 +77,9 @@ if ( ! class_exists( 'Nexter_Admin_Enqueue' ) ) {
 		 * @since 1.0.8
 		 */
 		public function enqueue_scripts_admin( $hook_suffix ){
-			
+
 			$minified = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-			if ('post.php' != $hook_suffix && 'post-new.php' != $hook_suffix ) {
+			if ('post.php' != $hook_suffix && 'post-new.php' != $hook_suffix && strpos( $hook_suffix, 'forminator' ) === false ) {
 				wp_enqueue_style( 'nexter-select-css', NXT_CSS_URI .'extra/select2'. $minified .'.css', array(), NXT_VERSION );
 				wp_enqueue_script( 'nexter-select-js', NXT_JS_URI . 'extra/select2'. $minified .'.js', array( 'jquery' ), NXT_VERSION, false );
 			}

@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 7.0
-Stable tag: 4.2.11
-Version: 4.2.11
+Stable tag: 4.2.12
+Version: 4.2.12
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,9 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.12 = 08 June 2026
+- Compatibility : Forminator : Select2 CSS and JS conflicts with Forminator by conditionally disabling conflicting assets.
+
 = 4.2.11 = 26 May 2026
 - Compatibility : WP7.0 compatible
 - Fixed : CSS Overright bug fix
