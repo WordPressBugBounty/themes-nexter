@@ -42,4 +42,4 @@ window.addEventListener('load', function(){
 			request.send('action=nexter_ext_install&nexter_nonce=' + nexter_admin_config.ajax_nonce);
         })
     } */
-}
+});
