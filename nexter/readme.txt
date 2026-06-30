@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 7.0
-Stable tag: 4.2.14
-Version: 4.2.14
+Stable tag: 4.2.16
+Version: 4.2.16
 Requires PHP: 5.6
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,14 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.16 = 29 June 2026
+- Fixed : Block Editor : Sidebar Settings meta box caused the editor to freeze while saving; replaced with a native Gutenberg sidebar panel backed by REST post meta
+- Fixed : Bug fixes and improvements
+
+= 4.2.15 = 29 June 2026
+- Fixed : Translate : Missing text-domain in Dashboard
+- Fixed : Bug fixes and improvements
+
 = 4.2.14 = 15 June 2026
 - Fixed : CSS Overright bug fix
 

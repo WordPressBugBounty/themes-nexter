@@ -1,133 +1,119 @@
 <?php
 /**
- * Meta Box Single sidebar Field
- * @return array
+ * Sidebar Settings — block-editor (Gutenberg) implementation.
+ *
+ * @package Nexter
  */
-add_action('add_meta_boxes', 'nexter_nxt_sidebar_settings_meta_box');
-add_action('save_post', 'nexter_nxt_save_sidebar_settings');
 
-/**
- * Add custom meta box for Sidebar Settings.
- */
-function nexter_nxt_sidebar_settings_meta_box() {
-    $set_priority = defined( 'ACF' ) ? 'normal' : 'side';
-    add_meta_box(
-        'nxt_sidebar_settings',
-        esc_html__('Sidebar Settings', 'nexter'),
-        'nexter_nxt_sidebar_settings_html',
-        array('page', 'post'),
-        $set_priority
-    );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+if ( ! function_exists( 'nexter_sidebar_settings_meta_keys' ) ) {
+	/**
+	 * Sidebar settings meta keys.
+	 *
+	 * @return string[] Meta keys.
+	 */
+	function nexter_sidebar_settings_meta_keys() {
+		return array(
+			'nxt-post-page-sidebar',
+			'nxt-post-page-display-sidebar',
+			'nxt-post-page-custom-sidebar',
+		);
+	}
 }
 
 /**
- * HTML content for the meta box.
+ * Register the sidebar settings as REST-exposed post meta for posts and pages.
  *
- * @param WP_Post $post Current post object.
+ * Runs in every context (admin, REST, front end) so the block editor can read and
+ * write the meta over the REST API.
+ *
+ * @return void
  */
-function nexter_nxt_sidebar_settings_html($post) {
-    $prefix = 'nxt-';
-    
-    // Retrieve existing meta values if they exist.
-    $sidebar_option = get_post_meta($post->ID, $prefix . 'post-page-sidebar', true);
-    $display_sidebar = get_post_meta($post->ID, $prefix . 'post-page-display-sidebar', true);
-    $custom_sidebar = get_post_meta($post->ID, $prefix . 'post-page-custom-sidebar', true);
+function nexter_register_sidebar_settings_meta() {
+	$auth_callback = function ( $allowed, $meta_key, $object_id ) {
+		return current_user_can( 'edit_post', $object_id );
+	};
 
-    wp_nonce_field('nexter_sidebar_settings_nonce', 'nexter_sidebar_settings_nonce_field');
-
-    // Display Sidebar Field
-    echo '<label for="nxt_post_page_sidebar">' . esc_html__('Display Sidebar', 'nexter') . '</label>';
-   
-	$options = array(
-        'default' => array(
-            'image' => NXT_THEME_URI . 'assets/images/customizer/sidebar/structure/default.png',
-            'title' => esc_html__('Customizer Default', 'nexter'),
-        ),
-        'no-sidebar' => array(
-            'image' => NXT_THEME_URI . 'assets/images/customizer/sidebar/structure/no-sidebar.png',
-            'title' => esc_html__('No Sidebar', 'nexter'),
-        ),
-        'left-sidebar' => array(
-            'image' => NXT_THEME_URI . 'assets/images/customizer/sidebar/structure/left-sidebar.png',
-            'title' => esc_html__('Left Sidebar', 'nexter'),
-        ),
-        'right-sidebar' => array(
-            'image' => NXT_THEME_URI . 'assets/images/customizer/sidebar/structure/right-sidebar.png',
-            'title' => esc_html__('Right Sidebar', 'nexter'),
-        ),
-    );
-
-	echo '<div class="nxt-sidebar-selection">';
-		foreach ($options as $value => $data) {
-			$is_selected = ($sidebar_option === $value) ? 'selected' : '';
-			echo '<label class="nxt-sidebar-option ' . esc_attr($is_selected) . '">';
-				echo '<input class="nxt-sidebar-radio" type="radio" name="' . esc_attr($prefix . 'post-page-sidebar') . '" value="' . esc_attr($value) . '" ' . checked($sidebar_option, $value, false) . '>';
-				echo '<img src="' . esc_url($data['image']) . '" title="' . esc_attr($data['title']) . '" alt="' . esc_attr($data['title']) . '">';
-			echo '</label>';
+	foreach ( array( 'post', 'page' ) as $post_type ) {
+		foreach ( nexter_sidebar_settings_meta_keys() as $meta_key ) {
+			register_post_meta(
+				$post_type,
+				$meta_key,
+				array(
+					'type'              => 'string',
+					'single'            => true,
+					'default'           => '',
+					'show_in_rest'      => true,
+					'sanitize_callback' => 'sanitize_text_field',
+					'auth_callback'     => $auth_callback,
+				)
+			);
 		}
-    echo '</div>';
-
-    global $pagenow;
-    if ('widgets.php' !== $pagenow && 'customize.php' !== $pagenow) {
-        // Display Sidebar Selection
-        echo '<div class="nxt-page-post-sidebar">';
-        echo '<label for="nxt_post_page_display_sidebar">' . esc_html__('Select Sidebar', 'nexter') . '</label>';
-        echo '<select name="' . esc_attr($prefix . 'post-page-display-sidebar') . '" id="nxt_post_page_display_sidebar">';
-        $sidebars = nexter_get_sidebar_list(); // Function to get list of sidebars
-        foreach ($sidebars as $value => $label) {
-            echo '<option value="' . esc_attr($value) . '" ' . selected($display_sidebar, $value, false) . '>' . esc_html($label) . '</option>';
-        }
-        echo '</select>';
-        echo '</div>';
-
-        // Custom Sidebar Field (shown conditionally)
-        echo '<div class="nxt-custom-sidebar">';
-        echo '<label for="nxt_post_page_custom_sidebar">' . esc_html__('Custom Sidebar', 'nexter') . '</label>';
-        echo '<select name="' . esc_attr($prefix . 'post-page-custom-sidebar') . '" id="nxt_post_page_custom_sidebar">';
-        $custom_sidebars = nexter_builders_posts_list(); // Function to get list of custom sidebars
-        foreach ($custom_sidebars as $value => $label) {
-            echo '<option value="' . esc_attr($value) . '" ' . selected($custom_sidebar, $value, false) . '>' . esc_html($label) . '</option>';
-        }
-        echo '</select>';
-        echo '</div>';
-    }
+	}
 }
+add_action( 'init', 'nexter_register_sidebar_settings_meta' );
 
 /**
- * Save the meta box data when the post is saved.
+ * Enqueue the Gutenberg Document panel for sidebar settings (post/page only).
  *
- * @param int $post_id The post ID.
+ * @return void
  */
-function nexter_nxt_save_sidebar_settings($post_id) {
-    // Verify the nonce before proceeding.
-    if (!isset($_POST['nexter_sidebar_settings_nonce_field']) || !wp_verify_nonce($_POST['nexter_sidebar_settings_nonce_field'], 'nexter_sidebar_settings_nonce')) {
-        return $post_id;
-    }
+function nexter_sidebar_settings_editor_assets() {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	if ( ! $screen || 'post' !== $screen->base || ! in_array( $screen->post_type, array( 'post', 'page' ), true ) ) {
+		return;
+	}
 
-    // Don't save during autosave or revision.
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return $post_id;
-    }
+	$handle  = 'nexter-sidebar-settings';
+	$rel_js  = 'assets/js/admin/sidebar-settings.js';
+	$version = file_exists( NXT_THEME_DIR . $rel_js ) ? filemtime( NXT_THEME_DIR . $rel_js ) : NXT_VERSION;
 
-    // Check if user has permission to save.
-    if (!current_user_can('edit_post', $post_id)) {
-        return $post_id;
-    }
+	wp_enqueue_script(
+		$handle,
+		NXT_THEME_URI . $rel_js,
+		array( 'wp-plugins', 'wp-editor', 'wp-edit-post', 'wp-element', 'wp-components', 'wp-data', 'wp-i18n' ),
+		$version,
+		true
+	);
 
-    $prefix = 'nxt-';
-    
-    // Save 'Display Sidebar' field.
-    if (isset($_POST[$prefix . 'post-page-sidebar'])) {
-        update_post_meta($post_id, $prefix . 'post-page-sidebar', sanitize_text_field($_POST[$prefix . 'post-page-sidebar']));
-    }
+	if ( function_exists( 'wp_set_script_translations' ) ) {
+		wp_set_script_translations( $handle, 'nexter' );
+	}
 
-    // Save 'Display Sidebar Selection' field.
-    if (isset($_POST[$prefix . 'post-page-display-sidebar'])) {
-        update_post_meta($post_id, $prefix . 'post-page-display-sidebar', sanitize_text_field($_POST[$prefix . 'post-page-display-sidebar']));
-    }
+	$custom_sidebars = array();
+	if ( post_type_exists( 'nxt_builder' ) ) {
+		$custom_sidebars['none'] = esc_html__( 'Select Template', 'nexter' );
+		$builder_ids             = get_posts(
+			array(
+				'post_type'        => 'nxt_builder',
+				'post_status'      => 'publish',
+				'numberposts'      => -1,
+				'fields'           => 'ids',
+				'suppress_filters' => true,
+			)
+		);
+		foreach ( $builder_ids as $builder_id ) {
+			$custom_sidebars[ (string) $builder_id ] = get_the_title( $builder_id );
+		}
+	}
 
-    // Save 'Custom Sidebar' field.
-    if (isset($_POST[$prefix . 'post-page-custom-sidebar'])) {
-        update_post_meta($post_id, $prefix . 'post-page-custom-sidebar', sanitize_text_field($_POST[$prefix . 'post-page-custom-sidebar']));
-    }
+	wp_localize_script(
+		$handle,
+		'nxtSidebar',
+		array(
+			'postTypes'      => array( 'post', 'page' ),
+			'displayOptions' => array(
+				'default'       => esc_html__( 'Customizer Default', 'nexter' ),
+				'no-sidebar'    => esc_html__( 'No Sidebar', 'nexter' ),
+				'left-sidebar'  => esc_html__( 'Left Sidebar', 'nexter' ),
+				'right-sidebar' => esc_html__( 'Right Sidebar', 'nexter' ),
+			),
+			'sidebars'       => nexter_get_sidebar_list(),
+			'customSidebars' => $custom_sidebars,
+		)
+	);
 }
+add_action( 'enqueue_block_editor_assets', 'nexter_sidebar_settings_editor_assets' );

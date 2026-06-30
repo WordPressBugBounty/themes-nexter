@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3 or later..
 msgid ""
 msgstr ""
-"Project-Id-Version: Nexter 4.2.13\n"
+"Project-Id-Version: Nexter 4.2.16\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/nexter\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-15T07:58:03+02:00\n"
+"POT-Creation-Date: 2026-06-29T09:45:31+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: nexter\n"
@@ -179,35 +179,22 @@ msgid "Theme Color %d"
 msgstr ""
 
 #: inc/core-function/nxt-helper-function.php:146
+#: inc/custom-metabox/nexter-sidebar-settings.php:88
 #: inc/customizer/customizer-config/general/class-maintenance-mode.php:100
 #: inc/panel-settings/dashboard/build/index.js:9
 msgid "Select Template"
 msgstr ""
 
 #: inc/core-function/nxt-helper-function.php:192
-#: inc/custom-metabox/nexter-sidebar-settings.php:85
+#: assets/js/admin/sidebar-settings.js:123
 msgid "Custom Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:16
-msgid "Sidebar Settings"
-msgstr ""
-
-#: inc/custom-metabox/nexter-sidebar-settings.php:39
-#: inc/customizer/customizer-config/general/class-layout-sidebar.php:73
-#: inc/customizer/customizer-config/general/class-layout-sidebar.php:137
-#: inc/customizer/customizer-config/general/class-layout-sidebar.php:206
-#: inc/customizer/customizer-config/general/class-layout-sidebar.php:275
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:178
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:231
-msgid "Display Sidebar"
-msgstr ""
-
-#: inc/custom-metabox/nexter-sidebar-settings.php:44
+#: inc/custom-metabox/nexter-sidebar-settings.php:109
 msgid "Customizer Default"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:48
+#: inc/custom-metabox/nexter-sidebar-settings.php:110
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:50
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:115
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:184
@@ -217,7 +204,7 @@ msgstr ""
 msgid "No Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:52
+#: inc/custom-metabox/nexter-sidebar-settings.php:111
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:54
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:119
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:188
@@ -227,7 +214,7 @@ msgstr ""
 msgid "Left Sidebar"
 msgstr ""
 
-#: inc/custom-metabox/nexter-sidebar-settings.php:56
+#: inc/custom-metabox/nexter-sidebar-settings.php:112
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:58
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:123
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:192
@@ -235,10 +222,6 @@ msgstr ""
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:168
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:221
 msgid "Right Sidebar"
-msgstr ""
-
-#: inc/custom-metabox/nexter-sidebar-settings.php:74
-msgid "Select Sidebar"
 msgstr ""
 
 #: inc/customizer/controls/background/nexter-control-background.php:68
@@ -856,6 +839,16 @@ msgstr ""
 
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:41
 msgid "Site Sidebar Layout"
+msgstr ""
+
+#: inc/customizer/customizer-config/general/class-layout-sidebar.php:73
+#: inc/customizer/customizer-config/general/class-layout-sidebar.php:137
+#: inc/customizer/customizer-config/general/class-layout-sidebar.php:206
+#: inc/customizer/customizer-config/general/class-layout-sidebar.php:275
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:178
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:231
+#: assets/js/admin/sidebar-settings.js:94
+msgid "Display Sidebar"
 msgstr ""
 
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:80
@@ -1551,6 +1544,14 @@ msgstr ""
 msgid "Breadcrumb"
 msgstr ""
 
+#: assets/js/admin/sidebar-settings.js:107
+msgid "Select Sidebar"
+msgstr ""
+
+#: assets/js/admin/sidebar-settings.js:137
+msgid "Sidebar Settings"
+msgstr ""
+
 #: inc/panel-settings/dashboard/build/index.js:1
 msgid "Settings"
 msgstr ""
@@ -1870,6 +1871,10 @@ msgid "Open Theme Settings"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
+msgid "Nexter Theme Image"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
 msgid "50+ WordPress Extensions to Make Site More Secure, Performant & Smart"
 msgstr ""
 
@@ -1903,12 +1908,20 @@ msgid "What's New?"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
+msgid "Total Blocks"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
 #: inc/panel-settings/theme-builder/build/index.js:1
 msgid "Inactive"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid " Active"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Total Extensions"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
@@ -1986,6 +1999,10 @@ msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "We're Active on"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "New"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
@@ -2162,10 +2179,6 @@ msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid " Total Blocks"
-msgstr ""
-
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "New"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
@@ -2966,7 +2979,7 @@ msgid "Enter Slug Text"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
-msgid "Post Types"
+msgid "Disable by Post Type"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
@@ -3358,6 +3371,18 @@ msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Border Width"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Ag"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "AG"
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "ag"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:7
@@ -5806,6 +5831,10 @@ msgid "Connect Mailchimp CRM"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:9
+msgid " Add your Mailchimp API key to connect with our Mailchimp form block and send emails directly to your CRM."
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:9
 msgid "Paste your your <a href = \"https://mailchimp.com/help/about-api-keys/\" target=\"_blank\" rel=\"noopener noreferrer\"> Mailchimp API Key </a> & <a href = \"https://mailchimp.com/help/find-audience-id/\" target=\"_blank\" rel=\"noopener noreferrer\">  List ID </a>"
 msgstr ""
 
@@ -5839,6 +5868,10 @@ msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:9
 msgid "Add your Facebook Pixel ID and GA4 ID here to enable event tracking for your clicks. This will allow you to track events directly from WordPress for your ads and GA4 analytics."
+msgstr ""
+
+#: inc/panel-settings/dashboard/build/index.js:9
+msgid "Paste your your <a href = \"https://support.google.com/analytics/answer/12270356\" target=\"_blank\" rel=\"noopener noreferrer\">  GA4 Measurement ID </a> & <a href = \"https://www.facebook.com/business/help/952192354843755?id=1205376682832142\" target=\"_blank\" rel=\"noopener noreferrer\">  Facebook Pixel </a>"
 msgstr ""
 
 #: inc/panel-settings/dashboard/build/index.js:9

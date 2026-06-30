@@ -1694,6 +1694,12 @@ button.nxt-wl-save-btn {
     color: #f0f0f1 !important;
 }
 
+
+.nexter-sidebar-settings-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 /*tablet responsive start*/
 @media (min-width: 768px) and (max-width: 1024px){
     

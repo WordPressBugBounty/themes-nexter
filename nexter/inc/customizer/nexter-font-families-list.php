@@ -294,7 +294,27 @@ if ( ! class_exists( 'Nexter_Font_Families_Listing' ) ) {
 		 */
 		public static function get_custom_fonts_load() {
 			$custom_fonts_list = [];
-			
+
+			// Baseline: read font names from the DB directly so custom fonts are always
+			// excluded from the Google Fonts URL even when the extension filter hasn't
+			// been hooked yet (e.g. in the Customizer admin context).
+			$nxt_ext = get_option( 'nexter_extra_ext_options' );
+			if ( ! empty( $nxt_ext['custom-upload-font']['switch'] )
+				&& ! empty( $nxt_ext['custom-upload-font']['values'] ) ) {
+				foreach ( $nxt_ext['custom-upload-font']['values'] as $fonts ) {
+					foreach ( $fonts as $val ) {
+						if ( ! empty( $val['simplefont']['font_name'] ) ) {
+							$custom_fonts_list[ $val['simplefont']['font_name'] ] = true;
+						}
+						if ( ! empty( $val['variablefont']['font_name'] ) ) {
+							$custom_fonts_list[ $val['variablefont']['font_name'] ] = true;
+						}
+					}
+				}
+			}
+
+			// The extension filter (when hooked) returns the full structure with weights;
+			// it supersedes the baseline above.
 			return apply_filters( 'nexter_custom_fonts_load', $custom_fonts_list );
 		}
 

@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Nexter Constants
  */
-define( 'NXT_VERSION', '4.2.14' );
+define( 'NXT_VERSION', '4.2.16' );
 define( 'NXT_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 define( 'NXT_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'NXT_JS_URI', get_template_directory_uri() .'/assets/js/' );
@@ -162,10 +162,9 @@ require NXT_THEME_DIR .'inc/core-function/nxt-core-function.php';
 require_once NXT_THEME_DIR . 'inc/customizer/nexter-font-families-list.php';
 require_once NXT_THEME_DIR . 'inc/customizer/nexter-render-fonts-load.php';
 
-//Metabox Options
-if ( is_admin() ) {
-	require_once NXT_THEME_DIR . 'inc/custom-metabox/nexter-sidebar-settings.php';
-}
+// Metabox Options. Loaded unconditionally so register_post_meta() runs for REST
+// (block editor saves) too; the meta box / editor hooks inside self-gate to admin.
+require_once NXT_THEME_DIR . 'inc/custom-metabox/nexter-sidebar-settings.php';
 /**
  * Implement the Custom Header feature.
  */
