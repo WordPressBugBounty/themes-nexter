@@ -5,6 +5,10 @@
  * @package	Nexter
  * @since	1.0.7
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }

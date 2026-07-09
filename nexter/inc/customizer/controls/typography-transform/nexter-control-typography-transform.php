@@ -6,6 +6,10 @@
  * @package Nexter
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Nexter_Control_Text_Transform' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	class Nexter_Control_Text_Transform extends WP_Customize_Control {

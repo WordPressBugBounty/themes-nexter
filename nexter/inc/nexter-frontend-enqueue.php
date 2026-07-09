@@ -64,27 +64,29 @@ if ( ! class_exists( 'Nexter_Frontend_Enqueue' ) ) {
 			if ( nexter_settings_page_get( 'container_css' ) ) {
 				wp_enqueue_style( 'nexter-container', NXT_CSS_URI . 'main/container.css', [], NXT_VERSION );
 			}
-			if ( !empty( $get_sidebar['layout'] ) && $get_sidebar['layout'] !== 'no-sidebar' ) {
+			if ( nexter_settings_page_get( 'sidebar_css' ) && !empty( $get_sidebar['layout'] ) && $get_sidebar['layout'] !== 'no-sidebar' ) {
 				wp_enqueue_style( 'nexter-sidebar', NXT_CSS_URI . 'main/sidebar.css', [], NXT_VERSION );
 			}
 			if ( nexter_settings_page_get( 'theme_min_css' ) ) {
 				wp_enqueue_style( 'nexter-style', NXT_CSS_URI . 'main/theme' . $minified . '.css', [], NXT_VERSION );
-			}else{
-				wp_register_style(
-					'nexter-style',
-					'',     
-					[],               
-					NXT_VERSION
-				);
-				wp_enqueue_style( 'nexter-style' );
 			}
 
-			//Custom Font Load Font Face Style
-			$custom_css = Nexter_Get_Fonts::get_custom_fonts_face();
+			// Build the theme's inline CSS: custom @font-face, conditional fallbacks for any
+			// disabled core CSS, and dynamic Customizer output. Note: turning "Theme CSS" off
+			// makes the theme's CSS minimal (these still-needed inline rules) — not zero.
+			$custom_css  = Nexter_Get_Fonts::get_custom_fonts_face();
 			$custom_css .= $this->nexter_condition_css();
 			$custom_css .= Nexter_Dynamic_Css::render_theme_css();
-			if( !empty( $custom_css ) ){
-				wp_add_inline_style( 'nexter-style',nexter_minify_css_generate($custom_css) );
+
+			if ( ! empty( $custom_css ) ) {
+				// Attach to the real theme stylesheet when it is enqueued; otherwise register a
+				// carrier handle only because there is inline CSS to print. This avoids emitting
+				// an empty "ghost" <style> when Theme CSS is off and there is nothing to add.
+				if ( ! wp_style_is( 'nexter-style', 'enqueued' ) ) {
+					wp_register_style( 'nexter-style', false, [], NXT_VERSION );
+					wp_enqueue_style( 'nexter-style' );
+				}
+				wp_add_inline_style( 'nexter-style', nexter_minify_css_generate( $custom_css ) );
 			}
 
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

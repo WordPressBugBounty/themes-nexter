@@ -1,4 +1,8 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 if ( ! class_exists( 'Nexter_Control_Image_Selector' ) ) {
 
 	class Nexter_Control_Image_Selector extends WP_Customize_Control {

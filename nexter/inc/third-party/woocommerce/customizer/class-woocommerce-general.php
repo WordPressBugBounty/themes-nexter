@@ -18,7 +18,12 @@ if ( ! class_exists( 'Nexter_Woocommece_Customize_General' ) ) {
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
+			// Gate the woo dynamic CSS by the same "woocommerce_min_css" toggle that gates the
+			// static woocommerce.min.css, so disabling "Theme Woo CSS" removes both — not just
+			// the file (previously the ~77 inline woo rules survived site-wide).
+			if ( nexter_settings_page_get( 'woocommerce_min_css' ) ) {
+				add_filter( 'nxt_render_theme_css', array( $this, 'dynamic_css' ) );
+			}
 			parent::__construct();
 		}
 		

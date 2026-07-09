@@ -24,17 +24,17 @@ function nxt_dimension_value($option='', $selector = '', $attr = '', $theme_css 
 		foreach($option_dimension as $key => $val){
 			$md_val = nexter_dimension_responsive_css($fluid_pad, $key, 'md');
 			if($md_val!=''){
-				$md_val = ($minus=='minus') ? '-'.$md_val : $md_val;
+				$md_val = ($minus=='minus' && (float) $md_val != 0) ? '-'.$md_val : $md_val;
 				$style['dk'][$selector][$attr.'-'.$key] = $md_val;
 			}
 			$sm_val = nexter_dimension_responsive_css($fluid_pad, $key, 'sm');
 			if($sm_val!=''){
-				$sm_val = ($minus=='minus') ? '-'.$sm_val : $sm_val;
+				$sm_val = ($minus=='minus' && (float) $sm_val != 0) ? '-'.$sm_val : $sm_val;
 				$style['tb'][$selector][$attr.'-'.$key] = $sm_val;
 			}
 			$xs_val = nexter_dimension_responsive_css($fluid_pad, $key, 'xs');
 			if($xs_val!=''){
-				$xs_val = ($minus=='minus') ? '-'.$xs_val : $xs_val;
+				$xs_val = ($minus=='minus' && (float) $xs_val != 0) ? '-'.$xs_val : $xs_val;
 				$style['mb'][$selector][$attr.'-'.$key] = $xs_val;
 			}
 		}
@@ -102,7 +102,7 @@ function nxt_container_dynamic_css( $theme_css ){
 				'#nxt-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),
 				#nxt-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),
 				.nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => [
-					'max-width'    => 'calc(' . nexter_get_option_css_value($header_container_width['desktop'], 'px') . ' - 3rem)',
+					'max-width'    => ( !empty($header_container_width) && isset($header_container_width['desktop']) && $header_container_width['desktop'] != '' ) ? 'calc(' . nexter_get_option_css_value($header_container_width['desktop'], 'px') . ' - 3rem)' : 'calc(1140px - 3rem)',
 					'margin-right' => 'auto',
 					'margin-left'  => 'auto',
 				],
@@ -120,7 +120,7 @@ function nxt_container_dynamic_css( $theme_css ){
 				'#nxt-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),
 				#nxt-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),
 				.nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => [
-					'max-width'    => 'calc(' . nexter_get_option_css_value($header_container_width['tablet'], 'px') . ' - 3rem)',
+					'max-width'    => ( !empty($header_container_width) && isset($header_container_width['tablet']) && $header_container_width['tablet'] != '' ) ? 'calc(' . nexter_get_option_css_value($header_container_width['tablet'], 'px') . ' - 3rem)' : 'calc(960px - 3rem)',
 					'margin-right' => 'auto',
 					'margin-left'  => 'auto',
 				],
@@ -138,7 +138,7 @@ function nxt_container_dynamic_css( $theme_css ){
 				'#nxt-header .nxt-container-block-editor > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-template-load):not(.nxt-alignfull):not(.nxt-content-page-template),
 				#nxt-header .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull),
 				.nxt-breadcrumb-wrap .nxt-container-block-editor > .nxt-template-load > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull)' => [
-					'max-width'    => 'calc(' . nexter_get_option_css_value($header_container_width['mobile'], 'px') . ' - 3rem)',
+					'max-width'    => ( !empty($header_container_width) && isset($header_container_width['mobile']) && $header_container_width['mobile'] != '' ) ? 'calc(' . nexter_get_option_css_value($header_container_width['mobile'], 'px') . ' - 3rem)' : 'calc(1140px - 3rem)',
 					'margin-right' => 'auto',
 					'margin-left'  => 'auto',
 				],

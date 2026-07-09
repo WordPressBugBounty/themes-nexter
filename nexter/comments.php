@@ -84,7 +84,7 @@ if ( post_password_required() ) {
 		  'cancel_reply_link' => esc_html__( 'Cancel Reply', 'nexter' ),
 		  'label_submit'      => esc_html__( 'Submit Now', 'nexter' ),
 
-		  'comment_field' =>  '<div class="nxt-row"><div class="nxt-col"><label><textarea id="comment" name="comment" cols="45" rows="6" placeholder="'.esc_attr__('Comment','nexter').'" aria-required="true"></textarea></label></div></div>',
+		  'comment_field' =>  '<div class="nxt-row"><div class="nxt-col"><label class="screen-reader-text" for="comment">'.esc_html__('Comment','nexter').'</label><textarea id="comment" name="comment" cols="45" rows="6" placeholder="'.esc_attr__('Comment','nexter').'" aria-required="true"></textarea></div></div>',
 			
 		  'must_log_in' => '<p class="must-log-in">' .
 			sprintf(
@@ -111,19 +111,19 @@ if ( post_password_required() ) {
 		  'fields' => apply_filters( 'comment_form_default_fields', array(
 
 			'author' =>
-			  '<div class="nxt-row"> <div class="nxt-col-md-4 nxt-col"><label>' .
-			  '<input id="author" name="author" type="text" placeholder="'.esc_attr__('Name','nexter').'" value="' . esc_attr( $commenter['comment_author'] ) .
-			  '" size="30" /></label></div>',
+			  '<div class="nxt-row"> <div class="nxt-col-md-4 nxt-col"><label class="screen-reader-text" for="author">'.esc_html__('Name','nexter').'</label>' .
+			  '<input id="author" name="author" type="text" placeholder="'.esc_attr__('Name','nexter').'" '.( get_option( 'require_name_email' ) ? 'required aria-required="true" ' : '' ).'value="' . esc_attr( $commenter['comment_author'] ) .
+			  '" size="30" /></div>',
 
 			'email' =>
-			  '<div class="nxt-col-md-4 nxt-col"><label>' .
-			  '<input id="email" name="email" type="email" placeholder="'.esc_attr__('Email Address *','nexter').'" value="' . esc_attr(  $commenter['comment_author_email'] ) .
-			  '" size="30" /></label></div>',
+			  '<div class="nxt-col-md-4 nxt-col"><label class="screen-reader-text" for="email">'.esc_html__('Email Address','nexter').'</label>' .
+			  '<input id="email" name="email" type="email" placeholder="'.esc_attr__('Email Address *','nexter').'" '.( get_option( 'require_name_email' ) ? 'required aria-required="true" ' : '' ).'value="' . esc_attr(  $commenter['comment_author_email'] ) .
+			  '" size="30" /></div>',
 
 			'url' =>
-			  '<div class="nxt-col-md-4 nxt-col"><label>' .
+			  '<div class="nxt-col-md-4 nxt-col"><label class="screen-reader-text" for="url">'.esc_html__('Website','nexter').'</label>' .
 			  '<input id="url" name="url" type="url" placeholder="'.esc_attr__('Website','nexter').'" value="' . esc_attr( $commenter['comment_author_url'] ) .
-			  '" size="30" /></label></div></div>'
+			  '" size="30" /></div></div>'
 			)
 		  ),
 		);

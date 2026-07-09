@@ -17,7 +17,7 @@ function nxt_body_typo_dynamic_css( $theme_css ){
 	$body_fontfamily = nexter_get_body_fontfamily();
 	$body_fontweight = nexter_get_option('body-font-weight');
 	$body_fontsize   = nexter_get_option('font-size-body');
-	$body_lineheight = nexter_get_option('body-line-height');
+  	$body_lineheight = nexter_get_option('body-line-height');
 	$body_transform  = nexter_get_option('body-transform');
 	$paragraphy_mb   = nexter_get_option('paragraph-mb');
 	

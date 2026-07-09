@@ -7,6 +7,10 @@
  * @since	1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Nexter_Control_Background' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	class Nexter_Control_Background extends WP_Customize_Control {

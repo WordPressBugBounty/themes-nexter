@@ -6,6 +6,10 @@
  * @since	1.0.7
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 if ( ! class_exists( 'Nexter_Theme_Builder_Load' ) ) {
 
 	class Nexter_Theme_Builder_Load {

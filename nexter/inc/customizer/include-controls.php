@@ -6,6 +6,10 @@
  * @since	1.0.0
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 require NXT_CUSTOMIZER_CONTROL_PATH . '/nexter-customizer-control-base.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/switcher/nexter-control-switcher.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/slider/nexter-control-slider.php';

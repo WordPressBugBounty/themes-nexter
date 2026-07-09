@@ -21,18 +21,19 @@ function nxt_heading_dynamic_css( $theme_css ){
 						'h5' => 'h5, h5 a',
 						'h6' => 'h6, h6 a'
 					];
-	$style = [];			
+	
+	$style = [];
 	foreach($heading_selector as $key => $selector){
 		$color	= nexter_get_option('heading-color-'.$key);
 		$style[$selector]  = [
-			'color' => esc_attr($color)
+		'color' => esc_attr($color)
 		];
 	}
-	
+
 	if( !empty($style)){
 		$theme_css[]= $style;
 	}
-	
+
 	return $theme_css;
 }
 function nxt_heading_editor_dynamic_css( $theme_css ){
@@ -45,11 +46,12 @@ function nxt_heading_editor_dynamic_css( $theme_css ){
 		'h5' => ':where(.editor-styles-wrapper) h5, :where(.editor-styles-wrapper) h5 a',
 		'h6' => ':where(.editor-styles-wrapper) h6, :where(.editor-styles-wrapper) h6 a'
 	];
-	$style = [];			
+	
+	$style = [];
 	foreach($heading_selector as $key => $selector){
 		$color	= nexter_get_option('heading-color-'.$key);
 		$style[$selector]  = [
-			'color' => esc_attr($color)
+		'color' => esc_attr($color)
 		];
 	}
 	if( !empty($style)){

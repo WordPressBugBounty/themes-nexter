@@ -5,6 +5,10 @@
  * @package Nexter
  * @since   1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 if ( ! class_exists( 'Nexter_Customizer_Register_Sections_Panels' ) ) {
 
 	class Nexter_Customizer_Register_Sections_Panels {

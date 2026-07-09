@@ -9,14 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-29T09:45:31+02:00\n"
+"POT-Creation-Date: 2026-07-07T11:13:46+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: nexter\n"
 
 #. Theme Name of the theme
 #: style.css
-#: inc/core-function/nxt-core-function.php:251
+#: inc/core-function/nxt-core-function.php:269
 #: inc/panel-settings/plus-settings-options.php:59
 msgid "Nexter"
 msgstr ""
@@ -93,14 +93,20 @@ msgstr ""
 msgid "Log out of this account"
 msgstr ""
 
+#: comments.php:114
 #: comments.php:115
 msgid "Name"
+msgstr ""
+
+#: comments.php:119
+msgid "Email Address"
 msgstr ""
 
 #: comments.php:120
 msgid "Email Address *"
 msgstr ""
 
+#: comments.php:124
 #: comments.php:125
 msgid "Website"
 msgstr ""
@@ -109,65 +115,78 @@ msgstr ""
 msgid "Primary"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:85
+#: inc/core-function/nxt-core-function.php:92
 msgid "Skip to content"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:132
-#: inc/core-function/nxt-core-function.php:420
+#: inc/core-function/nxt-core-function.php:150
+#: inc/core-function/nxt-core-function.php:438
 msgid "Home"
 msgstr ""
 
 #. translators: copyright: Made By Nexter
-#: inc/core-function/nxt-core-function.php:245
+#: inc/core-function/nxt-core-function.php:263
 #, php-format
 msgid "%1$s Made by&nbsp;%2$s&nbsp;WP Theme"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:324
+#: inc/core-function/nxt-core-function.php:342
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:240
 #: inc/third-party/class-nexter-builder-documents.php:114
 msgid "Archives"
 msgstr ""
 
 #. translators: %s: Archive
-#: inc/core-function/nxt-core-function.php:422
+#: inc/core-function/nxt-core-function.php:440
 #, php-format
 msgid "Archive by \"%s\""
 msgstr ""
 
 #. translators: %s: Search term
-#: inc/core-function/nxt-core-function.php:424
+#: inc/core-function/nxt-core-function.php:442
 #, php-format
 msgid "Search Results for \"%s\""
 msgstr ""
 
 #. translators: %s: Posts Tagged
-#: inc/core-function/nxt-core-function.php:426
+#: inc/core-function/nxt-core-function.php:444
 #, php-format
 msgid "Posts Tagged \"%s\""
 msgstr ""
 
 #. translators: %s: Articles Posted
-#: inc/core-function/nxt-core-function.php:428
+#: inc/core-function/nxt-core-function.php:446
 #, php-format
 msgid "Articles Posted by %s"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:429
+#: inc/core-function/nxt-core-function.php:447
 msgid "Error 404"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:557
+#: inc/core-function/nxt-core-function.php:575
 #: inc/third-party/class-beaver-build-theme.php:78
 msgid "Page"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:589
+#: inc/core-function/nxt-core-function.php:605
+#: inc/third-party/class-beaver-build-theme.php:113
+msgid "Posts"
+msgstr ""
+
+#: inc/core-function/nxt-core-function.php:608
+msgid "Previous page"
+msgstr ""
+
+#: inc/core-function/nxt-core-function.php:608
 msgid "PREV"
 msgstr ""
 
-#: inc/core-function/nxt-core-function.php:601
+#: inc/core-function/nxt-core-function.php:620
+msgid "Next page"
+msgstr ""
+
+#: inc/core-function/nxt-core-function.php:620
 msgid "NEXT"
 msgstr ""
 
@@ -199,8 +218,8 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:115
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:184
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:253
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:166
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:219
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:171
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:224
 msgid "No Sidebar"
 msgstr ""
 
@@ -209,8 +228,8 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:119
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:188
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:257
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:167
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:220
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:172
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:225
 msgid "Left Sidebar"
 msgstr ""
 
@@ -219,8 +238,8 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:123
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:192
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:261
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:168
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:221
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:173
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:226
 msgid "Right Sidebar"
 msgstr ""
 
@@ -519,7 +538,7 @@ msgid "Display Comment Box"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:143
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:53
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:58
 msgid "Primary Color"
 msgstr ""
 
@@ -559,9 +578,9 @@ msgstr ""
 #: inc/customizer/customizer-config/typography/class-body-typography.php:79
 #: inc/customizer/customizer-config/typography/class-body-typography.php:94
 #: inc/customizer/customizer.php:406
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:91
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:165
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:218
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:96
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:170
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:223
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Default"
 msgstr ""
@@ -715,7 +734,7 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:361
 #: inc/customizer/customizer-config/general/class-layout-container.php:439
 #: inc/customizer/customizer-config/general/class-layout-container.php:517
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:132
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:137
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Right"
 msgstr ""
@@ -731,7 +750,7 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:360
 #: inc/customizer/customizer-config/general/class-layout-container.php:438
 #: inc/customizer/customizer-config/general/class-layout-container.php:516
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:131
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:136
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Left"
 msgstr ""
@@ -777,9 +796,9 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:390
 #: inc/customizer/customizer-config/general/class-layout-container.php:468
 #: inc/customizer/customizer-register-panels-sections.php:30
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:77
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:85
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:92
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:82
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:90
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:97
 msgid "Container"
 msgstr ""
 
@@ -789,7 +808,7 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:316
 #: inc/customizer/customizer-config/general/class-layout-container.php:394
 #: inc/customizer/customizer-config/general/class-layout-container.php:472
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:93
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:98
 msgid "Full Width"
 msgstr ""
 
@@ -804,7 +823,7 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:356
 #: inc/customizer/customizer-config/general/class-layout-container.php:434
 #: inc/customizer/customizer-config/general/class-layout-container.php:512
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:127
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:132
 msgid "Spacing(Padding)"
 msgstr ""
 
@@ -816,7 +835,7 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:330
 #: inc/customizer/customizer-config/general/class-layout-container.php:408
 #: inc/customizer/customizer-config/general/class-layout-container.php:486
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:99
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:104
 msgid "Container Width"
 msgstr ""
 
@@ -833,7 +852,7 @@ msgid "Archive Posts Container"
 msgstr ""
 
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:35
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:149
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:154
 msgid "Side Bar"
 msgstr ""
 
@@ -845,8 +864,8 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:137
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:206
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:275
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:178
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:231
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:183
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:236
 #: assets/js/admin/sidebar-settings.js:94
 msgid "Display Sidebar"
 msgstr ""
@@ -855,8 +874,8 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:149
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:218
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:287
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:190
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:243
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:195
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:248
 msgid "Custom Sidebar Sections"
 msgstr ""
 
@@ -1113,11 +1132,11 @@ msgid "Choose a file"
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:132
-msgid "Activate Nexter Extension Now !!!"
+msgid "Activate Nexter Extension now!"
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:133
-msgid "Finally, You are Done Installing Nexter Theme & Extension as Well. Now It’s Time to Press the Pedal. Activate Nexter Extension and Get Over With it."
+msgid "Finally, you’re done installing the Nexter Theme & Extension. Now it’s time to press the pedal — activate Nexter Extension and get it done."
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:134
@@ -1126,19 +1145,19 @@ msgid "Activate Nexter Extension"
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:138
-msgid "It’s Time to Install Nexter Extension"
+msgid "It’s time to install Nexter Extension"
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:139
-msgid "Now You’ve Already Installed Nexter Theme, You Need to Install Nexter Extension in Order to Get the Most of out From it. Nexter Extension is an Ultimate Solution to Your Page Building Experience Using Templates."
+msgid "Now that you’ve installed the Nexter Theme, you need to install Nexter Extension to get the most out of it. Nexter Extension is the ultimate solution for your page-building experience using templates."
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:139
-msgid "Visit Here"
+msgid "Visit here"
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:139
-msgid " to Learn More About Nexter Extension."
+msgid " to learn more about Nexter Extension."
 msgstr ""
 
 #: inc/nexter-admin-enqueue.php:140
@@ -1341,10 +1360,6 @@ msgstr ""
 msgid "Footer After"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:113
-msgid "Posts"
-msgstr ""
-
 #: inc/third-party/class-beaver-build-theme.php:115
 msgid "Comments Before"
 msgstr ""
@@ -1365,20 +1380,20 @@ msgstr ""
 msgid "Nexter Singular Template"
 msgstr ""
 
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:42
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:47
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "WooCommerce"
 msgstr ""
 
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:62
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:67
 msgid "Secondary Color"
 msgstr ""
 
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:163
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:168
 msgid "WooCommerce Sidebar"
 msgstr ""
 
-#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:216
+#: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:221
 msgid "Single Product"
 msgstr ""
 

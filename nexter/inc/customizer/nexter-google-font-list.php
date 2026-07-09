@@ -5,6 +5,10 @@
  * @package	Nexter
  * @since	1.0.0
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 return array(
     'ABeeZee' => array( 'variants' => ['400','italic'], 'category' => 'sans-serif', ),
     'ADLaM Display' => array( 'variants' => ['400'], 'category' => 'display', ),

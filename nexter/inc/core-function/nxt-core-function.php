@@ -73,17 +73,35 @@ if ( ! function_exists( 'nexter_content_layout_container' ) ) {
  *
  * @since 1.0.10
  */
+if ( ! function_exists( 'nexter_skip_to_content_link' ) ) {
+	/**
+	 * Print the "Skip to content" link as the first focusable element in the body.
+	 *
+	 * Hooked to wp_body_open (priority 1) so it renders first in the body — a WCAG
+	 * "bypass blocks" landmark — independent of whether the header is enabled. It
+	 * renders by default and can be hidden via the panel's "skip_link" setting. The
+	 * #content target exists in the templates; the link is visually hidden until
+	 * keyboard-focused (see .nexter-skip-link:focus / .screen-reader-text:focus).
+	 *
+	 * @return void
+	 */
+	function nexter_skip_to_content_link() {
+		if ( ! nexter_settings_page_get( 'skip_link' ) ) {
+			return;
+		}
+		echo '<a class="nexter-skip-link screen-reader-text" href="#content">' . esc_html__( 'Skip to content', 'nexter' ) . '</a>';
+	}
+}
+add_action( 'wp_body_open', 'nexter_skip_to_content_link', 1 );
+
 if( ! function_exists('nexter_header_template') ){
-	
+
 	function nexter_header_template(){
 		$sections	= [];
 		$sections	= apply_filters( 'nexter_header_sections_ids', $sections );
 		$header_disable = nexter_get_option( 'nxt-header-disable-opt' );
 		if($header_disable!='on' || !empty($sections)){
 			echo '<header itemscope="itemscope" id="nxt-header" class="'.esc_attr(nexter_header_classes()).'" role="banner">';
-				if(nexter_settings_page_get( 'skip_link' )){
-					echo '<a class="nexter-skip-link screen-reader-text" href="#content" tabindex="0">'.esc_html__( 'Skip to content', 'nexter' ).'</a>';
-				}
 				?>
 				<?php
 				if(!empty($sections)){
@@ -584,22 +602,24 @@ function nexter_pagination($pages = '', $range = 4){
 	}
 	
 	if( 1 != $pages ) {
-		$paginate ="<div class=\"nxt-paginate nxt-flex align-items-center nxt-flex-wrap\">";
+		$paginate  = "<nav class=\"nxt-paginate-nav\" role=\"navigation\" aria-label=\"".esc_attr__( 'Posts', 'nexter' )."\">";
+		$paginate .= "<div class=\"nxt-paginate nxt-flex align-items-center nxt-flex-wrap\">";
 		
-		if ($paged > 1) $paginate .= "<a class='prev' href='".get_pagenum_link($paged - 1)."'>".esc_html__('PREV','nexter')."</a>";
+		if ($paged > 1) $paginate .= "<a class='prev' href='".get_pagenum_link($paged - 1)."' aria-label='".esc_attr__( 'Previous page', 'nexter' )."'>".esc_html__('PREV','nexter')."</a>";
 		if ( get_previous_posts_link() ){
 			get_previous_posts_link('Prev');
 		}
 		for ( $i=1; $i <= $pages; $i++ ) {
 			if ( 1 != $pages && ( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ) ) {
-				$paginate .= ($paged == $i)? "<span class=\"current\">".esc_html($i)."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".esc_html($i)."</a>";
+				$paginate .= ($paged == $i)? "<span class=\"current\" aria-current=\"page\">".esc_html($i)."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".esc_html($i)."</a>";
 			}
 		}
 		if ( get_next_posts_link() ) {
 			get_next_posts_link('Next',1);
 		}
-		if ( $paged < $pages ) $paginate .= "<a class='next' href='".get_pagenum_link($paged + 1)."'>".esc_html__('NEXT','nexter')."</a>";
-		$paginate .="</div>\n";
+		if ( $paged < $pages ) $paginate .= "<a class='next' href='".get_pagenum_link($paged + 1)."' aria-label='".esc_attr__( 'Next page', 'nexter' )."'>".esc_html__('NEXT','nexter')."</a>";
+		$paginate .= "</div>";
+		$paginate .= "</nav>\n";
 		return $paginate;
 	}
 }

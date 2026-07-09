@@ -3,9 +3,9 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 7.0
-Stable tag: 4.2.16
-Version: 4.2.16
-Requires PHP: 5.6
+Stable tag: 4.2.17
+Version: 4.2.17
+Requires PHP: 7.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, e-commerce, grid-layout, one-column, two-columns, left-sidebar, right-sidebar, block-styles, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-image-header, featured-images, flexible-header, footer-widgets, full-width-template, template-editing, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
@@ -65,6 +65,22 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.17 = 07 July 2026
+
+- Improve : Accessibility : Added visible focus outlines (:focus-visible) for links, buttons and form fields
+- Improve : RTL : Migrated directional CSS to logical properties for automatic RTL mirroring; removed the empty rtl.css
+- Improve : Performance : Dynamic CSS is now cached instead of being regenerated on every request
+- Improve : Performance : Sidebar CSS now respects the optimization toggle
+- Improve : Customizer : Body/link colours now output as overridable CSS custom properties
+- Fixed : Accessibility : Comment form fields now have associated labels, and name/email are marked required when the site requires them
+- Fixed : Accessibility : Skip-to-content link now prints as the first focusable element and becomes visible on keyboard focus
+- Fixed : Accessibility : Pagination is now wrapped in a nav landmark with aria-current on the active page
+- Fixed : Performance : "Disable Theme Woo CSS" now removes the dynamic WooCommerce CSS as well, not just the static file
+- Fixed : CSS : No longer outputs an empty inline style block when Theme CSS is disabled
+- Fixed : CSS : Guarded the header container max-width calc() against an invalid value when no width is set
+- Fixed : CSS : Removed negative-zero (margin:-0) output from fluid spacing
+- Fixed : Compatibility : Corrected "Requires PHP" to 7.4 to match the syntax the theme actually uses
+
 = 4.2.16 = 29 June 2026
 - Fixed : Block Editor : Sidebar Settings meta box caused the editor to freeze while saving; replaced with a native Gutenberg sidebar panel backed by REST post meta
 - Fixed : Bug fixes and improvements
