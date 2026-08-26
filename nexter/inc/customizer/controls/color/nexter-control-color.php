@@ -85,16 +85,20 @@ class Nexter_Control_Color extends WP_Customize_Control {
 				}
 				defaultAttr = ' data-default-color=' + defaultValue;
 			} #>
-			<# if ( data.label ) { #>
-				<label>
-					<span class="customize-control-title">{{{ data.label }}}</span>
-				</label>
+			<# if ( data.label || data.description ) { #>
+				<span class="nxt-color-text">
+					<# if ( data.label ) { #>
+						<span class="customize-control-title">{{{ data.label }}}</span>
+					<# } #>
+					<# if ( data.description ) { #>
+						<span class="description customize-control-description">{{{ data.description }}}</span>
+					<# } #>
+				</span>
 			<# } #>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-		
-			<input type="text" class="nxt-color-picker-alpha color-picker-hex" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultAttr }} value="{{data.value}}" />
+
+			<span class="nxt-color-field">
+				<input type="text" class="nxt-color-picker-alpha color-picker-hex" data-alpha="true" placeholder="{{ defaultValue }}" {{ defaultAttr }} value="{{data.value}}" />
+			</span>
 		</div>
 		<?php
 	}

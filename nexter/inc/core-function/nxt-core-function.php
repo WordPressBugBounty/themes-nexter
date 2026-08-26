@@ -508,8 +508,8 @@ function nexter_breadcrumbs() {
         } elseif ( is_single() && !is_attachment() ) {
             if ( get_post_type() != 'post' ) {
                 $post_type = get_post_type_object(get_post_type());
-                $slug = $post_type->rewrite;
-                 $crumbs_output .= $linkBefore . '<a href="'.esc_url($homeLink). '/' . esc_attr($slug["slug"]) . '/">'.esc_html($post_type->labels->singular_name).'</a>' . $linkAfter;
+                $slug = is_array($post_type->rewrite) && !empty($post_type->rewrite['slug']) ? $post_type->rewrite['slug'] : $post_type->name;
+                 $crumbs_output .= $linkBefore . '<a href="'.esc_url($homeLink). '/' . esc_attr($slug) . '/">'.esc_html($post_type->labels->singular_name).'</a>' . $linkAfter;
                 if ($showCurrent == 1) $crumbs_output .= $delimiter . $before . esc_html(get_the_title()) . $after;
             } else {
                 $cat = get_the_category();

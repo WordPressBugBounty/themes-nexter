@@ -20,6 +20,7 @@ require NXT_CUSTOMIZER_CONTROL_PATH . '/responsive/nexter-control-responsive.php
 require NXT_CUSTOMIZER_CONTROL_PATH . '/typography/nexter-control-typography.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/responsive-spacing/nexter-control-responsive-spacing.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/heading/nexter-control-heading.php';
+require NXT_CUSTOMIZER_CONTROL_PATH . '/typography-preview/nexter-control-typography-preview.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/color/nexter-control-color.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/color-palette/nexter-control-color-palette.php';
 require NXT_CUSTOMIZER_CONTROL_PATH . '/background/nexter-control-background.php';

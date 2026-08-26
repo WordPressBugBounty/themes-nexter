@@ -81,92 +81,144 @@
     justify-content: space-between;
 }
 
+/* One label style for every row of the control, matching .customize-control-title */
+.nxt-control-background .nxt-bg-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    color: #010101;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
 /*Bg Type*/
 .nxt-bg-type-list {
   display: -ms-inline-flexbox;
   display: inline-flex;
+  align-items: center;
   vertical-align: middle;
 }
-.nxt-bg-type-inner .nxt-bg-title {
-    font-size: 13px;
-    line-height: 2;
-    /* font-weight: 500; */
-    color: #010101;
-}
+
+/* Segmented control, same treatment as nxt-text-transform */
 .nxt-bg-type-list .nxt-check-btn {
     position: relative;
+    box-sizing: border-box;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
     background: #fff;
-    border: .5px solid hsla(0, 0%, 56%, .651);
-    min-height: 26px;
-    height: 26px;
+    border: 1px solid #E7E7F6;
+    border-radius: 0;
+    min-height: 30px;
+    height: 30px;
+    min-width: 34px;
     display: -ms-inline-flexbox;
     display: inline-flex;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0px 5px;
-    text-align: center;
-    color: #8d96a0;
-    -webkit-transition: all 400ms;
-    -o-transition: all 400ms;
-    transition: all 400ms;
-    cursor: pointer;
+    justify-content: center;
+    padding: 0 8px;
     margin-left: 0;
-}
-.nxt-bg-type-list .nxt-check-btn:hover {
-    border-color: #1717CC;
-}
-.nxt-bg-type-list .nxt-check-btn {
-    border-left: 0;
-    border-radius: 0;
-}
-.nxt-bg-type-list .nxt-check-btn:nth-child(3) {
-    border-left: .5px solid hsla(0, 0%, 56%, .651);
-    border-radius: 3px 0 0 3px;
-}
-.nxt-bg-type-list .nxt-check-btn:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-.nxt-check-btn .dashicons {
-    width: 15px;
-    height: 10px;
-    font-size: 12px;
+    text-align: center;
+    color: #8A8AA3;
+    -webkit-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+    cursor: pointer;
 }
 
-.nxt-bg-type-list .nxt-check-btn:last-child {
-  border-radius: 0 3px 3px 0;
+/* Collapse the doubled 1px border between neighbouring segments */
+.nxt-bg-type-list .nxt-check-btn:not(:first-of-type) {
+    margin-left: -1px;
 }
+
+.nxt-bg-type-list label.nxt-check-btn:first-of-type {
+    border-radius: 4px 0 0 4px;
+}
+
+.nxt-bg-type-list label.nxt-check-btn:last-of-type {
+    border-radius: 0 4px 4px 0;
+}
+
+.nxt-bg-type-list .nxt-check-btn:hover {
+    z-index: 1;
+    border-color: #1717CC;
+    color: #1717CC;
+}
+
 .nxt-bg-type-list .switch-input:checked + .nxt-check-btn {
+    z-index: 1;
     background: #1717CC;
     border-color: #1717CC;
     color: #fff;
 }
-.nxt-bg-type-inner .nxt-bg-reset {
-	color: rgba(0,0,0,.2);
-	transition: color .5s ease-in;
-    margin-right: 4px;
+
+.nxt-bg-type-list .switch-input:focus + .nxt-check-btn {
+    z-index: 1;
+    border-color: #1717CC;
+    box-shadow: 0 0 0 2px rgba(23, 23, 204, .12);
 }
-.nxt-bg-type-inner .nxt-bg-reset span {
+
+/* One size for every icon in the control, coloured by currentColor */
+.customize-control-nxt-background .nxt-bg-icon {
+    display: block;
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    /* clicks belong to the label / button, not the glyph */
+    pointer-events: none;
+}
+
+.nxt-check-btn .dashicons {
+    width: 14px;
+    height: 14px;
     font-size: 14px;
-    line-height: 26px;
-	cursor: pointer;
+    line-height: 14px;
 }
-.nxt-bg-type-inner .nxt-bg-reset span:hover {
-	color: #1717cc;
+
+/* Reset is a real button, not a loose icon */
+.nxt-bg-type-inner .nxt-bg-reset {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin-right: 6px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background: none;
+    color: #8A8AA3;
+    cursor: pointer;
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.nxt-bg-type-inner .nxt-bg-reset:hover,
+.nxt-bg-type-inner .nxt-bg-reset:focus {
+    border-color: #E7E7F6;
+    background: #F7F7FB;
+    color: #1717CC;
+    outline: none;
+}
+
+.nxt-bg-type-inner .nxt-bg-reset span {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    cursor: pointer;
 }
 /*Bg Type*/
 
 /*Gradient Icon Svg*/
 .nxt-check-btn .tpgb-svg-stroke {
-    stroke: #8d96a0;
+    stroke: currentColor;
 }
 .nxt-bg-type-list .switch-input:checked + .nxt-check-btn .tpgb-svg-stroke {
     stroke: #fff;
 }
 .nxt-check-btn .tpgb-svg-fill {
-    fill: #8d96a0;
+    fill: currentColor;
 }
 .nxt-bg-type-list .switch-input:checked + .nxt-check-btn .tpgb-svg-fill {
     fill: #fff;
@@ -176,24 +228,6 @@
 /*Background Color*/
 .nxt-bg-color {
   position: relative;
-}
-.nxt-bg-color .wp-picker-container span.wp-color-result-text, .nxt-bg-color .wp-picker-container .wp-picker-clear {
-    display: none !important;
-}
-.nxt-bg-color .wp-picker-holder {
-  position: absolute;
-  left: 0;
-  z-index: 2;
-}
-.nxt-bg-color .wp-picker-container {
-    margin-top: 5px;
-}
-.nxt-bg-color .button.wp-color-result {
-  min-height: 26px;
-  margin: 0px 6px 2px 0px !important;
-  box-shadow: none;
-  padding: 0 0 0 26px;
-  overflow: hidden;
 }
 .nxt-bg-color.hidden, .nxt-bg-image.hidden, .nxt-bg-extra.hidden{
     display:none!important;
@@ -210,39 +244,143 @@
     max-width: 110px;
 }
 /*Background Image*/
-.nxt-bg-image .nxt-bg-title {
-    margin-bottom: 10px;
-}
-.nxt-bg-image .bg-image-upload {
-    position: relative;
-}
 .nxt-bg-image {
   position: relative;
   display: block;
   margin: 6px 0;
 }
-.nxt-bg-image .actions {
-    position: absolute;
-    top: -7px;
-    right: 6px;
+
+.nxt-bg-image .nxt-bg-title {
+    margin-bottom: 6px;
+    line-height: 20px;
 }
-.nxt-bg-image .bg-image-upload-button {
-    padding: 0 6px;
-    border-color: #1717CC;
+
+/*
+ * A fixed banner keeps the field the same height whatever gets uploaded. A tall
+ * portrait image used to stretch the panel to several hundred pixels; it is now
+ * cropped to fit.
+ */
+.nxt-bg-image .bg-image-upload {
+    position: relative;
+    box-sizing: border-box;
+    height: 104px;
+    border-radius: 4px;
 }
-.nxt-bg-image svg.bg-img-upload-icon, .nxt-bg-image svg.bg-img-remove-icon {
-    width: 16px;
+
+.nxt-bg-image .placeholder {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px 76px 10px 10px;
+    border: 1px dashed #D7D7E8;
+    border-radius: 4px;
+    background: #FAFAFC;
+    color: #8A8AA3;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.nxt-bg-image .thumbnail-image {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 1px solid #E7E7F6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.nxt-bg-image .thumbnail-image img {
     display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+}
+
+/*
+ * The actions used to be `position: absolute` *and* `width: 100%` with 50% wide
+ * buttons, which laid two full width bars over the field and centred the upload
+ * button on top of the "No File Selected" text. Pin a small pair to the top right
+ * corner, where they clear both the placeholder and a thumbnail.
+ */
+.customize-control-nxt-background .nxt-bg-image .actions {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    width: auto;
+}
+
+.customize-control-nxt-background .nxt-bg-image .actions .button,
+.customize-control-nxt-background .nxt-bg-image .bg-image-upload-button,
+.customize-control-nxt-background .nxt-bg-image .bg-image-upload-remove-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    min-height: 26px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(16, 24, 40, .1);
+    border-radius: 4px;
+    /* Sits over the image, so it needs its own ground */
+    background: rgba(255, 255, 255, .94);
+    box-shadow: 0 1px 3px rgba(16, 24, 40, .12);
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.customize-control-nxt-background .nxt-bg-image svg.bg-img-upload-icon,
+.customize-control-nxt-background .nxt-bg-image svg.bg-img-remove-icon {
+    display: block;
+    width: 13px;
+    height: 13px;
+    color: #5A5A78;
+    transition: color .2s ease;
+}
+
+.nxt-bg-image .bg-image-upload-button:hover,
+.nxt-bg-image .bg-image-upload-button:focus {
+    border-color: #1717CC;
+    background: #fff;
+    outline: none;
+}
+
+.nxt-bg-image .bg-image-upload-button:hover svg.bg-img-upload-icon,
+.nxt-bg-image .bg-image-upload-button:focus svg.bg-img-upload-icon {
     color: #1717CC;
 }
-.nxt-bg-image .bg-image-upload-remove-button {
-    padding: 0 6px;
-	margin-right: 5px;
+
+.nxt-bg-image .bg-image-upload-remove-button:hover,
+.nxt-bg-image .bg-image-upload-remove-button:focus {
+    border-color: #f12d2d;
+    background: #fff;
+    outline: none;
+}
+
+.nxt-bg-image .bg-image-upload-remove-button:hover svg.bg-img-remove-icon,
+.nxt-bg-image .bg-image-upload-remove-button:focus svg.bg-img-remove-icon {
+    color: #f12d2d;
+}
+
+.nxt-bg-image .bg-image-upload-remove-button.hidden {
+    display: none !important;
 }
 /*Background Image*/
 /*Background extra*/
 .nxt-bg-extra{
-  margin:5px 0; 
+  margin:5px 0;
 }
 /*Background extra*/
 /**
@@ -252,46 +390,281 @@
 /**
  * nxt-color Control
  */
-.customize-control-nxt-color .wp-color-result span.color-alpha {
-    height: 24px !important;
-    border-radius: 2px !important;
-    width: 26px !important;
-}
-.nxt-colorpicker {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.nxt-colorpicker span.wp-color-result-text,.nxt-colorpicker .wp-picker-clear {
-    display: none;
-}
 #customize-theme-controls .customize-pane-child.accordion-section-content {
     padding: 12px;
     height: 100%;
 }
-.nxt-colorpicker .iris-picker.iris-border {
-    position: absolute;
-    left: 0;
-    z-index: 1;
+
+/* Row: label on the left, colour field on the right */
+.nxt-colorpicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
-.nxt-colorpicker input.nxt-color-picker-alpha {
-    max-width: 110px;
+
+.nxt-colorpicker .nxt-color-text {
+    flex: 1 1 auto;
+    min-width: 0;
 }
-.nxt-colorpicker .wp-picker-container .wp-color-result.button {
-    min-height: 26px;
-    padding: 0 0 0 26px;
+
+.nxt-colorpicker .nxt-color-text .customize-control-title {
+    display: block;
+    margin: 0;
+}
+
+.nxt-colorpicker .nxt-color-text .customize-control-description {
+    display: block;
+    margin: 2px 0 0;
+}
+
+/*
+ * Everything below is the shared colour field, marked with `.nxt-color-pill` by
+ * the control JS. Both the nxt-color control and the colour inside
+ * nxt-background use it, so the two read as one component.
+ */
+
+/* Anchor for the popover, so it never depends on the label width */
+.nxt-color-field {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    max-width: 55%;
+}
+
+.nxt-color-pill.wp-picker-container {
+    position: static;
+    display: block;
+    margin: 0;
+}
+
+/* Trigger: swatch and current value in one pill */
+.nxt-color-pill.wp-picker-container .wp-color-result.button {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    height: 30px;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 9px 0 32px;
+    border: 1px solid #E7E7F6;
+    border-radius: 4px;
+    /* wpColorPicker paints the initial value onto the button inline, keep the
+       colour in the swatch only. */
+    background-color: #fff !important;
+    background-image: none !important;
     box-shadow: none;
     overflow: hidden;
+    transition: border-color .15s ease, box-shadow .15s ease;
 }
-.wp-picker-open+.wp-picker-input-wrap input[type=text]{
+
+.nxt-color-pill.wp-picker-container .wp-color-result.button:hover {
+    border-color: #C7C7DE;
+}
+
+.nxt-color-pill.wp-picker-container .wp-color-result.button:focus,
+.nxt-color-pill.wp-picker-container .wp-color-result.button.wp-picker-open {
+    border-color: #1717CC;
+    box-shadow: 0 0 0 2px rgba(23, 23, 204, .12);
+    outline: none;
+}
+
+/* Checkerboard sits under the swatch so partial alpha stays readable */
+.nxt-color-pill .wp-color-result.button::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #fff;
+    background-image: linear-gradient(45deg, #D8D8E4 25%, transparent 25%, transparent 75%, #D8D8E4 75%), linear-gradient(45deg, #D8D8E4 25%, transparent 25%, transparent 75%, #D8D8E4 75%);
+    background-size: 8px 8px;
+    background-position: 0 0, 4px 4px;
+}
+
+.nxt-color-pill .wp-color-result span.color-alpha {
+    top: 4px !important;
+    left: 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 3px !important;
+    box-shadow: inset 0 0 0 1px rgba(16, 24, 40, .14);
+}
+
+.nxt-color-pill .wp-color-result.button .wp-color-result-text {
+    display: block;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: #3C4257;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: .3px;
+    text-align: left;
+    text-transform: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Unset colour: a slashed swatch reads clearer than an empty checkerboard */
+.nxt-color-pill .wp-color-result.nxt-color-empty::before {
+    background-color: #F4F4F8;
+    background-image: none;
+}
+
+.nxt-color-pill .wp-color-result.nxt-color-empty::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 3px;
+    background: linear-gradient(to top right, transparent calc(50% - 1px), #C2C2D6 calc(50% - 1px), #C2C2D6 calc(50% + 1px), transparent calc(50% + 1px));
+    box-shadow: inset 0 0 0 1px rgba(16, 24, 40, .14);
+}
+
+.nxt-color-pill .wp-color-result.nxt-color-empty .wp-color-result-text {
+    color: #8A8AA3;
+}
+
+/* Popover holding the picker and the value field */
+.nxt-color-pill .nxt-color-popover {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 100000;
+    display: none;
+    box-sizing: border-box;
+    max-width: 276px;
+    padding: 10px;
+    border: 1px solid #E7E7F6;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(16, 24, 40, .14);
+}
+
+.nxt-color-pill.wp-picker-active .nxt-color-popover {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Picker above the value field, whatever order the markup ends up in */
+.nxt-color-pill .nxt-color-popover .wp-picker-holder {
+    order: 1;
+    position: static;
+    display: block !important;
+    margin: 0;
+}
+
+.nxt-color-pill .nxt-color-popover .wp-picker-input-wrap {
+    order: 2;
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+/*
+ * Only the chrome is reset here. Iris sets its own width, height, padding and
+ * position inline and lays the square out against them, so those are left alone.
+ */
+.nxt-color-pill .iris-picker {
+    margin: 0;
+    border: 0 !important;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+.nxt-color-pill .iris-picker .iris-square,
+.nxt-color-pill .iris-picker .iris-slider {
+    border-radius: 4px;
+}
+
+.nxt-color-pill .iris-picker .iris-palette {
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(16, 24, 40, .12);
+}
+
+.nxt-color-pill .iris-picker .iris-palette-container {
+    margin-top: 2px;
+}
+
+/* Value field and its clear / default button */
+.nxt-color-pill .nxt-color-popover .wp-picker-input-wrap label {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0;
+}
+
+.nxt-color-pill .nxt-color-popover .wp-picker-input-wrap input[type=text] {
+    box-sizing: border-box;
+    width: 100% !important;
+    height: 30px;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 8px;
+    border: 1px solid #E7E7F6;
+    border-radius: 4px;
+    background: #fff;
+    color: #3C4257;
+    font-family: inherit;
+    font-size: 12px;
+    box-shadow: none;
+}
+
+.nxt-color-pill .nxt-color-popover .wp-picker-input-wrap input[type=text]:focus {
+    border-color: #1717CC;
+    box-shadow: 0 0 0 2px rgba(23, 23, 204, .12);
+    outline: none;
+}
+
+.nxt-color-pill .nxt-color-popover .wp-picker-clear,
+.nxt-color-pill .nxt-color-popover .wp-picker-default {
+    display: inline-block !important;
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    height: 30px;
+    min-height: 30px;
+    margin: 0;
+    padding: 0 10px;
+    border: 1px solid #E7E7F6;
+    border-radius: 4px;
+    background: #F7F7FB;
+    color: #5A5A78;
+    font-size: 11px;
+    line-height: 28px;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.nxt-color-pill .nxt-color-popover .wp-picker-clear:hover,
+.nxt-color-pill .nxt-color-popover .wp-picker-default:hover,
+.nxt-color-pill .nxt-color-popover .wp-picker-clear:focus,
+.nxt-color-pill .nxt-color-popover .wp-picker-default:focus {
+    border-color: #1717CC;
+    background: #EFF1FB;
+    color: #1717CC;
+    outline: none;
+}
+
+/* Kept for any picker whose input is still a direct sibling of the toggle */
+.wp-picker-open+.wp-picker-input-wrap input[type=text] {
     height: 26px;
     min-height: 26px;
 }
+
 .wp-picker-open+.wp-picker-input-wrap input[type=text]:focus {
     box-shadow: none;
-}
-.nxt-colorpicker .wp-picker-active .wp-picker-holder {
-    display: block !important;
 }
 /**
  * nxt-color Control
@@ -308,11 +681,10 @@
 	display: block;
     padding: 13px 12px;
     margin: 0;
-    /* border-bottom: 2px solid #8072fc; */
     background-color: #fff;
     color: #040404;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 24px;
 }
 /**
@@ -397,11 +769,15 @@
     color: #dc3232
 }
 .nxt-slider-field input.nxt-responsive-slider-number {
-    width: 50px;
-    height: 22px;
+    box-sizing: border-box;
+    width: 54px;
+    height: 26px;
+    min-height: 26px;
     font-size: 12px;
-    padding: 3px;
-	border-color: #8d96a0;
+    padding: 0 6px;
+    border: 1px solid #E7E7F6;
+    border-radius: 4px;
+    box-shadow: none;
 }
 .nxt-slider-field input.nxt-responsive-slider-number:hover, .nxt-slider-field input.nxt-responsive-slider-number:focus {
     border-color: #1717CC;
@@ -459,7 +835,7 @@
     cursor: pointer;
     align-items: center;
     background: #fff;
-    border: .5px solid hsla(0, 0%, 56%, .651);
+    border: 1px solid #E7E7F6;
     border-radius: 50%;
     justify-content: center;
     width: 100%;
@@ -566,7 +942,7 @@
     fill: #fff;
 }
 .customize-control-nxt-responsive-spacing .nxt-spacing-inner-wrap .nxt-spacing-devices li input.nxt-spacing-input {
-    border: .5px solid hsla(0, 0%, 56%, .651);
+    border: 1px solid #E7E7F6;
     height: 26px;
     margin: 0;
     min-height: 26px;
@@ -726,7 +1102,7 @@
     width: max-content;
     display: inline-block;
     background: #fff url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2720%27 height=%2720%27 fill=%27none%27%3E%3Cpath fill=%27%23010101%27 d=%27M12.983 10.61a.27.27 0 0 0-.253-.168H7.263a.27.27 0 0 0-.253.168.29.29 0 0 0 .058.3l2.734 2.734a.28.28 0 0 0 .39 0l2.733-2.733a.29.29 0 0 0 .058-.301M12.983 9.39a.27.27 0 0 1-.253.168H7.263a.27.27 0 0 1-.253-.168.29.29 0 0 1 .058-.3l2.734-2.734a.28.28 0 0 1 .39 0l2.733 2.734a.29.29 0 0 1 .058.3%27/%3E%3C/svg%3E") no-repeat right 5px top 55%;
-    border: .5px solid hsla(0, 0%, 56%, .651);
+    border: 1px solid #E7E7F6;
     color: #010101;
     min-height: 26px;
     font-size: 11px;
@@ -737,7 +1113,7 @@
     color : #1717CC;
 }
 .customize-control-nxt-responsive-spacing .nxt-spacing-inner-wrap .nxt-spacing-devices li input.nxt-spacing-input:focus, .customize-control-nxt-responsive-spacing .nxt-spacing-units-devices:focus, .customize-control-nxt-responsive-slider .nxt-slider-units-devices:focus{
-    border: .5px solid #1717CC;
+    border: 1px solid #1717CC;
     box-shadow: none;
     color: #010101;
 }
@@ -862,7 +1238,7 @@ span.select2-container.select2-container--default.select2-container--open {
 .select2-container--default .select2-selection--multiple .select2-selection__choice,.select2-container--default .select2-selection--single,.select2-container--default.select2-container .select2-selection--multiple, .select2-dropdown .select2-search__field{
     border-color: #ddd;
     border-radius: 3px;
-    border: 0.5px solid #8F8F8FA6
+    border: 1px solid #E7E7F6
 }
 .customize-control .select2-container .select2-selection--single{
     height: 30px;
@@ -885,7 +1261,7 @@ span.select2-container.select2-container--default.select2-container--open {
     margin: 0;
 }
 .customize-control select {
-    border: 0.5px solid #8F8F8FA6
+    border: 1px solid #E7E7F6
 }
 .customize-control-select {
     margin-bottom: 10px;
@@ -913,14 +1289,14 @@ span.select2-container.select2-container--default.select2-container--open {
     border-color:#ca2222;
     color: #ca2222;
 }
-.customize-control .attachment-media-view .actions {
+.customize-control:not(.customize-control-nxt-background) .attachment-media-view .actions {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 
-.customize-control .attachment-media-view .actions .button {
+.customize-control:not(.customize-control-nxt-background) .attachment-media-view .actions .button {
     width: 50%;
 }
 .select2-container--default .select2-selection--multiple:focus .select2-selection__choice, .select2-container--default .select2-selection--single:focus, .select2-container--default.select2-container .select2-selection--multiple:focus, .select2-dropdown:focus, .select2-dropdown .select2-search__field:focus {
@@ -1057,7 +1433,7 @@ span.select2-container.select2-container--default.select2-container--open {
     position: relative;
     text-align: center;
     align-items: center;
-    border: .5px solid hsla(0, 0%, 56%, .651);
+    border: 1px solid #E7E7F6;
 }
 .nxt-text-transform-option:hover{
     border-color: #1717CC;
@@ -1070,7 +1446,7 @@ label.nxt-text-transform-option:not(:last-child) {
     border-top-right-radius: 0;
 }
 label.nxt-text-transform-option.option-index- {
-    border-left: .5px solid hsla(0, 0%, 56%, .651);
+    border-left: 1px solid #E7E7F6;
     border-radius: 3px 0 0 3px;
 }
 label.nxt-text-transform-option:last-child {
@@ -1355,4 +1731,209 @@ label.nxt-text-transform-option:last-child {
 }
 /**
  * nxt-color-palette control end
+ */
+
+/**
+ * nxt-typo-preview control start
+ */
+.customize-control-nxt-typo-preview {
+	margin-bottom: 20px;
+}
+
+.customize-control-nxt-typo-preview .nxt-typo-preview-box {
+	margin-top: 8px;
+	padding: 14px 12px;
+	border: 1px solid #E7E7F6;
+	border-radius: 4px;
+	background: #fff;
+	overflow: hidden;
+}
+
+.customize-control-nxt-typo-preview .nxt-typo-preview-text {
+	display: block;
+	color: #1F2544;
+	font-size: 20px;
+	line-height: 1.4;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.customize-control-nxt-typo-preview .nxt-typo-preview-meta {
+	display: block;
+	margin-top: 10px;
+	color: #7A7A94;
+	font-size: 11px;
+	font-weight: 400;
+	line-height: 1.4;
+	letter-spacing: 0.2px;
+	text-transform: none;
+}
+
+.customize-control-nxt-typo-preview .nxt-typo-preview-meta:empty {
+	display: none;
+}
+/**
+ * nxt-typo-preview control end
+ */
+
+/**
+ * Typography component field consistency
+ *
+ * Font Family, Font Weight, Text Transform and the Font Size / Line Height
+ * chips each arrived with their own height, radius, border and focus
+ * treatment. One token set for all of them:
+ *
+ *   full width fields  30px tall
+ *   chips in a row     26px tall
+ *   border             1px #E7E7F6
+ *   radius             4px
+ *   accent             #1717CC with a 2px rgba(23,23,204,.12) focus ring
+ *   field text         13px, chip text 12px
+ */
+
+/* Font Family / Font Variant (select2) and Font Weight (native select) */
+.customize-control select,
+.customize-control .select2-container .select2-selection--single {
+    box-sizing: border-box;
+    height: 30px;
+    min-height: 30px;
+    border-radius: 4px;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+.customize-control .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-left: 8px;
+    padding-right: 26px;
+    color: #3C4257;
+    font-size: 13px;
+    line-height: 28px;
+}
+
+.customize-control .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 28px;
+    right: 4px;
+}
+
+.customize-control .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #8A8AA3;
+}
+
+/* Text Transform: one segmented control, not four separate boxes */
+.nxt-text-transform-option {
+    box-sizing: border-box;
+    height: 30px;
+    padding: 0 10px;
+    justify-content: center;
+    font-size: 12px;
+}
+
+label.nxt-text-transform-option.option-index- {
+    border-radius: 4px 0 0 4px;
+}
+
+label.nxt-text-transform-option:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+/* Collapse the doubled 1px border between neighbouring segments */
+label.nxt-text-transform-option:not(:first-of-type) {
+    margin-left: -1px;
+}
+
+.nxt-text-transform-options input:checked + label,
+.nxt-text-transform-option:hover {
+    position: relative;
+    z-index: 1;
+}
+
+/* Font Size / Line Height unit chip */
+.customize-control-nxt-responsive-slider .nxt-slider-units-devices,
+.customize-control-nxt-responsive-spacing .nxt-spacing-units-devices {
+    box-sizing: border-box;
+    height: 26px;
+    min-height: 26px;
+    padding: 0 20px 0 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 24px;
+}
+
+.customize-control-nxt-responsive-slider .nxt-slider-field {
+    padding: 0 0 0 8px;
+}
+
+/* One focus treatment for every field in the panel */
+.customize-control select:focus,
+.customize-control .select2-container--default.select2-container--open .select2-selection--single,
+.customize-control .select2-container--default.select2-container--focus .select2-selection--single,
+.nxt-slider-field input.nxt-responsive-slider-number:focus,
+.customize-control-nxt-responsive-slider .nxt-slider-units-devices:focus,
+.customize-control-nxt-responsive-spacing .nxt-spacing-units-devices:focus,
+.customize-control-nxt-responsive-spacing .nxt-spacing-inner-wrap .nxt-spacing-devices li input.nxt-spacing-input:focus {
+    border-color: #1717CC;
+    box-shadow: 0 0 0 2px rgba(23, 23, 204, .12);
+    outline: none;
+}
+
+/* And one hover treatment */
+.nxt-slider-field input.nxt-responsive-slider-number:hover,
+.customize-control-nxt-responsive-slider .nxt-slider-units-devices:hover,
+.customize-control-nxt-responsive-spacing .nxt-spacing-units-devices:hover {
+    border-color: #C7C7DE;
+}
+/**
+ * Typography component field consistency end
+ */
+
+/**
+ * Dropdown arrow and text alignment
+ *
+ * Font Family is a select2 (thin CSS triangle) while Font Weight is a native
+ * select, which core paints with a solid 16px dark Dashicons triangle at
+ * `right 8px top 55%` — off centre, and nothing like its neighbour. Core also
+ * keeps `line-height: 2.71` from its 40px sizing, which pushed the value below
+ * the middle of the 30px field. Both fields now share one 12px chevron, centred,
+ * and the same text baseline.
+ */
+.customize-control select {
+    line-height: 28px;
+    padding: 0 28px 0 8px;
+    max-width: 100%;
+    color: #3C4257;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27%3E%3Cpath d=%27M2.5 4.75 6 8.25l3.5-3.5%27 stroke=%27%238A8AA3%27 stroke-width=%271.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px 12px;
+}
+
+.customize-control .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 0;
+    right: 4px;
+    width: 20px;
+    height: 28px;
+}
+
+/* Same chevron as the native select, dead centre of the arrow box */
+.customize-control .select2-container--default .select2-selection--single .select2-selection__arrow b,
+.customize-control .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    padding: 0;
+    border: 0;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 fill=%27none%27%3E%3Cpath d=%27M2.5 4.75 6 8.25l3.5-3.5%27 stroke=%27%238A8AA3%27 stroke-width=%271.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E") no-repeat center center;
+    background-size: 12px 12px;
+    transition: transform .15s ease;
+}
+
+.customize-control .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    transform: rotate(180deg);
+}
+/**
+ * Dropdown arrow and text alignment end
  */

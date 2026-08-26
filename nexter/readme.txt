@@ -3,8 +3,8 @@
 Contributors: posimyththemes, sagarpatel124, nirmalkavaiya
 Requires at least: 4.7
 Tested up to: 7.0
-Stable tag: 4.2.17
-Version: 4.2.17
+Stable tag: 4.2.18
+Version: 4.2.18
 Requires PHP: 7.4
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -65,6 +65,20 @@ This theme, like WordPress, is licensed under the GPL.
 
 
 == Changelog ==
+= 4.2.18 = 26 August 2026
+- New : Customizer : Typography : Live preview above the Font Family field for Body and Heading H1-H6, showing the selected font, weight, transform, size, line height and heading colour
+- Improve : Customizer : Colour picker redesigned - the swatch and the current value sit in one field, and the picker, hex input and Clear button share a single popover
+- Improve : Customizer : Background image now shows as a fixed banner with the select and remove buttons in the corner, so a tall image no longer stretches the panel
+- Improve : Accessibility : Escape closes an open colour picker
+- Fixed : Customizer : Colour picker opened wider than the panel, which cut off the opacity slider and the palette row
+- Fixed : Customizer : Colour picker field was flooded with the colour loaded at page load, leaving the value unreadable
+- Fixed : Customizer : Background type Reset did not clear the type - the radio change handler wrote the old value straight back
+- Fixed : Customizer : Background image select button was drawn on top of the No File Selected text
+- Fixed : Customizer : Font Weight dropdown value and arrow sat below the centre of the field
+- Fixed : Customizer : Clearing a colour could leave the field reading Default while the colour was still saved
+- Fixed : Customizer : Background control template left a container div unclosed and carried two invalid closing input tags
+- Fixed : Customizer : Replaced the deprecated jQuery $.trim(), removed in jQuery 4
+
 = 4.2.17 = 07 July 2026
 
 - Improve : Accessibility : Added visible focus outlines (:focus-visible) for links, buttons and form fields
@@ -246,7 +260,7 @@ This theme, like WordPress, is licensed under the GPL.
 - Fix : Comments function Bug Fix
 
 = 3.0.1 = 10 August 2023
-- Compatibility : Wordpress 6.3
+- Compatibility : WordPress 6.3
 - Compatibility : ACF : Select2 conflict JS Bug Fix
 - Fix : Layout : Container : Block Editor CSS Update
 - Improvements : Bug Fixes and Improvements

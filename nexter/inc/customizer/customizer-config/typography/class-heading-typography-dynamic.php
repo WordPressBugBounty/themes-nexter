@@ -57,10 +57,12 @@ function nxt_heading_typo_dynamic_css( $theme_css ){
 	}
 	
 	if( !empty($tablet_style)){
+		$theme_css['tablet'] = (!empty($theme_css['tablet']) && isset($theme_css['tablet'])) ? $theme_css['tablet'] : [];
 		$theme_css['tablet']= array_merge_recursive($theme_css['tablet'],$tablet_style);
 	}
 	
 	if( !empty($mobile_style)){
+		$theme_css['mobile'] = (!empty($theme_css['mobile']) && isset($theme_css['mobile'])) ? $theme_css['mobile'] : [];
 		$theme_css['mobile']= array_merge_recursive($theme_css['mobile'],$mobile_style);
 	}
 	

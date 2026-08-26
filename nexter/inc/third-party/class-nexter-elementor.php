@@ -101,6 +101,10 @@ if ( ! class_exists( 'Nexter_Elementor' ) ) {
 				return $response;
 			}
 
+			if ( is_wp_error( $response ) ) {
+				return $response;
+			}
+
 			$colors = self::get_palette_colors();
 			$data   = $response->get_data();
 
@@ -193,8 +197,8 @@ if ( ! class_exists( 'Nexter_Elementor' ) ) {
 				if ( ! empty( $color ) ) {
 					$variable_key           = '--e-global-color-' . self::get_elementor_color_id( $i );
 					$style[ $variable_key ] = $color;
-					$i++;
 				}
+				$i++;
 			}
 
 			if ( empty( $style ) ) {

@@ -44,7 +44,6 @@ if ( ! class_exists( 'Nexter_Control_Switcher' ) && class_exists( 'WP_Customize_
 			foreach ( $this->input_attrs as $attr => $value ) {
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
-			$this->json['inputAttrs'] = maybe_serialize( $this->input_attrs() );
 
 		}
 

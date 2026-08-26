@@ -96,7 +96,6 @@ if ( ! class_exists( 'Nexter_Control_Responsive_Spacing' ) && class_exists( 'WP_
 			foreach ( $this->input_attrs as $attr => $value ) {
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
 			}
-			$this->json['inputAttrs']	= maybe_serialize( $this->input_attrs() );
 
 		}
 		

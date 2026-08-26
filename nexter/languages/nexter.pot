@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3 or later..
 msgid ""
 msgstr ""
-"Project-Id-Version: Nexter 4.2.16\n"
+"Project-Id-Version: Nexter 4.2.18\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/nexter\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-07-07T11:13:46+02:00\n"
+"POT-Creation-Date: 2026-08-25T11:18:00+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: nexter\n"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: inc/core-function/nxt-core-function.php:342
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:240
-#: inc/third-party/class-nexter-builder-documents.php:114
+#: inc/third-party/class-nexter-builder-documents.php:118
 msgid "Archives"
 msgstr ""
 
@@ -165,12 +165,12 @@ msgid "Error 404"
 msgstr ""
 
 #: inc/core-function/nxt-core-function.php:575
-#: inc/third-party/class-beaver-build-theme.php:78
+#: inc/third-party/class-beaver-build-theme.php:82
 msgid "Page"
 msgstr ""
 
 #: inc/core-function/nxt-core-function.php:605
-#: inc/third-party/class-beaver-build-theme.php:113
+#: inc/third-party/class-beaver-build-theme.php:117
 msgid "Posts"
 msgstr ""
 
@@ -243,137 +243,149 @@ msgstr ""
 msgid "Right Sidebar"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:68
+#: inc/customizer/controls/background/nexter-control-background.php:99
 msgid "Background Type"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:86
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "Background Color"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:92
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "Background Image"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:97
-msgid "No File Selected"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:108
-msgid "Background Position"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:110
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "Left Top"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:111
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "Left Center"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:112
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "Left Bottom"
-msgstr ""
-
-#: inc/customizer/controls/background/nexter-control-background.php:114
-#: inc/panel-settings/dashboard/build/index.js:7
-msgid "Center Top"
+#: inc/customizer/controls/background/nexter-control-background.php:102
+msgid "Reset background"
 msgstr ""
 
 #: inc/customizer/controls/background/nexter-control-background.php:115
 #: inc/panel-settings/dashboard/build/index.js:7
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:123
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:128
+msgid "No File Selected"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:131
+msgid "Remove image"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:132
+msgid "Select image"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:139
+msgid "Background Position"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:141
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Left Top"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:142
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Left Center"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:143
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Left Bottom"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:145
+#: inc/panel-settings/dashboard/build/index.js:7
+msgid "Center Top"
+msgstr ""
+
+#: inc/customizer/controls/background/nexter-control-background.php:146
+#: inc/panel-settings/dashboard/build/index.js:7
 msgid "Center Center"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:116
+#: inc/customizer/controls/background/nexter-control-background.php:147
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Center Bottom"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:118
+#: inc/customizer/controls/background/nexter-control-background.php:149
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Right Top"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:119
+#: inc/customizer/controls/background/nexter-control-background.php:150
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Right Center"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:120
+#: inc/customizer/controls/background/nexter-control-background.php:151
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Right Bottom"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:126
+#: inc/customizer/controls/background/nexter-control-background.php:157
 msgid "Background Size"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:128
+#: inc/customizer/controls/background/nexter-control-background.php:159
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Auto"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:129
+#: inc/customizer/controls/background/nexter-control-background.php:160
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:130
+#: inc/customizer/controls/background/nexter-control-background.php:161
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:131
-#: inc/customizer/controls/background/nexter-control-background.php:142
+#: inc/customizer/controls/background/nexter-control-background.php:162
+#: inc/customizer/controls/background/nexter-control-background.php:173
 msgid "Repeat-Y"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:137
+#: inc/customizer/controls/background/nexter-control-background.php:168
 msgid "Background Repeat"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:139
+#: inc/customizer/controls/background/nexter-control-background.php:170
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "No Repeat"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:140
+#: inc/customizer/controls/background/nexter-control-background.php:171
 msgid "Repeat All"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:141
+#: inc/customizer/controls/background/nexter-control-background.php:172
 msgid "Repeat-X"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:148
+#: inc/customizer/controls/background/nexter-control-background.php:179
 msgid "Background Attachment"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:150
+#: inc/customizer/controls/background/nexter-control-background.php:181
 #: inc/customizer/controls/typography/nexter-control-typography.php:40
 #: inc/customizer/customizer-config/blog/class-single-blog.php:166
 #: inc/customizer/customizer-config/blog/class-single-blog.php:303
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:80
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:183
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:284
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:385
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:486
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:587
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:99
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:221
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:341
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:461
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:581
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:701
 msgid "Inherit"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:151
+#: inc/customizer/controls/background/nexter-control-background.php:182
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer/controls/background/nexter-control-background.php:152
+#: inc/customizer/controls/background/nexter-control-background.php:183
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Fixed"
 msgstr ""
@@ -384,6 +396,16 @@ msgstr ""
 
 #: inc/customizer/controls/color-palette/nexter-control-color-palette.php:169
 msgid "Add Color"
+msgstr ""
+
+#: inc/customizer/controls/typography-preview/nexter-control-typography-preview.php:44
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:55
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:177
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:297
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:417
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:537
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:657
+msgid "The quick brown fox"
 msgstr ""
 
 #: inc/customizer/controls/typography/nexter-control-typography.php:74
@@ -549,13 +571,13 @@ msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:169
 #: inc/customizer/customizer-config/blog/class-single-blog.php:306
-#: inc/customizer/customizer-config/typography/class-body-typography.php:54
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:54
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:157
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:258
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:359
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:460
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:561
+#: inc/customizer/customizer-config/typography/class-body-typography.php:73
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:73
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:195
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:315
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:435
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:555
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:675
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Font Family"
 msgstr ""
@@ -574,10 +596,11 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:111
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:180
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:249
-#: inc/customizer/customizer-config/typography/class-body-typography.php:66
-#: inc/customizer/customizer-config/typography/class-body-typography.php:79
-#: inc/customizer/customizer-config/typography/class-body-typography.php:94
-#: inc/customizer/customizer.php:406
+#: inc/customizer/customizer-config/typography/class-body-typography.php:85
+#: inc/customizer/customizer-config/typography/class-body-typography.php:98
+#: inc/customizer/customizer-config/typography/class-body-typography.php:113
+#: inc/customizer/customizer.php:418
+#: inc/customizer/customizer.php:444
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:96
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:170
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:223
@@ -587,97 +610,97 @@ msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:183
 #: inc/customizer/customizer-config/blog/class-single-blog.php:320
-#: inc/customizer/customizer-config/typography/class-body-typography.php:68
+#: inc/customizer/customizer-config/typography/class-body-typography.php:87
 msgid "Font Variant"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:196
 #: inc/customizer/customizer-config/blog/class-single-blog.php:333
-#: inc/customizer/customizer-config/typography/class-body-typography.php:81
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:64
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:167
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:268
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:369
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:470
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:571
+#: inc/customizer/customizer-config/typography/class-body-typography.php:100
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:83
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:205
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:325
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:445
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:565
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:685
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Font Weight"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:207
 #: inc/customizer/customizer-config/blog/class-single-blog.php:344
-#: inc/customizer/customizer-config/typography/class-body-typography.php:92
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:73
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:176
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:277
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:378
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:479
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:580
+#: inc/customizer/customizer-config/typography/class-body-typography.php:111
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:92
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:214
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:334
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:454
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:574
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:694
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Text Transform"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:211
 #: inc/customizer/customizer-config/blog/class-single-blog.php:348
-#: inc/customizer/customizer-config/typography/class-body-typography.php:95
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:82
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:184
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:285
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:386
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:487
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:588
+#: inc/customizer/customizer-config/typography/class-body-typography.php:114
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:101
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:222
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:342
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:462
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:582
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:702
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Capitalize"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:212
 #: inc/customizer/customizer-config/blog/class-single-blog.php:349
-#: inc/customizer/customizer-config/typography/class-body-typography.php:96
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:83
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:185
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:286
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:387
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:488
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:589
+#: inc/customizer/customizer-config/typography/class-body-typography.php:115
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:102
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:223
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:343
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:463
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:583
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:703
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Uppercase"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:213
 #: inc/customizer/customizer-config/blog/class-single-blog.php:350
-#: inc/customizer/customizer-config/typography/class-body-typography.php:97
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:84
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:186
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:287
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:388
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:489
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:590
+#: inc/customizer/customizer-config/typography/class-body-typography.php:116
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:103
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:224
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:344
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:464
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:584
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:704
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Lowercase"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:223
 #: inc/customizer/customizer-config/blog/class-single-blog.php:360
-#: inc/customizer/customizer-config/typography/class-body-typography.php:103
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:96
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:198
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:299
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:400
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:501
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:602
+#: inc/customizer/customizer-config/typography/class-body-typography.php:122
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:115
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:236
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:356
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:476
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:596
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:716
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Font Size"
 msgstr ""
 
 #: inc/customizer/customizer-config/blog/class-single-blog.php:243
 #: inc/customizer/customizer-config/blog/class-single-blog.php:380
-#: inc/customizer/customizer-config/typography/class-body-typography.php:127
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:116
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:217
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:318
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:419
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:520
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:621
+#: inc/customizer/customizer-config/typography/class-body-typography.php:146
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:135
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:255
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:375
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:495
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:615
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:735
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Line Height"
 msgstr ""
@@ -765,8 +788,8 @@ msgstr ""
 
 #: inc/customizer/customizer-config/general/class-footer.php:34
 #: inc/customizer/customizer-config/general/class-layout-container.php:131
-#: inc/customizer/customizer-register-panels-sections.php:32
-#: inc/third-party/class-beaver-build-theme.php:106
+#: inc/customizer/customizer-register-panels-sections.php:36
+#: inc/third-party/class-beaver-build-theme.php:110
 #: inc/panel-settings/dashboard/build/index.js:7
 #: inc/panel-settings/theme-builder/build/index.js:1
 msgid "Footer"
@@ -778,8 +801,8 @@ msgstr ""
 
 #: inc/customizer/customizer-config/general/class-header.php:34
 #: inc/customizer/customizer-config/general/class-layout-container.php:53
-#: inc/customizer/customizer-register-panels-sections.php:31
-#: inc/third-party/class-beaver-build-theme.php:85
+#: inc/customizer/customizer-register-panels-sections.php:35
+#: inc/third-party/class-beaver-build-theme.php:89
 #: inc/panel-settings/theme-builder/build/index.js:1
 msgid "Header"
 msgstr ""
@@ -795,7 +818,7 @@ msgstr ""
 #: inc/customizer/customizer-config/general/class-layout-container.php:312
 #: inc/customizer/customizer-config/general/class-layout-container.php:390
 #: inc/customizer/customizer-config/general/class-layout-container.php:468
-#: inc/customizer/customizer-register-panels-sections.php:30
+#: inc/customizer/customizer-register-panels-sections.php:34
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:82
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:90
 #: inc/third-party/woocommerce/customizer/class-woocommerce-general.php:97
@@ -880,7 +903,7 @@ msgid "Custom Sidebar Sections"
 msgstr ""
 
 #: inc/customizer/customizer-config/general/class-layout-sidebar.php:102
-#: inc/customizer/customizer-register-panels-sections.php:62
+#: inc/customizer/customizer-register-panels-sections.php:66
 msgid "Pages"
 msgstr ""
 
@@ -890,7 +913,7 @@ msgstr ""
 
 #: inc/customizer/customizer-config/general/class-maintenance-mode.php:41
 #: inc/customizer/customizer-config/general/class-maintenance-mode.php:67
-#: inc/customizer/customizer-register-panels-sections.php:36
+#: inc/customizer/customizer-register-panels-sections.php:40
 msgid "Maintenance Mode"
 msgstr ""
 
@@ -938,7 +961,7 @@ msgid "Selected Text Color"
 msgstr ""
 
 #: inc/customizer/customizer-config/pages/class-single-page.php:39
-#: inc/customizer/customizer-register-panels-sections.php:65
+#: inc/customizer/customizer-register-panels-sections.php:69
 #: inc/panel-settings/theme-builder/build/index.js:1
 msgid "Single Page"
 msgstr ""
@@ -970,7 +993,7 @@ msgid "Global Color Palette"
 msgstr ""
 
 #: inc/customizer/customizer-config/styling-colors/class-color-palette.php:57
-#: inc/customizer/customizer-register-panels-sections.php:43
+#: inc/customizer/customizer-register-panels-sections.php:47
 msgid "Color Palette"
 msgstr ""
 
@@ -1007,47 +1030,62 @@ msgid "Heading (H6) Color"
 msgstr ""
 
 #: inc/customizer/customizer-config/typography/class-body-typography.php:41
-#: inc/customizer/customizer-register-panels-sections.php:44
-#: inc/customizer/customizer-register-panels-sections.php:52
+#: inc/customizer/customizer-register-panels-sections.php:48
+#: inc/customizer/customizer-register-panels-sections.php:56
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Body"
 msgstr ""
 
 #: inc/customizer/customizer-config/typography/class-body-typography.php:51
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:53
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:175
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:295
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:415
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:535
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:655
+#: inc/panel-settings/theme-builder/build/index.js:1
+msgid "Preview"
+msgstr ""
+
+#: inc/customizer/customizer-config/typography/class-body-typography.php:53
+msgid "The quick brown fox jumps over the lazy dog."
+msgstr ""
+
+#: inc/customizer/customizer-config/typography/class-body-typography.php:70
 msgid "Default System Font"
 msgstr ""
 
-#: inc/customizer/customizer-config/typography/class-body-typography.php:160
+#: inc/customizer/customizer-config/typography/class-body-typography.php:179
 msgid "Paragraph (P) Margin Bottom"
 msgstr ""
 
 #: inc/customizer/customizer-config/typography/class-heading-typography.php:43
-#: inc/customizer/customizer-register-panels-sections.php:53
+#: inc/customizer/customizer-register-panels-sections.php:57
 msgid "Heading H1"
 msgstr ""
 
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:146
-#: inc/customizer/customizer-register-panels-sections.php:54
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:165
+#: inc/customizer/customizer-register-panels-sections.php:58
 msgid "Heading H2"
 msgstr ""
 
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:247
-#: inc/customizer/customizer-register-panels-sections.php:55
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:285
+#: inc/customizer/customizer-register-panels-sections.php:59
 msgid "Heading H3"
 msgstr ""
 
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:345
-#: inc/customizer/customizer-register-panels-sections.php:56
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:402
+#: inc/customizer/customizer-register-panels-sections.php:60
 msgid "Heading H4"
 msgstr ""
 
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:449
-#: inc/customizer/customizer-register-panels-sections.php:57
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:525
+#: inc/customizer/customizer-register-panels-sections.php:61
 msgid "Heading H5"
 msgstr ""
 
-#: inc/customizer/customizer-config/typography/class-heading-typography.php:548
-#: inc/customizer/customizer-register-panels-sections.php:58
+#: inc/customizer/customizer-config/typography/class-heading-typography.php:643
+#: inc/customizer/customizer-register-panels-sections.php:62
 msgid "Heading H6"
 msgstr ""
 
@@ -1061,73 +1099,73 @@ msgstr ""
 msgid "Customizing"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:27
+#: inc/customizer/customizer-register-panels-sections.php:31
 #: inc/third-party/woocommerce/customizer/customizer-woocommerce.php:31
 msgid "General"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:33
-#: inc/third-party/class-beaver-build-theme.php:99
+#: inc/customizer/customizer-register-panels-sections.php:37
+#: inc/third-party/class-beaver-build-theme.php:103
 msgid "Sidebar"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:34
+#: inc/customizer/customizer-register-panels-sections.php:38
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Body Style"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:35
+#: inc/customizer/customizer-register-panels-sections.php:39
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Selection Text Color"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:40
+#: inc/customizer/customizer-register-panels-sections.php:44
 msgid "Styling Colors"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:45
+#: inc/customizer/customizer-register-panels-sections.php:49
 msgid "Headings H1-H6"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:49
+#: inc/customizer/customizer-register-panels-sections.php:53
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:69
+#: inc/customizer/customizer-register-panels-sections.php:73
 msgid "Blog"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:72
+#: inc/customizer/customizer-register-panels-sections.php:76
 msgid "Single Post"
 msgstr ""
 
-#: inc/customizer/customizer-register-panels-sections.php:113
+#: inc/customizer/customizer-register-panels-sections.php:117
 msgid "Site Identity"
 msgstr ""
 
-#: inc/customizer/customizer.php:404
+#: inc/customizer/customizer.php:416
 #: inc/panel-settings/dashboard/build/index.js:7
 msgid "Clear"
 msgstr ""
 
-#: inc/customizer/customizer.php:405
+#: inc/customizer/customizer.php:417
 msgid "Clear color"
 msgstr ""
 
-#: inc/customizer/customizer.php:407
+#: inc/customizer/customizer.php:419
 msgid "Select default color"
 msgstr ""
 
-#: inc/customizer/customizer.php:408
+#: inc/customizer/customizer.php:420
 msgid "Select Color"
 msgstr ""
 
-#: inc/customizer/customizer.php:409
+#: inc/customizer/customizer.php:421
 msgid "Color value"
 msgstr ""
 
-#: inc/customizer/customizer.php:423
+#: inc/customizer/customizer.php:435
 msgid "Choose a file"
 msgstr ""
 
@@ -1290,93 +1328,93 @@ msgid "Nexter Extension"
 msgstr ""
 
 #. translators: %s: post date.
-#: inc/template-tags.php:30
+#: inc/template-tags.php:34
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
 msgstr ""
 
 #. translators: %s: post author.
-#: inc/template-tags.php:46
+#: inc/template-tags.php:50
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
 #. translators: %s: post title
-#: inc/template-tags.php:66
+#: inc/template-tags.php:70
 #, php-format
 msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:83
+#: inc/template-tags.php:87
 #: template-parts/content-page.php:37
 #, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:80
+#: inc/third-party/class-beaver-build-theme.php:84
 msgid "Before Page"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:81
+#: inc/third-party/class-beaver-build-theme.php:85
 msgid "After Page"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:87
+#: inc/third-party/class-beaver-build-theme.php:91
 msgid "Header Before"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:88
+#: inc/third-party/class-beaver-build-theme.php:92
 msgid "Header After"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:92
+#: inc/third-party/class-beaver-build-theme.php:96
 msgid "Content"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:94
+#: inc/third-party/class-beaver-build-theme.php:98
 msgid "Content Top"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:95
+#: inc/third-party/class-beaver-build-theme.php:99
 msgid "Content Bottom"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:101
+#: inc/third-party/class-beaver-build-theme.php:105
 msgid "Sidebar Before"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:102
+#: inc/third-party/class-beaver-build-theme.php:106
 msgid "Sidebar After"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:108
+#: inc/third-party/class-beaver-build-theme.php:112
 msgid "Footer Before"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:109
+#: inc/third-party/class-beaver-build-theme.php:113
 msgid "Footer After"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:115
+#: inc/third-party/class-beaver-build-theme.php:119
 msgid "Comments Before"
 msgstr ""
 
-#: inc/third-party/class-beaver-build-theme.php:116
+#: inc/third-party/class-beaver-build-theme.php:120
 msgid "Comments After"
 msgstr ""
 
-#: inc/third-party/class-nexter-builder-documents.php:108
+#: inc/third-party/class-nexter-builder-documents.php:112
 msgid "Singular"
 msgstr ""
 
-#: inc/third-party/documents/class-nxt-builder-ele-document-archives.php:21
+#: inc/third-party/documents/class-nxt-builder-ele-document-archives.php:25
 msgid "Nexter Archives Template"
 msgstr ""
 
-#: inc/third-party/documents/class-nxt-builder-ele-document-singular.php:21
+#: inc/third-party/documents/class-nxt-builder-ele-document-singular.php:25
 msgid "Nexter Singular Template"
 msgstr ""
 
@@ -1397,16 +1435,16 @@ msgstr ""
 msgid "Single Product"
 msgstr ""
 
-#: inc/third-party/woocommerce/nexter-woocommerce-config.php:226
+#: inc/third-party/woocommerce/nexter-woocommerce-config.php:230
 msgid "Out of stock"
 msgstr ""
 
-#: inc/third-party/woocommerce/nexter-woocommerce-config.php:257
+#: inc/third-party/woocommerce/nexter-woocommerce-config.php:261
 msgid "Sale"
 msgstr ""
 
 #. translators: 1: count of products
-#: inc/third-party/woocommerce/nexter-woocommerce-config.php:301
+#: inc/third-party/woocommerce/nexter-woocommerce-config.php:305
 #, php-format
 msgctxt "product categories"
 msgid "(%1$s)"
@@ -1414,23 +1452,23 @@ msgid_plural "(%1$s)"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/widgets.php:20
+#: inc/widgets.php:24
 msgid "Sidebar 1"
 msgstr ""
 
-#: inc/widgets.php:33
+#: inc/widgets.php:37
 msgid "Sidebar 2"
 msgstr ""
 
-#: inc/widgets.php:46
+#: inc/widgets.php:50
 msgid "Sidebar 3"
 msgstr ""
 
-#: inc/widgets.php:59
+#: inc/widgets.php:63
 msgid "Sidebar 4"
 msgstr ""
 
-#: inc/widgets.php:72
+#: inc/widgets.php:76
 msgid "Sidebar 5"
 msgstr ""
 
@@ -6311,10 +6349,6 @@ msgstr ""
 
 #: inc/panel-settings/theme-builder/build/index.js:1
 msgid "Edit Conditions"
-msgstr ""
-
-#: inc/panel-settings/theme-builder/build/index.js:1
-msgid "Preview"
 msgstr ""
 
 #: inc/panel-settings/theme-builder/build/index.js:1

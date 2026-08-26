@@ -278,6 +278,14 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 			);
 			
 			Nexter_Customizer_Control_Base::add_control(
+				'nxt-typo-preview',
+				array(
+					'callback'          => 'Nexter_Control_Typography_Preview',
+					'sanitize_callback' => '',
+				)
+			);
+
+			Nexter_Customizer_Control_Base::add_control(
 				'nxt-font-control',
 				array(
 					'callback'          => 'Nexter_Control_Typography',
@@ -427,11 +435,45 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 					'placeholder'  => __( 'Choose a file', 'nexter' ),
 				)
 			);
+
+			wp_localize_script(
+				'nexter-customizer-controls',
+				'nexterColorPicker',
+				array(
+					// Shown beside the swatch while no colour has been picked.
+					'emptyLabel' => __( 'Default', 'nexter' ),
+				)
+			);
 			
 			wp_enqueue_script( 'nexter-customizer-conditional', NXT_JS_URI . 'main/customizer/nexter-customizer-conditional'. $minified .'.js', array( 'jquery', 'customize-base', 'underscore' ), NXT_VERSION, true );
 
 			//Customizer Controls
 			wp_enqueue_style( 'nexter-customizer-controls-css', NXT_CSS_URI . 'main/customizer/nexter-customizer-controls'. $minified .'.css', null, NXT_VERSION );
+
+			//Typography Preview Control
+			wp_enqueue_script( 'nexter-typo-preview', NXT_JS_URI . 'main/customizer/nexter-typo-preview'. $minified .'.js', array( 'jquery', 'customize-base', 'underscore' ), NXT_VERSION, true );
+
+			$local_gfont_css = $this->get_local_google_fonts_css();
+
+			wp_localize_script(
+				'nexter-typo-preview',
+				'NxtTypoPreview',
+				array(
+					'localFonts' => ! empty( $local_gfont_css ) ? true : false,
+				)
+			);
+
+			/**
+			 * The controls frame does not load the site fonts, print the ones the
+			 * typography preview needs so the sample text uses the real face.
+			 */
+			$preview_fonts_css = $local_gfont_css;
+			if ( class_exists( 'Nexter_Get_Fonts' ) ) {
+				$preview_fonts_css .= Nexter_Get_Fonts::get_custom_fonts_face();
+			}
+			if ( ! empty( $preview_fonts_css ) ) {
+				wp_add_inline_style( 'nexter-customizer-controls-css', $preview_fonts_css );
+			}
 			
 			wp_localize_script(
 				'nexter-customizer-conditional',
@@ -447,6 +489,22 @@ if ( ! class_exists( 'Nexter_Customizer' ) ) {
 				)
 			);
 
+		}
+
+		/**
+		 * Local Google Font css saved by the extension.
+		 * Empty when the local font option is off, google fonts are then loaded from the cdn.
+		 * @since 1.0.0
+		 */
+		private function get_local_google_fonts_css() {
+
+			$nxt_ext = nexter_get_extra_ext_options();
+
+			if ( ! empty( $nxt_ext ) && isset( $nxt_ext['local-google-font'] ) && ! empty( $nxt_ext['local-google-font']['switch'] ) && ! empty( $nxt_ext['local-google-font']['style'] ) ) {
+				return $nxt_ext['local-google-font']['style'];
+			}
+
+			return '';
 		}
 
 		/**

@@ -56,6 +56,8 @@ function nxt_dimension_value($option='', $selector = '', $attr = '', $theme_css 
 }
 
 function nxt_container_dynamic_css( $theme_css ){
+	global $wp_query;
+
 	$header_container_css = ['dk'=> [],'tb'=>[],'mb'=>[]];
 	if ( nexter_settings_page_get( 'header_footer_css' ) ) {
 		
@@ -604,7 +606,7 @@ function nxt_container_dynamic_css( $theme_css ){
 				$archive_layout_container_css[$bp] = [
 					// First selector
 					'.site-content >.nxt-container-block-editor.nxt-archive-cont >*:not(.content-area):not(.nxt-row):not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(.nxt-alignfull), .nxt-container-block-editor.nxt-archive-cont .site-main >*:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.wp-block-separator):not(.woocommerce):not(article):not(.nxt-alignfull)'
-						=> ['max-width' => ($conf['calc'] && $value) ? "calc('.$value.' - 3rem)" : $value],
+						=> ['max-width' => ($conf['calc'] && $value) ? "calc(" . $value . " - 3rem)" : $value],
 
 					// Second selector
 					'.site-content .nxt-archive-cont.nxt-container-block-editor .alignwide:not(.tpgb-container-row), .site-content .nxt-archive-cont.nxt-container-block-editor .tpgb-nxtcont-type, .nxt-container.nxt-with-sidebar'

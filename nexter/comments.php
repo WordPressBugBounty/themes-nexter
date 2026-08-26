@@ -25,21 +25,12 @@ if ( post_password_required() ) {
 		<h2 class="comments-title">
 			<?php
 			$nexter_comment_count = get_comments_number();
-			if ( '1' === $nexter_comment_count ) {
-				echo esc_html(
-					  sprintf(
-					  /* translators: 1: Comment. */
-						_nx( 'Comment (%1$s)', 'Comment (%1$s)', $nexter_comment_count, 'count comment', 'nexter' ), number_format_i18n( $nexter_comment_count )
-					  )
-				);
-			} else {
-				echo esc_html(
-					  sprintf(
-					  /* translators: 1: Comment. */
-						_nx( 'Comment (%1$s)', 'Comment (%1$s)', $nexter_comment_count, 'count comment', 'nexter' ), number_format_i18n( $nexter_comment_count )
-					  )
-				);
-			}
+			echo esc_html(
+				  sprintf(
+				  /* translators: 1: Comment. */
+					_nx( 'Comment (%1$s)', 'Comment (%1$s)', $nexter_comment_count, 'count comment', 'nexter' ), number_format_i18n( $nexter_comment_count )
+				  )
+			);
 			?>
 		</h2><!-- .comments-title -->
 

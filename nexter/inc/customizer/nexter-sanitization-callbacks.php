@@ -250,6 +250,10 @@ if ( ! class_exists( 'Nexter_Customizer_Sanitizes_Callbacks' ) ) {
 		 */
 		public static function sanitize_multi_choices( $input, $setting ) {
 
+			if ( ! is_array( $input ) ) {
+				return is_array( $setting->default ) ? $setting->default : array();
+			}
+
 			// Get list of choices from the control
 			$choices    = $setting->manager->get_control( $setting->id )->choices;
 			$input_keys = $input;
